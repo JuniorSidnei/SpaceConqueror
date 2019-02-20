@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ControlPlayer.cs" />
+    <Compile Include="Assets\Scripts\MeteorBehavior.cs" />
+    <Compile Include="Assets\Scripts\MeteorStatus.cs" />
     <Compile Include="Assets\Scripts\StandardBullet.cs" />
     <Compile Include="Assets\Virtual Joystick Pack\Examples\2D Example\Player2DExample.cs" />
     <Compile Include="Assets\Virtual Joystick Pack\Examples\3D Example\Player3DExample.cs" />
