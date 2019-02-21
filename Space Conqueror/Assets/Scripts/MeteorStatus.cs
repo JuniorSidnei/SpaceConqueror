@@ -13,12 +13,14 @@ public class MeteorStatus : MonoBehaviour
     //Vetor temporário para a escala do meteoro
     private Vector3 _tempScale;
     //Referencia ao rigidbody
-    private Rigidbody2D _meteorRb;
-   
+    //private Rigidbody2D _meteorRb;
+    //Quantidade de dano de cada meteoro
+    public int _meteorDamage = 20;
+
     void Start()
     {
         //Pegando rigidbody
-        _meteorRb = GetComponent<Rigidbody2D>();
+        // _meteorRb = GetComponent<Rigidbody2D>();
         //Vida dos meteoros quando nascem
         _meteorLife = Random.Range(50, 80);
         //Atribuindo o valor da escala ao vetor temporario
@@ -29,17 +31,27 @@ public class MeteorStatus : MonoBehaviour
         //Retornando o valor alterado para a escala do objeto
         transform.localScale = _tempScale;
 
-        
+
     }
 
-    
+
     void Update()
     {
         //Tempo do jogo em segundos
         _timer += Time.deltaTime;
-        
+
+        //Rotacionando e movendo o meteoro
+        transform.position += Vector3.left * _meteorSpeed * Time.deltaTime;
+        transform.Rotate(0, 0, Random.Range(2, 6));
 
         //Movendo o meteoro 
-        _meteorRb.MovePosition(transform.position + transform.right * -_meteorSpeed * Time.deltaTime * _timer/2);
+        //_meteorRb.MovePosition(transform.position + transform.right * -_meteorSpeed * Time.deltaTime * _timer/2);
     }
+
+    //Função que retorna o valor do meteoro para o dano
+    public int getDamage() { return _meteorDamage; }
+        
+
 }
+
+   
