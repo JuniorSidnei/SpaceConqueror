@@ -19,8 +19,7 @@ public class MeteorStatus : MonoBehaviour
 
     void Start()
     {
-        //Pegando rigidbody
-        // _meteorRb = GetComponent<Rigidbody2D>();
+        
         //Vida dos meteoros quando nascem
         _meteorLife = Random.Range(50, 80);
         //Atribuindo o valor da escala ao vetor temporario
@@ -44,8 +43,7 @@ public class MeteorStatus : MonoBehaviour
         transform.position += Vector3.left * _meteorSpeed * Time.deltaTime;
         transform.Rotate(0, 0, Random.Range(2, 6));
 
-        //Movendo o meteoro 
-        //_meteorRb.MovePosition(transform.position + transform.right * -_meteorSpeed * Time.deltaTime * _timer/2);
+        
     }
 
     //Função que retorna o valor do meteoro para o dano

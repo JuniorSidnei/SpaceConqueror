@@ -61,6 +61,7 @@ public class ControlPlayer : MonoBehaviour
         {
             //Aplicando o valor de dano quando bate no meteoro
             ApplyDamage(obj.collider.GetComponent<MeteorStatus>().getDamage());
+            Destroy(obj.gameObject);
         }
     }
 
