@@ -25,7 +25,7 @@ public class ControlPlayer : MonoBehaviour
     //Tempo de recarga
     private float _fireTime;
     //Vida do jogdor
-    private int _life = 100;
+    private int _life = 300;
     ///</Variáveis do jogador>
     
     void Start()
