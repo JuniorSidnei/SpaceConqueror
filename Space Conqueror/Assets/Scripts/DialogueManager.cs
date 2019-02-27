@@ -12,7 +12,8 @@ public class DialogueManager : MonoBehaviour
     //Sentenças da caixa de texto
     public Queue<string> sentences;
 
-    
+    //Gamecontroller
+    private GameController _gamectr;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("acabou caralhudo");
+        _gamectr._DialogueBox.SetActive(false);
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -58,7 +59,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             _sentenceText.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 

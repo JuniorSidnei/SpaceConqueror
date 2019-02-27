@@ -1,12 +1,13 @@
 Android
 PlayerPath?
-C:/Users/Pichau/Desktop/Spaceconqueror/SpaceConqueror/Space Conqueror/Build/SpoilsHunter.apk
+C:/Users/Pichau/Desktop/SpoilsHunter.apk
 SceneListBegin?
 Assets/Scenes/Gameplay.unity
 SceneListEnd?
 b48c8d99d321541a536d9c6093f31c5d Assembly-CSharp.dll:.Player3DExample
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
+12fb2a7d422cf18611822a25957e8d92 Assembly-CSharp.dll:.DialogueManager
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 780e8f682b3221346c034a6712a0fd25 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -115,7 +116,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 f8344f99efa5f3909db3fb40406c024d Assembly-CSharp.dll:.FixedJoystick
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-c898e4be67f9f0bfd32fc0b559bd144c Assembly-CSharp.dll:.ControlPlayer
+56e4a0da804c4b9e02b5f36bcb799246 Assembly-CSharp.dll:.ControlPlayer
 b48c8d99d321541a536d9c6093f31c5d Assembly-CSharp.dll:.Player2DExample
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
@@ -160,9 +161,11 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 24f8e55e708a1c8ba0093e1953cd3018 Assembly-CSharp.dll:.VariableJoystick
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
+cefaa6c58a8f7e3f78e20204937b9255 Assembly-CSharp.dll:.DialogueTrigger
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 67c52c11a03f2bc6d8c029bdcc3e3e6c Assembly-CSharp.dll:.StandardBullet
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
+e2a59be9124b7616852d8fc9ce3ec14b Assembly-CSharp.dll:.GameController
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh

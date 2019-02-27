@@ -6,7 +6,11 @@ public class ControlPlayer : MonoBehaviour
 {
     ///<Eventos>
     public delegate void DamageDelegate(float currentLife);
-    public event DamageDelegate DamageEvent;
+    public  event DamageDelegate DamageEvent;
+
+    //Evento do primeiro dialogo do jogo
+    public delegate void DialogueDelegate();
+    public  event DialogueDelegate DialogueEvent;
     /// </Eventos>
 
     ///<Variáveis do jogador>
@@ -26,6 +30,8 @@ public class ControlPlayer : MonoBehaviour
     private float _fireTime;
     //Vida do jogdor
     private int _life = 300;
+    //Gerenciador do jogo
+    public GameController _gamectr;
     ///</Variáveis do jogador>
     
     void Start()
@@ -63,7 +69,19 @@ public class ControlPlayer : MonoBehaviour
             ApplyDamage(obj.collider.GetComponent<MeteorStatus>().getDamage());
             Destroy(obj.gameObject);
         }
+
+        //Evento de primeiro dialogo do jogo
+        if (obj.gameObject.CompareTag("DialogueTrigger"))
+        {
+            if(DialogueEvent != null)
+            {
+                DialogueEvent.Invoke();
+            }
+        }
     }
+
+    
+
 
     //Função de dano
     public void ApplyDamage(int damage)
