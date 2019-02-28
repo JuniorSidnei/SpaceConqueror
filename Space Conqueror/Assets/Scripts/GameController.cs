@@ -5,11 +5,10 @@ using UnityEngine;
 public class GameController : Singleton<GameController>
 {
     public GameObject _DialogueBox;
-
-
-    public DialogueTrigger _dialogue;
-
     public ControlPlayer _player;
+    public DialogueTrigger _dialogue;
+    [HideInInspector]
+    public bool _spawnOn = false;
 
     void Start()
     {
@@ -17,8 +16,6 @@ public class GameController : Singleton<GameController>
         _DialogueBox.SetActive(false);
 
     }
-
-
 
     //Ativando o evento
     void OnEnable()
@@ -36,6 +33,7 @@ public class GameController : Singleton<GameController>
     {
         _DialogueBox.SetActive(true);
         _dialogue.triggerDialogue();
+        
     }
 
 

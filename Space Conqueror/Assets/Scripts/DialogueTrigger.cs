@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    //Aqui que eu tenho que criar as funções pra chamar os eventos
+    
 
     public Dialogue dialogue;
   

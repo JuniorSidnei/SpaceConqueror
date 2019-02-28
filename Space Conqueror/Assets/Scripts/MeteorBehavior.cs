@@ -10,34 +10,41 @@ public class MeteorBehavior : MonoBehaviour
     public float _spawnY;
     //Tempo de spawn
     public float _spawnTimer = 2.5f;
+    //Gerenciador
+    public GameController _gamectr;
     //Objeto do meteoro
     public GameObject[] _meteor;
     //Temporizador para ir diminuindo o tempo de spawn
     private float _timer;
-
+    
 
 
     void Update()
     {
 
-        //Tempo do jogo
-        _timer += Time.deltaTime;
-        //Tempo de spawn de um meteoro pra outro que tbm vai somar com o tempo
-        _spawnTimer -= Time.deltaTime;
-        
-
-        //Se o spawn zerar, cria um meteoro
-        if (_spawnTimer <= 0)
+       
+        //Assim que o dialogo acabar, os meteoros começam
+        if (_gamectr._spawnOn)
         {
-            //Chamando função do meteoro
-            SpawnMeteor();
+            
+            //Tempo do jogo
+            _timer += Time.deltaTime;
+            //Tempo de spawn de um meteoro pra outro que tbm vai somar com o tempo
+            _spawnTimer -= Time.deltaTime;
 
-            //Reduzindo o tempo de spawn do meteoro a cada segundo 
-            _spawnTimer = 2.5f - (_timer * 0.025f);
+            //Se o spawn zerar, cria um meteoro
+            if (_spawnTimer <= 0)
+            {
+                //Chamando função do meteoro
+                SpawnMeteor();
 
-            //Se o tempo de spawn for menor que 0.2, fica em 0.2
-            if (_spawnTimer <= 0.2f)
-                _spawnTimer = 0.2f;
+                //Reduzindo o tempo de spawn do meteoro a cada segundo 
+                _spawnTimer = 2.5f - (_timer * 0.025f);
+
+                //Se o tempo de spawn for menor que 0.2, fica em 0.2
+                if (_spawnTimer <= 0.2f)
+                    _spawnTimer = 0.2f;
+            }
         }
 
     }

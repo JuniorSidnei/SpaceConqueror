@@ -30,31 +30,28 @@ public class ControlPlayer : MonoBehaviour
     private float _fireTime;
     //Vida do jogdor
     private int _life = 300;
-    //Gerenciador do jogo
-    public GameController _gamectr;
+
     ///</Variáveis do jogador>
-    
-    void Start()
-    {
-        
-    }
+
+  
 
     // Update is called once per frame
     void Update()
     {
+        //Movimento do jogador
         _moveInput =  new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
         _moveVelocity = _moveInput * _speed * Time.deltaTime;
 
+        //Movendo o jogador
         transform.position += _moveVelocity;
-       
 
-        
         
     }
 
     //Função de tiro do personagem
     public void Shoot()
     {
+        //Instancia copiada de tiro
        GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform);
         
     }
@@ -73,10 +70,15 @@ public class ControlPlayer : MonoBehaviour
         //Evento de primeiro dialogo do jogo
         if (obj.gameObject.CompareTag("DialogueTrigger"))
         {
-            if(DialogueEvent != null)
+            //chamando o evento de dialogo
+            if (DialogueEvent != null)
             {
                 DialogueEvent.Invoke();
             }
+
+            //Destruindo os componentes do objeto
+            Destroy(obj.gameObject.GetComponent<BoxCollider2D>());
+            Destroy(obj.gameObject.GetComponent<Rigidbody2D>());
         }
     }
 

@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
     //Referencia pra UI
-    public Text _nameText;
-    public Text _sentenceText;
+    
+    public TextMeshProUGUI _nameText;
+    public TextMeshProUGUI _sentenceText;
 
     //Sentenças da caixa de texto
     public Queue<string> sentences;
 
-    //Gamecontroller
-    private GameController _gamectr;
-
+   
+   
     void Start()
     {
         sentences = new Queue<string>();
@@ -48,9 +49,15 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentece));
     }
 
-    void EndDialogue()
+    //Encerrando o dialogo
+    public void EndDialogue()
     {
-        _gamectr._DialogueBox.SetActive(false);
+        //Procurando o game controller pra desativar a caixa de dialogo
+        FindObjectOfType<GameController>()._DialogueBox.SetActive(false);
+
+        //Ativando os meteoros
+        
+        FindObjectOfType<GameController>()._spawnOn = true;
     }
 
     IEnumerator TypeSentence(string sentence)

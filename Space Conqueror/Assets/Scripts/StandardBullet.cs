@@ -9,11 +9,6 @@ public class StandardBullet : MonoBehaviour
     //Dano do tiro
     public int _damage;
 
-    
-    void Start()
-    {
-        
-    }
 
     
     void Update()
