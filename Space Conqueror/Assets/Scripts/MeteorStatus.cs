@@ -10,19 +10,19 @@ public class MeteorStatus : MonoBehaviour
     private float _timer;
     //Vida do meteoro, que vai ser um random de 50 e 80
     public int _meteorLife;
-    //Vetor temporário para a escala do meteoro
-    private Vector3 _tempScale;
-    //Referencia ao rigidbody
-    //private Rigidbody2D _meteorRb;
     //Quantidade de dano de cada meteoro
     public int _meteorDamage = 20;
+    //Sprites dos meteoros
+    public Sprite[] _sprites;
+   
 
     void Start()
     {
         
         //Vida dos meteoros quando nascem
         _meteorLife = 100;
-        
+        //Carregando uma das sprites do array para mudar a forma do meteoro quando nasce
+        gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0,3)];
 
     }
 
@@ -39,13 +39,21 @@ public class MeteorStatus : MonoBehaviour
         if (_meteorLife <= 0)
             Destroy(gameObject);
 
-        Debug.Log("Vida do meteoro: " + _meteorLife);
+      
             
     }
 
     //Função que retorna o valor do meteoro para o dano
     public int getDamage() { return _meteorDamage; }
-        
+
+    //Colisão
+    private void OnCollisionEnter2D(Collision2D obj)
+    {
+        if(obj.gameObject.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
 
