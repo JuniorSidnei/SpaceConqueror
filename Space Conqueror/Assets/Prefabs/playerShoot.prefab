@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 20
+  _meteorHit: {fileID: 3009530583803062729, guid: f1cdf3c6b51394b41b8fad459efac807,
+    type: 3}
 --- !u!50 &2356564817548474406
 Rigidbody2D:
   serializedVersion: 4

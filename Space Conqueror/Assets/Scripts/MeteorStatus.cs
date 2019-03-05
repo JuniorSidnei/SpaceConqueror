@@ -19,8 +19,7 @@ public class MeteorStatus : MonoBehaviour
     void Start()
     {
         
-        //Vida dos meteoros quando nascem
-        _meteorLife = 100;
+        
         //Carregando uma das sprites do array para mudar a forma do meteoro quando nasce
         gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0,3)];
 
@@ -33,7 +32,7 @@ public class MeteorStatus : MonoBehaviour
 
         //Rotacionando e movendo o meteoro
         transform.position += Vector3.left * _meteorSpeed * Time.deltaTime;
-        transform.Rotate(0, 0, Random.Range(2, 6));
+        transform.Rotate(0, 0, 5);
 
         //Verificando a vida e destruindo o meteoro
         if (_meteorLife <= 0)
@@ -46,14 +45,7 @@ public class MeteorStatus : MonoBehaviour
     //Função que retorna o valor do meteoro para o dano
     public int getDamage() { return _meteorDamage; }
 
-    //Colisão
-    private void OnCollisionEnter2D(Collision2D obj)
-    {
-        if(obj.gameObject.CompareTag("Walls"))
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 
 }
 

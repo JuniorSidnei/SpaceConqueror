@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 1
+  _meteorSpeed: 1.8
   _meteorLife: 400
   _meteorDamage: 500
   _sprites:

@@ -122,10 +122,10 @@ public class ControlPlayer : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _life -= damage;
-
+        
         //Chamada do evento de dano
         if (DamageEvent != null)
-            DamageEvent.Invoke((float)_life / 200);
+            DamageEvent.Invoke((float)_life / 500);
         
         //Se a vida zerar
         if (_life <= 0)

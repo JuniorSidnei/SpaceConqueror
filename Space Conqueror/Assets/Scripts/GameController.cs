@@ -7,8 +7,8 @@ public class GameController : Singleton<GameController>
     public GameObject _DialogueBox;
     public ControlPlayer _player;
     public DialogueTrigger _dialogue;
-    [HideInInspector]
     public bool _spawnOn = false;
+    
 
     void Start()
     {
