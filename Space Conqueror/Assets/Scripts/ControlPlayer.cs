@@ -15,7 +15,7 @@ public class ControlPlayer : MonoBehaviour
 
     ///<Variáveis do jogador>
     //Velocidade da nave
-    public float _speed;
+    private float _speed;
     //Joystick de mobile
     public Joystick joystick;
     //Float de posição do personagem
@@ -29,7 +29,9 @@ public class ControlPlayer : MonoBehaviour
     //Tempo de recarga
     private float _fireTime;
     //Vida do jogdor
-    public int _life = 300;
+    public int _life;
+    //Vida maxima do jogador
+    private int _maxLife = 500;
     //Tempo de gelo
     private float _statusTimer = 0;
     //Se esta congelado
@@ -40,7 +42,11 @@ public class ControlPlayer : MonoBehaviour
     private bool _lightning = false;
     ///</Variáveis do jogador>
 
-  
+
+    void Start()
+    {
+        _life = _maxLife;
+    }
 
     // Update is called once per frame
     void Update()
@@ -125,7 +131,7 @@ public class ControlPlayer : MonoBehaviour
         
         //Chamada do evento de dano
         if (DamageEvent != null)
-            DamageEvent.Invoke((float)_life / 500);
+            DamageEvent.Invoke((float)_life / _maxLife);
         
         //Se a vida zerar
         if (_life <= 0)
@@ -201,8 +207,13 @@ public class ControlPlayer : MonoBehaviour
     {
         _statusTimer = 0;
         _life -= 5;
+        if (DamageEvent != null)
+            DamageEvent.Invoke((float)_life / _maxLife);
+
         yield return new WaitForSeconds(0.5f);
         _life -= 5;
+        if (DamageEvent != null)
+            DamageEvent.Invoke((float)_life / _maxLife);
 
         _flame = false;
        
