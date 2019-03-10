@@ -8,10 +8,10 @@ public class ControlPlayer : MonoBehaviour
     public delegate void DamageDelegate(float currentLife);
     public  event DamageDelegate DamageEvent;
 
-    //Evento do primeiro dialogo do jogo
-    public delegate void DialogueDelegate();
-    public  event DialogueDelegate DialogueEvent;
-    /// </Eventos>
+    ////Evento do primeiro dialogo do jogo
+    //public delegate void DialogueDelegate();
+    //public  event DialogueDelegate DialogueEvent;
+    ///// </Eventos>
 
     ///<Variáveis do jogador>
     //Velocidade da nave
@@ -42,6 +42,11 @@ public class ControlPlayer : MonoBehaviour
     private bool _lightning = false;
     ///</Variáveis do jogador>
 
+    ///<Layer para colisões>
+    //layer publica
+    public LayerMask _colisionLayer;
+    /// </Layer>
+        
 
     void Start()
     {
@@ -82,43 +87,27 @@ public class ControlPlayer : MonoBehaviour
     //Colisão
     private void OnCollisionEnter2D(Collision2D obj)
     {
-        //Se o jogador colidir com o meteoro
-        if(obj.gameObject.CompareTag("Meteor"))
+        //Se colidir com a layer dos meteoros que é a 8
+        if(obj.gameObject.layer == 8)
         {
-            //Nome do meteoro
-            var _name = obj.gameObject.name;
-
+            
             //Meteoro de gelo
-            if (_name.Equals("FreezingMeteor(Clone)"))
+            if (obj.gameObject.CompareTag("FreezingMeteor"))
                 _freeze = true;
-               
+
             //Meteoro de fogo
-            if (_name.Equals("FlamingMeteor(Clone)"))
+            if (obj.gameObject.CompareTag("FlamingMeteor"))
                 _flame = true;
-               
+
             //Meteoro de raio
-            if (_name.Equals("LightnigMeteor(Clone)"))
+            if (obj.gameObject.CompareTag("LightningMeteor"))
                 _lightning = true;
-               
 
             //Aplicando o valor de dano quando bate no meteoro
             ApplyDamage(obj.collider.GetComponent<MeteorStatus>().getDamage());
             Destroy(obj.gameObject);
         }
 
-        //Evento de primeiro dialogo do jogo
-        if (obj.gameObject.CompareTag("DialogueTrigger"))
-        {
-            //chamando o evento de dialogo
-            if (DialogueEvent != null)
-            {
-                DialogueEvent.Invoke();
-            }
-
-            //Destruindo os componentes do objeto
-            Destroy(obj.gameObject.GetComponent<BoxCollider2D>());
-            Destroy(obj.gameObject.GetComponent<Rigidbody2D>());
-        }
     }
 
     
@@ -197,6 +186,7 @@ public class ControlPlayer : MonoBehaviour
         //Dps de fogo
         if (_statusTimer >= 0.5f)
         {
+            _statusTimer = 0;
             StartCoroutine(FlamingDamage());
         }
 
@@ -205,19 +195,10 @@ public class ControlPlayer : MonoBehaviour
 
     IEnumerator FlamingDamage()
     {
-        _statusTimer = 0;
-        _life -= 5;
-        if (DamageEvent != null)
-            DamageEvent.Invoke((float)_life / _maxLife);
-
+        ApplyDamage(5);
         yield return new WaitForSeconds(0.5f);
-        _life -= 5;
-        if (DamageEvent != null)
-            DamageEvent.Invoke((float)_life / _maxLife);
-
+        ApplyDamage(5);
         _flame = false;
-       
-
     }
 
 }

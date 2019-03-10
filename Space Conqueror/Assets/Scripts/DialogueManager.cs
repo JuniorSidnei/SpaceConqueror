@@ -7,22 +7,30 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     //Referencia pra UI
-    
     public TextMeshProUGUI _nameText;
     public TextMeshProUGUI _sentenceText;
 
     //Sentenças da caixa de texto
     public Queue<string> sentences;
 
-   
+    public bool _dialogueFinished = false;
+    public bool _secondDialogue = false;
+
+    
+    //Caixa de dialogo
+    public GameObject _dialogueBox;
    
     void Start()
     {
         sentences = new Queue<string>();
+        _dialogueBox.SetActive(false);
     }
 
    public void StartDialogue(Dialogue dialogue)
    {
+        Debug.Log("eita porra");
+        //Ativando a caixa de animação
+        _dialogueBox.SetActive(true);
 
         //Da pra colcoar animação aqui pra mudar na transição a tal
         _nameText.text = dialogue.name;
@@ -40,6 +48,7 @@ public class DialogueManager : MonoBehaviour
         //Da pra colcoar animação aqui pra mudar na transição a tal
         if(sentences.Count == 0)
         {
+           
             EndDialogue();
             return;
         }
@@ -52,12 +61,10 @@ public class DialogueManager : MonoBehaviour
     //Encerrando o dialogo
     public void EndDialogue()
     {
-        //Procurando o game controller pra desativar a caixa de dialogo
-        FindObjectOfType<GameController>()._DialogueBox.SetActive(false);
-
+        //Desativar a caixa de dialogo
+        _dialogueBox.SetActive(false);
         //Ativando os meteoros
-        
-        FindObjectOfType<GameController>()._spawnOn = true;
+        _dialogueFinished = true;
     }
 
     IEnumerator TypeSentence(string sentence)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1084208361427851742}
   - component: {fileID: 6922085034292651185}
   - component: {fileID: 8185347848635536661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Meteor
   m_TagString: Meteor
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e497c9b58f8ac6544b1b97347bc72b43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0af1c1ddf32bb3543bce3207f323749b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   _meteorLife: 100
   _meteorDamage: 20
   _sprites:
-  - {fileID: 21300000, guid: 5eae2194e72791941ac6e634ca0d1a48, type: 3}
+  - {fileID: 21300000, guid: 0af1c1ddf32bb3543bce3207f323749b, type: 3}
   - {fileID: 21300000, guid: dbe4bf45471c1c245bd056942a36bdda, type: 3}
   - {fileID: 21300000, guid: cd7b19a3af783a546aa3f8aed4eb2c6b, type: 3}
   - {fileID: 21300000, guid: e497c9b58f8ac6544b1b97347bc72b43, type: 3}

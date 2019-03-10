@@ -28,7 +28,6 @@ public class MeteorStatus : MonoBehaviour
 
     void Update()
     {
-        
 
         //Rotacionando e movendo o meteoro
         transform.position += Vector3.left * _meteorSpeed * Time.deltaTime;
@@ -37,6 +36,13 @@ public class MeteorStatus : MonoBehaviour
         //Verificando a vida e destruindo o meteoro
         if (_meteorLife <= 0)
             Destroy(gameObject);
+
+        if(_meteorLife <= 0 && gameObject.CompareTag("BigMeteor"))
+        {
+
+            FindObjectOfType<DialogueManager>()._secondDialogue = true;
+            Debug.Log("vai segundo dialogo");
+        }
 
       
             

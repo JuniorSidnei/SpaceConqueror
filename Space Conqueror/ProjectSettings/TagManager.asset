@@ -7,6 +7,10 @@ TagManager:
   - Meteor
   - DialogueTrigger
   - Walls
+  - LightningMeteor
+  - FlamingMeteor
+  - FreezingMeteor
+  - BigMeteor
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - MeteorLayer
+  - DialogueLayer
   - 
   - 
   - 

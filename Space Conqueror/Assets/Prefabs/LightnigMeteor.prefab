@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1084208361427851742}
   - component: {fileID: 6922085034292651185}
   - component: {fileID: 8185347848635536661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightnigMeteor
-  m_TagString: Meteor
+  m_TagString: LightningMeteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   _meteorLife: 130
   _meteorDamage: 30
   _sprites:
-  - {fileID: 21300000, guid: 5eae2194e72791941ac6e634ca0d1a48, type: 3}
+  - {fileID: 21300000, guid: 0af1c1ddf32bb3543bce3207f323749b, type: 3}
   - {fileID: 21300000, guid: dbe4bf45471c1c245bd056942a36bdda, type: 3}
   - {fileID: 21300000, guid: cd7b19a3af783a546aa3f8aed4eb2c6b, type: 3}
   - {fileID: 21300000, guid: e497c9b58f8ac6544b1b97347bc72b43, type: 3}

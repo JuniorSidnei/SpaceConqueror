@@ -141,10 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418df39ebbb6d7243950949683fd897f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DialogueBox: {fileID: 1913279185}
-  _player: {fileID: 648499320}
-  _dialogue: {fileID: 2056451064}
-  _spawnOn: 0
 --- !u!4 &45343066
 Transform:
   m_ObjectHideFlags: 0
@@ -157,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129705151
 GameObject:
@@ -234,6 +230,123 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129705151}
   m_CullTransparentMesh: 0
+--- !u!1 &175336906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175336910}
+  - component: {fileID: 175336909}
+  - component: {fileID: 175336908}
+  - component: {fileID: 175336907}
+  m_Layer: 9
+  m_Name: TriggerDialogue
+  m_TagString: DialogueTrigger
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &175336907
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175336906}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &175336908
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175336906}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 10}
+  m_EdgeRadius: 0
+--- !u!114 &175336909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175336906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57abf4cafe5a1a41951dde4b36a614f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - name: Cap.OldBurn1
+    sentences:
+    - Humm....contabilizando meus ganhos e tudo que consegui daquele planeta, acho
+      que da pra viajar bastante.
+    - "A comida est\xE1 com uma reserva boa. Aqueles malditos kras 'lossnas deram
+      trabalho, foi uma conquista dif\xEDcil at\xE9.  "
+    - "Anos atr\xE1s, quem diria, eu? Um saqueador? Nunca acreditaria nisso!"
+    - "Afinal de contas, minha est\xFApida jornada come\xE7ou quando o planeta onde
+      morava foi saqueado, humpf...quem diria..."
+    - "Talvez viajar pelo espa\xE7o sozinho tenha me tornado frio, mas quem se importa?"
+    - u tenho tudo que preciso, comida, nave e...eu mesmo? Siiiiim ahahhahhahah'
+    - '..................................'
+    - "Droga! Chuva de meteoros!? Ativar escu....EU N\xC3O TENHO ESCUDO ANTI-METEOROS!\nMerda!
+      Merda! Merda! "
+  - name: Cap.OldBurn2
+    sentences:
+    - 'Merda! Alguns meteoros atingiram a nave...humpf, vou precisar de reparos mais
+      cedo do que pensei. '
+    - ".....................[procurando planeta ou col\xF4nia nas proximidades..........]"
+    - "[Col\xF4nia encontrada]\nUma col\xF4nia!? N\xE3o \xE9 grande coisa, mas servir\xE1."
+    - "Se todos colaborarem, ningu\xE9m se machuca e eu consigo o que quero, humpf...."
+    - "n\xE3o sei por que complicam tanto. Eu s\xF3 quero umas pequenas coisas, s\xF3
+      isso. \xC9 t\xE3o simples...humpf"
+  _dialogueMng: {fileID: 1891327014}
+--- !u!4 &175336910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175336906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.99, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &214731172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,7 +1066,7 @@ Transform:
   m_Children:
   - {fileID: 5894957812661536893}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682541209
 GameObject:
@@ -1676,7 +1789,7 @@ MonoBehaviour:
   _spawnX: 16
   _spawnY: 4
   _spawnTimer: 2.5
-  _gamectr: {fileID: 45343065}
+  _dialoguemng: {fileID: 1891327014}
   _meteor:
   - {fileID: 7872820943443499112, guid: 672cfe13a4fa9334297f985accdeaf7a, type: 3}
   - {fileID: 7872820943443499112, guid: a0529039724317a45ad48b21e19ef130, type: 3}
@@ -2831,6 +2944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameText: {fileID: 682541211}
   _sentenceText: {fileID: 1614653528}
+  _dialogueFinished: 0
+  _secondDialogue: 0
+  _dialogueBox: {fileID: 1913279185}
 --- !u!4 &1891327015
 Transform:
   m_ObjectHideFlags: 0
@@ -2923,114 +3039,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913279185}
   m_CullTransparentMesh: 0
---- !u!1 &2056451062
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2056451065}
-  - component: {fileID: 2056451064}
-  - component: {fileID: 2056451063}
-  - component: {fileID: 2056451066}
-  m_Layer: 0
-  m_Name: TriggerDialogue
-  m_TagString: DialogueTrigger
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &2056451063
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056451062}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 10}
-  m_EdgeRadius: 0
---- !u!114 &2056451064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056451062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57abf4cafe5a1a41951dde4b36a614f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Cap. OldBurn
-    sentences:
-    - 'Tudo bem, contabilizando meus ganhos e tudo que consegui daquele planeta, acho
-      que da pra viajar bastante. '
-    - "A comida est\xE1 com uma reserva boa...Aqueles malditos kras 'lossnas deram
-      trabalho, foi uma conquista dif\xEDcil hahahah'"
-    - "Como j\xE1 fiz os reparos na nave antes de sair est\xE1 tudo progredindo bem...Anos
-      atr\xE1s, quem diria, eu? Um saqueador?"
-    - Nunca acreditaria nisso! Talvez eu esteja por ai, fazendo mais saqueadores ou
-      policiais...
-    - "afinal minha est\xFApida jornada come\xE7ou quando meu planeta foi saqueado,
-      humpf...quem diria..."
-    - "Talvez viajar pelo espa\xE7o sozinho tenha me tornado frio, mas quem se importa?"
-    - Eu tenho tudo que preciso, comida, nave e...eu mesmo? Sim ahahhahhahah'
-    - 'Droga! Chuva de meteoros!? Merda! Merda! Merda! '
---- !u!4 &2056451065
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056451062}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.99, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &2056451066
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056451062}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &2110906459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,7 +3054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2110906460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3062,7 +3070,7 @@ RectTransform:
   - {fileID: 430725287}
   - {fileID: 996094428}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3079,6 +3087,11 @@ PrefabInstance:
     - target: {fileID: 3322901171287341633, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341633, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3322901171287341644, guid: 963ae7d2825481046848f6f6f38fae85,

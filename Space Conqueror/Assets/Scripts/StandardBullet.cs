@@ -22,10 +22,9 @@ public class StandardBullet : MonoBehaviour
     //Colisões
     private void OnCollisionEnter2D(Collision2D obj)
     {
-        if(obj.gameObject.CompareTag("Meteor"))
+        if(obj.gameObject.layer == 8)
         {
-            GameObject tempHit = Instantiate(_meteorHit, transform.position, Quaternion.identity);
-            Debug.Log("CARAAAAAAALHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOOO" + tempHit != null);
+            GameObject tempHit = Instantiate(_meteorHit, transform.position, Quaternion.identity);  
             Destroy(tempHit, 1f);
             //Destruindo o tiro
             Destroy(gameObject);
