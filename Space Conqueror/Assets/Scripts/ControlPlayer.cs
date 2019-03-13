@@ -31,7 +31,7 @@ public class ControlPlayer : MonoBehaviour
     //Vida do jogdor
     public int _life;
     //Vida maxima do jogador
-    private int _maxLife = 500;
+    public int _maxLife = 500;
     //Tempo de gelo
     private float _statusTimer = 0;
     //Se esta congelado

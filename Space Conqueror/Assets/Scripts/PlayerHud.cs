@@ -15,7 +15,7 @@ public class PlayerHud : MonoBehaviour
 
     void Start()
     {
-        _lifeText.text = ("" + _player._life);
+        _lifeText.text = ("" + _player._life + "/ " + _player._maxLife);
         _player.DamageEvent += OnDamage;
         
     }
@@ -31,7 +31,7 @@ public class PlayerHud : MonoBehaviour
     public void OnDamage(float life)
     {
         
-        _lifeText.text = ("" + _player._life);
+        _lifeText.text = ("" + _player._life + "/ " + _player._maxLife);
         barLife.fillAmount = life;
     }
 }
