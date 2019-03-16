@@ -60,7 +60,7 @@ public class MeteorBehavior : MonoBehaviour
         _meteorCount++;
 
         //Só meteoros pequenos
-        if (_meteorCount <= 1)
+        if (_meteorCount <= 15)
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro

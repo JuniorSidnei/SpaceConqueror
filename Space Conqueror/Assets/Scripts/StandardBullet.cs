@@ -24,12 +24,38 @@ public class StandardBullet : MonoBehaviour
     {
         if(obj.gameObject.layer == 8)
         {
-            GameObject tempHit = Instantiate(_meteorHit, transform.position, Quaternion.identity);  
-            Destroy(tempHit, 1f);
+            //Meteoro de gelo
+            if (obj.gameObject.CompareTag("FreezingMeteor"))
+                Onhit(Color.blue);
+
+            //Meteoro de fogo
+            if (obj.gameObject.CompareTag("FlamingMeteor"))
+                Onhit(Color.red);
+
+            //Meteoro de raio
+            if (obj.gameObject.CompareTag("LightningMeteor"))
+                Onhit(Color.yellow);
+
+            //Meteoro normal
+            if (obj.gameObject.CompareTag("Meteor"))
+                Onhit(Color.gray);
+
             //Destruindo o tiro
             Destroy(gameObject);
             //Aplicando dano na vida do meteoro
             obj.gameObject.GetComponent<MeteorStatus>()._meteorLife -= _damage;
         }
+    }
+
+    //Define os parametros para isntanciar a particula de colisão
+    void Onhit(Color color)
+    {
+        //Instancia
+        GameObject tempptc =  Instantiate(_meteorHit, transform.position, Quaternion.identity);
+        //Muda a cor
+        tempptc.gameObject.GetComponent<ParticleSystem>().startColor = color;
+        Debug.Log("Cor DO CARALHUDOOOOOOO: " + tempptc.gameObject.GetComponent<SpriteRenderer>().color);
+        //Destroi
+        Destroy(tempptc, 1f);
     }
 }

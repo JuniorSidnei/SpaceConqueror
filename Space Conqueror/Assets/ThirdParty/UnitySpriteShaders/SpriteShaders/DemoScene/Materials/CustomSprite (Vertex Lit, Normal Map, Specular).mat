@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: CustomSprite (Vertex Lit, Normal Map, Specular)
   m_Shader: {fileID: 4800000, guid: 33b83ec84e459f742b6679edfdb486a3, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHABLEND_ON _EMISSION _GLOSSYREFLECTIONS_OFF

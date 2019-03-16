@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2113896488}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3322901171287341633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.83, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children:
   - {fileID: 3322901171859569143}
   m_Father: {fileID: 0}
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5d339fb389f41041be2927e85d6d393, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,11 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d44004d82834044ac0a5aa95267300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
   joystick: {fileID: 0}
   _shotPos: {fileID: 3322901171859569143}
   _shoot: {fileID: 33547447053011051, guid: 6f18be4bdc02ea44884b651d060f3846, type: 3}
   _life: 500
+  _maxLife: 500
+  _colisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &3322901171287341645
 BoxCollider2D:
   m_ObjectHideFlags: 0

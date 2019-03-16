@@ -40,6 +40,10 @@ public class ControlPlayer : MonoBehaviour
     private bool _flame = false;
     //Se está com raio
     private bool _lightning = false;
+    //Pra deixar a nave com debuff
+    private bool _systemFailing = false;
+    //1/3 vida do jogador
+    private int _halfLife;
     ///</Variáveis do jogador>
 
     ///<Layer para colisões>
@@ -51,6 +55,7 @@ public class ControlPlayer : MonoBehaviour
     void Start()
     {
         _life = _maxLife;
+        _halfLife = _maxLife / 3;
     }
 
     // Update is called once per frame
@@ -74,6 +79,13 @@ public class ControlPlayer : MonoBehaviour
             NormalStatus();
 
 
+
+        if (_life <= _halfLife)
+        {
+            //Chamando a função que vai dar o debuff
+
+            ErrorSystem();
+        }
     }
 
     //Função de tiro do personagem
@@ -117,7 +129,11 @@ public class ControlPlayer : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _life -= damage;
+
+        var halfLife = _maxLife / 2;
+
         
+
         //Chamada do evento de dano
         if (DamageEvent != null)
             DamageEvent.Invoke((float)_life / _maxLife);
@@ -131,7 +147,7 @@ public class ControlPlayer : MonoBehaviour
     void NormalStatus()
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        _speed = 10f;
+        _speed = 15f;
     }
 
     ///Função quando atingido por meteoros que dão efeitos
@@ -191,6 +207,14 @@ public class ControlPlayer : MonoBehaviour
         }
 
 
+    }
+
+    public void ErrorSystem()
+    {
+        //Diminuir a velocidade
+        _speed = 10f;
+        //E aplicar um efeito de animação de vidro quebrado pra dificultar o personagem a enxergar
+        //além da mensagem de que a nave está com problemas técnicos
     }
 
     IEnumerator FlamingDamage()
