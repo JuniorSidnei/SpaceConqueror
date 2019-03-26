@@ -8,6 +8,8 @@ public class ControlPlayer : MonoBehaviour
     public delegate void DamageDelegate(float currentLife);
     public  event DamageDelegate DamageEvent;
 
+   
+
     ////Evento do primeiro dialogo do jogo
     //public delegate void DialogueDelegate();
     //public  event DialogueDelegate DialogueEvent;
@@ -44,6 +46,8 @@ public class ControlPlayer : MonoBehaviour
     private bool _systemFailing = false;
     //1/3 vida do jogador
     private int _halfLife;
+    //Kit de reparos
+    [SerializeField]public bool _repairUsed;
     ///</Variáveis do jogador>
 
     ///<Layer para colisões>
@@ -56,6 +60,7 @@ public class ControlPlayer : MonoBehaviour
     {
         _life = _maxLife;
         _halfLife = _maxLife / 3;
+        _repairUsed = true;
     }
 
     // Update is called once per frame
@@ -83,7 +88,6 @@ public class ControlPlayer : MonoBehaviour
         if (_life <= _halfLife)
         {
             //Chamando a função que vai dar o debuff
-
             ErrorSystem();
         }
     }
@@ -130,7 +134,7 @@ public class ControlPlayer : MonoBehaviour
     {
         _life -= damage;
 
-        var halfLife = _maxLife / 2;
+        //var halfLife = _maxLife / 2;
 
         
 
@@ -141,6 +145,23 @@ public class ControlPlayer : MonoBehaviour
         //Se a vida zerar
         if (_life <= 0)
             Destroy(gameObject); 
+    }
+
+    //Usando kit de reparos
+    public void RepairKit(int recover)
+    {
+        _life += recover;
+
+        //Se a vida chegar ao máximo quando recuperar, fica no máximo
+        if (_life >= _maxLife)
+            _life = _maxLife;
+
+        //Chamada do evento de dano
+        if (DamageEvent != null)
+            DamageEvent.Invoke((float)_life / _maxLife);
+
+        //Chamando evento de reparos
+        _repairUsed = false;
     }
 
     //Status normal do jogador
