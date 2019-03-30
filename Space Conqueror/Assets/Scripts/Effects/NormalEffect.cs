@@ -14,8 +14,6 @@ public class NormalEffect : PlayerEffects
 
     public override void RunEffect(ControlPlayer player)
     {
-        
-
         player.GetComponent<SpriteRenderer>().color = Color.white;
         player.SetSpeed(_speed);
     }

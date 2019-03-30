@@ -53,30 +53,19 @@ public class MeteorStatus : MonoBehaviour
                     case MeteorType.Ice:
 
                         obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new FreezingEffect());
-                    Debug.Log("EFEITO ADD");
                         break;
 
                     //Fogo
                     case MeteorType.Fire:
 
                         obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new FlamingEffect());
-                    Debug.Log("EFEITO ADD");
                     break;
 
                     //Raio
                     case MeteorType.Thunder:
 
                         obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new LightningEffect());
-                    Debug.Log("EFEITO ADD");
                     break;
-
-                    //Normal
-                    case MeteorType.Normal:
-
-                        obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new NormalEffect());
-                    Debug.Log("EFEITO ADD");
-                    break;
-
                 }
 
                 //Destruindo meteoro

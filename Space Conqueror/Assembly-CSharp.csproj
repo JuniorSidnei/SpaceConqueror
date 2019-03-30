@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Background\BgScroll.cs" />
+    <Compile Include="Assets\Scripts\Bosses\TutorialBoss\KrasLosnas.cs" />
     <Compile Include="Assets\Scripts\Bullets\StandardBullet.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />

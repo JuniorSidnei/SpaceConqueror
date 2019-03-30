@@ -7,6 +7,7 @@ public abstract class PlayerEffects
     public int _damage;
     public float _timer = 0f;
     public float _speed;
+    public int _flameDamage = 5;
 
     //Entrando no efeito
     public abstract void EnterEffect(ControlPlayer player);

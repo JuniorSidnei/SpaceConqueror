@@ -59,7 +59,8 @@ public class ControlPlayer : MonoBehaviour
         _halfLife = _maxLife / 3;
         _repairUsed = true;
 
-        m_currentEffects = new List<PlayerEffects>();
+       m_currentEffects = new List<PlayerEffects>();
+
     }
 
     // Update is called once per frame
@@ -72,7 +73,7 @@ public class ControlPlayer : MonoBehaviour
         //Movendo o jogador
         transform.position += _moveVelocity;
 
-       
+
         ////Se for atingido pelos meteoros de gelo, fogo ou raio
         //if (_freeze)
         //    FreezingStatus();
@@ -83,12 +84,11 @@ public class ControlPlayer : MonoBehaviour
         //else
         //    NormalStatus();
 
-
+       
         //Aplicando os efeitos ao jogador
         for (int i = 0; i < m_currentEffects.Count; i++)
         {
-            
-                m_currentEffects[i].RunEffect(this);
+            m_currentEffects[i].RunEffect(this);
         }
 
 
@@ -245,26 +245,29 @@ public class ControlPlayer : MonoBehaviour
 
    
 
-    //Aplicar estado
+    //Aplicar efeito
     public void AddEffect(PlayerEffects nextEffect)
     {
         //Entrando no novo estado
         nextEffect.EnterEffect(this);
 
         //Rodando o novo efeito
-        nextEffect.EnterEffect(this);
-           
+        m_currentEffects.Add(nextEffect);
     }
 
-    public void RemoveEffect(PlayerEffects removEffect)
+    //Remover efeito
+    public void RemoveEffect(PlayerEffects removeEffect)
     {
-        removEffect.ExitEffect(this);
+        //Saindo do efeito
+        removeEffect.ExitEffect(this);
+        m_currentEffects.Remove(removeEffect);
+
     }
 
     //Setando speed
     public void SetSpeed(float speed)
     {
-        speed = _speed;
+        _speed = speed;
     }
   
 }

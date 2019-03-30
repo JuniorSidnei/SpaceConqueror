@@ -10,6 +10,9 @@ public class FreezingEffect : PlayerEffects
 
         Debug.Log("GELINHO NO CU RAPÁ!");
         _speed = 5f;
+        _damage = 50;
+
+        player.GetComponent<ControlPlayer>().ApplyDamage(_damage);
     }
 
     public override void RunEffect(ControlPlayer player)
@@ -21,6 +24,7 @@ public class FreezingEffect : PlayerEffects
 
         //Tirando o tempo de dois segundos
         _timer += Time.deltaTime;
+        Debug.Log("tempo gelo: " + _timer);
 
         //Enquanto for maior que o tempo vai ficar com debuff, terminar animação de gelo
         if (_timer >= 2f)
@@ -32,6 +36,7 @@ public class FreezingEffect : PlayerEffects
 
     public override void ExitEffect(ControlPlayer player)
     {
+        player.AddEffect(new NormalEffect());
         Debug.Log("VIROU ÁGUA");
     }
 }

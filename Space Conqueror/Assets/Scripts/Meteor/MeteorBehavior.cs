@@ -24,11 +24,9 @@ public class MeteorBehavior : MonoBehaviour
     void Update()
     {
 
-       
         //Assim que o dialogo acabar, os meteoros começam
         if (_dialoguemng._dialogueFinished)
         {
-            
             //Tempo do jogo
             _timer += Time.deltaTime;
             //Tempo de spawn de um meteoro pra outro que tbm vai somar com o tempo
@@ -43,7 +41,7 @@ public class MeteorBehavior : MonoBehaviour
                 //Reduzindo o tempo de spawn do meteoro a cada segundo 
                 _spawnTimer = 2.5f - (_timer * 0.025f);
 
-                //Se o tempo de spawn for menor que 0.2, fica em 0.2
+                //Se o tempo de spawn for menor que 0.8, fica em 0.8
                 if (_spawnTimer <= 0.8f)
                     _spawnTimer = 0.8f;
             }
@@ -60,20 +58,15 @@ public class MeteorBehavior : MonoBehaviour
         _meteorCount++;
 
         //Só meteoros pequenos
-        if (_meteorCount <= 15)
+        if (_meteorCount <= 50)
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro
             GameObject tempoMeteor = Instantiate(_meteor[randPos], new Vector2(_spawnX, Random.Range(-_spawnY, _spawnY)), Quaternion.identity, transform);
             //Destruindo o meteoro
-            Destroy(tempoMeteor, 7f);
+            Destroy(tempoMeteor, 10f);
         }
-        else
-        {
-            //Isntanciando o meteoro grande
-            GameObject tempBigMeteor = Instantiate(_meteor[4], new Vector2(12, 0), Quaternion.identity, transform);
-            _dialoguemng._dialogueFinished = false;
-        }
+
         
        
     }
