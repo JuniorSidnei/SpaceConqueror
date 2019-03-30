@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 5
-  _meteorLife: 130
-  _meteorDamage: 25
+  _meteorSpeed: 3
+  _meteorLife: 220
+  _meteorDamage: 50
+  type: 1
 --- !u!58 &44713576687741353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 8597628807532169737}
   - component: {fileID: 9058809263836245802}
   m_Layer: 0
-  m_Name: Ice2 (1)
+  m_Name: 'Ice2 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

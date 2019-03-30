@@ -3716,20 +3716,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341633, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3322901171287341644, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1749937716}
+    - target: {fileID: 3322901171287341644, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: _repairUsed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3322901171287341635, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.23
+      value: -6.32
       objectReference: {fileID: 0}
     - target: {fileID: 3322901171287341635, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.59
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 3322901171287341635, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
@@ -3801,6 +3811,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.336
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341645, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341645, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341645, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341645, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171287341645, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322901171859569142, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 963ae7d2825481046848f6f6f38fae85, type: 3}

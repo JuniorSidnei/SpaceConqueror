@@ -114,6 +114,7 @@ MonoBehaviour:
   _meteorSpeed: 5
   _meteorLife: 100
   _meteorDamage: 20
+  type: 3
 --- !u!114 &6946312445032097752
 MonoBehaviour:
   m_ObjectHideFlags: 0

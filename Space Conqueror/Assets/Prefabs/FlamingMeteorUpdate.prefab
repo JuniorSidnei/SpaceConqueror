@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meteorSpeed: 5
-  _meteorLife: 130
+  _meteorLife: 145
   _meteorDamage: 25
+  type: 0
 --- !u!58 &44713576687741353
 CircleCollider2D:
   m_ObjectHideFlags: 0

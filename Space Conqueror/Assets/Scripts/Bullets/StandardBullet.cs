@@ -42,6 +42,7 @@ public class StandardBullet : MonoBehaviour
 
             //Destruindo o tiro
             Destroy(gameObject);
+
             //Aplicando dano na vida do meteoro
             obj.gameObject.GetComponent<MeteorStatus>()._meteorLife -= _damage;
         }
@@ -54,7 +55,7 @@ public class StandardBullet : MonoBehaviour
         GameObject tempptc =  Instantiate(_meteorHit, transform.position, Quaternion.identity);
         //Muda a cor
         tempptc.gameObject.GetComponent<ParticleSystem>().startColor = color;
-        Debug.Log("Cor DO CARALHUDOOOOOOO: " + tempptc.gameObject.GetComponent<SpriteRenderer>().color);
+        
         //Destroi
         Destroy(tempptc, 1f);
     }

@@ -60,18 +60,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BgScroll.cs" />
-    <Compile Include="Assets\Scripts\ControlPlayer.cs" />
-    <Compile Include="Assets\Scripts\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\DialogueManager.cs" />
-    <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Background\BgScroll.cs" />
+    <Compile Include="Assets\Scripts\Bullets\StandardBullet.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Effects\FlamingEffect.cs" />
+    <Compile Include="Assets\Scripts\Effects\FreezingEffect.cs" />
+    <Compile Include="Assets\Scripts\Effects\LightningEffect.cs" />
+    <Compile Include="Assets\Scripts\Effects\NormalEffect.cs" />
+    <Compile Include="Assets\Scripts\Effects\PlayerEffects.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\MeteorBehavior.cs" />
-    <Compile Include="Assets\Scripts\MeteorDefinitions.cs" />
-    <Compile Include="Assets\Scripts\MeteorStatus.cs" />
-    <Compile Include="Assets\Scripts\PlayerHud.cs" />
+    <Compile Include="Assets\Scripts\Hud\PlayerHud.cs" />
+    <Compile Include="Assets\Scripts\Meteor\MeteorBehavior.cs" />
+    <Compile Include="Assets\Scripts\Meteor\MeteorDefinitions.cs" />
+    <Compile Include="Assets\Scripts\Meteor\MeteorStatus.cs" />
+    <Compile Include="Assets\Scripts\Player\ControlPlayer.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
-    <Compile Include="Assets\Scripts\StandardBullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

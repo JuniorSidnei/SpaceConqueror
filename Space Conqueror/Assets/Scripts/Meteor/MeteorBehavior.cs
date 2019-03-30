@@ -66,7 +66,7 @@ public class MeteorBehavior : MonoBehaviour
             //Instanciando o meteoro
             GameObject tempoMeteor = Instantiate(_meteor[randPos], new Vector2(_spawnX, Random.Range(-_spawnY, _spawnY)), Quaternion.identity, transform);
             //Destruindo o meteoro
-            Destroy(tempoMeteor, 5f);
+            Destroy(tempoMeteor, 7f);
         }
         else
         {

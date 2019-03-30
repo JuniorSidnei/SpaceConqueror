@@ -112,9 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 5
+  _meteorSpeed: 8
   _meteorLife: 130
   _meteorDamage: 30
+  type: 2
 --- !u!50 &8185347848635536661
 Rigidbody2D:
   serializedVersion: 4
@@ -167,6 +168,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8293121036599380782}
     m_Modifications:
+    - target: {fileID: 1171160776289415737, guid: c4cce246250b0474dad4794f70d3acd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Lightning
+      objectReference: {fileID: 0}
     - target: {fileID: 298255174798404339, guid: c4cce246250b0474dad4794f70d3acd1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -231,11 +237,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.6666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 1171160776289415737, guid: c4cce246250b0474dad4794f70d3acd1,
-        type: 3}
-      propertyPath: m_Name
-      value: Lightning
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4cce246250b0474dad4794f70d3acd1, type: 3}

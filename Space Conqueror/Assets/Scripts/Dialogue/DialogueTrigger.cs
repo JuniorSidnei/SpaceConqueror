@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D obj)
     {
         //Verifica a layer. no caso a default
-        if(obj.gameObject.layer == 0)
+        if(obj.gameObject.layer == 10)
         {
             //Colisão com o jogador
             if (obj.gameObject.CompareTag("Player"))
