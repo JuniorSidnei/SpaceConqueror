@@ -4,28 +4,81 @@ using UnityEngine;
 
 public class KrasLosnas : MonoBehaviour
 {
-    private Animator _anim;
+    private Animator _KrasAnim;
 
-    public int _krasLife = 1000;
+    private int _krasLife = 1000;
 
-    // Start is called before the first frame update
+    public Transform _spawnShoot;
+
+    public GameObject _projectile;
+
+    private int _isOverHeatCount = 0;
+
+    private bool _isOverHeat = false;
+
+    private float _shootTimer = 0f;
+
+    private float _overHeatTimer = 0f;
+
+    
     void Start()
     {
-        _anim = GetComponent<Animator>();
+        _KrasAnim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        if (_isOverHeat)
+        {
+            _overHeatTimer += Time.deltaTime;
 
-        //_timerDash += Time.deltaTime;
+            if (_overHeatTimer >= 3f)
+            {
+                _isOverHeat = false;
+                _KrasAnim.SetBool("Overheat", false);
+                _overHeatTimer = 0;
+            }
+        }
+        
+        //Se a vida do boss for menor que 400 e ele não estiver sobrecarregado, pode atirar
+        if (_krasLife <= 400 && _isOverHeat == false)
+        {
+            _KrasAnim.SetBool("BurstOn", true);
+            _shootTimer += Time.deltaTime;
 
-        //if (_timerDash >= 10f)
-        //{
-
-        //    _anim.SetBool("GoDash", true);
-        //    _timerDash = 0;
-        //}
+            if (_shootTimer >= 0.2f)
+            {
+                ShootAndOverHeat();
+                _shootTimer = 0f;
+            }
+        }
        
+    }
+
+    void OnCollisionEnter2D(Collision2D obj)
+    {
+        if(obj.gameObject.layer == 11)
+        {
+            _krasLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+            Destroy(obj.gameObject);
+        }
+    }
+
+    public void ShootAndOverHeat()
+    {
+        GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity, transform);
+        Destroy(tempprojectile, 4f);
+
+        _isOverHeatCount++;
+
+        if (_isOverHeatCount >= 20)
+        {
+              _isOverHeat = true;
+            _isOverHeatCount = 0;
+            _KrasAnim.SetBool("Overheat", true);
+            
+        }
+
     }
 }

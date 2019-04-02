@@ -4002,7 +4002,7 @@ PrefabInstance:
     - target: {fileID: 4301072768471282982, guid: 2ec2b7330b49ce244a8285f75b495c9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.57
+      value: -0.97
       objectReference: {fileID: 0}
     - target: {fileID: 4301072768471282982, guid: 2ec2b7330b49ce244a8285f75b495c9d,
         type: 3}
@@ -4059,5 +4059,10 @@ PrefabInstance:
       propertyPath: LightsModule.light
       value: 
       objectReference: {fileID: 133353592}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec2b7330b49ce244a8285f75b495c9d, type: 3}

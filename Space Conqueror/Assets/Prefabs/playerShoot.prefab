@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5158148595224985190}
   - component: {fileID: 2356564817548474406}
   - component: {fileID: 4812223998809225837}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: playerShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f559fe5ddecf9fd48bda4dde9037e274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 50
   _damage: 20
   _meteorHit: {fileID: 75, guid: f1cdf3c6b51394b41b8fad459efac807, type: 3}
 --- !u!50 &2356564817548474406

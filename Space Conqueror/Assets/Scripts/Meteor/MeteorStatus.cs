@@ -43,9 +43,19 @@ public class MeteorStatus : MonoBehaviour
     //Colisão com o jogador
     private void OnCollisionEnter2D(Collision2D obj)
     {
-        if(obj.gameObject.layer == 10)
+        //Tiro do jogador
+        if(obj.gameObject.layer == 11)
         {
+            //Aplicando dano na vida do meteoro
+            _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
 
+            //Destruindo o tiro
+            Destroy(gameObject);  
+        }
+
+        //colisão com jogador
+        if (obj.gameObject.layer == 10)
+        {
                 //Verificando o tipo de meteoro para aplicar o efeito correto
                 switch (type)
                 {
