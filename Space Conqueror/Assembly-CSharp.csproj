@@ -73,9 +73,13 @@
     <Compile Include="Assets\Scripts\Effects\PlayerEffects.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Hud\PlayerHud.cs" />
+    <Compile Include="Assets\Scripts\Meteor\FlameMeteor.cs" />
+    <Compile Include="Assets\Scripts\Meteor\IceMeteor.cs" />
+    <Compile Include="Assets\Scripts\Meteor\LightningMeteor.cs" />
     <Compile Include="Assets\Scripts\Meteor\MeteorBehavior.cs" />
     <Compile Include="Assets\Scripts\Meteor\MeteorDefinitions.cs" />
     <Compile Include="Assets\Scripts\Meteor\MeteorStatus.cs" />
+    <Compile Include="Assets\Scripts\Meteor\NormalMeteor.cs" />
     <Compile Include="Assets\Scripts\Player\ControlPlayer.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

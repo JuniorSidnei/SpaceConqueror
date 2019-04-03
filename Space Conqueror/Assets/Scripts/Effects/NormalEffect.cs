@@ -7,7 +7,7 @@ public class NormalEffect : PlayerEffects
 
     public override void EnterEffect(ControlPlayer player)
     {
-        Debug.Log("ATÉ AGORA TUDO TRANQUILO");
+       
         _speed = 15f;
     }
 
@@ -20,6 +20,6 @@ public class NormalEffect : PlayerEffects
 
     public override void ExitEffect(ControlPlayer player)
     {
-        Debug.Log("FUDEU EFEITO VINDO");
+       
     }
 }

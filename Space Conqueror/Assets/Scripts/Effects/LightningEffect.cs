@@ -7,7 +7,7 @@ public class LightningEffect : PlayerEffects
     
     public override void EnterEffect(ControlPlayer player)
     {
-        Debug.Log("RAIO NO CU");
+        
         _damage = 30;
         _speed = 0;
 
@@ -24,7 +24,7 @@ public class LightningEffect : PlayerEffects
 
         //Contando o tempo
         _timer += Time.deltaTime;
-        Debug.Log("tempo raio:" + _timer);
+       
 
         //Terminar animação de raio
         if (_timer >= 1f)
@@ -37,6 +37,6 @@ public class LightningEffect : PlayerEffects
     public override void ExitEffect(ControlPlayer player)
     {
         player.AddEffect(new NormalEffect());
-        Debug.Log("CHEGA DE RAIO");
+        
     }
 }

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093964046675166798}
-  - component: {fileID: 8881440616582166334}
   - component: {fileID: 44713576687741353}
   - component: {fileID: 2708497542533412193}
+  - component: {fileID: 1602996883886478507}
   m_Layer: 8
   m_Name: FreezingMeteorUpdate
   m_TagString: FreezingMeteor
@@ -37,22 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8881440616582166334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481759118504782594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meteorSpeed: 3
-  _meteorLife: 220
-  _meteorDamage: 50
-  type: 1
 --- !u!58 &44713576687741353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -90,6 +74,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1602996883886478507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481759118504782594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387b41ad890d2cc458235f4346d01283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteorSpeed: 3
+  _meteorLife: 220
+  type: 1
+  _dyingMeteor: {fileID: 2485499662765050521, guid: c85d53a73a66f524f8bc237d67875f23,
+    type: 3}
+  _bulletHit: {fileID: 1679474425871981002, guid: 708026f8ea31ddb4eb347f8c03d53e81,
+    type: 3}
+  _meteorExplosion: {fileID: 2485499662765050521, guid: c85d53a73a66f524f8bc237d67875f23,
+    type: 3}
 --- !u!1 &6537934509586802735
 GameObject:
   m_ObjectHideFlags: 0

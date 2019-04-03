@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8293121036599380782}
   - component: {fileID: 4321078926509520557}
   - component: {fileID: 1084208361427851742}
-  - component: {fileID: 6922085034292651185}
   - component: {fileID: 8185347848635536661}
   m_Layer: 8
   m_Name: FlamingMeteor
@@ -98,33 +97,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &6922085034292651185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7872820943443499112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meteorSpeed: 5
-  _meteorLife: 130
-  _meteorDamage: 25
-  _sprites:
-  - {fileID: 21300000, guid: 0af1c1ddf32bb3543bce3207f323749b, type: 3}
-  - {fileID: 21300000, guid: dbe4bf45471c1c245bd056942a36bdda, type: 3}
-  - {fileID: 21300000, guid: cd7b19a3af783a546aa3f8aed4eb2c6b, type: 3}
-  - {fileID: 21300000, guid: e497c9b58f8ac6544b1b97347bc72b43, type: 3}
-  - {fileID: 21300000, guid: d64c436d99b26594c84f4281d8dd1b9d, type: 3}
-  _materials:
-  - {fileID: 2100000, guid: 6e68083a50406ac4aaf107476a51affa, type: 2}
-  - {fileID: 2100000, guid: e035bc6355b53b744a940b03fa466d11, type: 2}
-  - {fileID: 2100000, guid: 17b6a1a2cb584a64ba4366894dc66250, type: 2}
-  - {fileID: 2100000, guid: 1a90343a678026d4785074591584fff1, type: 2}
-  - {fileID: 2100000, guid: 5eb700106ad0d8141bb197aa783d3dce, type: 2}
 --- !u!50 &8185347848635536661
 Rigidbody2D:
   serializedVersion: 4

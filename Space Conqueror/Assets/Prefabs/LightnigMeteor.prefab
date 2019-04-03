@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8293121036599380782}
   - component: {fileID: 4321078926509520557}
   - component: {fileID: 1084208361427851742}
-  - component: {fileID: 6922085034292651185}
   - component: {fileID: 8185347848635536661}
   - component: {fileID: 1091307830341192168}
+  - component: {fileID: 8566482944564548379}
   m_Layer: 8
   m_Name: LightnigMeteor
   m_TagString: LightningMeteor
@@ -100,22 +100,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &6922085034292651185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7872820943443499112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meteorSpeed: 8
-  _meteorLife: 130
-  _meteorDamage: 30
-  type: 2
 --- !u!50 &8185347848635536661
 Rigidbody2D:
   serializedVersion: 4
@@ -161,6 +145,27 @@ MonoBehaviour:
   - {fileID: 2100000, guid: e035bc6355b53b744a940b03fa466d11, type: 2}
   - {fileID: 2100000, guid: 17b6a1a2cb584a64ba4366894dc66250, type: 2}
   - {fileID: 2100000, guid: 1a90343a678026d4785074591584fff1, type: 2}
+--- !u!114 &8566482944564548379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872820943443499112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25be801054ff85c41b8b8c7db0b194ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteorSpeed: 8
+  _meteorLife: 130
+  type: 2
+  _dyingMeteor: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
+    type: 3}
+  _bulletHit: {fileID: 1146684628256710235, guid: b4d7d250db8409646909a4239e36e999,
+    type: 3}
+  _meteorExplosion: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
+    type: 3}
 --- !u!1001 &6724631517042077318
 PrefabInstance:
   m_ObjectHideFlags: 0

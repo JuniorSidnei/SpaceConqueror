@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093964046675166798}
-  - component: {fileID: 8881440616582166334}
   - component: {fileID: 44713576687741353}
   - component: {fileID: 2708497542533412193}
+  - component: {fileID: 6384721248885343675}
   m_Layer: 8
   m_Name: FlamingMeteorUpdate
   m_TagString: FlamingMeteor
@@ -35,22 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8881440616582166334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481759118504782594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0215bc850871c74b97d07302554c9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meteorSpeed: 5
-  _meteorLife: 145
-  _meteorDamage: 25
-  type: 0
 --- !u!58 &44713576687741353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -88,6 +72,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6384721248885343675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481759118504782594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2da155ea807cd843b65451980ec9d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteorSpeed: 5
+  _meteorLife: 145
+  type: 0
+  _dyingMeteor: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
+    type: 3}
+  _bulletHit: {fileID: 9059430551990369381, guid: a13d393af77aad344af3c2080d9dc6ff,
+    type: 3}
+  _meteorExplosion: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
+    type: 3}
 --- !u!1 &6883314830311246182
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,12 +212,12 @@ PrefabInstance:
     - target: {fileID: 6773924756335321240, guid: b94f9aaf4f7ecd84b9391fd5f9857b44,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.68
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 6773924756335321240, guid: b94f9aaf4f7ecd84b9391fd5f9857b44,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6773924756335321240, guid: b94f9aaf4f7ecd84b9391fd5f9857b44,
         type: 3}
