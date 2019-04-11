@@ -21,7 +21,7 @@ public abstract class MeteorStatus : MonoBehaviour
     public MeteorType type;
     //Destruindo o meteoro
     public GameObject _dyingMeteor;
-
+    public GameObject _WaveExplosion;
     public GameObject _bulletHit;
   
 
@@ -35,10 +35,13 @@ public abstract class MeteorStatus : MonoBehaviour
         //Verificando a vida e destruindo o meteoro
         if (_meteorLife <= 0)
         {
+            //Explosão de efeito do meteoro
             Destroy(gameObject);
-            GameObject tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity);
-            Debug.Log("MOREU CADE EXPLOSÃO:" + tempDying != null);
+            GameObject tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity); 
             Destroy(tempDying, 1f);
+            //Explosão de impacto
+            GameObject tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
+            Destroy(tempDying2, 1f);
         }  
     }
    
