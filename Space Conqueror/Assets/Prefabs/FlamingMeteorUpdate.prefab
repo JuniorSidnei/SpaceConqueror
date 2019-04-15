@@ -89,11 +89,11 @@ MonoBehaviour:
   type: 0
   _dyingMeteor: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
     type: 3}
+  _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
+    type: 3}
   _bulletHit: {fileID: 9059430551990369381, guid: a13d393af77aad344af3c2080d9dc6ff,
     type: 3}
   _meteorExplosion: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
-    type: 3}
-  _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
     type: 3}
 --- !u!1 &6883314830311246182
 GameObject:
@@ -265,6 +265,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773924756335321247, guid: b94f9aaf4f7ecd84b9391fd5f9857b44,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773924756335321247, guid: b94f9aaf4f7ecd84b9391fd5f9857b44,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94f9aaf4f7ecd84b9391fd5f9857b44, type: 3}
