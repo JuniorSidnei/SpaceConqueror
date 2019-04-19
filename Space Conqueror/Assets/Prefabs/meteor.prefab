@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8185347848635536661}
   - component: {fileID: 621904706281738930}
   m_Layer: 8
-  m_Name: Meteor
+  m_Name: meteor
   m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,11 +159,11 @@ MonoBehaviour:
   _meteorSpeed: 5
   _meteorLife: 100
   type: 3
-  _dyingMeteor: {fileID: 5089111803020805459, guid: a7f5f2140a1be774f903614a2c65a70e,
+  _dyingMeteor: {fileID: 2884299034902070893, guid: 27b648939b2567448b45d3a6ffcfe5c0,
+    type: 3}
+  _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
     type: 3}
   _bulletHit: {fileID: 5089111803020805459, guid: a7f5f2140a1be774f903614a2c65a70e,
     type: 3}
-  _meteorExplosion: {fileID: 5089111803020805459, guid: a7f5f2140a1be774f903614a2c65a70e,
-    type: 3}
-  _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
+  _meteorExplosion: {fileID: 2884299034902070893, guid: 27b648939b2567448b45d3a6ffcfe5c0,
     type: 3}

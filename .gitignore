@@ -4,9 +4,10 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-
+sysinfo.txt
+*.stackdump
 ![Aa]ssets/**/*.meta
-
+*.apk
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
