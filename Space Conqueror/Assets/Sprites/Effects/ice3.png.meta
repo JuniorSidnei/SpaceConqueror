@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Effects/ice3.png.meta
 guid: bc29f8947cd31e24996751a0040fbbbf
+=======
+guid: 477a7edebd5998a4798854b677f1c1f8
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Effects/ice3.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Effects/ice3.png.meta
     spriteID: 470879507ee5b584ea7cd44a60d84143
+=======
+    spriteID: 376014d4edba4814ab3834ae6f7e7afc
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Effects/ice3.png.meta
     vertices: []
     indices: 
     edges: []

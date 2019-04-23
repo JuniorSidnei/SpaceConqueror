@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerEvo2PlaceHolder.jpg.meta
 guid: bab6a6547300c264a9967aeccc53fee3
+=======
+guid: 2bb43e59ec9810b4b9c6ff59aca16bbe
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerEvo2PlaceHolder.jpg.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerEvo2PlaceHolder.jpg.meta
     spriteID: 8f44cbcf758157a479c6c6c194b0a71a
+=======
+    spriteID: b472f65c6252dc74ebd5bb9b9208b190
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerEvo2PlaceHolder.jpg.meta
     vertices: []
     indices: 
     edges: []

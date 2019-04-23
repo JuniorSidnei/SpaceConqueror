@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Atacks/PlayerShoots1/PrimmaryShoot.png.meta
 guid: a5fcd9a9ac277404b9dc5bb96fcc6c39
+=======
+guid: b29c56cb7047be14889b50151d9ced7b
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Atacks/PlayerShoots1/PrimmaryShoot.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Atacks/PlayerShoots1/PrimmaryShoot.png.meta
     spriteID: ab925a7a5784e274eace08016e36b202
+=======
+    spriteID: 55bfaa8730aa4394a83407a2c798d4d6
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Atacks/PlayerShoots1/PrimmaryShoot.png.meta
     vertices: []
     indices: 
     edges: []

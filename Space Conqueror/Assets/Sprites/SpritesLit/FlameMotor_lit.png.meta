@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/FlameMotor_lit.png.meta
 guid: d226748787d1da742bab66a6efeb7349
+=======
+guid: 14a531b37baffa642adc83fb8177d5b1
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/FlameMotor_lit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/FlameMotor_lit.png.meta
     spriteID: 4778d4e0e5f893d4489ef4b1f128766f
+=======
+    spriteID: 15a098416b25e8e4bb2bfaa8925f2d70
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/FlameMotor_lit.png.meta
     vertices: []
     indices: 
     edges: []

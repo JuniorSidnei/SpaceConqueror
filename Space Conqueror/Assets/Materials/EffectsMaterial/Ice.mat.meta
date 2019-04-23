@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Materials/EffectsMaterial/Ice.mat.meta
 guid: c4f6eb799ae282b43a94f491e9d10037
+=======
+guid: 61bc545de887a92428a94fa430f49dc6
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Materials/EffectsMaterial/Ice.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Materials/MeteorMaterial/Meteor3.mat.meta
 guid: 65188f2f911ca584e9c682f7b7e937d4
+=======
+guid: e51a01022a8a4f74994bc35f93162ab6
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Materials/MeteorMaterial/Meteor3.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

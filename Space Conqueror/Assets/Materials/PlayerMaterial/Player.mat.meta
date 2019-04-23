@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Materials/PlayerMaterial/Player.mat.meta
 guid: 2cfc81a0e226498499d9b9228f4b63da
+=======
+guid: aab41c74b3cb04a47a2a30ede38bff0a
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Materials/PlayerMaterial/Player.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

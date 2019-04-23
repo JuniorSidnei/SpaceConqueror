@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/SketchBossVerticalSlice1_lit.png.meta
 guid: d984e90935f9ef240825af83c8e1bca9
+=======
+guid: fbf6451e59d3df742a6826aebe2c5a7e
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/SketchBossVerticalSlice1_lit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/SketchBossVerticalSlice1_lit.png.meta
     spriteID: 9f1b3044c049e5944958416537ead9f3
+=======
+    spriteID: 36a8eb4fc8038b9499ef43f22287b66a
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/SketchBossVerticalSlice1_lit.png.meta
     vertices: []
     indices: 
     edges: []

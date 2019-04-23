@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/Screww.png.meta
 guid: 744c14df45059924e8020f2a77691b43
+=======
+guid: 63ac5e44c921e914193c14df99da126f
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/Screww.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/Screww.png.meta
     spriteID: f47b592d82ebbad4aa7ae3f8a7510440
+=======
+    spriteID: d4e0ffec3874f764abacad01b462b1db
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Bosses/KrasLonas/Screww.png.meta
     vertices: []
     indices: 
     edges: []

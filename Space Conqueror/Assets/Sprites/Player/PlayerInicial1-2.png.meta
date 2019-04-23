@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerInicial1-2.png.meta
 guid: e55b295c35407a34eb2c8e16db0ab861
+=======
+guid: d991c2a945b1f3943bcd8cec980f82e9
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerInicial1-2.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerInicial1-2.png.meta
     spriteID: 37c7cde9b164a454b95f3dca12048eae
+=======
+    spriteID: 966244769517f934eac73b81fb952109
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerInicial1-2.png.meta
     vertices: []
     indices: 
     edges: []

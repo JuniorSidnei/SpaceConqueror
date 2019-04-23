@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/HUD/UnderBarLife.png.meta
 guid: f32f0e5226007a44d9eb1dddbfe53e91
+=======
+guid: 4da15d9bb6bba814fbf536f7446d6589
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/HUD/UnderBarLife.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/HUD/UnderBarLife.png.meta
     spriteID: 248fe6fa944f4fe4cb79ba44b032232c
+=======
+    spriteID: 7774c1d832df9a941b301d304207bd46
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/HUD/UnderBarLife.png.meta
     vertices: []
     indices: 
     edges: []

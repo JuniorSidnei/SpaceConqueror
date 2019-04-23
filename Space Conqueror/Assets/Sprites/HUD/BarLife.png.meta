@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/HUD/BarLife.png.meta
 guid: 89d55270c652d704baeba01a4467ed60
+=======
+guid: 1c0c06f3bb4ace740a9c4775b946a179
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/HUD/BarLife.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/HUD/BarLife.png.meta
     spriteID: ef0f0a9758903de4a8965f20436ba0b5
+=======
+    spriteID: 5de914f395df1cc4a97f9da082ab7a61
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/HUD/BarLife.png.meta
     vertices: []
     indices: 
     edges: []

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Materials/EffectsMaterial/Flame.mat.meta
 guid: ed39d1254105ac841b264cba4bf1b850
+=======
+guid: 493630a88e3da7f428cb431659172acd
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Materials/EffectsMaterial/Flame.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

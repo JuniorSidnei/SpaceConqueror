@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/Star_lit.png.meta
 guid: 096fde003217aa343881595d4d158988
+=======
+guid: 7856e245d143f95449c094a6220776b7
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/Star_lit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/Star_lit.png.meta
     spriteID: 1f7e11b56653f3c45b9a7fd79fccd92c
+=======
+    spriteID: 5dfc7be4ffcbae640bc09e0273427554
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/Star_lit.png.meta
     vertices: []
     indices: 
     edges: []

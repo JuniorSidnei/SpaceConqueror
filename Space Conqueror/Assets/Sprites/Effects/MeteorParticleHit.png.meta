@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Effects/MeteorParticleHit.png.meta
 guid: 91920eb31035b3f479b985599f3d5c7b
+=======
+guid: 1771cecd639a3874d9dc314c4d7327d0
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Effects/MeteorParticleHit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Effects/MeteorParticleHit.png.meta
     spriteID: 89d7534413d1f50499e9c0306b037151
+=======
+    spriteID: 748db1b5bdb5f0443a0ae7032b940dc7
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Effects/MeteorParticleHit.png.meta
     vertices: []
     indices: 
     edges: []

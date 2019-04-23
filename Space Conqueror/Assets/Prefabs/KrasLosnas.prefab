@@ -166,12 +166,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8399ea562606a644a9d2848b33ee28a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbf6451e59d3df742a6826aebe2c5a7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 6}
+  m_Size: {x: 5.97, y: 4.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -229,7 +229,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 5.97, y: 4.61}
-    newSize: {x: 8, y: 6}
+    newSize: {x: 5.97, y: 4.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -251,11 +251,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8308483181351461044}
     m_Modifications:
-    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameMotorDown
-      objectReference: {fileID: 0}
     - target: {fileID: 5639012950446332455, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +306,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameMotorDown
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcffeeb129a2ae945a8abd6813a407ae, type: 3}
 --- !u!4 &479653792580915379 stripped
@@ -326,11 +326,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8308483181351461044}
     m_Modifications:
-    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameMotorUp
-      objectReference: {fileID: 0}
     - target: {fileID: 5639012950446332455, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -385,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameMotorUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcffeeb129a2ae945a8abd6813a407ae, type: 3}

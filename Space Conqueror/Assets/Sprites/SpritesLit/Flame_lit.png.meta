@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/Flame_lit.png.meta
 guid: 1100968cce8b5a8428700e68d941b308
+=======
+guid: f130ec988c4277f47b8ca452059f2399
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/Flame_lit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/Flame_lit.png.meta
     spriteID: c82be8f8ab79c794aacf369b13de1bf9
+=======
+    spriteID: 50b47486faa06624c8db204e662af5dd
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/Flame_lit.png.meta
     vertices: []
     indices: 
     edges: []

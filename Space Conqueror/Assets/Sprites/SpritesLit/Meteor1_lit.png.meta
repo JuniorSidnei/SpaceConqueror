@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/Meteor1_lit.png.meta
 guid: 193a51d1629f95047849fc4d94fe29f9
+=======
+guid: f79539f88a8ad284d885f68272758409
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/Meteor1_lit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/Meteor1_lit.png.meta
     spriteID: 92c599fd946d4fc438eae4080de4e693
+=======
+    spriteID: df7f3b90906952a4c93edfd591eba603
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/Meteor1_lit.png.meta
     vertices: []
     indices: 
     edges: []

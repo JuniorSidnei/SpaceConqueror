@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/PrimmaryShoot_lit.png.meta
 guid: fdb9ad28f8799c7418188fa3cd0c89a2
+=======
+guid: 61ba810fb37ad2e48979f793f913c9bf
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/PrimmaryShoot_lit.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/SpritesLit/PrimmaryShoot_lit.png.meta
     spriteID: 27a7d79b59b8f1342ac3a5fc596bddee
+=======
+    spriteID: 2c8a9ed8979c77e4e95a36f9017ced2a
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/SpritesLit/PrimmaryShoot_lit.png.meta
     vertices: []
     indices: 
     edges: []

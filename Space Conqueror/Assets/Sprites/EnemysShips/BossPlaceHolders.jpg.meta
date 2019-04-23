@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/EnemysShips/BossPlaceHolders.jpg.meta
 guid: af5d809b5d69fa04ba514faac0b11b63
+=======
+guid: 07522b8f0de18c44292d6fe90aa99bf5
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/EnemysShips/BossPlaceHolders.jpg.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,7 +79,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Space Conqueror/Assets/Sprites/EnemysShips/BossPlaceHolders.jpg.meta
     spriteID: 2d7f8a74b1c8df64d86ae395aaccfd1c
+=======
+    spriteID: 754458b4523b6224da424e4e42baeefc
+>>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/EnemysShips/BossPlaceHolders.jpg.meta
     vertices: []
     indices: 
     edges: []
