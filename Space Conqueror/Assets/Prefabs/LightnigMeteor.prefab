@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e51a01022a8a4f74994bc35f93162ab6, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1084208361427851742
@@ -134,17 +134,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprites:
-  - {fileID: 21300000, guid: f79539f88a8ad284d885f68272758409, type: 3}
-  - {fileID: 21300000, guid: 90432794767a67e44b710399462090b7, type: 3}
-  - {fileID: 21300000, guid: ff4c081f185e45a448ccdec008b71240, type: 3}
-  - {fileID: 21300000, guid: 622773a31addfb8429b94dbcab17b876, type: 3}
-  - {fileID: 21300000, guid: 49f0f9b5bc0b64641b42d73ad5844a24, type: 3}
+  - {fileID: 21300000, guid: 193a51d1629f95047849fc4d94fe29f9, type: 3}
+  - {fileID: 21300000, guid: 46eb3ead93e5d4443af9d89788f6749d, type: 3}
+  - {fileID: 21300000, guid: df4b07c98a22bc246aeab4f213b86d08, type: 3}
+  - {fileID: 21300000, guid: fe5d46f3e2e0e5f47bba0210949090eb, type: 3}
+  - {fileID: 21300000, guid: dd0cc73a20637de4f93b656f2e9a1039, type: 3}
   _materials:
-  - {fileID: 2100000, guid: 8f1e358cc0e539048aecac6d982a26fe, type: 2}
-  - {fileID: 2100000, guid: c41771f4499c91b499e2d89bd80f0d7c, type: 2}
-  - {fileID: 2100000, guid: e51a01022a8a4f74994bc35f93162ab6, type: 2}
-  - {fileID: 2100000, guid: 1ae915605be07cd45b6cc19802ddce8e, type: 2}
-  - {fileID: 2100000, guid: a13c1d742af08004ab9b64dbef60ee2e, type: 2}
+  - {fileID: 2100000, guid: 24c9d94c1f00d444d801164beb6a26fa, type: 2}
+  - {fileID: 2100000, guid: c17c22e6f46d0b445acc2f3c9ca41bd2, type: 2}
+  - {fileID: 2100000, guid: 65188f2f911ca584e9c682f7b7e937d4, type: 2}
+  - {fileID: 2100000, guid: 55a8c21e13b797e4991d825e5860e88f, type: 2}
+  - {fileID: 2100000, guid: d3ffd3555fe4b744c8d3598b422421ca, type: 2}
 --- !u!114 &8566482944564548379
 MonoBehaviour:
   m_ObjectHideFlags: 0

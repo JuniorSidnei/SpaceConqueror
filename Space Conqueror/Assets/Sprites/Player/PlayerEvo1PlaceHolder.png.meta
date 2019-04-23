@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerEvo1PlaceHolder.png.meta
 guid: 509ad2c0dbdf42c47bf9320cb1cfd003
-=======
-guid: ea200438a023d7147ab79794afda01e6
->>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerEvo1PlaceHolder.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -40,7 +36,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -73,17 +69,35 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerEvo1PlaceHolder.png.meta
-    spriteID: 1c463d27ff6590e47b35769ef48c1111
-=======
-    spriteID: 507415975e4d5204b8bf4f07fab528af
->>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerEvo1PlaceHolder.png.meta
+    spriteID: 
     vertices: []
     indices: 
     edges: []

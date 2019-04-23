@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Effects/Flame.png.meta
 guid: 2101fd8a44927144b8aa8a1473c0437d
-=======
-guid: 720139aa7bc4c474787c869816f45496
->>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Effects/Flame.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -40,7 +36,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -73,17 +69,35 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Effects/Flame.png.meta
-    spriteID: cb7f549346da90645943b28e2bec7e8a
-=======
-    spriteID: 6c09726629c8d0e4785fb17de5573e12
->>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Effects/Flame.png.meta
+    spriteID: 
     vertices: []
     indices: 
     edges: []

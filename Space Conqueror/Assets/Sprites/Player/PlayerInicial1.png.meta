@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerInicial1.png.meta
 guid: a25e696319612db429a0e1043fa2313f
-=======
-guid: bff27928bdb49da47b15f7c6dc7f4cdd
->>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerInicial1.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -40,7 +36,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -73,17 +69,35 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD:Space Conqueror/Assets/Sprites/Player/PlayerInicial1.png.meta
-    spriteID: 9f19773e7bc0f1548be19d8923172e57
-=======
-    spriteID: 4f07e4329e433ba40bedd69df4ea69f1
->>>>>>> 16c4ad69a88a1276344e1169a8c4f9e0256fcb1d:Space Conqueror/Assets/Sprites/Player/PlayerInicial1.png.meta
+    spriteID: 
     vertices: []
     indices: 
     edges: []
