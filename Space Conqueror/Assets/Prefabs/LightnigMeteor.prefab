@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5eb700106ad0d8141bb197aa783d3dce, type: 2}
+  - {fileID: 2100000, guid: e51a01022a8a4f74994bc35f93162ab6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3f4b98d011e553f41ab4dade9fe97faf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff4c081f185e45a448ccdec008b71240, type: 3}
   m_Color: {r: 0.9811321, g: 0.83868587, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,17 +134,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprites:
-  - {fileID: 21300000, guid: cf77b882d04e3bc4283a285edf8be420, type: 3}
-  - {fileID: 21300000, guid: 99ee28de03d27b14a8cc07cf71c881a9, type: 3}
-  - {fileID: 21300000, guid: 3f4b98d011e553f41ab4dade9fe97faf, type: 3}
-  - {fileID: 21300000, guid: ee10b040ffc72d447aa5a97a88bcb50b, type: 3}
-  - {fileID: 21300000, guid: 87b0b5f8d8aea31428dd79ed4036a498, type: 3}
+  - {fileID: 21300000, guid: f79539f88a8ad284d885f68272758409, type: 3}
+  - {fileID: 21300000, guid: 90432794767a67e44b710399462090b7, type: 3}
+  - {fileID: 21300000, guid: ff4c081f185e45a448ccdec008b71240, type: 3}
+  - {fileID: 21300000, guid: 622773a31addfb8429b94dbcab17b876, type: 3}
+  - {fileID: 21300000, guid: 49f0f9b5bc0b64641b42d73ad5844a24, type: 3}
   _materials:
-  - {fileID: 2100000, guid: 6e68083a50406ac4aaf107476a51affa, type: 2}
-  - {fileID: 2100000, guid: 5eb700106ad0d8141bb197aa783d3dce, type: 2}
-  - {fileID: 2100000, guid: e035bc6355b53b744a940b03fa466d11, type: 2}
-  - {fileID: 2100000, guid: 17b6a1a2cb584a64ba4366894dc66250, type: 2}
-  - {fileID: 2100000, guid: 1a90343a678026d4785074591584fff1, type: 2}
+  - {fileID: 2100000, guid: 8f1e358cc0e539048aecac6d982a26fe, type: 2}
+  - {fileID: 2100000, guid: c41771f4499c91b499e2d89bd80f0d7c, type: 2}
+  - {fileID: 2100000, guid: e51a01022a8a4f74994bc35f93162ab6, type: 2}
+  - {fileID: 2100000, guid: 1ae915605be07cd45b6cc19802ddce8e, type: 2}
+  - {fileID: 2100000, guid: a13c1d742af08004ab9b64dbef60ee2e, type: 2}
 --- !u!114 &8566482944564548379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +162,11 @@ MonoBehaviour:
   type: 2
   _dyingMeteor: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
     type: 3}
+  _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
+    type: 3}
   _bulletHit: {fileID: 1146684628256710235, guid: b4d7d250db8409646909a4239e36e999,
     type: 3}
   _meteorExplosion: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
-    type: 3}
-  _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
     type: 3}
 --- !u!1001 &6724631517042077318
 PrefabInstance:
@@ -175,11 +175,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8293121036599380782}
     m_Modifications:
-    - target: {fileID: 1171160776289415737, guid: c4cce246250b0474dad4794f70d3acd1,
-        type: 3}
-      propertyPath: m_Name
-      value: Lightning
-      objectReference: {fileID: 0}
     - target: {fileID: 298255174798404339, guid: c4cce246250b0474dad4794f70d3acd1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,6 +239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171160776289415737, guid: c4cce246250b0474dad4794f70d3acd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Lightning
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4cce246250b0474dad4794f70d3acd1, type: 3}
