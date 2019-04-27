@@ -8,6 +8,7 @@ public class MeteorDefinitions : MonoBehaviour
     public Sprite[] _sprites;
     //Materiais dos meteoros
     public Material[] _materials;
+    
 
     void Start()
     {

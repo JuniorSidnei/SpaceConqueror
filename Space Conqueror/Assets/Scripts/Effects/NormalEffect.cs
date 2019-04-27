@@ -7,7 +7,6 @@ public class NormalEffect : PlayerEffects
 
     public override void EnterEffect(ControlPlayer player)
     {
-       
         _speed = 15f;
     }
 

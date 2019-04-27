@@ -11,7 +11,7 @@ public class LightningEffect : PlayerEffects
         _damage = 30;
         _speed = 0;
 
-        player.GetComponent<ControlPlayer>().ApplyDamage(_damage);
+        player.ApplyDamage(_damage);
 
     }
 

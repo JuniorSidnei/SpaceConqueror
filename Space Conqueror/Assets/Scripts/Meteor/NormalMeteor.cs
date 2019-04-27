@@ -5,9 +5,12 @@ using UnityEngine;
 public class NormalMeteor : MeteorStatus
 {
     public GameObject _meteorExplosion;
+    private int m_damage = 30;
 
     protected override void OnCollisionWithPlayer(ControlPlayer player)
     {
+
+        player.ApplyDamage(m_damage);
         //Meteor explosion
         GameObject tempHit = Instantiate(_meteorExplosion, transform.position, Quaternion.identity);
         Destroy(tempHit, 1f);

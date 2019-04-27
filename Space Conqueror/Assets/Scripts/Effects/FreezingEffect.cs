@@ -10,7 +10,7 @@ public class FreezingEffect : PlayerEffects
         _speed = 5f;
         _damage = 50;
 
-        player.GetComponent<ControlPlayer>().ApplyDamage(_damage);
+        player.ApplyDamage(_damage);
     }
 
     public override void RunEffect(ControlPlayer player)

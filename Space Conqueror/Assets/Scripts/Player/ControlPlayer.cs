@@ -25,19 +25,9 @@ public class ControlPlayer : MonoBehaviour
     //Tempo de recarga
     private float _reloadTime;
     //Vida do jogdor
-    public int _life;
+    public float _life;
     //Vida maxima do jogador
     public int _maxLife = 500;
-    ////Tempo de gelo
-    //private float _statusTimer = 0;
-    ////Se esta congelado
-    //private bool _freeze = false;
-    ////Se está com fogo
-    //private bool _flame = false;
-    ////Se está com raio
-    //private bool _lightning = false;
-    ////Pra deixar a nave com debuff
-    //private bool _systemFailing = false;
     //1/3 vida do jogador
     private int _halfLife;
     //Kit de reparos
@@ -137,7 +127,7 @@ public class ControlPlayer : MonoBehaviour
 
 
     //Função de dano
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         _life -= damage;
 

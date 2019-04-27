@@ -11,6 +11,7 @@ public class LightningMeteor : MeteorStatus
     //Colisão player meteoro de raio
     protected override void OnCollisionWithPlayer(ControlPlayer player)
     {
+        
         //Efeito de raio
         player.AddEffect(new LightningEffect());
 
