@@ -72,7 +72,7 @@ public class KrasLosnas : MonoBehaviour
 
         _isOverHeatCount++;
 
-        if (_isOverHeatCount >= 20)
+        if (_isOverHeatCount >= 40)
         {
               _isOverHeat = true;
             _isOverHeatCount = 0;
