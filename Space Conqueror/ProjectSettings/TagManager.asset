@@ -10,7 +10,8 @@ TagManager:
   - LightningMeteor
   - FlamingMeteor
   - FreezingMeteor
-  - BigMeteor
+  - BossBullet
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - PlayerLayer
   - ShootLayer
   - PostProcessing
-  - 
+  - BossLayer
   - 
   - 
   - 

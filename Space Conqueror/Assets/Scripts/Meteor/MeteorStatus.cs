@@ -93,31 +93,9 @@ public abstract class MeteorStatus : MonoBehaviour
         if (obj.gameObject.layer == 10)
         {
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
-           
-                ////Verificando o tipo de meteoro para aplicar o efeito correto
-                //switch (type)
-                //{
-                //    //Gelo
-                //    case MeteorType.Ice:
-
-                //        obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new FreezingEffect());
-                //        break;
-
-                //    //Fogo
-                //    case MeteorType.Fire:
-
-                //        obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new FlamingEffect());
-                //    break;
-
-                //    //Raio
-                //    case MeteorType.Thunder:
-
-                //        obj.gameObject.GetComponent<ControlPlayer>().AddEffect(new LightningEffect());
-                //    break;
-                //}
-
-                //Destruindo meteoro
-                Destroy(gameObject);
+                
+           //Destruindo meteoro
+             Destroy(gameObject);
             
         }
     }

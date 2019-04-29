@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 65f6ef7d7cb8aae4c8fccfa1cda4366f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: PrimmaryPlayerShootSheet_0
+    21300002: PrimmaryPlayerShootSheet_1
+    21300004: PrimmaryPlayerShootSheet_2
+    21300006: PrimmaryPlayerShootSheet_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +44,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -93,11 +97,91 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PrimmaryPlayerShootSheet_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 11
+        width: 84
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e6fec1c8daa764692d10cd6956fe05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrimmaryPlayerShootSheet_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 10
+        width: 84
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c474af337fc84164089c04b93e52f2cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrimmaryPlayerShootSheet_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 10
+        width: 84
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a941d6edbb5cac48a3490a58829a02c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrimmaryPlayerShootSheet_3
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 10
+        width: 81
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a446f43cf17c9e4db0c65a70293f2dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5215bf930f5227741ad53620206a3c54
     vertices: []
     indices: 
     edges: []

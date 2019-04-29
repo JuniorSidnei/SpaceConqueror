@@ -63,17 +63,6 @@ public class ControlPlayer : MonoBehaviour
         //Movendo o jogador
         transform.position += _moveVelocity;
 
-
-        ////Se for atingido pelos meteoros de gelo, fogo ou raio
-        //if (_freeze)
-        //    FreezingStatus();
-        //else if (_flame)
-        //    FlamingStatus();
-        //else if (_lightning)
-        //    LightningStatus();
-        //else
-        //    NormalStatus();
-
        
         //Aplicando os efeitos ao jogador
         for (int i = 0; i < m_currentEffects.Count; i++)
@@ -91,40 +80,9 @@ public class ControlPlayer : MonoBehaviour
 
     //Função de tiro do personagem
     public void Shoot()
-    {
-        //Instancia copiada de tiro
-       GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform);
-        
-    }
+    { GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform); }
 
-    ////Colisão
-    //private void OnCollisionEnter2D(Collision2D obj)
-    //{
-    //    //Se colidir com a layer dos meteoros que é a 8
-    //    if(obj.gameObject.layer == 8)
-    //    {
-            
-    //        //Meteoro de gelo
-    //        if (obj.gameObject.CompareTag("FreezingMeteor"))
-    //            _freeze = true;
-
-    //        //Meteoro de fogo
-    //        if (obj.gameObject.CompareTag("FlamingMeteor"))
-               
-
-    //        //Meteoro de raio
-    //        if (obj.gameObject.CompareTag("LightningMeteor"))
-    //            _lightning = true;
-
-    //        //Aplicando o valor de dano quando bate no meteoro
-    //        ApplyDamage(obj.collider.GetComponent<MeteorStatus>().getDamage());
-    //        Destroy(obj.gameObject);
-    //    }
-
-    //}
-
-    
-
+   
 
     //Função de dano
     public void ApplyDamage(float damage)
@@ -159,72 +117,6 @@ public class ControlPlayer : MonoBehaviour
         _repairUsed = false;
     }
 
-    ////Status normal do jogador
-    //void NormalStatus()
-    //{
-    //    gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-    //    _speed = 15f;
-    //}
-
-    ///Função quando atingido por meteoros que dão efeitos
-    //Vai deixar o jogador lento por dois segundos
-    //void FreezingStatus()
-    //{
-    //    //Debuff visual e de velocidade, começar animação de gelo
-    //    gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-    //    _speed = 5f;
-
-    //    //Tirando o tempo de dois segundos
-    //    _statusTimer += Time.deltaTime;
-
-
-    //    //Enquanto for maior que o tempo vai ficar com debuff, terminar animação de gelo
-    //    if (_statusTimer >= 2f)
-    //    {
-    //        _freeze = false;
-    //        _statusTimer = 0;
-    //    }
-    //}
-
-    ///Função quando atingido pelo meteoro de raio
-    //Vai deixar a nave parada por um segundo
-    //void LightningStatus()
-    //{
-    //    //Começar animação de raio
-    //    gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
-    //    _speed = 0;
-
-    //    //Contando o tempo
-    //    _statusTimer += Time.deltaTime;
-
-    //    //Terminar animação de raio
-    //    if (_statusTimer >= 1f)
-    //    {
-    //        _lightning = false;
-    //        _statusTimer = 0;
-    //    }
-    //}
-
-    ///Função quando atingido pelo meteoro de fogo
-    ////Vai dar dano de fogo por dois segundos
-    //void FlamingStatus()
-    //{
-    //    //Deixando a sprite vermelha por causa do fogo, deixar a animação de fogo começando aqui
-    //    gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-
-    //    //Contando o tempo
-    //    _statusTimer += Time.deltaTime;
-
-    //    //Dps de fogo
-    //    if (_statusTimer >= 0.5f)
-    //    {
-    //        _statusTimer = 0;
-    //        StartCoroutine(FlamingDamage());
-    //    }
-
-
-    //}
-
     public void ErrorSystem()
     {
         //Diminuir a velocidade
@@ -256,8 +148,26 @@ public class ControlPlayer : MonoBehaviour
 
     //Setando speed
     public void SetSpeed(float speed)
+    {  _speed = speed;  }
+
+    //Colisões do jogador
+    private void OnCollisionEnter2D(Collision2D obj)
     {
-        _speed = speed;
+        //Layer 13, tudo referente ao boss
+        if(obj.gameObject.layer == 13)
+        {
+            //Tiro do Boss
+            if(obj.gameObject.CompareTag("BossBullet"))
+            {
+                ApplyDamage(obj.gameObject.GetComponent<StandardBullet>()._damage);
+                Destroy(obj.gameObject);
+            }
+
+            //Corpo do Boss
+            if(obj.gameObject.CompareTag("Boss"))
+            {
+                ApplyDamage(30);
+            }
+        }
     }
-  
 }
