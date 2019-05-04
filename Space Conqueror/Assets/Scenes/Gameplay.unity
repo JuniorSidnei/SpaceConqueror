@@ -4040,6 +4040,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 3736940414711053266, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: m_ptcShoot
+      value: 
+      objectReference: {fileID: 8837891537412928460, guid: 6a56ce13f037e514294708bb66c2901f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3120565e0221bea46b2b51e2e18a0aea, type: 3}
 --- !u!1001 &3322901171867806260
@@ -4054,21 +4060,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3322901171287341633, guid: 963ae7d2825481046848f6f6f38fae85,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3322901171287341633, guid: 963ae7d2825481046848f6f6f38fae85,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3322901171287341644, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1749937716}
+    - target: {fileID: 3322901171287341644, guid: 963ae7d2825481046848f6f6f38fae85,
+        type: 3}
+      propertyPath: m_ptcShooting
+      value: 
+      objectReference: {fileID: 2965883412010837492, guid: 78242ebd6d0144f4286be3fbed341388,
+        type: 3}
     - target: {fileID: 3322901171287341635, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4123,26 +4125,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3322901171859569142, guid: 963ae7d2825481046848f6f6f38fae85,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469940569967935504, guid: 963ae7d2825481046848f6f6f38fae85,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 316076284395349467, guid: 963ae7d2825481046848f6f6f38fae85,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6904268667948005870, guid: 963ae7d2825481046848f6f6f38fae85,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 963ae7d2825481046848f6f6f38fae85, type: 3}

@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb944286877fd61488855891a21192aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_particleCollision: {fileID: 758699164120832768, guid: 682a4e37f8651234692b7f63ba763acc,
+  m_particleCollision: {fileID: 4956470376085800879, guid: eab586e2674380c4e9c922ef56ded6cf,
     type: 3}
 --- !u!95 &4671664209363076443
 Animator:

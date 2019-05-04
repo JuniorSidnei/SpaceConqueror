@@ -34,6 +34,8 @@ public class ControlPlayer : MonoBehaviour
     [SerializeField]public bool _repairUsed;
     //Vários estados do jogador
     List<PlayerEffects> m_currentEffects;
+    //Particula quando atira
+    public GameObject m_ptcShooting;
     ///</Variáveis do jogador>
 
     ///<Layer para colisões>
@@ -80,7 +82,11 @@ public class ControlPlayer : MonoBehaviour
 
     //Função de tiro do personagem
     public void Shoot()
-    { GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform); }
+    {
+        GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform);
+        GameObject tempShooting = Instantiate(m_ptcShooting, _shotPos.position, Quaternion.Euler(0,0,180), transform);
+        Destroy(tempShooting, 1f);
+    }
 
    
 

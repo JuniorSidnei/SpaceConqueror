@@ -10,6 +10,8 @@ public class KrasLosnas : MonoBehaviour
 
     public Transform _spawnShoot;
 
+    public GameObject m_ptcShoot;
+
     public GameObject _projectile;
 
     private int _isOverHeatCount = 0;
@@ -68,6 +70,7 @@ public class KrasLosnas : MonoBehaviour
     public void ShootAndOverHeat()
     {
         GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity, transform);
+        GameObject tempExp = Instantiate(m_ptcShoot, _spawnShoot.position, Quaternion.identity, transform);
         Destroy(tempprojectile, 4f);
 
         _isOverHeatCount++;

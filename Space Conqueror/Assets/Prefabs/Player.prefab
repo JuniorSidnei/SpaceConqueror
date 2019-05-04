@@ -103,6 +103,8 @@ MonoBehaviour:
   _life: 500
   _maxLife: 500
   _repairUsed: 0
+  m_ptcShooting: {fileID: 2965883412010837492, guid: 78242ebd6d0144f4286be3fbed341388,
+    type: 3}
   _colisionLayer:
     serializedVersion: 2
     m_Bits: 0
