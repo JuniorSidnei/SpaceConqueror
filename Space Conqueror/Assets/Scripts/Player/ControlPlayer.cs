@@ -11,7 +11,7 @@ public class ControlPlayer : MonoBehaviour
 
     ///<Variáveis do jogador>
     //Velocidade da nave
-    private float _speed = 15f;
+    public float _speed = 700;
     //Joystick de mobile
     public Joystick joystick;
     //Float de posição do personagem
@@ -63,7 +63,7 @@ public class ControlPlayer : MonoBehaviour
         _moveVelocity = _moveInput * _speed * Time.deltaTime;
 
         //Movendo o jogador
-        transform.position += _moveVelocity;
+        transform.position += _moveVelocity * Time.deltaTime;
 
        
         //Aplicando os efeitos ao jogador
@@ -84,8 +84,9 @@ public class ControlPlayer : MonoBehaviour
     public void Shoot()
     {
         GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform);
-        GameObject tempShooting = Instantiate(m_ptcShooting, _shotPos.position, Quaternion.Euler(0,0,180), transform);
-        Destroy(tempShooting, 1f);
+        //Particulas
+        //GameObject tempShooting = Instantiate(m_ptcShooting, _shotPos.position, Quaternion.Euler(-90, 0, 0));
+        //Destroy(tempShooting, 1f);
     }
 
    
@@ -94,8 +95,6 @@ public class ControlPlayer : MonoBehaviour
     public void ApplyDamage(float damage)
     {
         _life -= damage;
-
-        //var halfLife = _maxLife / 2;
 
         //Chamada do evento de dano
         if (DamageEvent != null)
@@ -126,7 +125,7 @@ public class ControlPlayer : MonoBehaviour
     public void ErrorSystem()
     {
         //Diminuir a velocidade
-        _speed = 10f;
+        _speed = 600f;
         //E aplicar um efeito de animação de vidro quebrado pra dificultar o personagem a enxergar
         //além da mensagem de que a nave está com problemas técnicos
     }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1067488296251486559}
   - component: {fileID: 5937978385728492978}
   - component: {fileID: 18472938823206484}
+  - component: {fileID: 8697825913104735792}
   m_Layer: 0
   m_Name: KrassShootingExplosion
   m_TagString: Untagged
@@ -4713,7 +4714,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4756,3 +4757,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8697825913104735792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837891537412928460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dff28ed3bd344c4695b9c47c8516aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

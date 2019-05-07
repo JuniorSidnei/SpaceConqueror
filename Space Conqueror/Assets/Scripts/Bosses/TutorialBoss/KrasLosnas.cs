@@ -62,6 +62,7 @@ public class KrasLosnas : MonoBehaviour
     {
         if(obj.gameObject.layer == 11)
         {
+           
             _krasLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
             Destroy(obj.gameObject);
         }

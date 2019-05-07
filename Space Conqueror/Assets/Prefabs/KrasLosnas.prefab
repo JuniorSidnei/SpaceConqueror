@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7928195824420632605}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SmokeEngine2
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7055124216419715533}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SmokeEngine
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5762370894518054808}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: shootSpawn
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -103,9 +103,9 @@ GameObject:
   - component: {fileID: 7775495712412859760}
   - component: {fileID: 3736940414711053266}
   - component: {fileID: 8274853911748408927}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: KrasLosnas
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnShoot: {fileID: 5762370894518054808}
+  m_ptcShoot: {fileID: 0}
   _projectile: {fileID: 33547447053011051, guid: dfffc1474337f374fa113bcd63c12505,
     type: 3}
 --- !u!60 &8274853911748408927
@@ -251,6 +252,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8308483181351461044}
     m_Modifications:
+    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameMotorDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5639012950446332455, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -306,10 +317,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+    - target: {fileID: 4975070932351702362, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
-      propertyPath: m_Name
-      value: FlameMotorDown
+      propertyPath: m_Color.rgba
+      value: 4294940468
       objectReference: {fileID: 0}
     - target: {fileID: 7338747171311979929, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
@@ -331,11 +342,6 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 4975070932351702362, guid: dcffeeb129a2ae945a8abd6813a407ae,
-        type: 3}
-      propertyPath: m_Color.rgba
-      value: 4294940468
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcffeeb129a2ae945a8abd6813a407ae, type: 3}
 --- !u!4 &479653792580915379 stripped
@@ -351,6 +357,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8308483181351461044}
     m_Modifications:
+    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameMotorUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5639012950446332455, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -406,10 +422,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8572609718070185252, guid: dcffeeb129a2ae945a8abd6813a407ae,
+    - target: {fileID: 4975070932351702362, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
-      propertyPath: m_Name
-      value: FlameMotorUp
+      propertyPath: m_Color.rgba
+      value: 4294940468
       objectReference: {fileID: 0}
     - target: {fileID: 7338747171311979929, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
@@ -430,11 +446,6 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4975070932351702362, guid: dcffeeb129a2ae945a8abd6813a407ae,
-        type: 3}
-      propertyPath: m_Color.rgba
-      value: 4294940468
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcffeeb129a2ae945a8abd6813a407ae, type: 3}

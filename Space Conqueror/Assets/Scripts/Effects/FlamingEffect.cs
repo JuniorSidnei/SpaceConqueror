@@ -8,8 +8,8 @@ public class FlamingEffect : PlayerEffects
     //Flaminmg state, quando atingido pelo meteoro de FUEGO!
     public override void EnterEffect(ControlPlayer player)
     {
-        _damage = 0.05f;
-        player.ApplyDamage(_damage);
+        _effectDamage = 0.05f;
+        player.ApplyDamage(_effectDamage);
     }
 
     public override void RunEffect(ControlPlayer player)
@@ -20,11 +20,11 @@ public class FlamingEffect : PlayerEffects
     
 
         //Contando o tempo
-        _timer += Time.deltaTime;
+        _effectTimer += Time.deltaTime;
 
-        if (_timer >= 0.5f && _timer <= 0.8f)
-            player.ApplyDamage(_flameDamage);
-        else if(_timer >= 1f)
+        if (_effectTimer >= 0.5f && _effectTimer <= 0.8f)
+            player.ApplyDamage(_effectFlameDamage);
+        else if(_effectTimer >= 1f)
             player.RemoveEffect(this);
        
 

@@ -61,27 +61,23 @@ public abstract class MeteorStatus : MonoBehaviour
                 case MeteorType.Ice:
 
                     GameObject tempHit = Instantiate(_bulletHit, transform.position, Quaternion.identity);
-                    Destroy(tempHit, 1f);
                     break;
 
                 //Fogo
                 case MeteorType.Fire:
 
                     GameObject tempHit2 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
-                    Destroy(tempHit2, 1f);
                     break;
 
                 //Raio
                 case MeteorType.Thunder:
 
                     GameObject tempHit3 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
-                    Destroy(tempHit3, 1f);
                     break;
                 //Normal
                 case MeteorType.Normal:
 
                     GameObject tempHit4 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
-                    Destroy(tempHit4, 1f);
                     break;
             }
 

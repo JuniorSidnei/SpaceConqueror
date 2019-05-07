@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33547447053011051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.14, y: 1.02, z: 0}
+  m_LocalPosition: {x: -8.68, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2070089106818673537}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cb809118c22a3094a9e1e04df0727709, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.73289764, g: 0.8113208, b: 0.07271269, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 1.03, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5158148595224985190
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_particleCollision: {fileID: 4956470376085800879, guid: eab586e2674380c4e9c922ef56ded6cf,
     type: 3}
+  m_tagObject: Player
+  m_numberLayer: 10
 --- !u!95 &4671664209363076443
 Animator:
   serializedVersion: 3

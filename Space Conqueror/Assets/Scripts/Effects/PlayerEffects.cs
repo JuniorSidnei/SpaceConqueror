@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class PlayerEffects
 {
-    public float _damage;
-    public float _timer = 0f;
-    public float _speed;
-    public int _flameDamage = 5;
+    public float _effectDamage;
+    public float _effectTimer = 0f;
+    public float _effectSpeed;
+    public int _effectFlameDamage = 5;
 
     //Entrando no efeito
     public abstract void EnterEffect(ControlPlayer player);

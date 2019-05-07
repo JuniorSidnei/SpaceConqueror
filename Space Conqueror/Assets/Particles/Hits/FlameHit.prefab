@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2138744800835806384}
   - component: {fileID: 2774269490156709894}
   - component: {fileID: 6951048946199069482}
+  - component: {fileID: 4413730223841189076}
   m_Layer: 0
   m_Name: FlameHit
   m_TagString: Untagged
@@ -600,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 70
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4756,3 +4757,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4413730223841189076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059430551990369381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dff28ed3bd344c4695b9c47c8516aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

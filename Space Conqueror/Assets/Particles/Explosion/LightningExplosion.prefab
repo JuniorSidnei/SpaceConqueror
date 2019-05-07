@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5642125157358871371}
   - component: {fileID: 5482163829919170534}
   - component: {fileID: 747741512451410189}
+  - component: {fileID: 4189351131985213264}
   m_Layer: 0
   m_Name: LightningExplosion
   m_TagString: Untagged
@@ -4697,7 +4698,7 @@ ParticleSystem:
 --- !u!199 &747741512451410189
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4756,3 +4757,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4189351131985213264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357999188058935552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dff28ed3bd344c4695b9c47c8516aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,10 +8,10 @@ public class LightningEffect : PlayerEffects
     public override void EnterEffect(ControlPlayer player)
     {
         
-        _damage = 30;
-        _speed = 0;
+        _effectDamage = 30;
+        _effectSpeed = 0;
 
-        player.ApplyDamage(_damage);
+        player.ApplyDamage(_effectDamage);
 
     }
 
@@ -20,16 +20,16 @@ public class LightningEffect : PlayerEffects
 
         //Começar animação de raio
         player.GetComponent<SpriteRenderer>().color = Color.yellow;
-        player.SetSpeed(_speed);
+        player.SetSpeed(_effectSpeed);
 
         //Contando o tempo
-        _timer += Time.deltaTime;
+        _effectTimer += Time.deltaTime;
        
 
         //Terminar animação de raio
-        if (_timer >= 1f)
+        if (_effectTimer >= 1f)
         {
-            _timer = 0;
+            _effectTimer = 0;
             player.RemoveEffect(this);
         }
     }

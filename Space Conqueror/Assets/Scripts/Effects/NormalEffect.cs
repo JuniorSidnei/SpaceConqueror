@@ -7,14 +7,14 @@ public class NormalEffect : PlayerEffects
 
     public override void EnterEffect(ControlPlayer player)
     {
-        _speed = 15f;
+        _effectSpeed = 700;
     }
 
 
     public override void RunEffect(ControlPlayer player)
     {
         player.GetComponent<SpriteRenderer>().color = Color.white;
-        player.SetSpeed(_speed);
+        player.SetSpeed(_effectSpeed);
     }
 
     public override void ExitEffect(ControlPlayer player)
