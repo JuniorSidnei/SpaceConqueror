@@ -14,25 +14,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Overheat
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoDash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: BeforeDash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -58,6 +58,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d3b56fa1dddec46bfc3609757ab27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114029790631350948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b83fbf96523da44815d2407fc998ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_smoke: {fileID: 1885986554651435198, guid: 53fdbbea140aacb43bfce8c08c4b05be, type: 3}
 --- !u!114 &114153125157935470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +86,19 @@ MonoBehaviour:
   _maxTimer: 0
   _minTimer: 0
   _rand: 0
+--- !u!114 &114299581717255868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b83fbf96523da44815d2407fc998ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_smoke: {fileID: 1885986554651435198, guid: 53fdbbea140aacb43bfce8c08c4b05be, type: 3}
 --- !u!114 &114661820763542626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,7 +386,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101179818103797864}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114299581717255868}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -387,7 +414,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101481216319601626}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114029790631350948}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

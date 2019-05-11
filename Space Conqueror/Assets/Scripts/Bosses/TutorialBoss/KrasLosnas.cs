@@ -14,6 +14,8 @@ public class KrasLosnas : MonoBehaviour
 
     public GameObject _projectile;
 
+    public GameObject m_smoke;
+
     private int _isOverHeatCount = 0;
 
     private bool _isOverHeat = false;
@@ -22,13 +24,14 @@ public class KrasLosnas : MonoBehaviour
 
     private float _overHeatTimer = 0f;
 
+
     
     void Start()
     {
         _KrasAnim = GetComponent<Animator>();
     }
 
-    
+
     void Update()
     {
         if (_isOverHeat)
@@ -42,10 +45,11 @@ public class KrasLosnas : MonoBehaviour
                 _overHeatTimer = 0;
             }
         }
-        
+
         //Se a vida do boss for menor que 400 e ele não estiver sobrecarregado, pode atirar
         if (_krasLife <= 400 && _isOverHeat == false)
         {
+          
             _KrasAnim.SetBool("BurstOn", true);
             _shootTimer += Time.deltaTime;
 
@@ -55,7 +59,8 @@ public class KrasLosnas : MonoBehaviour
                 _shootTimer = 0f;
             }
         }
-       
+
+     
     }
 
     void OnCollisionEnter2D(Collision2D obj)
