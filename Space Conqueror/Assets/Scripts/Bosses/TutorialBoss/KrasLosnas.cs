@@ -75,19 +75,21 @@ public class KrasLosnas : MonoBehaviour
 
     public void ShootAndOverHeat()
     {
-        GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity, transform);
+       
         GameObject tempExp = Instantiate(m_ptcShoot, _spawnShoot.position, Quaternion.identity, transform);
+        
+        GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity, transform);
+        tempprojectile.transform.right = Vector3.right;
         Destroy(tempprojectile, 4f);
 
         _isOverHeatCount++;
-
+        
         if (_isOverHeatCount >= 40)
         {
               _isOverHeat = true;
             _isOverHeatCount = 0;
             _KrasAnim.SetBool("Overheat", true);
-            
+   
         }
-
     }
 }

@@ -18,7 +18,7 @@ public class FreezingEffect : PlayerEffects
        
         //Debuff visual e de velocidade, começar animação de gelo
         player.GetComponent<SpriteRenderer>().color = Color.blue;
-        player.SetSpeed(_effectSpeed);
+        m_playerInfo.Speed = _effectSpeed;
 
         //Tirando o tempo de dois segundos
         _effectTimer += Time.deltaTime;
@@ -35,6 +35,5 @@ public class FreezingEffect : PlayerEffects
     public override void ExitEffect(ControlPlayer player)
     {
         player.AddEffect(new NormalEffect());
-       
     }
 }

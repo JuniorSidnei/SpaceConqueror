@@ -8,7 +8,7 @@ public class FlamingEffect : PlayerEffects
     //Flaminmg state, quando atingido pelo meteoro de FUEGO!
     public override void EnterEffect(ControlPlayer player)
     {
-        _effectDamage = 0.05f;
+        _effectDamage = 5;
         player.ApplyDamage(_effectDamage);
     }
 

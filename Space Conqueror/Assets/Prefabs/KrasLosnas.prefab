@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 7775495712412859759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.046536, y: -1.164263, z: -0.42}
-  m_LocalScale: {x: 1, y: 0.9, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.65, z: 1}
   m_Children:
   - {fileID: 5762370894518054808}
   - {fileID: 1311819458658687327}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnShoot: {fileID: 5762370894518054808}
-  m_ptcShoot: {fileID: 8837891537412928460, guid: 6a56ce13f037e514294708bb66c2901f,
+  m_ptcShoot: {fileID: 6387949952302405291, guid: 0f4a11c0332db18458cf2e7d7d76c220,
     type: 3}
   _projectile: {fileID: 33547447053011051, guid: dfffc1474337f374fa113bcd63c12505,
     type: 3}

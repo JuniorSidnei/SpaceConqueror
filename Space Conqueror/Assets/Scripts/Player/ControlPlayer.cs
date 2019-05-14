@@ -11,7 +11,7 @@ public class ControlPlayer : MonoBehaviour
 
     ///<Variáveis do jogador>
     //Velocidade da nave
-    public float _speed = 700;
+    //public float _speed = 700;
     //Joystick de mobile
     public Joystick joystick;
     //Float de posição do personagem
@@ -23,15 +23,17 @@ public class ControlPlayer : MonoBehaviour
     //Objeto de tiro
     public GameObject _shoot;
     //Tempo de recarga
-    private float _reloadTime;
+    private float _reloadTime = 0.5f;
+    //Pode atirar
+    private bool _canShoot;
     //Vida do jogdor
-    public float _life;
+    //public float _life;
     //Vida maxima do jogador
-    public int _maxLife = 500;
+    //public int _maxLife = 500;
     //1/3 vida do jogador
-    private int _halfLife;
-    //Kit de reparos
-    [SerializeField]public bool _repairUsed;
+    //private int _halfLife;
+    public PlayerInfo m_playerInfo;
+    
     //Vários estados do jogador
     List<PlayerEffects> m_currentEffects;
     //Particula quando atira
@@ -47,90 +49,84 @@ public class ControlPlayer : MonoBehaviour
 
     void Start()
     {
-        _life = _maxLife;
-        _halfLife = _maxLife / 3;
-        _repairUsed = true;
-
-       m_currentEffects = new List<PlayerEffects>();
-
+        m_currentEffects = new List<PlayerEffects>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Movimento do jogador
-        _moveInput =  new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
-        _moveVelocity = _moveInput * _speed * Time.deltaTime;
-
-        //Movendo o jogador
-        transform.position += _moveVelocity * Time.deltaTime;
-
-       
+        
+        Move();
+        ReloadTimer();
+        
+        if(Input.GetKey(KeyCode.Space) && _canShoot)
+            Shoot();
+            
         //Aplicando os efeitos ao jogador
         for (int i = 0; i < m_currentEffects.Count; i++)
         {
             m_currentEffects[i].RunEffect(this);
         }
-
-
-        if (_life <= _halfLife)
-        {
-            //Chamando a função que vai dar o debuff
-            ErrorSystem();
-        }
     }
 
+    public void Move()
+    {
+        //Movimento do jogador
+        _moveInput  = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+        _moveVelocity = m_playerInfo.Speed * Time.deltaTime * _moveInput;
+
+        //Movendo o jogador
+        transform.position += _moveVelocity * Time.deltaTime;
+    }
+    
     //Função de tiro do personagem
     public void Shoot()
     {
-        GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity, transform);
-        //Particulas
-        //GameObject tempShooting = Instantiate(m_ptcShooting, _shotPos.position, Quaternion.Euler(-90, 0, 0));
-        //Destroy(tempShooting, 1f);
+        GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity);
+        tempBullet.transform.right = Vector3.right;
+        
+        _canShoot = false;
     }
 
-   
+    private void ReloadTimer()
+    {
+        _reloadTime -= Time.deltaTime;
+
+        if (_reloadTime <= 0)
+        {
+            _canShoot = true;
+            _reloadTime = 0.5f;
+        }
+    }
 
     //Função de dano
-    public void ApplyDamage(float damage)
+    public void ApplyDamage(int damage)
     {
-        _life -= damage;
+        m_playerInfo.CurrentLife -= damage;
 
-        //Chamada do evento de dano
-        if (DamageEvent != null)
-            DamageEvent.Invoke((float)_life / _maxLife);
+//        //Chamada do evento de dano
+//        if (DamageEvent != null)
+//            DamageEvent.Invoke((float)_life / _maxLife);
+//      
         
         //Se a vida zerar
-        if (_life <= 0)
+        if (m_playerInfo.CurrentLife <= 0)
             Destroy(gameObject); 
     }
+
 
     //Usando kit de reparos
     public void RepairKit(int recover)
     {
-        _life += recover;
+        m_playerInfo.CurrentLife += recover;
 
         //Se a vida chegar ao máximo quando recuperar, fica no máximo
-        if (_life >= _maxLife)
-            _life = _maxLife;
-
-        //Chamada do evento de dano
-        if (DamageEvent != null)
-            DamageEvent.Invoke((float)_life / _maxLife);
-
-        //Chamando evento de reparos
-        _repairUsed = false;
+        if (m_playerInfo.CurrentLife >= m_playerInfo.MaxLife)
+            m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
     }
 
-    public void ErrorSystem()
-    {
-        //Diminuir a velocidade
-        _speed = 600f;
-        //E aplicar um efeito de animação de vidro quebrado pra dificultar o personagem a enxergar
-        //além da mensagem de que a nave está com problemas técnicos
-    }
 
-   
 
     //Aplicar efeito
     public void AddEffect(PlayerEffects nextEffect)
@@ -148,12 +144,8 @@ public class ControlPlayer : MonoBehaviour
         //Saindo do efeito
         removeEffect.ExitEffect(this);
         m_currentEffects.Remove(removeEffect);
-
     }
-
-    //Setando speed
-    public void SetSpeed(float speed)
-    {  _speed = speed;  }
+    
 
     //Colisões do jogador
     private void OnCollisionEnter2D(Collision2D obj)
