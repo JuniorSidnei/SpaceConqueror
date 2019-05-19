@@ -6,9 +6,9 @@ using UnityEngine;
 public class PanelControllerConversation : BaseHudBehavior
 {
     private PlayerInfo m_playerInfo;
-    public TextMeshProUGUI m_conversationText;
-    public TextMeshProUGUI m_NameNPC;
-
+    //public TextMeshProUGUI m_conversationText;
+    //public TextMeshProUGUI m_NameNPC;
+   
     
     public override void SetPlayerInfo(PlayerInfo playerInfo)
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ControlPlayer", menuName = "Scriptable/MyScriptable")]
+[CreateAssetMenu(menuName = "Scriptable/PlayerInfo")]
 public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
 {
     public event Action<PlayerInfo> OnValueChanged;

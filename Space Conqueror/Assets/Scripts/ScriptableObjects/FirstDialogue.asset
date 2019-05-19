@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77426ed644188a740818579c29ee07d8, type: 3}
+  m_Name: FirstDialogue
+  m_EditorClassIdentifier: 
+  m_speechNumber: 1
+  m_speechName: IntroGame
+  speechGroup:
+  - m_currentSpeaker: 1
+    m_speechText: It's everything allright Sir, we are leaving the KrasLonas Colony
+      with safety. U got everyThing you need?
+  - m_currentSpeaker: 0
+    m_speechText: Yeah Orion, i've got everthing that i need. They should have collaborated
+      more...or don't, maybe some action is necessary to fill my loneliness.
+  - m_currentSpeaker: 1
+    m_speechText: 'You aren''t alone, Sir. I"m here. Not enough? '
+  - m_currentSpeaker: 0
+    m_speechText: 'Sometimes i forgot, sorry buddy. For now, let''s just travel and
+      try to find some pub to drink a lot. '
+  - m_currentSpeaker: 1
+    m_speechText: 'Sir....you know i can''t drink, right? After all......Sir! Meteors
+      ahead. There''s no way we can avoid them. '
+  - m_currentSpeaker: 0
+    m_speechText: That's all i need now meteors and certainly, after this, i'll need
+      some alcohol!

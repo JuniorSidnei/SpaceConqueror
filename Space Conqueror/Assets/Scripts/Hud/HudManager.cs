@@ -13,6 +13,8 @@ public class HudManager : MonoBehaviour
 
     [SerializeField]
     private PanelControllerConversation m_PanelControllerConversation;
+
+    private static bool m_isLoaded = false;
     
     //Instancia da HUD
     public static HudManager Instance;
@@ -24,7 +26,11 @@ public class HudManager : MonoBehaviour
     public static void Show(Action finishedInitializeCallback)
     {
        m_onFinishedInitialize = finishedInitializeCallback;
-       SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive);
+       if (!m_isLoaded)
+       {
+           SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive);
+           m_isLoaded = true;
+       }
     }       
     
     void Awake()
@@ -37,10 +43,14 @@ public class HudManager : MonoBehaviour
             m_onFinishedInitialize();
     }
     
-    public void InitializeHudInfo(PlayerInfo playerInfo)
+    public void InitializeHudPlayingInfo(PlayerInfo playerInfo)
     { 
         m_PanelControllerPlaying.SetPlayerInfo(playerInfo);
+       
+    }
+
+    public void InitializeHudDialogueInfo(PlayerInfo playerInfo)
+    {
         m_PanelControllerConversation.SetPlayerInfo(playerInfo);
     }
-    
 }

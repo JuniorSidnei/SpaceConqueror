@@ -6,6 +6,8 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    
+    
     //Referencia pra UI
     public TextMeshProUGUI _nameText;
     public TextMeshProUGUI _sentenceText;

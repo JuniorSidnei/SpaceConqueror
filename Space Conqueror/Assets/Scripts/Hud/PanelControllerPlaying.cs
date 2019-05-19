@@ -28,12 +28,12 @@ public class PanelControllerPlaying : BaseHudBehavior
     private void UpdateHudValues(PlayerInfo playerinfo)
     {
         if (playerinfo == null) return;
-        m_LifeBarFill.fillAmount = playerinfo.CurrentLife / playerinfo.MaxLife;
-        m_playerLifeText.text = ("" + playerinfo.CurrentLife + " / " + playerinfo.MaxLife);
+        m_LifeBarFill.fillAmount = (float)playerinfo.CurrentLife / playerinfo.MaxLife;
+        m_playerLifeText.text = ("" + playerinfo.CurrentLife);
     }
 
 
-public override void HandleConversation()
+    public override void HandleConversation()
     {
         base.HandleConversation();
     }
