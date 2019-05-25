@@ -5,19 +5,19 @@ using UnityEngine;
 public class NormalEffect : PlayerEffects
 {
 
-    public override void EnterEffect(ControlPlayer player)
+    public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         _effectSpeed = 700;
     }
 
 
-    public override void RunEffect(ControlPlayer player)
+    public override void RunEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         player.GetComponent<SpriteRenderer>().color = Color.white;
-        m_playerInfo.Speed = _effectSpeed;
+        playerInfo.Speed = _effectSpeed;
     }
 
-    public override void ExitEffect(ControlPlayer player)
+    public override void ExitEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
        
     }

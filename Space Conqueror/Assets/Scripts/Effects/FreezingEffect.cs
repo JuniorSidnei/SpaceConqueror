@@ -5,7 +5,7 @@ using UnityEngine;
 public class FreezingEffect : PlayerEffects
 {
 
-    public override void EnterEffect(ControlPlayer player)
+    public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         _effectSpeed = 400;
         _effectDamage = 50;
@@ -13,12 +13,12 @@ public class FreezingEffect : PlayerEffects
         player.ApplyDamage(_effectDamage);
     }
 
-    public override void RunEffect(ControlPlayer player)
+    public override void RunEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
        
         //Debuff visual e de velocidade, começar animação de gelo
         player.GetComponent<SpriteRenderer>().color = Color.blue;
-        m_playerInfo.Speed = _effectSpeed;
+        playerInfo.Speed = _effectSpeed;
 
         //Tirando o tempo de dois segundos
         _effectTimer += Time.deltaTime;
@@ -32,7 +32,7 @@ public class FreezingEffect : PlayerEffects
         }
     }
 
-    public override void ExitEffect(ControlPlayer player)
+    public override void ExitEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         player.AddEffect(new NormalEffect());
     }

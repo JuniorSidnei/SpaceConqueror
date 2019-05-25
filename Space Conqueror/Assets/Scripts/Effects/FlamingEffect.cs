@@ -6,13 +6,13 @@ public class FlamingEffect : PlayerEffects
 {
 
     //Flaminmg state, quando atingido pelo meteoro de FUEGO!
-    public override void EnterEffect(ControlPlayer player)
+    public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         _effectDamage = 5;
         player.ApplyDamage(_effectDamage);
     }
 
-    public override void RunEffect(ControlPlayer player)
+    public override void RunEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
        
         //Deixando a sprite vermelha por causa do fogo, deixar a animação de fogo começando aqui
@@ -29,7 +29,7 @@ public class FlamingEffect : PlayerEffects
        
 
     }
-    public override void ExitEffect(ControlPlayer player)
+    public override void ExitEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         player.AddEffect(new NormalEffect());
     }

@@ -31,8 +31,8 @@ public class HudManager : MonoBehaviour
            SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive);
            m_isLoaded = true;
        }
-    }       
-    
+    }
+
     void Awake()
     {
         //Declarando a instancia
@@ -43,14 +43,23 @@ public class HudManager : MonoBehaviour
             m_onFinishedInitialize();
     }
     
-    public void InitializeHudPlayingInfo(PlayerInfo playerInfo)
+    public void InitializeHudInfo(PlayerInfo playerInfo)
     { 
         m_PanelControllerPlaying.SetPlayerInfo(playerInfo);
-       
-    }
-
-    public void InitializeHudDialogueInfo(PlayerInfo playerInfo)
-    {
         m_PanelControllerConversation.SetPlayerInfo(playerInfo);
     }
+
+    public void HandleConversation()
+    {
+        
+        m_PanelControllerConversation.HandleConversation();
+        m_PanelControllerPlaying.HandleConversation();
+    }
+
+    public void HandlePlaying()
+    {
+        m_PanelControllerConversation.HandlePlaying();
+        m_PanelControllerPlaying.HandlePlaying();
+    }
+    
 }

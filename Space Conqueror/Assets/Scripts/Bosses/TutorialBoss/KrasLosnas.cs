@@ -6,7 +6,7 @@ public class KrasLosnas : MonoBehaviour
 {
     private Animator _KrasAnim;
 
-    private int _krasLife = 1000;
+    private int _krasLife = 3000;
 
     public Transform _spawnShoot;
 
@@ -14,7 +14,7 @@ public class KrasLosnas : MonoBehaviour
 
     public GameObject _projectile;
 
-    public GameObject m_smoke;
+    //public GameObject m_smoke;
 
     private int _isOverHeatCount = 0;
 
@@ -24,6 +24,7 @@ public class KrasLosnas : MonoBehaviour
 
     private float _overHeatTimer = 0f;
 
+    private int m_bodyDamage = 30;
 
     
     void Start()
@@ -92,4 +93,6 @@ public class KrasLosnas : MonoBehaviour
    
         }
     }
+
+    public int GetBodyDamage()  {  return m_bodyDamage;  }
 }

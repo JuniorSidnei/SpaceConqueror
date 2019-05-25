@@ -24,9 +24,7 @@ public class BaseHudBehavior : MonoBehaviour
 
 
     public virtual void SetPlayerInfo(PlayerInfo playerInfo)
-    {
-        
-    }
+    { }
     
     
     //Ativar todos os objetos da lista para a HUD

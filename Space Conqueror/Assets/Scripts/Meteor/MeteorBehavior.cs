@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MeteorBehavior : MonoBehaviour
 {
+    
     //Posição e limite X de spawn
     public float _spawnX;
     //Posição e limite Y de spawn
@@ -11,21 +13,20 @@ public class MeteorBehavior : MonoBehaviour
     //Tempo de spawn
     public float _spawnTimer = 2.5f;
     //Gerenciador
-    public DialogueManager _dialoguemng;
+    //public DialogueManager _dialoguemng;
     //Objeto do meteoro
-    public GameObject[] _meteor;
+    [FormerlySerializedAs("_meteor")] public GameObject[] _meteors;
     //Temporizador para ir diminuindo o tempo de spawn
     private float _timer;
     //Contador de meteoros
     private int _meteorCount = 0;
-
+    
 
 
     void Update()
     {
-
-        //Assim que o dialogo acabar, os meteoros começam
-        if (_dialoguemng._dialogueFinished)
+        
+        if (GameManager.Instance.MeteorOn())
         {
             //Tempo do jogo
             _timer += Time.deltaTime;
@@ -45,16 +46,13 @@ public class MeteorBehavior : MonoBehaviour
                 if (_spawnTimer <= 0.8f)
                     _spawnTimer = 0.8f;
             }
-
-           
         }
-
     }
 
     //Função de spawn do meteoro
     void SpawnMeteor()
     {
-        //Contando os meteoros para o segundo dialogo
+       
         _meteorCount++;
 
         //Só meteoros pequenos
@@ -62,13 +60,14 @@ public class MeteorBehavior : MonoBehaviour
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro
-            GameObject tempoMeteor = Instantiate(_meteor[randPos], new Vector2(_spawnX, Random.Range(-_spawnY, _spawnY)), Quaternion.identity, transform);
+            GameObject tempoMeteor = Instantiate(_meteors[randPos], new Vector2(_spawnX, Random.Range(-_spawnY, _spawnY)), Quaternion.identity, transform);
             //Destruindo o meteoro
             Destroy(tempoMeteor, 10f);
         }
-
-        
-       
+        else
+        {
+            GameManager.Instance.SetMeteorOver(true);
+        }
     }
 }
 

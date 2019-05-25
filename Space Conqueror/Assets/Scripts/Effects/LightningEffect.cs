@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightningEffect : PlayerEffects
 {
     
-    public override void EnterEffect(ControlPlayer player)
+    public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         
         _effectDamage = 30;
@@ -15,12 +15,12 @@ public class LightningEffect : PlayerEffects
 
     }
 
-    public override void RunEffect(ControlPlayer player)
+    public override void RunEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
 
         //Começar animação de raio
         player.GetComponent<SpriteRenderer>().color = Color.yellow;
-        m_playerInfo.Speed = _effectSpeed;
+        playerInfo.Speed = _effectSpeed;
 
         //Contando o tempo
         _effectTimer += Time.deltaTime;
@@ -34,7 +34,7 @@ public class LightningEffect : PlayerEffects
         }
     }
 
-    public override void ExitEffect(ControlPlayer player)
+    public override void ExitEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         player.AddEffect(new NormalEffect());
         

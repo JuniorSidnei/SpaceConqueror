@@ -6,8 +6,11 @@ using UnityEngine;
 public class PanelControllerConversation : BaseHudBehavior
 {
     private PlayerInfo m_playerInfo;
-    //public TextMeshProUGUI m_conversationText;
-    //public TextMeshProUGUI m_NameNPC;
+    [SerializeField] private RectTransform m_rect;
+
+    private const float PLAYNG_POS_Y = -229.5f;
+    private const float CONVERSATION_POS_Y = 530f;
+   
    
     
     public override void SetPlayerInfo(PlayerInfo playerInfo)
@@ -18,10 +21,12 @@ public class PanelControllerConversation : BaseHudBehavior
     public override void HandleConversation()
     {
         base.HandleConversation();
+        m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
     }
 
     public override void HandlePlaying()
     {
         base.HandlePlaying();
+        m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
     }
 }

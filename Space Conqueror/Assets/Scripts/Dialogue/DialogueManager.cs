@@ -1,82 +1,127 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    
-    
-    //Referencia pra UI
-    public TextMeshProUGUI _nameText;
-    public TextMeshProUGUI _sentenceText;
+   public delegate void SpeechEvent();
+   public static event SpeechEvent EndDialogue;
 
-    //Sentenças da caixa de texto
-    public Queue<string> sentences;
-
-    public bool _dialogueFinished = false;
-    public bool _secondDialogue = false;
-
-    
-    //Caixa de dialogo
-    public GameObject _dialogueBox;
    
-    void Start()
-    {
-        sentences = new Queue<string>();
-        _dialogueBox.SetActive(false);
-    }
+   #region variables
+   [SerializeField] private  TextMeshProUGUI m_speakerName;
 
-   public void StartDialogue(Dialogue dialogue)
+   [SerializeField] private  TextMeshProUGUI m_mainText;
+
+   [SerializeField] private SpeechScriptable m_currentSpeechFull;
+   
+   private int m_currentSpeechIndex;
+   
+   private bool m_speechProgress = false;
+
+   public static DialogueManager Instance;
+
+   private Action m_onFinishDialogue;
+   
+   //Todos os personagens que terão falas aqui
+   public enum Speaker
    {
-        Debug.Log("eita porra");
-        //Ativando a caixa de animação
-        _dialogueBox.SetActive(true);
+      //Jogador, computador de bordo e os inimigos
+      Scavenger, Orion, KrasLonas
+   }
 
-        //Da pra colcoar animação aqui pra mudar na transição a tal
-        _nameText.text = dialogue.name;
-        sentences.Clear();
+   //Struct para criar quem fala e as falas deles
+   [System.Serializable]
+   public struct SpeechGroup
+   {
+      //Quem fala
+      public Speaker m_currentSpeaker;
+      [TextArea(4,10)]
+      //O que fala
+      public string m_speechText;
+   }
 
-        foreach(string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
+   #endregion
+   
+  #region methods
 
-        DisplayNextSentence();
-    }
-    public void DisplayNextSentence()
-    {
-        //Da pra colcoar animação aqui pra mudar na transição a tal
-        if(sentences.Count == 0)
-        {
-           
-            EndDialogue();
-            return;
-        }
+  private void Awake()
+  {
+     Instance = this;
+  }
 
-        string sentece = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentece));
-    }
+  //Aqui começa o dialogo, quando triggar o evento ou alguma coisa, isso que vai começar o dialogo
+  public void StartSpeech(SpeechScriptable speech, float delay)
+  {
+      
+     StartCoroutine(StartSpeechCoroutine(speech, delay));
+  }
 
-    //Encerrando o dialogo
-    public void EndDialogue()
-    {
-        //Desativar a caixa de dialogo
-        _dialogueBox.SetActive(false);
-        //Ativando os meteoros
-        _dialogueFinished = true;
-    }
+  //Proxima fala da conversa, caso não seja a última
+  public void NextSpeech()
+  {
+     StopAllCoroutines();
+     m_currentSpeechIndex++;
 
-    IEnumerator TypeSentence(string sentence)
-    {
-        _sentenceText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            _sentenceText.text += letter;
-            yield return new WaitForSeconds(0.05f);
-        }
-    }
+     if(m_currentSpeechFull.speechGroup.Count > m_currentSpeechIndex)
+        FillSpeech();
+     else
+     {
+        //EndSpeech(()=> GameManager.Instance.SetMeteorOn(true));
+        EndSpeech();
+     }
+  }
+  
+  //Final do dialogo, isso que vai chamar quando acabar ou pra pular o dialogo
+  public void EndSpeech()
+  {
+     HudManager.Instance.HandlePlaying();
+     m_speechProgress = false;
+     EndDialogue?.Invoke();
+  }
+  
+  
+  //Função para associar os textos e os nomes(quem sabe futuramente sprites)
+  private void FillSpeech()
+  {
+     SpeechGroup s = m_currentSpeechFull.speechGroup[m_currentSpeechIndex];
 
+     m_speakerName.text = s.m_currentSpeaker.ToString();
+     StartCoroutine(WriteSentence(s.m_speechText));
+
+  }
+  
+  //Corrotina onde seta o index e chama a proxima função
+  IEnumerator StartSpeechCoroutine(SpeechScriptable speech, float delay)
+  {
+     while (m_speechProgress)
+     {
+        yield return null;
+     }
+
+     m_speechProgress = true;
+     yield return new WaitForSeconds(delay);
+     m_currentSpeechFull = speech;
+     m_currentSpeechIndex = 0;
+     FillSpeech();
+  }
+
+  //Escrevendo a sentença da frase letra por letra pra ficar legal
+  IEnumerator WriteSentence(string sentence)
+  {
+     
+     m_mainText.text = "";
+     foreach (char letter in sentence)
+     {
+        m_mainText.text += letter;
+        yield return new WaitForSeconds(0.05f);
+     }
+  }
+  
+  #endregion
+   
 }

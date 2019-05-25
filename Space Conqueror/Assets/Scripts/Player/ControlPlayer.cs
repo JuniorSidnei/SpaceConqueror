@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class ControlPlayer : MonoBehaviour
 {
-    ///<Eventos>
-    public delegate void DamageDelegate(float currentLife);
-    public  event DamageDelegate DamageEvent;
-    /// </Eventos>
+//    ///<Eventos>
+//    public delegate void DamageDelegate(float currentLife);
+//    public  event DamageDelegate DamageEvent;
+//    /// </Eventos>
 
-    ///<Variáveis do jogador>
-    //Velocidade da nave
-    //public float _speed = 700;
+    ///<Controle do jogador>
     //Joystick de mobile
     public Joystick joystick;
     //Float de posição do personagem
@@ -26,12 +24,7 @@ public class ControlPlayer : MonoBehaviour
     private float _reloadTime = 0.5f;
     //Pode atirar
     private bool _canShoot;
-    //Vida do jogdor
-    //public float _life;
-    //Vida maxima do jogador
-    //public int _maxLife = 500;
-    //1/3 vida do jogador
-    //private int _halfLife;
+    //Status do player
     public PlayerInfo m_playerInfo;
     
     //Vários estados do jogador
@@ -66,7 +59,7 @@ public class ControlPlayer : MonoBehaviour
         //Aplicando os efeitos ao jogador
         for (int i = 0; i < m_currentEffects.Count; i++)
         {
-            m_currentEffects[i].RunEffect(this);
+            m_currentEffects[i].RunEffect(this, m_playerInfo);
         }
     }
 
@@ -105,11 +98,6 @@ public class ControlPlayer : MonoBehaviour
     {
         m_playerInfo.CurrentLife -= damage;
 
-//        //Chamada do evento de dano
-//        if (DamageEvent != null)
-//            DamageEvent.Invoke((float)_life / _maxLife);
-//      
-        
         //Se a vida zerar
         if (m_playerInfo.CurrentLife <= 0)
             Destroy(gameObject); 
@@ -132,7 +120,7 @@ public class ControlPlayer : MonoBehaviour
     public void AddEffect(PlayerEffects nextEffect)
     {
         //Entrando no novo estado
-        nextEffect.EnterEffect(this);
+        nextEffect.EnterEffect(this, m_playerInfo);
 
         //Rodando o novo efeito
         m_currentEffects.Add(nextEffect);
@@ -142,7 +130,7 @@ public class ControlPlayer : MonoBehaviour
     public void RemoveEffect(PlayerEffects removeEffect)
     {
         //Saindo do efeito
-        removeEffect.ExitEffect(this);
+        removeEffect.ExitEffect(this, m_playerInfo);
         m_currentEffects.Remove(removeEffect);
     }
     
@@ -163,7 +151,7 @@ public class ControlPlayer : MonoBehaviour
             //Corpo do Boss
             if(obj.gameObject.CompareTag("Boss"))
             {
-                ApplyDamage(30);
+                ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage());
             }
         }
     }

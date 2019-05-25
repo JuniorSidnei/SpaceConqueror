@@ -10,11 +10,15 @@ public class PanelControllerPlaying : BaseHudBehavior
     [SerializeField] private PlayerInfo m_playerInfo;
     [SerializeField] private Image m_LifeBarFill;
     [SerializeField] private TextMeshProUGUI m_playerLifeText;
+    [SerializeField] private RectTransform m_rect;
+    
+    private const float PLAYNG_POS_Y = -229.5f;
+    private const float CONVERSATION_POS_Y = 530f;
 
-
+  
     void Update()
     {
-        //Debug.Log("Objeto existe?" + m_playerInfo);
+        
         UpdateHudValues(m_playerInfo);
     }
 
@@ -36,10 +40,12 @@ public class PanelControllerPlaying : BaseHudBehavior
     public override void HandleConversation()
     {
         base.HandleConversation();
+        m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
     }
 
     public override void HandlePlaying()
     {
         base.HandlePlaying();
+        m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
     }
 }
