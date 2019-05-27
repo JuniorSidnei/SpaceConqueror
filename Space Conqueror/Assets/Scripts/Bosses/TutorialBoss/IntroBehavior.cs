@@ -6,9 +6,13 @@ public class IntroBehavior : StateMachineBehaviour
 {
     private int _rand;
 
+    public SpeechScriptable m_speechBoss;
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        GameManager.Instance.CallDialogue(m_speechBoss);
+        
         _rand = Random.Range(0,2);
 
         if (_rand == 0)

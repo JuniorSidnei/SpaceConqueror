@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public SpeechScriptable m_speech;
+    public SpeechScriptable m_speechIntro;
     
     #region variables
     
@@ -16,20 +16,14 @@ public class GameManager : MonoBehaviour
     private bool m_isDialogueOn;
     private bool m_isMeteorOn;
     private bool m_isMeteorOver;
-    private KrasLosnas _krasLosnas;
+    
 
     #endregion
-    
-    #region actions
 
-    //public static Action CallFirstDialogue;
-    
-    #endregion
-    
     #region methods
     void Start()
     {
-        _krasLosnas = FindObjectOfType<KrasLosnas>();
+        
         Instance = this;
         m_isDialogueOn = true;
         m_isMeteorOn = false;
@@ -51,16 +45,9 @@ public class GameManager : MonoBehaviour
             if (m_firstDialogueTimer <= 0)
             {
                 m_isDialogueOn = false;
-                CallFirstDialogue();
+                CallDialogue(m_speechIntro);
                 m_firstDialogueTimer = 5;
             }
-        }
-        
-        //Quando acaba meteoro. ativa o boss
-        if (m_isMeteorOver)
-        {
-            //Deu ruim
-            _krasLosnas.gameObject.SetActive(true);
         }
     }
 
@@ -77,10 +64,10 @@ public class GameManager : MonoBehaviour
 
     
     //Chama a HUD e o primeiro dialogo da cena
-    private void CallFirstDialogue()
+    public void CallDialogue(SpeechScriptable speech)
     {
         HudManager.Instance.HandleConversation();
-        DialogueManager.Instance.StartSpeech(m_speech, 1f);
+        DialogueManager.Instance.StartSpeech(speech, 0.5f);
     }
 
     private void ActiveMeteor()  { m_isMeteorOn = true; }

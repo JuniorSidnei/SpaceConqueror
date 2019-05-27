@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8b71d0f9b450545a0bfebe3c7a25d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speech: {fileID: 11400000, guid: 973f7762350736a47937ace70c290143, type: 2}
+  m_speechIntro: {fileID: 11400000, guid: 973f7762350736a47937ace70c290143, type: 2}
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
   m_firstDialogueTimer: 5
 --- !u!4 &45343066
@@ -970,17 +970,17 @@ PrefabInstance:
     - target: {fileID: 7775495712412859759, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.97
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: -13.07
       objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
@@ -3470,7 +3470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8b71d0f9b450545a0bfebe3c7a25d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speech: {fileID: 11400000, guid: 973f7762350736a47937ace70c290143, type: 2}
+  m_speechIntro: {fileID: 0}
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
   m_firstDialogueTimer: 5
 --- !u!4 &2130338408
