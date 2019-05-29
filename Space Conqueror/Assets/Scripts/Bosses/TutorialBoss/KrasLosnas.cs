@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,15 +7,13 @@ public class KrasLosnas : MonoBehaviour
 {
     private Animator _KrasAnim;
 
-    private int _krasLife = 3000;
+    public int _krasLife = 3000;
 
     public Transform _spawnShoot;
 
     public GameObject m_ptcShoot;
 
     public GameObject _projectile;
-
-    //public GameObject m_smoke;
 
     private int _isOverHeatCount = 0;
 
@@ -26,6 +25,7 @@ public class KrasLosnas : MonoBehaviour
 
     private int m_bodyDamage = 30;
 
+    public SpeechScriptable m_speechBoss;
     
     void Start()
     {
@@ -35,6 +35,7 @@ public class KrasLosnas : MonoBehaviour
 
     void Update()
     {
+        
         if (_isOverHeat)
         {
             _overHeatTimer += Time.deltaTime;
@@ -47,8 +48,8 @@ public class KrasLosnas : MonoBehaviour
             }
         }
 
-        //Se a vida do boss for menor que 400 e ele não estiver sobrecarregado, pode atirar
-        if (_krasLife <= 400 && _isOverHeat == false)
+        //Se a vida do boss for menor que metade e ele não estiver sobrecarregado, pode atirar
+        if (_krasLife <= 1500 && _isOverHeat == false)
         {
           
             _KrasAnim.SetBool("BurstOn", true);
@@ -60,10 +61,27 @@ public class KrasLosnas : MonoBehaviour
                 _shootTimer = 0f;
             }
         }
-
-     
+        
     }
 
+
+    void OnEnable()
+    {
+        MeteorBehavior.EndMeteorWave += CallBossDialogue;
+    }
+
+    void OnDisable()
+    {
+        MeteorBehavior.EndMeteorWave -= CallBossDialogue;
+    }
+
+    private void CallBossDialogue()
+    {
+        GameManager.Instance.SetMeteorOver(true);
+        GameManager.Instance.CallDialogue(m_speechBoss);
+    }
+
+    
     void OnCollisionEnter2D(Collision2D obj)
     {
         if(obj.gameObject.layer == 11)

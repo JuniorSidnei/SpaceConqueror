@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 public class MeteorBehavior : MonoBehaviour
 {
     
+    public delegate void MeteorEvent();
+    public static event MeteorEvent EndMeteorWave;
+    
     //Posição e limite X de spawn
     public float _spawnX;
     //Posição e limite Y de spawn
@@ -21,7 +24,6 @@ public class MeteorBehavior : MonoBehaviour
     //Contador de meteoros
     private int _meteorCount = 0;
     
-
 
     void Update()
     {
@@ -56,7 +58,7 @@ public class MeteorBehavior : MonoBehaviour
         _meteorCount++;
 
         //Só meteoros pequenos
-        if (_meteorCount <= 50)
+        if (_meteorCount <= 1)
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro
@@ -66,7 +68,11 @@ public class MeteorBehavior : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.SetMeteorOver(true);
+            //CRIAR EVENTO PARA DIZER QUE ACABOU OS METEOROS E ENTÃO FAZER O BOSS SE INSCREVER NELE E QUANDO ACABAR
+            //O DIALOGO DO BOSS, ELE VAI CHAMAR A INTRO E A ANIMAÇÃO CERTA PELO GAMEMANAGER
+            //GameManager.Instance.SetMeteorOver(true);
+            EndMeteorWave?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }

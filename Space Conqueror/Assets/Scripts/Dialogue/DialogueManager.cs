@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
    public enum Speaker
    {
       //Jogador, computador de bordo e os inimigos
-      Scavenger, Orion, KrasLonas
+      Scavenger, Orion, Unidentifield
    }
 
    //Struct para criar quem fala e as falas deles
@@ -119,7 +119,7 @@ public class DialogueManager : MonoBehaviour
      foreach (char letter in sentence)
      {
         m_mainText.text += letter;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.02f);
      }
   }
   

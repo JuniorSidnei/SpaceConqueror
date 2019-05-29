@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speechIntro: {fileID: 11400000, guid: 973f7762350736a47937ace70c290143, type: 2}
+  m_speechBoss: {fileID: 11400000, guid: 47111c69a315cbb428909e3cccd6e219, type: 2}
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
   m_firstDialogueTimer: 5
 --- !u!4 &45343066
@@ -156,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129705151
 GameObject:
@@ -967,11 +968,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KrasLosnas
       objectReference: {fileID: 0}
-    - target: {fileID: 7775495712412859759, guid: 3120565e0221bea46b2b51e2e18a0aea,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1010,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
@@ -1146,7 +1142,7 @@ Transform:
   - {fileID: 859108368}
   - {fileID: 1465954224166574241}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682541209
 GameObject:
@@ -1642,7 +1638,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910790545
 GameObject:
@@ -2051,7 +2047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112872498
 GameObject:
@@ -3232,7 +3228,7 @@ Transform:
   - {fileID: 309920540}
   - {fileID: 910790546}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903305355
 GameObject:
@@ -3441,52 +3437,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913279185}
   m_CullTransparentMesh: 0
---- !u!1 &2130338406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2130338408}
-  - component: {fileID: 2130338407}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2130338407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130338406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8b71d0f9b450545a0bfebe3c7a25d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speechIntro: {fileID: 0}
-  m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
-  m_firstDialogueTimer: 5
---- !u!4 &2130338408
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130338406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 346.71512, y: 158.2427, z: -5.690564}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1432520255638465309
 PrefabInstance:
   m_ObjectHideFlags: 0
