@@ -152,6 +152,8 @@ MonoBehaviour:
     type: 3}
   _projectile: {fileID: 33547447053011051, guid: dfffc1474337f374fa113bcd63c12505,
     type: 3}
+  m_ptcDie: {fileID: 5256392874829725907, guid: af5cd773054efd845807cd41eb44e654,
+    type: 3}
   m_speechBoss: {fileID: 11400000, guid: 47111c69a315cbb428909e3cccd6e219, type: 2}
 --- !u!61 &6075718779522226394
 BoxCollider2D:

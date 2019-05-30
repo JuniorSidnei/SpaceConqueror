@@ -3,31 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public SpeechScriptable m_speechIntro;
     public SpeechScriptable m_speechBoss;
+    public SpeechScriptable m_speechEnd;
     #region variables
     
     public PlayerInfo m_playerInfo;
     public float m_firstDialogueTimer = 5f;
     private bool m_isDialogueOn;
-    private bool m_isMeteorOn;
-    private bool m_isMeteorOver;
-
+//    private bool m_isMeteorOn;
+//    private bool m_isMeteorOver;
+    
+    
     #endregion
 
+    
+    
     #region methods
     void Start()
     {
         
         Instance = this;
         m_isDialogueOn = true;
-        m_isMeteorOn = false;
-        m_isMeteorOver = false;
-        
+//        m_isMeteorOn = false;
+//        m_isMeteorOver = false;
+
+
         HudManager.Show(()=>
         { 
             HudManager.Instance.HandlePlaying();
@@ -45,57 +51,53 @@ public class GameManager : MonoBehaviour
             if (m_firstDialogueTimer <= 0)
             {
                 m_isDialogueOn = false;
-                CallDialogue(m_speechIntro);
+                HudManager.Instance.HandleConversation();
+                DialogueManager.Instance.StartSpeech(m_speechIntro, 0.5f, ActiveMeteor);
                 m_firstDialogueTimer = 5;
                 
             }
         }
-
-//        if (m_isMeteorOver)
-//        {
-//            CallDialogue(m_speechBoss);
-//            m_isMeteorOver = false;
-//        }
-    }
-
-    void OnEnable()
-    {
-        DialogueManager.EndDialogue += ActiveMeteor;
-        DialogueManager.EndDialogue += ActiveBoss;
-    }
     
-    
-    void OnDisable()
-    {
-        DialogueManager.EndDialogue -= ActiveMeteor;
-        DialogueManager.EndDialogue -= ActiveBoss;
-    }
-
-    public void CallDialogue(SpeechScriptable speech)
-    {
-        HudManager.Instance.HandleConversation();
-        DialogueManager.Instance.StartSpeech(speech, 0.5f);
-    }
-
-   
-    
-    
-    private void ActiveMeteor()  { m_isMeteorOn = true; }
-
-    private void ActiveBoss()
-    {
-        Debug.Log("Chamou boss: " + m_isMeteorOver);
-        if (m_isMeteorOver)
+        
+        //Ativa dialogo do Boss, depois dos meteoros
+        if (MeteorBehavior.GetMeteorOver)
         {
-            FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
+            HudManager.Instance.HandleConversation();
+            DialogueManager.Instance.StartSpeech(m_speechBoss, 0.5f, ActiveBoss);
+        }
+
+        //Se o boss morrer
+        if (!KrasLosnas.isBossAlive)
+        {
+            HudManager.Instance.HandleConversation();
+            DialogueManager.Instance.StartSpeech(m_speechEnd, 0.5f, RestartScene);
         }
     }
+    
 
-    public bool MeteorOn()  { return m_isMeteorOn;  }
+    //Ativa os meteoros
+    private void ActiveMeteor()
+    {  /*m_isMeteorOn = true;*/ MeteorBehavior.SetMeteorActive(true);  }
+    
+    
+//    //Seta se meteoros começam ou acabam
+//    public void SetMeteor(bool isOver)  {  m_isMeteorOver = isOver; }
+//    
+//    //Pega a variavel de meteoros
+//    public bool GetMeteor()  { return m_isMeteorOn;  }
+    
+    //Ativa o Boss
+    private void ActiveBoss()
+    {
+        FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
+        MeteorBehavior.SetMeteorOver(false);
+    }
 
-    public void SetMeteorOver(bool isover)  {  m_isMeteorOver = isover; }
-
-   // public bool MeteorOver() { return m_isMeteorOver;  }
+    //Carrega a proxima cena quando o boss morrer
+    public void RestartScene()
+    {
+        Application.Quit();
+    }
 
     #endregion
 }

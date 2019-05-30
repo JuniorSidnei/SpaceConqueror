@@ -2,18 +2,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class KrasLosnas : MonoBehaviour
 {
-    private Animator _KrasAnim;
+    public delegate void BossEvent();
 
-    public int _krasLife = 3000;
+    //public static event BossEvent BossIsDead;
+
+
+    private Animator m_anim;
+
+    [FormerlySerializedAs("_krasLife")] public int m_life;
 
     public Transform _spawnShoot;
 
     public GameObject m_ptcShoot;
 
     public GameObject _projectile;
+
+    public GameObject m_ptcDie;
 
     private int _isOverHeatCount = 0;
 
@@ -25,11 +33,13 @@ public class KrasLosnas : MonoBehaviour
 
     private int m_bodyDamage = 30;
 
-    public SpeechScriptable m_speechBoss;
+    //public SpeechScriptable m_speechBoss;
+
+    private static bool m_alive = true;
     
     void Start()
     {
-        _KrasAnim = GetComponent<Animator>();
+        m_anim = GetComponent<Animator>();
     }
 
 
@@ -43,16 +53,16 @@ public class KrasLosnas : MonoBehaviour
             if (_overHeatTimer >= 3f)
             {
                 _isOverHeat = false;
-                _KrasAnim.SetBool("Overheat", false);
+                m_anim.SetBool("Overheat", false);
                 _overHeatTimer = 0;
             }
         }
 
         //Se a vida do boss for menor que metade e ele não estiver sobrecarregado, pode atirar
-        if (_krasLife <= 1500 && _isOverHeat == false)
+        if (m_life <= 1500 && _isOverHeat == false)
         {
           
-            _KrasAnim.SetBool("BurstOn", true);
+            m_anim.SetBool("BurstOn", true);
             _shootTimer += Time.deltaTime;
 
             if (_shootTimer >= 0.2f)
@@ -62,32 +72,26 @@ public class KrasLosnas : MonoBehaviour
             }
         }
         
+        //Se morrer ativa animação de morte e particula de explosão
+        if (m_life <= 0)
+        {
+            
+            Instantiate(m_ptcDie, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            //BossIsDead?.Invoke();
+            m_alive = false;
+        }
     }
 
+    public static bool isBossAlive => m_alive;
 
-    void OnEnable()
-    {
-        MeteorBehavior.EndMeteorWave += CallBossDialogue;
-    }
 
-    void OnDisable()
-    {
-        MeteorBehavior.EndMeteorWave -= CallBossDialogue;
-    }
-
-    private void CallBossDialogue()
-    {
-        GameManager.Instance.SetMeteorOver(true);
-        GameManager.Instance.CallDialogue(m_speechBoss);
-    }
-
-    
     void OnCollisionEnter2D(Collision2D obj)
     {
         if(obj.gameObject.layer == 11)
         {
            
-            _krasLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+            m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
             Destroy(obj.gameObject);
         }
     }
@@ -107,7 +111,7 @@ public class KrasLosnas : MonoBehaviour
         {
               _isOverHeat = true;
             _isOverHeatCount = 0;
-            _KrasAnim.SetBool("Overheat", true);
+            m_anim.SetBool("Overheat", true);
    
         }
     }

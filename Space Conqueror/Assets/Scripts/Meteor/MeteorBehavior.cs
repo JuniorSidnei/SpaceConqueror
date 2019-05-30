@@ -5,10 +5,7 @@ using UnityEngine.Serialization;
 
 public class MeteorBehavior : MonoBehaviour
 {
-    
-    public delegate void MeteorEvent();
-    public static event MeteorEvent EndMeteorWave;
-    
+
     //Posição e limite X de spawn
     public float _spawnX;
     //Posição e limite Y de spawn
@@ -24,11 +21,15 @@ public class MeteorBehavior : MonoBehaviour
     //Contador de meteoros
     private int _meteorCount = 0;
     
+    private static bool m_isMeteorOn = false;
+    private static bool m_isMeteorOver = false;
+    
+    //public static MeteorBehavior Instance;
 
     void Update()
     {
         
-        if (GameManager.Instance.MeteorOn())
+        if (/*GameManager.Instance.GetMeteor()*/ m_isMeteorOn)
         {
             //Tempo do jogo
             _timer += Time.deltaTime;
@@ -58,7 +59,7 @@ public class MeteorBehavior : MonoBehaviour
         _meteorCount++;
 
         //Só meteoros pequenos
-        if (_meteorCount <= 1)
+        if (_meteorCount <= 10)
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro
@@ -68,12 +69,27 @@ public class MeteorBehavior : MonoBehaviour
         }
         else
         {
-            //CRIAR EVENTO PARA DIZER QUE ACABOU OS METEOROS E ENTÃO FAZER O BOSS SE INSCREVER NELE E QUANDO ACABAR
-            //O DIALOGO DO BOSS, ELE VAI CHAMAR A INTRO E A ANIMAÇÃO CERTA PELO GAMEMANAGER
-            //GameManager.Instance.SetMeteorOver(true);
-            EndMeteorWave?.Invoke();
+            //GameManager.Instance.SetMeteor(true);
+            m_isMeteorOver = true;
             gameObject.SetActive(false);
         }
+    }
+
+    //Retorna a variavel de que acabaram os meteoros
+    public static bool GetMeteorOver => m_isMeteorOver;
+//    {
+//        return m_isMeteorOver;
+//    }
+
+    public static void SetMeteorOver(bool isMeteorOver)
+    {
+        m_isMeteorOver = isMeteorOver;
+    }
+    
+    //Seta a variavel de que os meteoros começam ou acabam
+    public static void SetMeteorActive(bool isMeteorOn)
+    {
+        m_isMeteorOn = isMeteorOn;
     }
 }
 

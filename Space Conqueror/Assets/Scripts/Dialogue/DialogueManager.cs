@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
 
    public static DialogueManager Instance;
 
-   private Action m_onFinishDialogue;
+   private static Action m_onFinishDialogue;
    
    //Todos os personagens que terão falas aqui
    public enum Speaker
@@ -55,10 +55,12 @@ public class DialogueManager : MonoBehaviour
   }
 
   //Aqui começa o dialogo, quando triggar o evento ou alguma coisa, isso que vai começar o dialogo
-  public void StartSpeech(SpeechScriptable speech, float delay)
+  public void StartSpeech(SpeechScriptable speech, float delay, Action endDialogue)
   {
-     Debug.Log("De quem é?" + speech.m_speechName);
+     //Invokar evento somente depois que terminar a corrotina
+     m_onFinishDialogue = endDialogue;
      StartCoroutine(StartSpeechCoroutine(speech, delay));
+     
   }
 
   //Proxima fala da conversa, caso não seja a última
@@ -77,11 +79,11 @@ public class DialogueManager : MonoBehaviour
   }
   
   //Final do dialogo, isso que vai chamar quando acabar ou pra pular o dialogo
-  public void EndSpeech()
+  public void EndSpeech( )
   {
      HudManager.Instance.HandlePlaying();
      m_speechProgress = false;
-     EndDialogue?.Invoke();
+     m_onFinishDialogue?.Invoke();
   }
   
   
@@ -99,6 +101,7 @@ public class DialogueManager : MonoBehaviour
   //Corrotina onde seta o index e chama a proxima função
   IEnumerator StartSpeechCoroutine(SpeechScriptable speech, float delay)
   {
+     
      while (m_speechProgress)
      {
         yield return null;

@@ -17,7 +17,13 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     private int m_halfLife;
     [SerializeField]
     private float m_speed = 700;
+    [SerializeField]
+    private int m_recoveryKit;
+    [SerializeField]
+    private int m_recoveryAmount;
+
     
+
     //Alteram valor durante o jogo
     private int m_maxLifeInGame;
     
@@ -27,6 +33,8 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     
     private float m_speedInGame;
 
+    private int m_recoveryKitInGame;
+
     
     public void OnBeforeSerialize()
     {
@@ -34,6 +42,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_currentLifeInGame = m_currentLife;
         m_halfLifeInGame = m_halfLife;
         m_speedInGame = m_speed;
+        //m_recoveryKitInGame = m_recoveryKit;
     }
 
     public void OnAfterDeserialize()
@@ -42,6 +51,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_currentLifeInGame = m_currentLife;
         m_halfLifeInGame = m_halfLife;
         m_speedInGame = m_speed;
+       // m_recoveryKitInGame = m_recoveryKit;
     }
 
     
@@ -74,5 +84,16 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         get => m_halfLife;
         set => m_halfLife = value;
     }
+    
+//    public int RecoveryKit
+//    {
+//        get => m_recoveryKitInGame;
+//        set => m_recoveryKitInGame = value;
+//    }
+//
+//    public int RecoveryAmount
+//    {
+//        get => m_recoveryAmount;
+//    }
 }
 

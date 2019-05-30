@@ -11,7 +11,7 @@ public class ControlPlayer : MonoBehaviour
 
     ///<Controle do jogador>
     //Joystick de mobile
-    public Joystick joystick;
+    //public Joystick joystick;
     //Float de posição do personagem
     private Vector2 _moveInput;
     //Vetor de input somado com tempo e velocidade
@@ -55,7 +55,14 @@ public class ControlPlayer : MonoBehaviour
         
         if(Input.GetKey(KeyCode.Space) && _canShoot)
             Shoot();
-            
+
+//        if (Input.GetKey(KeyCode.R) && m_playerInfo.RecoveryKit >= 0)
+//        {
+//            Debug.Log("Kit de reparos antes do uso: " + m_playerInfo.RecoveryKit);
+//            RepairKit(m_playerInfo.RecoveryAmount);
+//        }
+        
+        
         //Aplicando os efeitos ao jogador
         for (int i = 0; i < m_currentEffects.Count; i++)
         {
@@ -100,19 +107,25 @@ public class ControlPlayer : MonoBehaviour
 
         //Se a vida zerar
         if (m_playerInfo.CurrentLife <= 0)
-            Destroy(gameObject); 
+            GameManager.Instance.RestartScene();
     }
 
 
     //Usando kit de reparos
-    public void RepairKit(int recover)
-    {
-        m_playerInfo.CurrentLife += recover;
-
-        //Se a vida chegar ao máximo quando recuperar, fica no máximo
-        if (m_playerInfo.CurrentLife >= m_playerInfo.MaxLife)
-            m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
-    }
+//    private void RepairKit(int recover)
+//    {
+//        
+//        //Se ainda tiver kit pra usar, pode usar
+//        m_playerInfo.CurrentLife += recover;
+//        m_playerInfo.RecoveryKit--;
+//        Debug.Log("Kit de reparos depois do uso: " + m_playerInfo.RecoveryKit);
+//           
+//        
+//        
+//        //Se a vida chegar ao máximo quando recuperar, fica no máximo
+//        if (m_playerInfo.CurrentLife >= m_playerInfo.MaxLife)
+//            m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
+//    }
 
 
 
