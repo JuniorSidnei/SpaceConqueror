@@ -18,26 +18,32 @@ public class GameManager : MonoBehaviour
     private bool m_isDialogueOn;
 //    private bool m_isMeteorOn;
 //    private bool m_isMeteorOver;
-    
+    //private AudioManager m_audioManager;
     
     #endregion
 
     
     
     #region methods
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         
-        Instance = this;
+        
         m_isDialogueOn = true;
-//        m_isMeteorOn = false;
-//        m_isMeteorOver = false;
-
+        
+        AudioManager.PlaySound("MainTheme");
 
         HudManager.Show(()=>
         { 
             HudManager.Instance.HandlePlaying();
         });
+        
     }
 
 

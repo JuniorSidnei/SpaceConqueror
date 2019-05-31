@@ -8,9 +8,6 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-   public delegate void SpeechEvent();
-   public static event SpeechEvent EndDialogue;
-
    
    #region variables
    [SerializeField] private  TextMeshProUGUI m_speakerName;
@@ -73,7 +70,6 @@ public class DialogueManager : MonoBehaviour
         FillSpeech();
      else
      {
-        //EndSpeech(()=> GameManager.Instance.SetMeteorOn(true));
         EndSpeech();
      }
   }
