@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e314c539762747aa513f350c24153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _krasLife: 5000
+  m_life: 3000
   _spawnShoot: {fileID: 5762370894518054808}
   m_ptcShoot: {fileID: 6387949952302405291, guid: 0f4a11c0332db18458cf2e7d7d76c220,
     type: 3}
@@ -154,7 +154,6 @@ MonoBehaviour:
     type: 3}
   m_ptcDie: {fileID: 5256392874829725907, guid: af5cd773054efd845807cd41eb44e654,
     type: 3}
-  m_speechBoss: {fileID: 11400000, guid: 47111c69a315cbb428909e3cccd6e219, type: 2}
 --- !u!61 &6075718779522226394
 BoxCollider2D:
   m_ObjectHideFlags: 0
