@@ -708,6 +708,128 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &935615714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935615716}
+  - component: {fileID: 935615715}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &935615715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935615714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0404975dd42af044c9ee8f2182f58887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioFile:
+  - audioName: MainTheme
+    audioClip: {fileID: 8300000, guid: 2a92663f021e9524eb582fa98022d94d, type: 3}
+    volume: 0.2
+    source: {fileID: 0}
+    isLooping: 1
+    playOnAwake: 0
+  - audioName: MeteorExplosion
+    audioClip: {fileID: 8300000, guid: 5a60699808ec6ba42b980f682743b015, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: PlayerShoot
+    audioClip: {fileID: 8300000, guid: f6020f256a5292c4f9cc53cff14acd47, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: BossShoot
+    audioClip: {fileID: 8300000, guid: 1551b7c4d44217e40840cd3abfdea967, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: BossDie
+    audioClip: {fileID: 8300000, guid: 66925358584564b4989d37297321ba40, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: UiDialogueNextEnd
+    audioClip: {fileID: 8300000, guid: 7b441d07de27ca64189483f291c8106f, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: BulletMeteorCollision
+    audioClip: {fileID: 8300000, guid: 4da3f4f189b22a74396b07b3ecbe3585, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: KrasLonasTheme
+    audioClip: {fileID: 8300000, guid: 08579e5d73641dd4e82ebdc2ab3e9da3, type: 3}
+    volume: 0.6
+    source: {fileID: 0}
+    isLooping: 1
+    playOnAwake: 0
+  - audioName: Wind
+    audioClip: {fileID: 8300000, guid: e411c6d04cc5e2d49b1b98d77663c30f, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 1
+    playOnAwake: 0
+  - audioName: AlertBoss
+    audioClip: {fileID: 8300000, guid: 527725747e971db488651f7884c3dd63, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: Speaking
+    audioClip: {fileID: 8300000, guid: 4ffe54983e4967d4e9f7238dd7e18b14, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: BulletBossCollision
+    audioClip: {fileID: 8300000, guid: c8825caad8b631943acafc0814bf7c45, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: BossCollision
+    audioClip: {fileID: 8300000, guid: 852ad77cda471d94ea47764264adb9e8, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+--- !u!4 &935615716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935615714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.485536, y: 0.31960842, z: -0.10546875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105612694
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class ControlPlayer : MonoBehaviour
     void Start()
     {
         m_currentEffects = new List<PlayerEffects>();
-        
+        //AudioManager.PlaySound("PlayerEngine");
     }
 
     // Update is called once per frame
@@ -75,14 +75,16 @@ public class ControlPlayer : MonoBehaviour
         //Movimento do jogador
         _moveInput  = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
         _moveVelocity = m_playerInfo.Speed * Time.deltaTime * _moveInput;
-
+        
         //Movendo o jogador
         transform.position += _moveVelocity * Time.deltaTime;
+        
     }
     
     //Função de tiro do personagem
     public void Shoot()
     {
+        AudioManager.PlaySound("PlayerShoot");
         GameObject tempBullet =  Instantiate(_shoot, _shotPos.position, Quaternion.identity);
         tempBullet.transform.right = Vector3.right;
         
@@ -157,6 +159,7 @@ public class ControlPlayer : MonoBehaviour
             //Tiro do Boss
             if(obj.gameObject.CompareTag("BossBullet"))
             {
+                AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<StandardBullet>()._damage);
                 Destroy(obj.gameObject);
             }
@@ -164,6 +167,7 @@ public class ControlPlayer : MonoBehaviour
             //Corpo do Boss
             if(obj.gameObject.CompareTag("Boss"))
             {
+                AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage());
             }
         }

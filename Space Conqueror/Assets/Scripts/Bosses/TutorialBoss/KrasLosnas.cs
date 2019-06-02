@@ -40,6 +40,7 @@ public class KrasLosnas : MonoBehaviour
     void Start()
     {
         m_anim = GetComponent<Animator>();
+        
     }
 
 
@@ -75,12 +76,23 @@ public class KrasLosnas : MonoBehaviour
         //Se morrer ativa animação de morte e particula de explosão
         if (m_life <= 0)
         {
+            StartCoroutine(BossDiyng());
+//            AudioManager.PlaySound("BossDie");
+//            Instantiate(m_ptcDie, transform.position, Quaternion.identity);
+//            Destroy(gameObject);
             
-            Instantiate(m_ptcDie, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            //BossIsDead?.Invoke();
             m_alive = false;
         }
+    }
+
+    IEnumerator BossDiyng()
+    {
+        Time.timeScale = 0.2f;
+        AudioManager.PlaySound("BossDie");
+        Instantiate(m_ptcDie, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        //Time.timeScale = 1f;
+        yield return new WaitForSeconds(1f);
     }
 
     public static bool isBossAlive => m_alive;
@@ -90,7 +102,7 @@ public class KrasLosnas : MonoBehaviour
     {
         if(obj.gameObject.layer == 11)
         {
-           
+           AudioManager.PlaySound("BulletBossCollision");
             m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
             Destroy(obj.gameObject);
         }
@@ -99,6 +111,7 @@ public class KrasLosnas : MonoBehaviour
     public void ShootAndOverHeat()
     {
        
+        AudioManager.PlaySound("BossShoot");
         GameObject tempExp = Instantiate(m_ptcShoot, _spawnShoot.position, Quaternion.identity, transform);
         
         GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity, transform);
@@ -109,10 +122,10 @@ public class KrasLosnas : MonoBehaviour
         
         if (_isOverHeatCount >= 40)
         {
-              _isOverHeat = true;
+            _isOverHeat = true;
             _isOverHeatCount = 0;
             m_anim.SetBool("Overheat", true);
-   
+            AudioManager.PlaySound("AlertBoss");
         }
     }
 

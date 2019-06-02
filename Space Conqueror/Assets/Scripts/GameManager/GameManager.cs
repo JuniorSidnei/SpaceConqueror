@@ -37,8 +37,10 @@ public class GameManager : MonoBehaviour
         
         m_isDialogueOn = true;
         
-        AudioManager.PlaySound("MainTheme");
-
+        AudioManager.FadeIn("MainTheme", 0.2f, 2f);
+       
+        
+        
         HudManager.Show(()=>
         { 
             HudManager.Instance.HandlePlaying();
@@ -77,13 +79,14 @@ public class GameManager : MonoBehaviour
         {
             HudManager.Instance.HandleConversation();
             DialogueManager.Instance.StartSpeech(m_speechEnd, 0.5f, RestartScene);
+            
         }
     }
     
 
     //Ativa os meteoros
     private void ActiveMeteor()
-    {  /*m_isMeteorOn = true;*/ MeteorBehavior.SetMeteorActive(true);  }
+    { MeteorBehavior.SetMeteorActive(true);  }
     
     
 //    //Seta se meteoros começam ou acabam
@@ -97,6 +100,8 @@ public class GameManager : MonoBehaviour
     {
         FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
         MeteorBehavior.SetMeteorOver(false);
+        AudioManager.FadeOut("MainTheme", 2f);
+        AudioManager.PlaySound("KrasLonasTheme");
     }
 
     //Carrega a proxima cena quando o boss morrer

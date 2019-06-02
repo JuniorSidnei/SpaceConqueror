@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
     //Função para tocar som
     public static void PlaySound(string name)
     {
-        Debug.Log("TOCA SOM CARALHO");
+        
         //Verifica a primeira ocorrência de match, que seria o nome passado na função
         AudioFile s = Array.Find(Instance.m_audioFile, AudioFile => AudioFile.audioName == name);
         
@@ -109,7 +109,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("    vaaaaaaaaaaiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+       
         s.source.Play();
         
     }
@@ -117,7 +117,7 @@ public class AudioManager : MonoBehaviour
     //Função para parar som
     public static void StopSound(string name)
     {
-        Debug.Log("VOCE TA INDO JUNTO CARALHO?!?!");
+       
         //Verifica a primeira ocorrência de match, que seria o nome passado na função
         AudioFile s = Array.Find(Instance.m_audioFile, AudioFile => AudioFile.audioName == name);
         
@@ -202,7 +202,7 @@ public class AudioManager : MonoBehaviour
     //Função para fadeIn no som
     public static void FadeIn(String name, float targetVolume, float duration)
     {
-        Instance.StartCoroutine(Instance.IFadeIn(name, targetVolume, duration));
+        Instance.StartCoroutine(Instance.IFadeIn(name, duration, targetVolume));
     }
     
     
@@ -272,6 +272,7 @@ public class AudioManager : MonoBehaviour
                 while (s.source.volume < targetVolume)
                 {
                     s.source.volume += Time.deltaTime / duration;
+                    Debug.Log("Volume:" + s.source.volume + "Target Volume:" + targetVolume);
                     yield return null;
                 }
                 

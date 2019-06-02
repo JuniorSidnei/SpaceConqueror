@@ -63,6 +63,7 @@ public class DialogueManager : MonoBehaviour
   //Proxima fala da conversa, caso não seja a última
   public void NextSpeech()
   {
+     AudioManager.PlaySound("UiDialogueNextEnd");
      StopAllCoroutines();
      m_currentSpeechIndex++;
 
@@ -77,6 +78,7 @@ public class DialogueManager : MonoBehaviour
   //Final do dialogo, isso que vai chamar quando acabar ou pra pular o dialogo
   public void EndSpeech( )
   {
+     AudioManager.PlaySound("UiDialogueNextEnd");
      HudManager.Instance.HandlePlaying();
      m_speechProgress = false;
      m_onFinishDialogue?.Invoke();
@@ -118,6 +120,7 @@ public class DialogueManager : MonoBehaviour
      foreach (char letter in sentence)
      {
         m_mainText.text += letter;
+        AudioManager.PlaySound("Speaking");
         yield return new WaitForSeconds(0.02f);
      }
   }

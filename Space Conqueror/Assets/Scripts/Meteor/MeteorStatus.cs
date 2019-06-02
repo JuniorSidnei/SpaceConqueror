@@ -35,6 +35,7 @@ public abstract class MeteorStatus : MonoBehaviour
         //Verificando a vida e destruindo o meteoro
         if (_meteorLife <= 0)
         {
+            AudioManager.PlaySound("MeteorExplosion");
             //Explosão de efeito do meteoro
             Destroy(gameObject);
             GameObject tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity); 
@@ -59,24 +60,28 @@ public abstract class MeteorStatus : MonoBehaviour
             {
                 //Gelo
                 case MeteorType.Ice:
-
+                    
+                    AudioManager.PlaySound("BulletMeteorCollision");
                     GameObject tempHit = Instantiate(_bulletHit, transform.position, Quaternion.identity);
                     break;
 
                 //Fogo
                 case MeteorType.Fire:
 
+                    AudioManager.PlaySound("BulletMeteorCollision");
                     GameObject tempHit2 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
                     break;
 
                 //Raio
                 case MeteorType.Thunder:
 
+                    AudioManager.PlaySound("BulletMeteorCollision");
                     GameObject tempHit3 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
                     break;
                 //Normal
                 case MeteorType.Normal:
 
+                    AudioManager.PlaySound("BulletMeteorCollision");
                     GameObject tempHit4 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
                     break;
             }
@@ -87,11 +92,12 @@ public abstract class MeteorStatus : MonoBehaviour
 
         //colisão com jogador
         if (obj.gameObject.layer == 10)
-        {
+        { 
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
-                
-           //Destruindo meteoro
-             Destroy(gameObject);
+            
+            //Destruindo meteoro
+            AudioManager.PlaySound("MeteorExplosion");
+            Destroy(gameObject);
             
         }
     }
