@@ -99,12 +99,12 @@ TextureImporter:
       name: ButtonDialogueBox_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 2
         y: 4
-        width: 228
-        height: 109
+        width: 236
+        height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

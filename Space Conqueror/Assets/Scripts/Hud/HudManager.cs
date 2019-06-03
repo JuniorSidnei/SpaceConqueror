@@ -51,7 +51,6 @@ public class HudManager : MonoBehaviour
 
     public void HandleConversation()
     {
-        
         m_PanelControllerConversation.HandleConversation();
         m_PanelControllerPlaying.HandleConversation();
     }

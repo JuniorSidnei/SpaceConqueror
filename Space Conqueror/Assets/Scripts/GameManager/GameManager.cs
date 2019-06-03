@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
             {
                 m_isDialogueOn = false;
                 HudManager.Instance.HandleConversation();
-                DialogueManager.Instance.StartSpeech(m_speechIntro, 0.5f, ActiveMeteor);
+                DialogueManager.Instance.StartSpeech(m_speechIntro, 1.5f, ActiveMeteor);
                 m_firstDialogueTimer = 5;
                 
             }
@@ -71,14 +71,14 @@ public class GameManager : MonoBehaviour
         if (MeteorBehavior.GetMeteorOver)
         {
             HudManager.Instance.HandleConversation();
-            DialogueManager.Instance.StartSpeech(m_speechBoss, 0.5f, ActiveBoss);
+            DialogueManager.Instance.StartSpeech(m_speechBoss, 1.5f, ActiveBoss);
         }
 
         //Se o boss morrer
         if (!KrasLosnas.isBossAlive)
         {
             HudManager.Instance.HandleConversation();
-            DialogueManager.Instance.StartSpeech(m_speechEnd, 0.5f, RestartScene);
+            DialogueManager.Instance.StartSpeech(m_speechEnd, 1.5f, RestartScene);
             
         }
     }

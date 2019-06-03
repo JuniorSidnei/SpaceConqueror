@@ -12,13 +12,18 @@ public class PanelControllerPlaying : BaseHudBehavior
     [SerializeField] private TextMeshProUGUI m_playerLifeText;
     [SerializeField] private RectTransform m_rect;
     
-    private const float PLAYNG_POS_Y = -229.5f;
-    private const float CONVERSATION_POS_Y = 530f;
+    private const float PLAYNG_POS_Y = -120f;
+    private const float CONVERSATION_POS_Y = 540f;
 
-  
+    public Animator m_playAnim;
+
+//    private void Start()
+//    {
+//        m_playAnim = GetComponentInChildren<Animator>();
+//    }
+
     void Update()
     {
-        
         UpdateHudValues(m_playerInfo);
     }
 
@@ -39,13 +44,17 @@ public class PanelControllerPlaying : BaseHudBehavior
 
     public override void HandleConversation()
     {
+        m_playAnim.SetTrigger("ShowDown");
         base.HandleConversation();
         m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
+        //m_playAnim.SetTrigger("Default");
     }
 
     public override void HandlePlaying()
     {
+        m_playAnim.SetTrigger("ShowUp");
         base.HandlePlaying();
         m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
+        m_playAnim.SetTrigger("StandBy");
     }
 }

@@ -272,7 +272,6 @@ public class AudioManager : MonoBehaviour
                 while (s.source.volume < targetVolume)
                 {
                     s.source.volume += Time.deltaTime / duration;
-                    Debug.Log("Volume:" + s.source.volume + "Target Volume:" + targetVolume);
                     yield return null;
                 }
                 
