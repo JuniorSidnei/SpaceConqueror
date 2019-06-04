@@ -14,10 +14,6 @@ public class PanelControllerConversation : BaseHudBehavior
 
     public Animator m_boxDialogueAnim;
 
-//    private void Start()
-//    {
-//        m_boxDialogueAnim = GetComponentInChildren<Animator>();
-//    }
 
     public override void SetPlayerInfo(PlayerInfo playerInfo)
     {
@@ -37,6 +33,5 @@ public class PanelControllerConversation : BaseHudBehavior
         m_boxDialogueAnim.SetTrigger("ShowDown");
         base.HandlePlaying();
         m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
-        m_boxDialogueAnim.SetTrigger("Default");
     }
 }

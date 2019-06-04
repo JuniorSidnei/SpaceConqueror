@@ -16,12 +16,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     private const float CONVERSATION_POS_Y = 540f;
 
     public Animator m_playAnim;
-
-//    private void Start()
-//    {
-//        m_playAnim = GetComponentInChildren<Animator>();
-//    }
-
+    
     void Update()
     {
         UpdateHudValues(m_playerInfo);
@@ -47,7 +42,6 @@ public class PanelControllerPlaying : BaseHudBehavior
         m_playAnim.SetTrigger("ShowDown");
         base.HandleConversation();
         m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
-        //m_playAnim.SetTrigger("Default");
     }
 
     public override void HandlePlaying()
