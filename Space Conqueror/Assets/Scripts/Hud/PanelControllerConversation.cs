@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class PanelControllerConversation : BaseHudBehavior
 {
@@ -12,9 +13,9 @@ public class PanelControllerConversation : BaseHudBehavior
     private const float PLAYNG_POS_Y = -120f;
     private const float CONVERSATION_POS_Y = 540f;
 
-    public Animator m_boxDialogueAnim;
-
-
+    //public Animator m_boxDialogueAnim;
+    public GameObject m_boxDialogue;
+    
     public override void SetPlayerInfo(PlayerInfo playerInfo)
     {
         m_playerInfo = playerInfo;
@@ -22,16 +23,23 @@ public class PanelControllerConversation : BaseHudBehavior
     
     public override void HandleConversation()
     {
-        m_boxDialogueAnim.SetTrigger("ShowUp");
         base.HandleConversation();
-        m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
-        m_boxDialogueAnim.SetTrigger("StandBy");
+        //m_boxDialogueAnim.SetTrigger("ShowUp");
+        m_boxDialogue.gameObject.transform.DOScale(new Vector3(1, 1, 0), 1f).OnComplete(() =>
+        {
+            m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
+        });
+        
     }
 
     public override void HandlePlaying()
     {
-        m_boxDialogueAnim.SetTrigger("ShowDown");
         base.HandlePlaying();
-        m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
+        //m_boxDialogueAnim.SetTrigger("ShowDown");
+        m_boxDialogue.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f).OnComplete(() =>
+        {
+            m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
+        });
+        
     }
 }

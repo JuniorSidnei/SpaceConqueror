@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
             if (m_firstDialogueTimer <= 0)
             {
                 m_isDialogueOn = false;
+                
                 HudManager.Instance.HandleConversation();
                 DialogueManager.Instance.StartSpeech(m_speechIntro, 1.5f, ActiveMeteor);
                 m_firstDialogueTimer = 5;

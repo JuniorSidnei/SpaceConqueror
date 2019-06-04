@@ -286,6 +286,7 @@ MonoBehaviour:
   m_playingMode: []
   m_rect: {fileID: 1189321827}
   m_boxDialogueAnim: {fileID: 2090522248}
+  m_boxDialogue: {fileID: 2090522243}
 --- !u!114 &1198538430 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4200885999480124861, guid: ab198fbd3485fdf45b796b24713528b0,
