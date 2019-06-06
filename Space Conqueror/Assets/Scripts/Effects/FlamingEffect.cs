@@ -16,7 +16,7 @@ public class FlamingEffect : PlayerEffects
     {
        
         //Deixando a sprite vermelha por causa do fogo, deixar a animação de fogo começando aqui
-        player.GetComponent<SpriteRenderer>().color = Color.red;
+        player.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     
 
         //Contando o tempo

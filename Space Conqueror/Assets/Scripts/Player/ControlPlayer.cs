@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class ControlPlayer : MonoBehaviour
@@ -31,12 +32,17 @@ public class ControlPlayer : MonoBehaviour
     List<PlayerEffects> m_currentEffects;
     //Particula quando atira
     public GameObject m_ptcShooting;
+
+    public GameObject m_player;
     ///</Variáveis do jogador>
 
     ///<Layer para colisões>
     //layer publica
     [SerializeField]
     public LayerMask _colisionLayer;
+
+    private bool m_iddleStop;
+
     ///</Layer>
         
 
@@ -49,6 +55,7 @@ public class ControlPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         
         Move();
         ReloadTimer();
@@ -78,7 +85,11 @@ public class ControlPlayer : MonoBehaviour
         
         //Movendo o jogador
         transform.position += _moveVelocity * Time.deltaTime;
-        
+
+       
+//        if (_moveVelocity.magnitude <= 0)
+            //DoIddle();
+            
     }
     
     //Função de tiro do personagem
@@ -129,8 +140,7 @@ public class ControlPlayer : MonoBehaviour
 //            m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
 //    }
 
-
-
+    
     //Aplicar efeito
     public void AddEffect(PlayerEffects nextEffect)
     {

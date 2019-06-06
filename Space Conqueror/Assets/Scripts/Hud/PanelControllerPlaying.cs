@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PanelControllerPlaying : BaseHudBehavior
@@ -15,7 +17,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     private const float PLAYNG_POS_Y = -120f;
     private const float CONVERSATION_POS_Y = 540f;
 
-    public Animator m_playAnim;
+    [FormerlySerializedAs("m_playBox")] public GameObject m_lifeBox;
     
     void Update()
     {
@@ -39,16 +41,15 @@ public class PanelControllerPlaying : BaseHudBehavior
 
     public override void HandleConversation()
     {
-        m_playAnim.SetTrigger("ShowDown");
         base.HandleConversation();
-        m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
+        m_lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f);
+        //m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
     }
 
     public override void HandlePlaying()
     {
-        m_playAnim.SetTrigger("ShowUp");
         base.HandlePlaying();
-        m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
-        m_playAnim.SetTrigger("StandBy");
+        m_lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
+        //m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
     }
 }
