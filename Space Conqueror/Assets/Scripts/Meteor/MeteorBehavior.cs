@@ -29,7 +29,7 @@ public class MeteorBehavior : MonoBehaviour
     void Update()
     {
         
-        if (/*GameManager.Instance.GetMeteor()*/ m_isMeteorOn)
+        if (m_isMeteorOn)
         {
             //Tempo do jogo
             _timer += Time.deltaTime;
@@ -69,17 +69,15 @@ public class MeteorBehavior : MonoBehaviour
         }
         else
         {
-            //GameManager.Instance.SetMeteor(true);
             m_isMeteorOver = true;
             gameObject.SetActive(false);
+            DialogueManager.Instance.StartSpeech(m_speechBoss, 1.5f,
+                () => { EventManager.Instance.onDialogueFinish[EventManager.Instance.m_currentEvent].Invoke();});
         }
     }
 
     //Retorna a variavel de que acabaram os meteoros
     public static bool GetMeteorOver => m_isMeteorOver;
-//    {
-//        return m_isMeteorOver;
-//    }
 
     public static void SetMeteorOver(bool isMeteorOver)
     {
@@ -87,7 +85,7 @@ public class MeteorBehavior : MonoBehaviour
     }
     
     //Seta a variavel de que os meteoros começam ou acabam
-    public static void SetMeteorActive(bool isMeteorOn)
+    public void SetMeteorActive(bool isMeteorOn)
     {
         m_isMeteorOn = isMeteorOn;
     }

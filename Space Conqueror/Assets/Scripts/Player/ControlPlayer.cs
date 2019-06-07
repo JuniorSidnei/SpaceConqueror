@@ -16,7 +16,8 @@ public class ControlPlayer : MonoBehaviour
     //Float de posição do personagem
     private Vector2 _moveInput;
     //Vetor de input somado com tempo e velocidade
-    private Vector3 _moveVelocity;
+    [HideInInspector]
+    public Vector3 _moveVelocity;
     //Posição do tiro
     public Transform _shotPos;
     //Objeto de tiro
@@ -49,7 +50,6 @@ public class ControlPlayer : MonoBehaviour
     void Start()
     {
         m_currentEffects = new List<PlayerEffects>();
-        //AudioManager.PlaySound("PlayerEngine");
     }
 
     // Update is called once per frame

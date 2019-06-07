@@ -53,7 +53,9 @@ public class DialogueManager : MonoBehaviour
 
   //Aqui começa o dialogo, quando triggar o evento ou alguma coisa, isso que vai começar o dialogo
   public void StartSpeech(SpeechScriptable speech, float delay, Action endDialogue)
-  {
+  { 
+     HudManager.Instance.HandleConversation();
+     
      //Invokar evento somente depois que terminar a corrotina
      m_onFinishDialogue = endDialogue;
      StartCoroutine(StartSpeechCoroutine(speech, delay));
