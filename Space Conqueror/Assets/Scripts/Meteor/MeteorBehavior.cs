@@ -71,8 +71,9 @@ public class MeteorBehavior : MonoBehaviour
         {
             m_isMeteorOver = true;
             gameObject.SetActive(false);
-            DialogueManager.Instance.StartSpeech(m_speechBoss, 1.5f,
-                () => { EventManager.Instance.onDialogueFinish[EventManager.Instance.m_currentEvent].Invoke();});
+            EventHandler.Instance.CallDialogueAndEvent();
+//            DialogueManager.Instance.StartSpeech(m_speechBoss, 1.5f,
+//                () => { EventManager.Instance.onDialogueFinish[EventManager.Instance.m_currentEvent].Invoke();});
         }
     }
 
@@ -88,6 +89,7 @@ public class MeteorBehavior : MonoBehaviour
     public void SetMeteorActive(bool isMeteorOn)
     {
         m_isMeteorOn = isMeteorOn;
+        Debug.Log("Vai?" + isMeteorOn);
     }
 }
 

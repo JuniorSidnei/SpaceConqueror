@@ -32,15 +32,12 @@ public class KrasLosnas : MonoBehaviour
     private float _overHeatTimer = 0f;
 
     private int m_bodyDamage = 30;
-
-    //public SpeechScriptable m_speechBoss;
-
+    
     private static bool m_alive = true;
     
     void Start()
     {
         m_anim = GetComponent<Animator>();
-        
     }
 
 
@@ -62,7 +59,6 @@ public class KrasLosnas : MonoBehaviour
         //Se a vida do boss for menor que metade e ele não estiver sobrecarregado, pode atirar
         if (m_life <= 1500 && _isOverHeat == false)
         {
-          
             m_anim.SetBool("BurstOn", true);
             _shootTimer += Time.deltaTime;
 
@@ -77,11 +73,6 @@ public class KrasLosnas : MonoBehaviour
         if (m_life <= 0)
         {
             StartCoroutine(BossDiyng());
-//            AudioManager.PlaySound("BossDie");
-//            Instantiate(m_ptcDie, transform.position, Quaternion.identity);
-//            Destroy(gameObject);
-            
-            m_alive = false;
         }
     }
 
@@ -91,13 +82,14 @@ public class KrasLosnas : MonoBehaviour
         AudioManager.PlaySound("BossDie");
         Instantiate(m_ptcDie, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        //Time.timeScale = 1f;
+        m_alive = false;
+        EventHandler.Instance.CallDialogueAndEvent();
         yield return new WaitForSeconds(1f);
+       
     }
 
     public static bool isBossAlive => m_alive;
-
-
+    
     void OnCollisionEnter2D(Collision2D obj)
     {
         if(obj.gameObject.layer == 11)
@@ -129,5 +121,13 @@ public class KrasLosnas : MonoBehaviour
         }
     }
 
+    public void ActiveBoss()
+    {
+        FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
+        MeteorBehavior.SetMeteorOver(false);
+        AudioManager.FadeOut("MainTheme", 2f);
+        AudioManager.PlaySound("KrasLonasTheme");
+    }
+    
     public int GetBodyDamage()  {  return m_bodyDamage;  }
 }

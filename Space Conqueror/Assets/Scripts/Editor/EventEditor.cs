@@ -12,13 +12,11 @@ public class EventEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
-        
         if(m_event == null)
             m_event = (EventManager)target;
 
         EditorGUI.BeginChangeCheck();
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("onDialogueFinish"), false);
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("onDialogueFinish"), true);
 
         if(EditorGUI.EndChangeCheck())
         {

@@ -53,9 +53,7 @@ public class DialogueManager : MonoBehaviour
 
   //Aqui começa o dialogo, quando triggar o evento ou alguma coisa, isso que vai começar o dialogo
   public void StartSpeech(SpeechScriptable speech, float delay, Action endDialogue)
-  { 
-     HudManager.Instance.HandleConversation();
-     
+  {
      //Invokar evento somente depois que terminar a corrotina
      m_onFinishDialogue = endDialogue;
      StartCoroutine(StartSpeechCoroutine(speech, delay));
@@ -81,8 +79,8 @@ public class DialogueManager : MonoBehaviour
   public void EndSpeech( )
   {
      AudioManager.PlaySound("UiDialogueNextEnd");
-     HudManager.Instance.HandlePlaying();
      m_speechProgress = false;
+     HudManager.Instance.HandlePlaying();
      m_onFinishDialogue?.Invoke();
   }
   
@@ -90,7 +88,6 @@ public class DialogueManager : MonoBehaviour
   //Função para associar os textos e os nomes(quem sabe futuramente sprites)
   private void FillSpeech()
   {
-     
      SpeechGroup s = m_currentSpeechFull.speechGroup[m_currentSpeechIndex];
 
      m_speakerName.text = s.m_currentSpeaker.ToString();

@@ -37,8 +37,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
-        
         m_isDialogueOn = true;
         
         AudioManager.FadeIn("MainTheme", 0.2f, 2f);
@@ -61,12 +59,7 @@ public class GameManager : MonoBehaviour
             if (m_firstDialogueTimer <= 0)
             {
                 m_isDialogueOn = false;
-
-                //HudManager.Instance.HandleConversation();
-                //DialogueManager.Instance.StartSpeech(m_speechIntro, 1.5f, ActiveMeteor);
-                DialogueManager.Instance.StartSpeech(m_speechIntro, 1.5f,
-                    () => { EventManager.Instance.onDialogueFinish[EventManager.Instance.m_currentEvent].Invoke(); });
-
+                EventHandler.Instance.CallDialogueAndEvent();
                 m_firstDialogueTimer = 5;
             }
         }
@@ -105,18 +98,18 @@ public class GameManager : MonoBehaviour
 //    public bool GetMeteor()  { return m_isMeteorOn;  }
     
     //Ativa o Boss
-    private void ActiveBoss()
-    {
-        FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
-        MeteorBehavior.SetMeteorOver(false);
-        AudioManager.FadeOut("MainTheme", 2f);
-        AudioManager.PlaySound("KrasLonasTheme");
-    }
+//    private void ActiveBoss()
+//    {
+//        FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
+//        MeteorBehavior.SetMeteorOver(false);
+//        AudioManager.FadeOut("MainTheme", 2f);
+//        AudioManager.PlaySound("KrasLonasTheme");
+//    }
 
     //Carrega a proxima cena quando o boss morrer
     public void RestartScene()
     {
-        Application.Quit();
+        SceneManager.LoadScene("SecondLevel");
     }
 
     #endregion
