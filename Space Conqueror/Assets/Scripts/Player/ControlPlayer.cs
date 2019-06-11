@@ -56,18 +56,14 @@ public class ControlPlayer : MonoBehaviour
     void Update()
     {
         
-        
         Move();
         ReloadTimer();
         
         if(Input.GetKey(KeyCode.Space) && _canShoot)
             Shoot();
 
-//        if (Input.GetKey(KeyCode.R) && m_playerInfo.RecoveryKit >= 0)
-//        {
-//            Debug.Log("Kit de reparos antes do uso: " + m_playerInfo.RecoveryKit);
-//            RepairKit(m_playerInfo.RecoveryAmount);
-//        }
+        if (Input.GetKeyDown(KeyCode.R))
+            RecoveryKit();   
         
         
         //Aplicando os efeitos ao jogador
@@ -85,11 +81,6 @@ public class ControlPlayer : MonoBehaviour
         
         //Movendo o jogador
         transform.position += _moveVelocity * Time.deltaTime;
-
-       
-//        if (_moveVelocity.magnitude <= 0)
-            //DoIddle();
-            
     }
     
     //Função de tiro do personagem
@@ -125,20 +116,30 @@ public class ControlPlayer : MonoBehaviour
 
 
     //Usando kit de reparos
-//    private void RepairKit(int recover)
-//    {
-//        
-//        //Se ainda tiver kit pra usar, pode usar
-//        m_playerInfo.CurrentLife += recover;
-//        m_playerInfo.RecoveryKit--;
-//        Debug.Log("Kit de reparos depois do uso: " + m_playerInfo.RecoveryKit);
-//           
-//        
-//        
-//        //Se a vida chegar ao máximo quando recuperar, fica no máximo
-//        if (m_playerInfo.CurrentLife >= m_playerInfo.MaxLife)
-//            m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
-//    }
+    private void RecoveryKit()
+    {
+        Debug.Log("Quantos kits?: " + m_playerInfo.RecoveryKit);
+        
+        if (m_playerInfo.RecoveryKit >= 1)
+        {
+            //Se ainda tiver kit pra usar, pode usar
+            m_playerInfo.CurrentLife += m_playerInfo.RecoveryAmount;
+            m_playerInfo.RecoveryKit--;
+            
+            if (m_playerInfo.RecoveryKit <= 0)
+                m_playerInfo.RecoveryKit = 0;
+            
+            Debug.Log("Kit de reparos depois do uso: " + m_playerInfo.RecoveryKit);
+        }
+        else
+        {
+            Debug.Log("ACABOU O KIT SE FUDEU: " + m_playerInfo.RecoveryKit);
+        }
+
+        //Se a vida chegar ao máximo quando recuperar, fica no máximo
+        if (m_playerInfo.CurrentLife >= m_playerInfo.MaxLife)
+            m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
+    }
 
     
     //Aplicar efeito
@@ -169,6 +170,7 @@ public class ControlPlayer : MonoBehaviour
             //Tiro do Boss
             if(obj.gameObject.CompareTag("BossBullet"))
             {
+                CameraController.Instance.ScreenShake();
                 AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<StandardBullet>()._damage);
                 Destroy(obj.gameObject);
@@ -177,6 +179,7 @@ public class ControlPlayer : MonoBehaviour
             //Corpo do Boss
             if(obj.gameObject.CompareTag("Boss"))
             {
+                CameraController.Instance.ScreenShake();
                 AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage());
             }

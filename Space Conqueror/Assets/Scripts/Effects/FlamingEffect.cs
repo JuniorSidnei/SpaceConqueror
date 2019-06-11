@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class FlamingEffect : PlayerEffects
 {
@@ -16,8 +17,8 @@ public class FlamingEffect : PlayerEffects
     {
        
         //Deixando a sprite vermelha por causa do fogo, deixar a animação de fogo começando aqui
-        player.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-    
+        player.GetComponentInChildren<SpriteRenderer>().DOColor(Color.red, 1.5f);
+        player.GetComponentInChildren<SpriteRenderer>().DOFade(0.8f, 1.5f);
 
         //Contando o tempo
         _effectTimer += Time.deltaTime;

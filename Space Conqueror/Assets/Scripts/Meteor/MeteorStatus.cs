@@ -55,7 +55,8 @@ public abstract class MeteorStatus : MonoBehaviour
         {
             //Aplicando dano na vida do meteoro
             _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
-          
+            
+            
             switch (type)
             {
                 //Gelo
@@ -93,12 +94,12 @@ public abstract class MeteorStatus : MonoBehaviour
         //colisão com jogador
         if (obj.gameObject.layer == 10)
         { 
+            CameraController.Instance.ScreenShake();
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
             
             //Destruindo meteoro
             AudioManager.PlaySound("MeteorExplosion");
             Destroy(gameObject);
-            
         }
     }
 

@@ -109,7 +109,8 @@ public class GameManager : MonoBehaviour
     //Carrega a proxima cena quando o boss morrer
     public void RestartScene()
     {
-        SceneManager.LoadScene("SecondLevel");
+        //SceneManager.LoadScene("FirstLevel");
+        Application.Quit();
     }
 
     #endregion

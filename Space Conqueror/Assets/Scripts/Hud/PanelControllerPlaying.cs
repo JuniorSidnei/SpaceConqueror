@@ -13,6 +13,8 @@ public class PanelControllerPlaying : BaseHudBehavior
     [SerializeField] private Image m_LifeBarFill;
     [SerializeField] private TextMeshProUGUI m_playerLifeText;
     [SerializeField] private RectTransform m_rect;
+    [SerializeField] private GameObject m_recoveryKitButton;
+    [SerializeField] private GameObject m_recoveryKitKey;
     
     private const float PLAYNG_POS_Y = -120f;
     private const float CONVERSATION_POS_Y = 540f;
@@ -36,6 +38,9 @@ public class PanelControllerPlaying : BaseHudBehavior
         if (playerinfo == null) return;
         m_LifeBarFill.fillAmount = (float)playerinfo.CurrentLife / playerinfo.MaxLife;
         m_playerLifeText.text = ("" + playerinfo.CurrentLife);
+
+        if (playerinfo.RecoveryKit <= 0)
+            m_recoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.gray, 1f);
     }
 
 
@@ -43,13 +48,15 @@ public class PanelControllerPlaying : BaseHudBehavior
     {
         base.HandleConversation();
         m_lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f);
-        //m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
+        m_recoveryKitButton.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f);
+        m_recoveryKitKey.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f);
     }
 
     public override void HandlePlaying()
     {
         base.HandlePlaying();
         m_lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
-        //m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
+        m_recoveryKitButton.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 0), 1f);
+        m_recoveryKitKey.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 0), 1f);
     }
 }

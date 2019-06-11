@@ -12,6 +12,8 @@ public class MeteorBehavior : MonoBehaviour
     public float _spawnY;
     //Tempo de spawn
     public float _spawnTimer = 2.5f;
+    //Quantidade de meteoros na fase
+    public int m_metorLimit;
     //Gerenciador
     //public DialogueManager _dialoguemng;
     //Objeto do meteoro
@@ -20,6 +22,8 @@ public class MeteorBehavior : MonoBehaviour
     private float _timer;
     //Contador de meteoros
     private int _meteorCount = 0;
+    
+    
     
     private static bool m_isMeteorOn = false;
     private static bool m_isMeteorOver = false;
@@ -59,7 +63,7 @@ public class MeteorBehavior : MonoBehaviour
         _meteorCount++;
 
         //Só meteoros pequenos
-        if (_meteorCount <= 10)
+        if (_meteorCount <= m_metorLimit)
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro
@@ -72,8 +76,6 @@ public class MeteorBehavior : MonoBehaviour
             m_isMeteorOver = true;
             gameObject.SetActive(false);
             EventHandler.Instance.CallDialogueAndEvent();
-//            DialogueManager.Instance.StartSpeech(m_speechBoss, 1.5f,
-//                () => { EventManager.Instance.onDialogueFinish[EventManager.Instance.m_currentEvent].Invoke();});
         }
     }
 
@@ -89,7 +91,6 @@ public class MeteorBehavior : MonoBehaviour
     public void SetMeteorActive(bool isMeteorOn)
     {
         m_isMeteorOn = isMeteorOn;
-        Debug.Log("Vai?" + isMeteorOn);
     }
 }
 

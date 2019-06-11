@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LightningEffect : PlayerEffects
 {
@@ -19,7 +20,8 @@ public class LightningEffect : PlayerEffects
     {
 
         //Começar animação de raio
-        player.GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+        player.GetComponentInChildren<SpriteRenderer>().DOColor(Color.yellow, 1.5f);
+        player.GetComponentInChildren<SpriteRenderer>().DOFade(0.8f, 1.5f);
         playerInfo.Speed = _effectSpeed;
 
         //Contando o tempo

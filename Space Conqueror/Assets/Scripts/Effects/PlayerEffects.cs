@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PlayerEffects
 {
-    protected int _effectDamage;
+    public int _effectDamage;
     protected float _effectTimer = 0f;
     protected float _effectSpeed;
     protected int _effectFlameDamage = 5;

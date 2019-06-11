@@ -24,20 +24,12 @@ public class PanelControllerConversation : BaseHudBehavior
     public override void HandleConversation()
     {
         base.HandleConversation();
-        m_boxDialogue.gameObject.transform.DOScale(new Vector3(1, 1, 0), 1f);//.OnComplete(() =>
-//        {
-//            m_rect.anchoredPosition = new Vector2(0, CONVERSATION_POS_Y);
-//        });
-        
+        m_boxDialogue.gameObject.transform.DOScale(new Vector3(1, 1, 0), 1f);
     }
 
     public override void HandlePlaying()
     {
         base.HandlePlaying();
-        m_boxDialogue.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f);//.OnComplete(() =>
-//        {
-//            m_rect.anchoredPosition = new Vector2(0, PLAYNG_POS_Y);
-//        });
-        
+        m_boxDialogue.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f);
     }
 }

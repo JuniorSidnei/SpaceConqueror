@@ -18,7 +18,7 @@ public class KrasDiyng : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_Timer += Time.deltaTime;
-        if (m_Timer >= 0.2f)
+        if (m_Timer >= 0.5f)
         {
             GameObject tempSmoke = Instantiate(m_smoke, animator.transform.position, Quaternion.identity);
             m_Timer = 0f;

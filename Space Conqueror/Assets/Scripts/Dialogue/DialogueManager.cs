@@ -54,6 +54,8 @@ public class DialogueManager : MonoBehaviour
   //Aqui começa o dialogo, quando triggar o evento ou alguma coisa, isso que vai começar o dialogo
   public void StartSpeech(SpeechScriptable speech, float delay, Action endDialogue)
   {
+     ClearBox();
+     
      //Invokar evento somente depois que terminar a corrotina
      m_onFinishDialogue = endDialogue;
      StartCoroutine(StartSpeechCoroutine(speech, delay));
@@ -123,7 +125,13 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
      }
   }
-  
+
+  private void ClearBox()
+  {
+     SpeechGroup s = m_currentSpeechFull.speechGroup[m_currentSpeechIndex];
+     m_mainText.text = "";
+     s.m_speechText = m_mainText.text;
+  }
   #endregion
    
 }

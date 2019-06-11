@@ -40,18 +40,16 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     {
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
-        m_halfLifeInGame = m_halfLife;
         m_speedInGame = m_speed;
-        //m_recoveryKitInGame = m_recoveryKit;
+        m_recoveryKitInGame = m_recoveryKit;
     }
 
     public void OnAfterDeserialize()
     {
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
-        m_halfLifeInGame = m_halfLife;
         m_speedInGame = m_speed;
-       // m_recoveryKitInGame = m_recoveryKit;
+        m_recoveryKitInGame = m_recoveryKit;
     }
 
     
@@ -61,9 +59,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         set
         {
             m_currentLifeInGame = value;
-
-            if (OnValueChanged != null)
-                OnValueChanged(this);
+            OnValueChanged?.Invoke(this);
         }
     }
 
@@ -75,25 +71,19 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
 
     public float Speed
     {
-        get => m_speed;
-        set => m_speed = value;
+        get => m_speedInGame;
+        set => m_speedInGame = value;
     }
 
-    public int HalfLife
+    public int RecoveryKit
     {
-        get => m_halfLife;
-        set => m_halfLife = value;
+        get => m_recoveryKitInGame;
+        set => m_recoveryKitInGame = value;
     }
-    
-//    public int RecoveryKit
-//    {
-//        get => m_recoveryKitInGame;
-//        set => m_recoveryKitInGame = value;
-//    }
-//
-//    public int RecoveryAmount
-//    {
-//        get => m_recoveryAmount;
-//    }
+
+    public int RecoveryAmount
+    {
+        get => m_recoveryAmount;
+    }
 }
 

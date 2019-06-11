@@ -8,11 +8,13 @@ public class BeforeDashBehavior : StateMachineBehaviour
     public float _minTimer;
     public int _rand;
     public float _timer;
-
+    
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _timer = Random.Range(_minTimer, _maxTimer);
+        Debug.Log("timer: " + _timer);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,7 +26,7 @@ public class BeforeDashBehavior : StateMachineBehaviour
         {
             _timer = Random.Range(_minTimer, _maxTimer);
             _rand = Random.Range(0, 3);
-           
+
 
             if (_rand == 1)
                 animator.SetTrigger("GoDash");

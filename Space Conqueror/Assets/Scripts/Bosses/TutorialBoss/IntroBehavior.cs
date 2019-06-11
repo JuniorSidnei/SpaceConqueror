@@ -6,17 +6,10 @@ public class IntroBehavior : StateMachineBehaviour
 {
     private int _rand;
 
-    public SpeechScriptable m_speechBoss;
+  
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-       // GameManager.Instance.CallDialogue(m_speechBoss);
-        
-    }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _rand = Random.Range(0,2);
 
@@ -24,6 +17,12 @@ public class IntroBehavior : StateMachineBehaviour
             animator.SetTrigger("BeforeDash");
         else
             animator.SetTrigger("GoDash");
+    }
+
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+       
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
