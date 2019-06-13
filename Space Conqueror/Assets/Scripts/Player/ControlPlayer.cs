@@ -1,23 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using DG.Tweening;
 using UnityEngine;
 
 public class ControlPlayer : MonoBehaviour
 {
-//    ///<Eventos>
-//    public delegate void DamageDelegate(float currentLife);
-//    public  event DamageDelegate DamageEvent;
-//    /// </Eventos>
-
     ///<Controle do jogador>
-    //Joystick de mobile
-    //public Joystick joystick;
     //Float de posição do personagem
     private Vector2 _moveInput;
     //Vetor de input somado com tempo e velocidade
     [HideInInspector]
     public Vector3 _moveVelocity;
+    //rigidbody do personagem
+    private Rigidbody2D m_rb;
+    
+    [Header("Shoot Settings")]
     //Posição do tiro
     public Transform _shotPos;
     //Objeto de tiro
@@ -26,30 +24,26 @@ public class ControlPlayer : MonoBehaviour
     private float _reloadTime = 0.5f;
     //Pode atirar
     private bool _canShoot;
+    
     //Status do player
+    [Header("Player settings")]
     public PlayerInfo m_playerInfo;
     
     //Vários estados do jogador
     List<PlayerEffects> m_currentEffects;
-    //Particula quando atira
-    public GameObject m_ptcShooting;
-
-    public GameObject m_player;
     ///</Variáveis do jogador>
 
     ///<Layer para colisões>
-    //layer publica
+    [Header("Collision settings")]
     [SerializeField]
     public LayerMask _colisionLayer;
-
-    private bool m_iddleStop;
-
     ///</Layer>
         
 
     void Start()
     {
         m_currentEffects = new List<PlayerEffects>();
+        m_rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -80,7 +74,7 @@ public class ControlPlayer : MonoBehaviour
         _moveVelocity = m_playerInfo.Speed * Time.deltaTime * _moveInput;
         
         //Movendo o jogador
-        transform.position += _moveVelocity * Time.deltaTime;
+        m_rb.MovePosition(transform.position + (_moveVelocity * Time.deltaTime));
     }
     
     //Função de tiro do personagem
@@ -181,7 +175,7 @@ public class ControlPlayer : MonoBehaviour
             {
                 CameraController.Instance.ScreenShake();
                 AudioManager.PlaySound("BossCollision");
-                ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage());
+                ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage);
             }
         }
     }

@@ -12,7 +12,6 @@ public class PanelControllerPlaying : BaseHudBehavior
     [SerializeField] private PlayerInfo m_playerInfo;
     [SerializeField] private Image m_LifeBarFill;
     [SerializeField] private TextMeshProUGUI m_playerLifeText;
-    [SerializeField] private RectTransform m_rect;
     [SerializeField] private GameObject m_recoveryKitButton;
     [SerializeField] private GameObject m_recoveryKitKey;
     
@@ -36,11 +35,11 @@ public class PanelControllerPlaying : BaseHudBehavior
     private void UpdateHudValues(PlayerInfo playerinfo)
     {
         if (playerinfo == null) return;
-        m_LifeBarFill.fillAmount = (float)playerinfo.CurrentLife / playerinfo.MaxLife;
+        m_LifeBarFill.DOFillAmount((float)playerinfo.CurrentLife / playerinfo.MaxLife, 2f);
         m_playerLifeText.text = ("" + playerinfo.CurrentLife);
 
         if (playerinfo.RecoveryKit <= 0)
-            m_recoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.gray, 1f);
+            m_recoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.black, 1f);
     }
 
 

@@ -41,8 +41,6 @@ GameObject:
   - component: {fileID: 8308483181351461044}
   - component: {fileID: 2563595356617873373}
   - component: {fileID: 7775495712412859760}
-  - component: {fileID: 3736940414711053266}
-  - component: {fileID: 6075718779522226394}
   m_Layer: 13
   m_Name: KrasLosnas
   m_TagString: Boss
@@ -133,52 +131,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3736940414711053266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7775495712412859759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77e314c539762747aa513f350c24153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_life: 3000
-  _spawnShoot: {fileID: 5762370894518054808}
-  m_ptcShoot: {fileID: 8837891537412928460, guid: 6a56ce13f037e514294708bb66c2901f,
-    type: 3}
-  _projectile: {fileID: 33547447053011051, guid: dfffc1474337f374fa113bcd63c12505,
-    type: 3}
-  m_ptcDie: {fileID: 5256392874829725907, guid: af5cd773054efd845807cd41eb44e654,
-    type: 3}
---- !u!61 &6075718779522226394
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7775495712412859759}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.64, y: 5.96}
-    newSize: {x: 5.71, y: 4.73}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 8.64, y: 5.96}
-  m_EdgeRadius: 0
 --- !u!1001 &6662311205616845688
 PrefabInstance:
   m_ObjectHideFlags: 0

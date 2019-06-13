@@ -22,7 +22,8 @@ public class MeteorBehavior : MonoBehaviour
     private float _timer;
     //Contador de meteoros
     private int _meteorCount = 0;
-    
+
+    //public Transform m_cameraPos;
     
     
     private static bool m_isMeteorOn = false;
@@ -67,7 +68,7 @@ public class MeteorBehavior : MonoBehaviour
         {
             var randPos = Random.Range(0, 4);
             //Instanciando o meteoro
-            GameObject tempoMeteor = Instantiate(_meteors[randPos], new Vector2(_spawnX, Random.Range(-_spawnY, _spawnY)), Quaternion.identity, transform);
+            GameObject tempoMeteor = Instantiate(_meteors[randPos], new Vector2(_spawnX, Random.Range(-_spawnY, _spawnY)), Quaternion.identity);
             //Destruindo o meteoro
             Destroy(tempoMeteor, 10f);
         }

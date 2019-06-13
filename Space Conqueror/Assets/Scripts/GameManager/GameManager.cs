@@ -7,15 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public enum Events
-    {
-        Meteors, FirstLevelBoss, enemysFirstWave, enemysSecondWave, EndFirstLevel
-    }
-    
     public static GameManager Instance;
-    public SpeechScriptable m_speechIntro;
-    public SpeechScriptable m_speechBoss;
-    public SpeechScriptable m_speechEnd;
+  
     #region variables
     
     public PlayerInfo m_playerInfo;
@@ -64,48 +57,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-//        //Ativa dialogo do Boss, depois dos meteoros
-//        if (MeteorBehavior.GetMeteorOver)
-//        {
-//            HudManager.Instance.HandleConversation();
-//            //DialogueManager.Instance.StartSpeech(m_speechBoss, 1.5f, ActiveBoss);
-//         
-//        }
-//
-//        //Se o boss morrer
-//        if (!KrasLosnas.isBossAlive)
-//        {
-//            HudManager.Instance.HandleConversation();
-//            DialogueManager.Instance.StartSpeech(m_speechEnd, 1.5f, RestartScene);
-//            
-//        }
     
-    
-
-    //Ativa os meteoros
-//    private void ActiveMeteor()
-//    { MeteorBehavior.SetMeteorActive(true);  }
-    
-//    public void OnDialogueFinish(){
-//        m_eventList[next++].Invoke();
-//    }
-    
-//    //Seta se meteoros começam ou acabam
-//    public void SetMeteor(bool isOver)  {  m_isMeteorOver = isOver; }
-//    
-//    //Pega a variavel de meteoros
-//    public bool GetMeteor()  { return m_isMeteorOn;  }
-    
-    //Ativa o Boss
-//    private void ActiveBoss()
-//    {
-//        FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
-//        MeteorBehavior.SetMeteorOver(false);
-//        AudioManager.FadeOut("MainTheme", 2f);
-//        AudioManager.PlaySound("KrasLonasTheme");
-//    }
-
     //Carrega a proxima cena quando o boss morrer
     public void RestartScene()
     {

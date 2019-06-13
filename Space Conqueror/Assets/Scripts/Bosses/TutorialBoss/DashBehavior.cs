@@ -16,8 +16,7 @@ public class DashBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _timer -= Time.deltaTime;
-       
-
+        
         if (_timer <= 0)
             animator.SetTrigger("BeforeDash");
     }

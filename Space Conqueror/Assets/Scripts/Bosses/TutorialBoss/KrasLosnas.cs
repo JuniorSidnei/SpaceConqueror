@@ -7,15 +7,10 @@ using UnityEngine.Serialization;
 
 public class KrasLosnas : MonoBehaviour
 {
-    public delegate void BossEvent();
-
-    //public static event BossEvent BossIsDead;
-
-
-    private Animator m_anim;
-
+    [Header("KrasLosnas Status")]
     [FormerlySerializedAs("_krasLife")] public int m_life;
 
+    [Header("Shoot settings")]
     public Transform _spawnShoot;
 
     public GameObject m_ptcShoot;
@@ -24,6 +19,7 @@ public class KrasLosnas : MonoBehaviour
 
     public GameObject m_ptcDie;
 
+    
     private int _isOverHeatCount = 0;
 
     private bool _isOverHeat = false;
@@ -33,17 +29,25 @@ public class KrasLosnas : MonoBehaviour
     private float _overHeatTimer = 0f;
 
     private int m_bodyDamage = 30;
+
+    private bool m_burstOn;
+
     
+
     private static bool m_alive = true;
-    
-    void Start()
-    {
-        m_anim = GetComponent<Animator>();
-    }
 
-
+    [Header("Distance and who to follow")]
+    public Transform m_target;
+    [HideInInspector]
+    public Vector3 m_distance;
+    public float m_maxDistance;
+  
     void Update()
     {
+        
+//        m_distance = transform.position - m_target.position;
+//        m_distance.y = 0;
+//        transform.position = m_target.position + m_distance.normalized * m_maxDistance;
         
         if (_isOverHeat)
         {
@@ -52,7 +56,6 @@ public class KrasLosnas : MonoBehaviour
             if (_overHeatTimer >= 3f)
             {
                 _isOverHeat = false;
-                m_anim.SetBool("Overheat", false);
                 _overHeatTimer = 0;
             }
         }
@@ -60,7 +63,8 @@ public class KrasLosnas : MonoBehaviour
         //Se a vida do boss for menor que metade e ele não estiver sobrecarregado, pode atirar
         if (m_life <= 1500 && _isOverHeat == false)
         {
-            m_anim.SetBool("BurstOn", true);
+            //m_anim.SetBool("BurstOn", true);
+            m_burstOn = true;
             _shootTimer += Time.deltaTime;
 
             if (_shootTimer >= 0.2f)
@@ -84,9 +88,9 @@ public class KrasLosnas : MonoBehaviour
         Instantiate(m_ptcDie, transform.position, Quaternion.identity);
         Destroy(gameObject);
         m_alive = false;
+        yield return new WaitForSeconds(2f);
         EventHandler.Instance.CallDialogueAndEvent();
-        yield return new WaitForSeconds(1f);
-       
+        Time.timeScale = 0.2f;
     }
 
     public static bool isBossAlive => m_alive;
@@ -96,8 +100,8 @@ public class KrasLosnas : MonoBehaviour
         if(obj.gameObject.layer == 11)
         {
            AudioManager.PlaySound("BulletBossCollision");
-            m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
-            Destroy(obj.gameObject);
+           m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+           Destroy(obj.gameObject);
         }
     }
 
@@ -107,7 +111,7 @@ public class KrasLosnas : MonoBehaviour
         AudioManager.PlaySound("BossShoot");
         GameObject tempExp = Instantiate(m_ptcShoot, _spawnShoot.position, Quaternion.identity, transform);
         
-        GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity, transform);
+        GameObject tempprojectile = Instantiate(_projectile, _spawnShoot.position, Quaternion.identity);
         tempprojectile.transform.right = Vector3.right;
         Destroy(tempprojectile, 4f);
 
@@ -117,18 +121,50 @@ public class KrasLosnas : MonoBehaviour
         {
             _isOverHeat = true;
             _isOverHeatCount = 0;
-            m_anim.SetBool("Overheat", true);
+           // m_anim.SetBool("Overheat", true);
             AudioManager.PlaySound("AlertBoss");
         }
     }
 
     public void ActiveBoss()
     {
-        FindObjectOfType<KrasLosnas>().GetComponent<Animator>().SetTrigger("BossOn");
+        FindObjectOfType<KrasLosnas>().GetComponentInChildren<Animator>().SetTrigger("BossOn");
         MeteorBehavior.SetMeteorOver(false);
         AudioManager.FadeOut("MainTheme", 2f);
         AudioManager.PlaySound("KrasLonasTheme");
     }
+
+    public int GetBodyDamage
+    {
+        get => m_bodyDamage;
+    }
+
+    public int GetLife
+    {
+        get => m_life;
+    }
+
+    public int IsOverHeatCount
+    {
+        get => _isOverHeatCount;
+        set => _isOverHeatCount = value;
+    }
+
+    public bool IsOverHeat
+    {
+        get => _isOverHeat;
+        set => _isOverHeat = value;
+    }
+
+    public float OverHeatTimer
+    {
+        get => _overHeatTimer;
+        set => _overHeatTimer = value;
+    }
     
-    public int GetBodyDamage()  {  return m_bodyDamage;  }
+    public bool BurstOn
+    {
+        get => m_burstOn;
+        set => m_burstOn = value;
+    }
 }

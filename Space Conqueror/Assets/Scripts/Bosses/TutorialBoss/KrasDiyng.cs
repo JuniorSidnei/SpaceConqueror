@@ -6,7 +6,7 @@ public class KrasDiyng : StateMachineBehaviour
 {
     public GameObject m_smoke;
     private float m_Timer = 0f;
-
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 //    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 //    {
@@ -23,6 +23,7 @@ public class KrasDiyng : StateMachineBehaviour
             GameObject tempSmoke = Instantiate(m_smoke, animator.transform.position, Quaternion.identity);
             m_Timer = 0f;
         }
+
     }
 }
 
