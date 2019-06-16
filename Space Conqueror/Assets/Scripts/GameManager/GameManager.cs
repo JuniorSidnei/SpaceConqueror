@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         AudioManager.FadeIn("MainTheme", 0.2f, 2f);
         
         HudManager.Show(()=>
-        { 
+        {
             HudManager.Instance.HandlePlaying();
         });
         

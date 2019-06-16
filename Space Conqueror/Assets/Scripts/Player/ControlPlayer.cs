@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using DG.Tweening;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 public class ControlPlayer : MonoBehaviour
 {
+    
     ///<Controle do jogador>
     //Float de posição do personagem
     private Vector2 _moveInput;
@@ -37,8 +39,11 @@ public class ControlPlayer : MonoBehaviour
     [Header("Collision settings")]
     [SerializeField]
     public LayerMask _colisionLayer;
-    ///</Layer>
-        
+
+    private void Awake()
+    {
+        m_playerInfo.SetControlPlayer(this);
+    }
 
     void Start()
     {
@@ -112,8 +117,6 @@ public class ControlPlayer : MonoBehaviour
     //Usando kit de reparos
     private void RecoveryKit()
     {
-        Debug.Log("Quantos kits?: " + m_playerInfo.RecoveryKit);
-        
         if (m_playerInfo.RecoveryKit >= 1)
         {
             //Se ainda tiver kit pra usar, pode usar
@@ -122,8 +125,6 @@ public class ControlPlayer : MonoBehaviour
             
             if (m_playerInfo.RecoveryKit <= 0)
                 m_playerInfo.RecoveryKit = 0;
-            
-            Debug.Log("Kit de reparos depois do uso: " + m_playerInfo.RecoveryKit);
         }
         else
         {

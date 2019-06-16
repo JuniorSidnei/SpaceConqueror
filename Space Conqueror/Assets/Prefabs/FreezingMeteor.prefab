@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2708497542533412193}
   - component: {fileID: 1602996883886478507}
   m_Layer: 8
-  m_Name: FreezingMeteorUpdate
+  m_Name: FreezingMeteor
   m_TagString: FreezingMeteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1602996883886478507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +206,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3093964046675166798}
     m_Modifications:
+    - target: {fileID: 6773924756335321245, guid: fd8887da24fe3714282577f1a019a5ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice
+      objectReference: {fileID: 0}
     - target: {fileID: 6773924756335321240, guid: fd8887da24fe3714282577f1a019a5ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,11 +266,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6773924756335321245, guid: fd8887da24fe3714282577f1a019a5ad,
+    - target: {fileID: 6773924756335321246, guid: fd8887da24fe3714282577f1a019a5ad,
         type: 3}
-      propertyPath: m_Name
-      value: Ice
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6773924756335321247, guid: fd8887da24fe3714282577f1a019a5ad,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -276,11 +281,6 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Scale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6773924756335321246, guid: fd8887da24fe3714282577f1a019a5ad,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd8887da24fe3714282577f1a019a5ad, type: 3}
 --- !u!4 &4160510871444493784 stripped

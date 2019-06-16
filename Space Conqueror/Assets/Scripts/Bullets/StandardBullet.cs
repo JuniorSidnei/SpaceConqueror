@@ -14,6 +14,6 @@ public class StandardBullet : MonoBehaviour
         //Movendo o tiro para direita
         transform.position += Vector3.right * _speed * Time.deltaTime;
         //Destruindo caso não atinga nada
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 1.5f);
     }
 }

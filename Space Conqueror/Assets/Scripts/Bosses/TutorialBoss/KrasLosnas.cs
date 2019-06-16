@@ -32,19 +32,18 @@ public class KrasLosnas : MonoBehaviour
 
     private bool m_burstOn;
 
-    
+    private Animator m_anima;
 
     private static bool m_alive = true;
+    
+    private void Start()
+    {
+        m_anima = GetComponent<Animator>();
+    }
 
-    [Header("Distance and who to follow")]
-    public Transform m_target;
-    [HideInInspector]
-    public Vector3 m_distance;
-    public float m_maxDistance;
-  
     void Update()
     {
-        
+        SetAnimations();
 //        m_distance = transform.position - m_target.position;
 //        m_distance.y = 0;
 //        transform.position = m_target.position + m_distance.normalized * m_maxDistance;
@@ -95,6 +94,7 @@ public class KrasLosnas : MonoBehaviour
 
     public static bool isBossAlive => m_alive;
     
+    //Colisão com tiro do jogador
     void OnCollisionEnter2D(Collision2D obj)
     {
         if(obj.gameObject.layer == 11)
@@ -107,7 +107,6 @@ public class KrasLosnas : MonoBehaviour
 
     public void ShootAndOverHeat()
     {
-       
         AudioManager.PlaySound("BossShoot");
         GameObject tempExp = Instantiate(m_ptcShoot, _spawnShoot.position, Quaternion.identity, transform);
         
@@ -121,7 +120,6 @@ public class KrasLosnas : MonoBehaviour
         {
             _isOverHeat = true;
             _isOverHeatCount = 0;
-           // m_anim.SetBool("Overheat", true);
             AudioManager.PlaySound("AlertBoss");
         }
     }
@@ -132,8 +130,16 @@ public class KrasLosnas : MonoBehaviour
         MeteorBehavior.SetMeteorOver(false);
         AudioManager.FadeOut("MainTheme", 2f);
         AudioManager.PlaySound("KrasLonasTheme");
+        CameraController.Instance.m_minX = 0;
+        Debug.Log("Valor minimo do x: " + CameraController.Instance.m_minX);
     }
 
+    private void SetAnimations()
+    {
+        m_anima.SetBool("Overheat", IsOverHeat);
+        m_anima.SetBool("BurstOn", BurstOn);
+    }
+    
     public int GetBodyDamage
     {
         get => m_bodyDamage;

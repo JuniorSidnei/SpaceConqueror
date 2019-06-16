@@ -25,7 +25,7 @@ public class BulletCollision : MonoBehaviour
         //Tiro do player no Boss
         if(m_numberLayer == 13)
         {
-            //if (obj.gameObject.CompareTag(m_tagObject))
+            if (obj.gameObject.CompareTag(m_tagObject))
                 InstantiateAndDestroy(m_particleCollision, transform);
         }
     }

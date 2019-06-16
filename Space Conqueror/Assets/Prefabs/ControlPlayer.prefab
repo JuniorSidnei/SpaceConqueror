@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1952574737
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423192663140836319}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dd33f33b413d20428f4a1473ae0a9e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1952574738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423192663140836319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1752ebf22d82a5343965d354a1b8bcd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3360548297289181499
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,12 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d44004d82834044ac0a5aa95267300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveVelocity: {x: 0, y: 0, z: 0}
   _shotPos: {fileID: 2423192662572212329}
   _shoot: {fileID: 33547447053011051, guid: 6f18be4bdc02ea44884b651d060f3846, type: 3}
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
-  m_ptcShooting: {fileID: 2965883412010837492, guid: 78242ebd6d0144f4286be3fbed341388,
-    type: 3}
-  m_player: {fileID: 2423192663140836319}
   _colisionLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -169,12 +198,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6579031959253138927, guid: 963ae7d2825481046848f6f6f38fae85,
+    - target: {fileID: 304672469917934063, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 304672469917934063, guid: 963ae7d2825481046848f6f6f38fae85,
+    - target: {fileID: 6579031959253138927, guid: 963ae7d2825481046848f6f6f38fae85,
         type: 3}
       propertyPath: m_Layer
       value: 10

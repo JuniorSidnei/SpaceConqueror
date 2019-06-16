@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable/PlayerInfo")]
 public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
 {
-    public event Action<PlayerInfo> OnValueChanged;
+    public event Action<PlayerInfo, ControlPlayer> OnValueChanged;
 
     //Não alteram valor
     [SerializeField]
@@ -21,8 +21,8 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     private int m_recoveryKit;
     [SerializeField]
     private int m_recoveryAmount;
-
-    
+   
+    private ControlPlayer m_controlPlayer;
 
     //Alteram valor durante o jogo
     private int m_maxLifeInGame;
@@ -52,14 +52,18 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_recoveryKitInGame = m_recoveryKit;
     }
 
-    
+    public void SetControlPlayer(ControlPlayer controlPlayer)
+    {
+        m_controlPlayer = controlPlayer;
+    }
+
     public int CurrentLife
     {
         get => m_currentLifeInGame;
         set
         {
             m_currentLifeInGame = value;
-            OnValueChanged?.Invoke(this);
+            OnValueChanged?.Invoke(this, m_controlPlayer);
         }
     }
 

@@ -120,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1091307830341192168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +175,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8293121036599380782}
     m_Modifications:
+    - target: {fileID: 1171160776289415737, guid: c4cce246250b0474dad4794f70d3acd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Lightning
+      objectReference: {fileID: 0}
     - target: {fileID: 298255174798404339, guid: c4cce246250b0474dad4794f70d3acd1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,11 +244,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.6666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 1171160776289415737, guid: c4cce246250b0474dad4794f70d3acd1,
-        type: 3}
-      propertyPath: m_Name
-      value: Lightning
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4cce246250b0474dad4794f70d3acd1, type: 3}

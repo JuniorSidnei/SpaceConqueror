@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 8308483181351461044}
   - component: {fileID: 2563595356617873373}
   - component: {fileID: 7775495712412859760}
+  - component: {fileID: 291793003}
+  - component: {fileID: 5684484951631263393}
   m_Layer: 13
   m_Name: KrasLosnas
   m_TagString: Boss
@@ -57,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 7775495712412859759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.046536, y: -1.164263, z: -0.42}
-  m_LocalScale: {x: 0.6, y: 0.65, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.65, z: 0}
   m_Children:
   - {fileID: 5762370894518054808}
   - {fileID: 1311819458658687327}
@@ -131,6 +133,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &291793003
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775495712412859759}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.67}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.64, y: 5.96}
+    newSize: {x: 5.71, y: 4.73}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.64, y: 4}
+  m_EdgeRadius: 0
+--- !u!114 &5684484951631263393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775495712412859759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77e314c539762747aa513f350c24153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_life: 3000
+  _spawnShoot: {fileID: 0}
+  m_ptcShoot: {fileID: 0}
+  _projectile: {fileID: 0}
+  m_ptcDie: {fileID: 0}
+  m_target: {fileID: 0}
+  m_distance: {x: 0, y: 0, z: 0}
+  m_maxDistance: 0
 --- !u!1001 &6662311205616845688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,13 +268,18 @@ PrefabInstance:
       objectReference: {fileID: 8308483181351461044}
     - target: {fileID: 7338747171311979929, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338747171311979929, guid: dcffeeb129a2ae945a8abd6813a407ae,
+        type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7338747171311979929, guid: dcffeeb129a2ae945a8abd6813a407ae,
         type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcffeeb129a2ae945a8abd6813a407ae, type: 3}
