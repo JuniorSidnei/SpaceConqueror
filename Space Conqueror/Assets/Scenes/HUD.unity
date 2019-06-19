@@ -172,11 +172,13 @@ MonoBehaviour:
   - {fileID: 546526859}
   - {fileID: 1187033961}
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
-  m_LifeBarFill: {fileID: 956516017}
-  m_playerLifeText: {fileID: 1504894924}
-  m_recoveryKitButton: {fileID: 1147429208}
-  m_recoveryKitKey: {fileID: 186607987}
   m_lifeBox: {fileID: 60040160}
+  m_recoveryBox: {fileID: 9172666180788225502}
+  m_speedometerBox: {fileID: 1029000064}
+  m_LifeBarFill: {fileID: 956516017}
+  m_recoveryKitKey: {fileID: 9172666180788225501}
+  m_speedometerFill: {fileID: 1187033963}
+  m_playerLifeText: {fileID: 1504894924}
 --- !u!1 &60040160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4200886000279235879, guid: ab198fbd3485fdf45b796b24713528b0,
@@ -1283,3 +1285,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00c9eae432913ca4e810059a2a1dd204, type: 3}
+--- !u!114 &9172666180788225501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9172666180937215145, guid: 00c9eae432913ca4e810059a2a1dd204,
+    type: 3}
+  m_PrefabInstance: {fileID: 9172666180788225500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186607987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &9172666180788225502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9172666179849608827, guid: 00c9eae432913ca4e810059a2a1dd204,
+    type: 3}
+  m_PrefabInstance: {fileID: 9172666180788225500}
+  m_PrefabAsset: {fileID: 0}
