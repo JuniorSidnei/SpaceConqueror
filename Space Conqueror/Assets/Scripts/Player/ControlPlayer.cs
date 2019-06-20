@@ -160,21 +160,23 @@ public class ControlPlayer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D obj)
     {
         //Layer 13, tudo referente ao boss
-        if(obj.gameObject.layer == 13)
+        if (obj.gameObject.layer == 13)
         {
             //Tiro do Boss
-            if(obj.gameObject.CompareTag("BossBullet"))
+            if (!obj.gameObject.CompareTag("BossBullet"))
             {
                 CameraController.Instance.ScreenShake();
+                HudManager.Instance.HandleOnDamage();
                 AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<StandardBullet>()._damage);
                 Destroy(obj.gameObject);
             }
 
             //Corpo do Boss
-            if(obj.gameObject.CompareTag("Boss"))
+            if (!obj.gameObject.CompareTag("Boss"))
             {
                 CameraController.Instance.ScreenShake();
+                HudManager.Instance.HandleOnDamage();
                 AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage);
             }

@@ -25,9 +25,11 @@ public class PanelControllerPlaying : BaseHudBehavior
     
     [Header("Texts")]
     public TextMeshProUGUI m_playerLifeText;
-    
-    private const float PLAYNG_POS_Y = -120f;
-    private const float CONVERSATION_POS_Y = 540f;
+    [SerializeField]
+    public TextMeshProUGUI m_logText;
+
+    [Header("HudSettings")]
+    public Image m_crackedHud;
 
     private void Start()
     {
@@ -36,6 +38,10 @@ public class PanelControllerPlaying : BaseHudBehavior
 
     private void Update()
     {
+        //Se levar muuito dano, vai rachar o vidro da nave
+        if(m_playerInfo.CurrentLife <= m_playerInfo.MaxLife / 3)
+            m_crackedHud.gameObject.SetActive(true);
+        
         m_playerLifeText.text = ("" + m_playerInfo.CurrentLife);
         m_LifeBarFill.DOFillAmount((float)m_playerInfo.CurrentLife / m_playerInfo.MaxLife, 2f);
         

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -14,6 +17,8 @@ public class HudManager : MonoBehaviour
     [SerializeField]
     private PanelControllerConversation m_PanelControllerConversation;
 
+    public Image m_Hud;
+    
     private static bool m_isLoaded = false;
     
     //Instancia da HUD
@@ -60,5 +65,25 @@ public class HudManager : MonoBehaviour
         m_PanelControllerConversation.HandlePlaying();
         m_PanelControllerPlaying.HandlePlaying();
     }
-    
+
+    public void HandleOnDamage()
+    {
+        m_Hud.DOFade(0.8f, 0.2f).OnComplete(() => { m_Hud.DOFade(0, 0.2f);});
+        //HandleLogMessage("WE'VE BEEN HIT");
+    }
+
+    public void HandleLogMessage(string message)
+    {
+        m_PanelControllerPlaying.m_logText.text = message;
+//        m_PanelControllerPlaying.m_logText.DOFade(1, 1f).OnComplete(() =>
+//        {
+//            m_PanelControllerPlaying.m_logText.text = message;
+//        });
+        //HandleOffLogMessage();
+    }
+
+    private void HandleOffLogMessage()
+    {
+        m_PanelControllerPlaying.m_logText.text = "";
+    }
 }
