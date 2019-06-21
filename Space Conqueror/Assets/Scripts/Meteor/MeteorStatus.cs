@@ -95,7 +95,7 @@ public abstract class MeteorStatus : MonoBehaviour
             CameraController.Instance.ScreenShake();
             HudManager.Instance.HandleOnDamage();
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
-            HudManager.Instance.HandleLogMessage("WE'VE BEEN HIT");
+            //HudManager.Instance.HandleLogMessage("WE'VE BEEN HIT");
             
             //Destruindo meteoro
             AudioManager.PlaySound("MeteorExplosion");

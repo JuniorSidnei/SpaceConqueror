@@ -69,21 +69,26 @@ public class HudManager : MonoBehaviour
     public void HandleOnDamage()
     {
         m_Hud.DOFade(0.8f, 0.2f).OnComplete(() => { m_Hud.DOFade(0, 0.2f);});
-        //HandleLogMessage("WE'VE BEEN HIT");
+        HandleLogDamageMessage();
     }
 
-    public void HandleLogMessage(string message)
+    public void HandleLogDamageMessage()
     {
-        m_PanelControllerPlaying.m_logText.text = message;
-//        m_PanelControllerPlaying.m_logText.DOFade(1, 1f).OnComplete(() =>
-//        {
-//            m_PanelControllerPlaying.m_logText.text = message;
-//        });
-        //HandleOffLogMessage();
+        m_PanelControllerPlaying.m_logText.text = LogMessageController.Instance.GetLogDamageMessage();
+        m_PanelControllerPlaying.m_logText.DOFade(0, 1f).OnComplete(HandleOffLogMessage);
     }
-
+    
+    public void HandleLogRecoveryMessage()
+    {
+        m_PanelControllerPlaying.m_logText.text = LogMessageController.Instance.GetLogRecoveryMessage();
+        m_PanelControllerPlaying.m_logText.DOFade(0, 1f).OnComplete(HandleOffLogMessage);
+    }
+    
     private void HandleOffLogMessage()
     {
         m_PanelControllerPlaying.m_logText.text = "";
+        m_PanelControllerPlaying.m_logText.DOFade(1, 0.1f);
     }
+    
+    
 }

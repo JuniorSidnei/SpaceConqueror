@@ -181,7 +181,7 @@ MonoBehaviour:
   m_recoveryKitKey: {fileID: 9172666180788225501}
   m_speedometerFill: {fileID: 1187033963}
   m_playerLifeText: {fileID: 1504894924}
-  m_logText: {fileID: 0}
+  m_logText: {fileID: 1005768303}
   m_crackedHud: {fileID: 1737554491}
 --- !u!1 &60040160 stripped
 GameObject:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

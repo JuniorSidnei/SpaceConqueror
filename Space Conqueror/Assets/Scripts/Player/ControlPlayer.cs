@@ -120,6 +120,7 @@ public class ControlPlayer : MonoBehaviour
         if (m_playerInfo.RecoveryKit >= 1)
         {
             //Se ainda tiver kit pra usar, pode usar
+            HudManager.Instance.HandleLogRecoveryMessage();
             m_playerInfo.CurrentLife += m_playerInfo.RecoveryAmount;
             m_playerInfo.RecoveryKit--;
             

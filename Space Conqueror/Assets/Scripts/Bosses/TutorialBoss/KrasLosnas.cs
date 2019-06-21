@@ -44,10 +44,7 @@ public class KrasLosnas : MonoBehaviour
     void Update()
     {
         SetAnimations();
-//        m_distance = transform.position - m_target.position;
-//        m_distance.y = 0;
-//        transform.position = m_target.position + m_distance.normalized * m_maxDistance;
-        
+
         if (_isOverHeat)
         {
             _overHeatTimer += Time.deltaTime;
@@ -62,7 +59,7 @@ public class KrasLosnas : MonoBehaviour
         //Se a vida do boss for menor que metade e ele não estiver sobrecarregado, pode atirar
         if (m_life <= 1500 && _isOverHeat == false)
         {
-            //m_anim.SetBool("BurstOn", true);
+            
             m_burstOn = true;
             _shootTimer += Time.deltaTime;
 
@@ -89,7 +86,8 @@ public class KrasLosnas : MonoBehaviour
         m_alive = false;
         yield return new WaitForSeconds(2f);
         EventHandler.Instance.CallDialogueAndEvent();
-        Time.timeScale = 0.2f;
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(1f);
     }
 
     public static bool isBossAlive => m_alive;
@@ -99,9 +97,10 @@ public class KrasLosnas : MonoBehaviour
     {
         if(obj.gameObject.layer == 11)
         {
-           AudioManager.PlaySound("BulletBossCollision");
-           m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
-           Destroy(obj.gameObject);
+            gameObject.GetComponent<SpriteRenderer>().DOColor(Color.red, 1f);
+            AudioManager.PlaySound("BulletBossCollision");
+            m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+            Destroy(obj.gameObject);
         }
     }
 
@@ -131,7 +130,6 @@ public class KrasLosnas : MonoBehaviour
         AudioManager.FadeOut("MainTheme", 2f);
         AudioManager.PlaySound("KrasLonasTheme");
         CameraController.Instance.m_minX = 0;
-        Debug.Log("Valor minimo do x: " + CameraController.Instance.m_minX);
     }
 
     private void SetAnimations()
