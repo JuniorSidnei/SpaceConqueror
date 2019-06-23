@@ -16,7 +16,8 @@ public class HudManager : MonoBehaviour
 
     [SerializeField]
     private PanelControllerConversation m_PanelControllerConversation;
-
+    
+    
     public Image m_Hud;
     
     private static bool m_isLoaded = false;
@@ -69,19 +70,13 @@ public class HudManager : MonoBehaviour
     public void HandleOnDamage()
     {
         m_Hud.DOFade(0.8f, 0.2f).OnComplete(() => { m_Hud.DOFade(0, 0.2f);});
-        HandleLogDamageMessage();
+        CameraController.Instance.ScreenShake();
     }
 
-    public void HandleLogDamageMessage()
+    public void HandleLogMessages(LogMessageController.MessageType type)
     {
-        m_PanelControllerPlaying.m_logText.text = LogMessageController.Instance.GetLogDamageMessage();
-        m_PanelControllerPlaying.m_logText.DOFade(0, 1f).OnComplete(HandleOffLogMessage);
-    }
-    
-    public void HandleLogRecoveryMessage()
-    {
-        m_PanelControllerPlaying.m_logText.text = LogMessageController.Instance.GetLogRecoveryMessage();
-        m_PanelControllerPlaying.m_logText.DOFade(0, 1f).OnComplete(HandleOffLogMessage);
+        m_PanelControllerPlaying.m_logText.text = LogMessageController.Instance.GetLogMessage(type);
+        m_PanelControllerPlaying.m_logText.DOFade(0, 2f).OnComplete(HandleOffLogMessage);
     }
     
     private void HandleOffLogMessage()

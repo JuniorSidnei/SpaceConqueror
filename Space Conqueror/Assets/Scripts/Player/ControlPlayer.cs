@@ -99,7 +99,7 @@ public class ControlPlayer : MonoBehaviour
         if (_reloadTime <= 0)
         {
             _canShoot = true;
-            _reloadTime = 0.5f;
+            _reloadTime = 0.2f;
         }
     }
 
@@ -107,7 +107,10 @@ public class ControlPlayer : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         m_playerInfo.CurrentLife -= damage;
-
+        
+        HudManager.Instance.HandleOnDamage();
+        HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.DamageTaken);
+        
         //Se a vida zerar
         if (m_playerInfo.CurrentLife <= 0)
             GameManager.Instance.RestartScene();
@@ -120,7 +123,8 @@ public class ControlPlayer : MonoBehaviour
         if (m_playerInfo.RecoveryKit >= 1)
         {
             //Se ainda tiver kit pra usar, pode usar
-            HudManager.Instance.HandleLogRecoveryMessage();
+            HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.Recovery);
+            AudioManager.PlaySound("RecoveryUse");
             m_playerInfo.CurrentLife += m_playerInfo.RecoveryAmount;
             m_playerInfo.RecoveryKit--;
             
@@ -129,7 +133,8 @@ public class ControlPlayer : MonoBehaviour
         }
         else
         {
-            Debug.Log("ACABOU O KIT SE FUDEU: " + m_playerInfo.RecoveryKit);
+            AudioManager.PlaySound("RecoveryOut");
+            HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.RecoveryOut);
         }
 
         //Se a vida chegar ao máximo quando recuperar, fica no máximo
@@ -166,8 +171,6 @@ public class ControlPlayer : MonoBehaviour
             //Tiro do Boss
             if (!obj.gameObject.CompareTag("BossBullet"))
             {
-                CameraController.Instance.ScreenShake();
-                HudManager.Instance.HandleOnDamage();
                 AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<StandardBullet>()._damage);
                 Destroy(obj.gameObject);
@@ -176,8 +179,6 @@ public class ControlPlayer : MonoBehaviour
             //Corpo do Boss
             if (!obj.gameObject.CompareTag("Boss"))
             {
-                CameraController.Instance.ScreenShake();
-                HudManager.Instance.HandleOnDamage();
                 AudioManager.PlaySound("BossCollision");
                 ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage);
             }

@@ -194,13 +194,13 @@ public class AudioManager : MonoBehaviour
         }
     }
     //Função para fadeOut no som
-    public static void FadeOut(String name, float duration)
+    public static void FadeOut(string name, float duration)
     {
         Instance.StartCoroutine(Instance.IFadeOut(name, duration));
     }
 
     //Função para fadeIn no som
-    public static void FadeIn(String name, float targetVolume, float duration)
+    public static void FadeIn(string name, float targetVolume, float duration)
     {
         Instance.StartCoroutine(Instance.IFadeIn(name, duration, targetVolume));
     }

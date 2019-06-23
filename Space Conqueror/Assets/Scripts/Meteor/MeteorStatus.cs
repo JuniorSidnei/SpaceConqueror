@@ -29,7 +29,7 @@ public abstract class MeteorStatus : MonoBehaviour
     {
 
         //Movendo o meteoro
-        transform.position += Vector3.left * _meteorSpeed * Time.deltaTime;
+        transform.position += _meteorSpeed * Time.deltaTime * Vector3.left;
 
 
         //Verificando a vida e destruindo o meteoro
@@ -38,9 +38,9 @@ public abstract class MeteorStatus : MonoBehaviour
             AudioManager.PlaySound("MeteorExplosion");
             //Explosão de efeito do meteoro
             Destroy(gameObject);
-            GameObject tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity);
+            var tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity);
             //Explosão de impacto
-            GameObject tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
+            var tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
         }  
     }
    
@@ -91,12 +91,10 @@ public abstract class MeteorStatus : MonoBehaviour
 
         //colisão com jogador
         if (obj.gameObject.layer == 10)
-        { 
-            CameraController.Instance.ScreenShake();
+        {
             HudManager.Instance.HandleOnDamage();
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
-            //HudManager.Instance.HandleLogMessage("WE'VE BEEN HIT");
-            
+
             //Destruindo meteoro
             AudioManager.PlaySound("MeteorExplosion");
             Destroy(gameObject);

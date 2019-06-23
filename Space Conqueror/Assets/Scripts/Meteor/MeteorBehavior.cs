@@ -11,7 +11,7 @@ public class MeteorBehavior : MonoBehaviour
     //Posição e limite Y de spawn
     public float _spawnY;
     //Tempo de spawn
-    public float _spawnTimer = 2.5f;
+    public float _spawnTimer = 1f;
     //Quantidade de meteoros na fase
     public int m_metorLimit;
     //Gerenciador
@@ -48,11 +48,11 @@ public class MeteorBehavior : MonoBehaviour
                 SpawnMeteor();
 
                 //Reduzindo o tempo de spawn do meteoro a cada segundo 
-                _spawnTimer = 2.5f - (_timer * 0.025f);
+                _spawnTimer -= (_timer * 0.025f);
 
                 //Se o tempo de spawn for menor que 0.8, fica em 0.8
-                if (_spawnTimer <= 0.8f)
-                    _spawnTimer = 0.8f;
+                if (_spawnTimer <= 0.3f)
+                    _spawnTimer = 0.3f;
             }
         }
     }

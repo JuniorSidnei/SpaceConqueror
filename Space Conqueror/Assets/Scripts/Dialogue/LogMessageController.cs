@@ -6,46 +6,33 @@ using UnityEngine;
 [System.Serializable]
 public struct Messages
 {
-    [TextArea(4,10)]
-    public string message;
+    public string m_name;
+    [TextArea(2,5)]
+    public List<string> m_myMessages;
 }
 
 
 public class LogMessageController : MonoBehaviour
 {
-
+    public enum MessageType
+    {
+        DamageTaken = 0, Recovery = 1, RecoveryOut = 2
+    }
+    
     public static LogMessageController Instance;
 
-    public List<Messages> m_OnHitMessages;
-    public List<Messages> m_OnRecoveryMesasges;
-    
+    public List<Messages> m_OnMessages;
+
     void Awake()
     {
         if (Instance == null)
             Instance = this;
-    }
-
-//    public string GetLogDamage(int log)
-//    {
-//        Random rdn = new Random();
-//        var index = rdn.Next(0, m_OnHitMessages.Count);
-//        
-//        switch (log)
-//        {
-//            case 1:
-//                return m_OnHitMessages[index].message;
-//            case 2:
-//                return m_OnRecoveryMesasges[index].message;
-//        }
-//    }
-    public string GetLogDamageMessage()
-    {
-        return m_OnHitMessages[UnityEngine.Random.Range(0,m_OnHitMessages.Count)].message;
+        
     }
     
-    public string GetLogRecoveryMessage()
+    public string GetLogMessage(MessageType type)
     {
-        return m_OnRecoveryMesasges[UnityEngine.Random.Range(0,m_OnRecoveryMesasges.Count)].message;
+        return m_OnMessages[type.GetHashCode()].m_myMessages[UnityEngine.Random.Range(0, m_OnMessages[type.GetHashCode()].m_myMessages.Count - 1)];
     }
 }
 
