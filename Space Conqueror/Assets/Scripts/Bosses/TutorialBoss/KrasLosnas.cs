@@ -18,7 +18,7 @@ public class KrasLosnas : MonoBehaviour
     public GameObject _projectile;
 
     public GameObject m_ptcDie;
-
+    
     
     private int _isOverHeatCount = 0;
 
@@ -27,8 +27,6 @@ public class KrasLosnas : MonoBehaviour
     private float _shootTimer = 0f;
 
     private float _overHeatTimer = 0f;
-
-    private int m_bodyDamage = 30;
 
     private bool m_burstOn;
 
@@ -57,7 +55,7 @@ public class KrasLosnas : MonoBehaviour
         }
 
         //Se a vida do boss for menor que metade e ele não estiver sobrecarregado, pode atirar
-        if (m_life <= 1500 && _isOverHeat == false)
+        if (m_life <= 3500 && _isOverHeat == false)
         {
             
             m_burstOn = true;
@@ -73,11 +71,18 @@ public class KrasLosnas : MonoBehaviour
         //Se morrer ativa animação de morte e particula de explosão
         if (m_life <= 0)
         {
-            StartCoroutine(BossDiyng());
+            BossDiyng();
         }
     }
 
-    IEnumerator BossDiyng()
+    private void  BossDiyng()
+    {
+        StartCoroutine(SlowEffect());
+        Time.timeScale = 1f;
+        EventHandler.Instance.CallDialogueAndEvent();
+    }
+
+    IEnumerator SlowEffect()
     {
         Time.timeScale = 0.2f;
         AudioManager.PlaySound("BossDie");
@@ -85,9 +90,6 @@ public class KrasLosnas : MonoBehaviour
         Destroy(gameObject);
         m_alive = false;
         yield return new WaitForSeconds(2f);
-        EventHandler.Instance.CallDialogueAndEvent();
-        Time.timeScale = 1f;
-        yield return new WaitForSeconds(1f);
     }
 
     public static bool isBossAlive => m_alive;
@@ -97,7 +99,12 @@ public class KrasLosnas : MonoBehaviour
     {
         if(obj.gameObject.layer == 11)
         {
-            gameObject.GetComponent<SpriteRenderer>().DOColor(Color.red, 1f);
+            
+            var tempSpt = gameObject.GetComponent<SpriteRenderer>().material;
+            tempSpt.DOColor(Color.red, 0.5f);
+            tempSpt.DOFade(1, 0.5f).OnComplete(()=> tempSpt.DOColor(Color.white, 0.1f));
+           
+            
             AudioManager.PlaySound("BulletBossCollision");
             m_life -= obj.gameObject.GetComponent<StandardBullet>()._damage;
             Destroy(obj.gameObject);
@@ -138,10 +145,7 @@ public class KrasLosnas : MonoBehaviour
         m_anima.SetBool("BurstOn", BurstOn);
     }
     
-    public int GetBodyDamage
-    {
-        get => m_bodyDamage;
-    }
+    public int GetBodyDamage { get; } = 30;
 
     public int GetLife
     {

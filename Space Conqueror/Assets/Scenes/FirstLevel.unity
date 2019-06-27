@@ -436,6 +436,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
 --- !u!1 &519420028
@@ -659,15 +670,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5256392874829725907, guid: af5cd773054efd845807cd41eb44e654,
         type: 3}
+    - target: {fileID: 5684484951631263393, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: m_life
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684484951631263393, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: m_motorPtc
+      value: 
+      objectReference: {fileID: 1280473103}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.62
+      value: -10.74
       objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -40
+      value: -40.28
       objectReference: {fileID: 0}
     - target: {fileID: 8308483181351461044, guid: 3120565e0221bea46b2b51e2e18a0aea,
         type: 3}
@@ -717,6 +738,30 @@ PrefabInstance:
     - target: {fileID: 291793003, guid: 3120565e0221bea46b2b51e2e18a0aea, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 291793003, guid: 3120565e0221bea46b2b51e2e18a0aea, type: 3}
+      propertyPath: m_Size.x
+      value: 7.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563595356617873373, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563595356617873373, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563595356617873373, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156047393706577633, guid: 3120565e0221bea46b2b51e2e18a0aea,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 291792999, guid: 3120565e0221bea46b2b51e2e18a0aea, type: 3}
@@ -800,6 +845,10 @@ MonoBehaviour:
     m_myMessages:
     - We need to buy more!
     - The kits are over sir!
+  - m_name: On dying messages
+    m_myMessages:
+    - This is our last mission...i think!
+    - If we continue like this, we're going to explode!
 --- !u!4 &776120180
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +1042,7 @@ MonoBehaviour:
     playOnAwake: 0
   - audioName: MeteorExplosion
     audioClip: {fileID: 8300000, guid: dc32fc8c51c6fff4eae6bd533881adac, type: 3}
-    volume: 0.7
+    volume: 0.8
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
@@ -1023,7 +1072,7 @@ MonoBehaviour:
     playOnAwake: 0
   - audioName: BulletMeteorCollision
     audioClip: {fileID: 8300000, guid: 4da3f4f189b22a74396b07b3ecbe3585, type: 3}
-    volume: 0.5
+    volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
@@ -1065,7 +1114,7 @@ MonoBehaviour:
     playOnAwake: 0
   - audioName: WindVaccun
     audioClip: {fileID: 8300000, guid: 922e949db7866ea44ac25b294e09aa4d, type: 3}
-    volume: 0.7
+    volume: 0.5
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
@@ -1080,6 +1129,12 @@ MonoBehaviour:
     volume: 0.7
     source: {fileID: 0}
     isLooping: 0
+    playOnAwake: 0
+  - audioName: PlayerDyingAlert
+    audioClip: {fileID: 8300000, guid: 36e2d73e04497454a9ba562cd6840d4c, type: 3}
+    volume: 0.6
+    source: {fileID: 0}
+    isLooping: 1
     playOnAwake: 0
 --- !u!4 &935615716
 Transform:
@@ -1291,6 +1346,12 @@ Transform:
   m_Father: {fileID: 1831456115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 8.686001, y: -346.822, z: 178.22601}
+--- !u!1 &1280473103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3066194471168708188, guid: 3120565e0221bea46b2b51e2e18a0aea,
+    type: 3}
+  m_PrefabInstance: {fileID: 580232378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1477262957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5762370894518054808, guid: 3120565e0221bea46b2b51e2e18a0aea,
@@ -2026,7 +2087,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 19.363491, y: 1, z: 11.790307}
+    m_Scale: {x: 5.462715, y: 1, z: 6.578294}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -2330,11 +2391,11 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2342,21 +2403,21 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0
-          outSlope: 1
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -2899,7 +2960,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3375,9 +3436,9 @@ ParticleSystem:
         m_RotationOrder: 4
     speedModifier:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 1
+      minMaxState: 3
+      scalar: 5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5187,9 +5248,9 @@ ParticleSystem:
     ratio: 1
     lifetime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
-      minScalar: 1
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6071,8 +6132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.13, y: -0.66}
-  m_SizeDelta: {x: 3.12, y: 0.92014}
+  m_AnchoredPosition: {x: 1.08, y: -0.66}
+  m_SizeDelta: {x: 3.22, y: 0.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023784283
 MonoBehaviour:
@@ -6214,7 +6275,32 @@ PrefabInstance:
     - target: {fileID: 7958262411175499474, guid: c626d713e01cd8548940208bacb77589,
         type: 3}
       propertyPath: VelocityModule.x.scalar
-      value: -1
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958262411175499474, guid: c626d713e01cd8548940208bacb77589,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958262411175499474, guid: c626d713e01cd8548940208bacb77589,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958262411175499474, guid: c626d713e01cd8548940208bacb77589,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958262411175499474, guid: c626d713e01cd8548940208bacb77589,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958262411175499474, guid: c626d713e01cd8548940208bacb77589,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c626d713e01cd8548940208bacb77589, type: 3}
@@ -6236,6 +6322,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5799487207994179366, guid: b579879fbed102a49a20dff5f87e49d7,
+        type: 3}
+      propertyPath: m_smokeEffect
+      value: 
+      objectReference: {fileID: 620307407142861404, guid: 8dd10791f4cccc24cbb85fc73dbb3fc7,
+        type: 3}
     - target: {fileID: 1961806441084365577, guid: b579879fbed102a49a20dff5f87e49d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6553,6 +6645,36 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: VelocityModule.x.scalar
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: VelocityModule.speedModifier.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103891076491755342, guid: 2ec2b7330b49ce244a8285f75b495c9d,
+        type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec2b7330b49ce244a8285f75b495c9d, type: 3}

@@ -92,7 +92,7 @@ public abstract class MeteorStatus : MonoBehaviour
         //colisão com jogador
         if (obj.gameObject.layer == 10)
         {
-            HudManager.Instance.HandleOnDamage();
+            
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
 
             //Destruindo meteoro

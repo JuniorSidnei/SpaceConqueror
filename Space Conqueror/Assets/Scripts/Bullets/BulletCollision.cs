@@ -17,7 +17,6 @@ public class BulletCollision : MonoBehaviour
         {
             if (obj.gameObject.CompareTag(m_tagObject))
             {
-                obj.gameObject.GetComponent<ControlPlayer>().ApplyDamage(gameObject.GetComponent<StandardBullet>()._damage);
                 InstantiateAndDestroy(m_particleCollision, transform);
             }
         }

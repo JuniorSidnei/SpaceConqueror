@@ -20,7 +20,7 @@ public class HudManager : MonoBehaviour
     
     public Image m_Hud;
     
-    private static bool m_isLoaded = false;
+    public static bool m_isLoaded = false;
     
     //Instancia da HUD
     public static HudManager Instance;
