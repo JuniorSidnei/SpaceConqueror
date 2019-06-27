@@ -16,5 +16,9 @@ MonoBehaviour:
   m_currentLife: 500
   m_halfLife: 150
   m_speed: 700
+  m_maxSpeed: 1000
+  m_acceleration: 666.6667
+  m_deceleration: 0
+  m_timeToMaxSpeed: 1.5
   m_recoveryKit: 2
   m_recoveryAmount: 300

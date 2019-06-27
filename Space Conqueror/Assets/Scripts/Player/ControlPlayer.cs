@@ -7,21 +7,26 @@ using UnityEngine;
 
 public class ControlPlayer : MonoBehaviour
 {
-
-    ///<Controle do jogador>
+    #region variables 
+    [Header("Player settings")]
+    //Aceleração
+    public float m_acceleration;
+    
+    //Drag acelerando
+    public float m_acceDrag;
+    
+    //Drag desacelerando
+    public float m_deceDrag;
+    
+    //Vetor de input somado com tempo e velocidade
+    [HideInInspector] public Vector2 _moveVelocity;
+    
     //Float de posição do personagem
     private Vector2 _moveInput;
-
-    //Vetor de input somado com tempo e velocidade
-    [HideInInspector] public Vector3 _moveVelocity;
-
+    
     //rigidbody do personagem
     private Rigidbody2D m_rb;
-
-    //Menos da metade da vida do jogador
-    private bool m_dyingAlertSound;
-    private bool m_smokeOn;
-
+    
     [Header("Shoot Settings")]
     //Posição do tiro
     public Transform _shotPos;
@@ -34,21 +39,26 @@ public class ControlPlayer : MonoBehaviour
 
     //Pode atirar
     private bool _canShoot;
-
+    
     //Status do player
-    [Header("Player settings")] public PlayerInfo m_playerInfo;
+    [Header("Player Status")] public PlayerInfo m_playerInfo;
 
     //Vários estados do jogador
     List<PlayerEffects> m_currentEffects;
-
-    ///</Variáveis do jogador>
-
-    ///<Layer para colisões>
+    
+    
+    //Menos da metade da vida do jogador
+    private bool m_dyingAlertSound;
+    private bool m_smokeOn;
+    
     [Header("Collision settings")] [SerializeField]
     public LayerMask _colisionLayer;
 
     [Header("Effects")] public GameObject m_smokeEffect;
+    
+    #endregion
 
+    #region methods
     private void Awake()
     {
         m_playerInfo.SetControlPlayer(this);
@@ -67,20 +77,11 @@ public class ControlPlayer : MonoBehaviour
 
         Move();
         ReloadTimer();
-
-
-        //if (Input.GetKey(KeyCode.Space) && _canShoot)
-            Shoot();
-
-        //if (Input.GetKeyDown(KeyCode.R))
+        Shoot();
         RecoveryKit();
+        ApplyEffect();
 
-
-        //Aplicando os efeitos ao jogador
-        for (int i = 0; i < m_currentEffects.Count; i++)
-        {
-            m_currentEffects[i].RunEffect(this, m_playerInfo);
-        }
+        
 
         //Se estiver morrendo vai ficar com o alerta e piscando a nave e soltando fumaça
         if (m_playerInfo.CurrentLife <= (m_playerInfo.MaxLife / 3) && m_dyingAlertSound == false)
@@ -99,14 +100,20 @@ public class ControlPlayer : MonoBehaviour
         SmokeOn();
     }
 
+    
+
     public void Move()
     {
         //Movimento do jogador
-        _moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        _moveVelocity = m_playerInfo.Speed * Time.deltaTime * _moveInput;
+        _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        //Movendo o jogador
-        m_rb.MovePosition(transform.position + (_moveVelocity * Time.deltaTime));
+        m_rb.drag = _moveInput.sqrMagnitude >= 0.5f ? m_acceDrag : m_deceDrag;
+        
+        
+        Vector2 acce =  m_acceleration * Time.deltaTime * _moveInput;
+        _moveVelocity += acce * Time.deltaTime;
+        _moveVelocity *= (1 - Time.deltaTime * m_rb.drag);
+        m_rb.MovePosition(transform.position + (new Vector3(_moveVelocity.x,_moveVelocity.y, 0) * Time.deltaTime));
     }
 
     //Função de tiro do personagem
@@ -133,6 +140,7 @@ public class ControlPlayer : MonoBehaviour
         }
     }
 
+    #region LifeIssues
     //Função de dano
     public void ApplyDamage(int damage)
     {
@@ -179,9 +187,8 @@ public class ControlPlayer : MonoBehaviour
                 m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
         }
     }
-
-
-//Para quando o jogador estiver morrendo e/ou com pouca vida
+    
+    //Para quando o jogador estiver morrendo e/ou com pouca vida
     private void LowLife()
     {
         AudioManager.PlaySound("PlayerDyingAlert");
@@ -194,7 +201,16 @@ public class ControlPlayer : MonoBehaviour
         if (m_smokeOn)
         {var tmpSmk = Instantiate(m_smokeEffect, transform.position, Quaternion.identity);}
     }
-
+    #endregion
+    
+    #region Effects
+    private void ApplyEffect()
+    {
+        //Aplicando os efeitos ao jogador
+        foreach (var t in m_currentEffects)
+            t.RunEffect(this, m_playerInfo);
+    }
+    
     //Aplicar efeito
     public void AddEffect(PlayerEffects nextEffect)
     {
@@ -212,8 +228,8 @@ public class ControlPlayer : MonoBehaviour
         removeEffect.ExitEffect(this, m_playerInfo);
         m_currentEffects.Remove(removeEffect);
     }
-    
-
+    #endregion
+    #region Collision
     //Colisões do jogador
     private void OnCollisionEnter2D(Collision2D obj)
     {
@@ -236,4 +252,6 @@ public class ControlPlayer : MonoBehaviour
             }
         }
     }
+    #endregion
+    #endregion
 }

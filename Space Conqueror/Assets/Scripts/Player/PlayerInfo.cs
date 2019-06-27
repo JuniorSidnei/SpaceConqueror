@@ -16,7 +16,16 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     [SerializeField]
     private int m_halfLife;
     [SerializeField]
-    private float m_speed = 700;
+    private float m_speed;
+    [SerializeField]
+    private float m_maxSpeed;
+    [SerializeField]
+    private float m_acceleration;
+    [SerializeField]
+    private float m_deceleration;
+    [SerializeField]
+    private float m_timeToMaxSpeed;
+ 
     [SerializeField]
     private int m_recoveryKit;
     [SerializeField]
@@ -88,6 +97,29 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     public int RecoveryAmount
     {
         get => m_recoveryAmount;
+    }
+    
+    public float MaxSpeed
+    {
+        get => m_maxSpeed;
+        set => m_maxSpeed = value;
+    }
+
+    public float Acceleration
+    {
+        get => m_acceleration;
+        set => m_acceleration = value;
+    }
+
+    public float Deceleration
+    {
+        get => m_deceleration;
+        set => m_deceleration = value;
+    }
+    public float TimeToMaxSpeed
+    {
+        get => m_timeToMaxSpeed;
+        set => m_timeToMaxSpeed = value;
     }
 }
 
