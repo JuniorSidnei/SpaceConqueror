@@ -107,7 +107,7 @@ public class ControlPlayer : MonoBehaviour
         //Movimento do jogador
         _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        m_rb.drag = _moveInput.sqrMagnitude >= 0.5f ? m_acceDrag : m_deceDrag;
+        //m_rb.drag = _moveInput.sqrMagnitude >= 0.5f ? m_acceDrag : m_deceDrag;
         
         
         Vector2 acce =  m_acceleration * Time.deltaTime * _moveInput;
