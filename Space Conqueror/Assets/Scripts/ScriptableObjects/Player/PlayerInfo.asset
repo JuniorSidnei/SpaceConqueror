@@ -15,10 +15,9 @@ MonoBehaviour:
   m_maxLife: 500
   m_currentLife: 500
   m_halfLife: 150
-  m_speed: 700
-  m_maxSpeed: 1000
-  m_acceleration: 666.6667
-  m_deceleration: 0
-  m_timeToMaxSpeed: 1.5
   m_recoveryKit: 2
   m_recoveryAmount: 300
+  m_primaryShoot: {fileID: 33547447053011051, guid: 6f18be4bdc02ea44884b651d060f3846,
+    type: 3}
+  m_secondaryShoot: {fileID: 33547447053011051, guid: be7b9c737d4583c46a452b89b5dfa33b,
+    type: 3}

@@ -26,6 +26,6 @@ public class MeteorDefinitions : MonoBehaviour
     void Update()
     {
         //Rotacionando a sprite
-        transform.Rotate(0, 0, 5);
+        transform.Rotate(0, 0, Random.Range(0.5f,5));
     }
 }

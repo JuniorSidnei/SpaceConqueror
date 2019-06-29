@@ -91,7 +91,7 @@ MonoBehaviour:
     type: 3}
   _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
     type: 3}
-  _bulletHit: {fileID: 9059430551990369381, guid: a13d393af77aad344af3c2080d9dc6ff,
+  _bulletHit: {fileID: 5384299738612309594, guid: 5bfc0e7345e575f4fb71dcab1f434759,
     type: 3}
   _meteorExplosion: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
     type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class NormalMeteor : MeteorStatus
 {
     public GameObject _meteorExplosion;
-    private int m_damage = 30;
+    public int m_damage = 300;
 
     protected override void OnCollisionWithPlayer(ControlPlayer player)
     {

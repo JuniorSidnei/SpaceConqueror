@@ -10,7 +10,7 @@ public class LightningEffect : PlayerEffects
     {
         
         _effectDamage = 30;
-        _effectSpeed = 0;
+        _effectSpeed = new Vector2(0,0);
 
         player.ApplyDamage(_effectDamage);
 
@@ -22,7 +22,8 @@ public class LightningEffect : PlayerEffects
         //Começar animação de raio
         player.GetComponentInChildren<SpriteRenderer>().DOColor(Color.yellow, 1.5f);
         player.GetComponentInChildren<SpriteRenderer>().DOFade(0.8f, 1.5f);
-        playerInfo.Speed = _effectSpeed;
+        player._moveVelocity = _effectSpeed;
+        
 
         //Contando o tempo
         _effectTimer += Time.deltaTime;

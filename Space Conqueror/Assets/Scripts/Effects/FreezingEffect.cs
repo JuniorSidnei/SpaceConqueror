@@ -8,7 +8,7 @@ public class FreezingEffect : PlayerEffects
 
     public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
-        _effectSpeed = 400;
+        _effectSpeed = new Vector2(400, 400);
         _effectDamage = 50;
 
         player.ApplyDamage(_effectDamage);
@@ -20,7 +20,7 @@ public class FreezingEffect : PlayerEffects
         //Debuff visual e de velocidade, começar animação de gelo
         player.GetComponentInChildren<SpriteRenderer>().DOColor(Color.blue, 1.5f);
         player.GetComponentInChildren<SpriteRenderer>().DOFade(0.8f, 1.5f);
-        playerInfo.Speed = _effectSpeed;
+        player._moveVelocity= _effectSpeed;
 
         
         //Tirando o tempo de dois segundos

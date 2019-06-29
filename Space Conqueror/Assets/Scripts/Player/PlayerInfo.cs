@@ -16,20 +16,15 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     [SerializeField]
     private int m_halfLife;
     [SerializeField]
-    private float m_speed;
-    [SerializeField]
-    private float m_maxSpeed;
-    [SerializeField]
-    private float m_acceleration;
-    [SerializeField]
-    private float m_deceleration;
-    [SerializeField]
-    private float m_timeToMaxSpeed;
- 
-    [SerializeField]
     private int m_recoveryKit;
     [SerializeField]
     private int m_recoveryAmount;
+    
+    [Header("Shoots")]
+    [SerializeField]
+    private GameObject m_primaryShoot;
+    [SerializeField]
+    private GameObject m_secondaryShoot;
    
     private ControlPlayer m_controlPlayer;
 
@@ -49,7 +44,6 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     {
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
-        m_speedInGame = m_speed;
         m_recoveryKitInGame = m_recoveryKit;
     }
 
@@ -57,7 +51,6 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     {
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
-        m_speedInGame = m_speed;
         m_recoveryKitInGame = m_recoveryKit;
     }
 
@@ -81,13 +74,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         get => m_maxLifeInGame;
         set => m_maxLifeInGame = value;
     }
-
-    public float Speed
-    {
-        get => m_speedInGame;
-        set => m_speedInGame = value;
-    }
-
+    
     public int RecoveryKit
     {
         get => m_recoveryKitInGame;
@@ -99,27 +86,17 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         get => m_recoveryAmount;
     }
     
-    public float MaxSpeed
+    public GameObject PrimaryShoot
     {
-        get => m_maxSpeed;
-        set => m_maxSpeed = value;
+        get => m_primaryShoot;
+        set => m_primaryShoot = value;
     }
 
-    public float Acceleration
+    public GameObject SecondaryShoot
     {
-        get => m_acceleration;
-        set => m_acceleration = value;
+        get => m_secondaryShoot;
+        set => m_secondaryShoot = value;
     }
 
-    public float Deceleration
-    {
-        get => m_deceleration;
-        set => m_deceleration = value;
-    }
-    public float TimeToMaxSpeed
-    {
-        get => m_timeToMaxSpeed;
-        set => m_timeToMaxSpeed = value;
-    }
 }
 

@@ -6,7 +6,7 @@ public abstract class PlayerEffects
 {
     public int _effectDamage;
     protected float _effectTimer = 0f;
-    protected float _effectSpeed;
+    protected Vector2 _effectSpeed;
     protected int _effectFlameDamage = 5;
     
     

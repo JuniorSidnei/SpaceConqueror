@@ -12,12 +12,6 @@ public class ControlPlayer : MonoBehaviour
     //Aceleração
     public float m_acceleration;
     
-    //Drag acelerando
-    public float m_acceDrag;
-    
-    //Drag desacelerando
-    public float m_deceDrag;
-    
     //Vetor de input somado com tempo e velocidade
     [HideInInspector] public Vector2 _moveVelocity;
     
@@ -32,8 +26,11 @@ public class ControlPlayer : MonoBehaviour
     public Transform _shotPos;
 
     //Objeto de tiro
-    public GameObject _shoot;
+    private GameObject _shoot;
 
+    //Particula antes do tiro
+    public GameObject m_shine;
+    
     //Tempo de recarga
     private float _reloadTime = 0.5f;
 
@@ -68,6 +65,7 @@ public class ControlPlayer : MonoBehaviour
     {
         m_currentEffects = new List<PlayerEffects>();
         m_rb = GetComponent<Rigidbody2D>();
+        _shoot = m_playerInfo.PrimaryShoot;
 
     }
 
@@ -80,7 +78,8 @@ public class ControlPlayer : MonoBehaviour
         Shoot();
         RecoveryKit();
         ApplyEffect();
-
+        
+        
         
 
         //Se estiver morrendo vai ficar com o alerta e piscando a nave e soltando fumaça
@@ -122,6 +121,7 @@ public class ControlPlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && _canShoot)
         {
             AudioManager.PlaySound("PlayerShoot");
+            GameObject tmpShine = Instantiate(m_shine, _shotPos.position, Quaternion.identity);
             GameObject tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
             tempBullet.transform.right = Vector3.right;
 
