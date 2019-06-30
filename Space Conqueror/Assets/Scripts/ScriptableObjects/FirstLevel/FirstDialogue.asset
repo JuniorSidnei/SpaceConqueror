@@ -35,8 +35,12 @@ MonoBehaviour:
     m_speechText: Sir, you know i can't drink, right? Besides i....Sir! Meteors on
       the way!
   - m_currentSpeaker: 1
-    m_speechText: '.................................There are no scape rotes, we have
-      to go trough them.'
+    m_speechText: '.........................There are no scape rotes, we have to go
+      trough them. '
+  - m_currentSpeaker: 1
+    m_speechText: 'You need to be careful, any one of them can destroy the ship altogether. '
+  - m_currentSpeaker: 1
+    m_speechText: 'Luckily we have spaces to be able to pass with caution '
   - m_currentSpeaker: 0
     m_speechText: 'That''s definitely all i needed, meteos and some alcohol. Now we
       have one more reason to drink! '
