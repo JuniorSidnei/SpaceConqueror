@@ -20,6 +20,6 @@ public class PlayerAnimatorController : MonoBehaviour
     
     void Update()
     {
-        m_animator.SetFloat("Iddle", m_player._moveVelocity.sqrMagnitude);
+        m_animator.SetFloat("Iddle", m_player.m_moveInput);
     }
 }

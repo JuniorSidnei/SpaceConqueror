@@ -14,9 +14,8 @@ public class GameManager : MonoBehaviour
     public PlayerInfo m_playerInfo;
     public float m_firstDialogueTimer = 5f;
     private bool m_isDialogueOn;
-
-    //private EventManager m_event;
-    //public int current;
+    
+    public bool m_isDialogueActive;
     #endregion
 
     

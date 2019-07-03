@@ -136,7 +136,6 @@ public class KrasLosnas : MonoBehaviour
         MeteorBehavior.SetMeteorOver(false);
         AudioManager.FadeOut("MainTheme", 2f);
         AudioManager.PlaySound("KrasLonasTheme");
-        CameraController.Instance.m_minX = 0;
     }
 
     private void SetAnimations()

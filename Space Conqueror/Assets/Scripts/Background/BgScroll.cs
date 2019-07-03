@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class BgScroll : MonoBehaviour
@@ -9,20 +10,21 @@ public class BgScroll : MonoBehaviour
     public float _speedX;
     public float _speedY;
 
-    public  ControlPlayer m_player;
+    private  ControlPlayer m_player;
    
     void Start()
     {
         _rend = GetComponent<MeshRenderer>();
+        m_player = FindObjectOfType<ControlPlayer>();
     }
 
     
     void Update()
     {
-        Vector2 offset = new Vector2(_speedX * Time.deltaTime, 0);
+        Vector2 offset = new Vector2(_speedX * Time.deltaTime, _speedY * Time.deltaTime);
         
-        offset.x += m_player._moveVelocity.normalized.magnitude;
-        
+        offset += m_player.GetComponent<Rigidbody2D>().velocity;
+
         _rend.material.mainTextureOffset += offset;
     }
 }

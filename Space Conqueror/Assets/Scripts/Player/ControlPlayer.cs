@@ -13,13 +13,17 @@ public class ControlPlayer : MonoBehaviour
     public float m_acceleration;
     
     //Vetor de input somado com tempo e velocidade
-    [HideInInspector] public Vector2 _moveVelocity;
+    //[HideInInspector] public Vector2 _moveVelocity;
     
     //Float de posição do personagem
-    private Vector2 _moveInput;
+    [HideInInspector] public float m_moveInput;
     
     //rigidbody do personagem
     private Rigidbody2D m_rb;
+
+    public float m_delay;
+
+    private float m_timeToMaxSpeed = 2f;
     
     [Header("Shoot Settings")]
     //Posição do tiro
@@ -66,20 +70,24 @@ public class ControlPlayer : MonoBehaviour
         m_currentEffects = new List<PlayerEffects>();
         m_rb = GetComponent<Rigidbody2D>();
         _shoot = m_playerInfo.PrimaryShoot;
+    }
 
+    private void FixedUpdate()
+    {
+        Move();
+        
+        if(!GameManager.Instance.m_isDialogueActive)
+            Rotate();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Move();
+       
         ReloadTimer();
         Shoot();
         RecoveryKit();
         ApplyEffect();
-        
-        
         
 
         //Se estiver morrendo vai ficar com o alerta e piscando a nave e soltando fumaça
@@ -104,26 +112,30 @@ public class ControlPlayer : MonoBehaviour
     public void Move()
     {
         //Movimento do jogador
-        _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        //m_rb.drag = _moveInput.sqrMagnitude >= 0.5f ? m_acceDrag : m_deceDrag;
+        m_moveInput = Input.GetAxisRaw("Horizontal");
         
-        
-        Vector2 acce =  m_acceleration * Time.deltaTime * _moveInput;
-        _moveVelocity += acce * Time.deltaTime;
-        _moveVelocity *= (1 - Time.deltaTime * m_rb.drag);
-        m_rb.MovePosition(transform.position + (new Vector3(_moveVelocity.x,_moveVelocity.y, 0) * Time.deltaTime));
+        m_rb.drag = Math.Abs(m_moveInput) > 0 ? 10 : 1;
+            
+        m_rb.AddForce(m_acceleration * Time.deltaTime * m_moveInput * transform.right, ForceMode2D.Force);
     }
-
+    
+    public void Rotate()
+    {
+        Vector3 mousPos = Input.mousePosition;
+        mousPos = Camera.main.ScreenToWorldPoint(mousPos);
+        Vector2 direction = Time.deltaTime * new Vector2((mousPos.x - transform.position.x) - m_delay, (mousPos.y - transform.position.y) - m_delay);
+        transform.right = direction;
+    }
+    
     //Função de tiro do personagem
     public void Shoot()
     {
         if (Input.GetKey(KeyCode.Space) && _canShoot)
         {
             AudioManager.PlaySound("PlayerShoot");
-            GameObject tmpShine = Instantiate(m_shine, _shotPos.position, Quaternion.identity);
-            GameObject tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
-            tempBullet.transform.right = Vector3.right;
+            var tmpShine = Instantiate(m_shine, _shotPos.position, Quaternion.identity);
+            var tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
+            tempBullet.transform.right = transform.right;
 
             _canShoot = false;
         }

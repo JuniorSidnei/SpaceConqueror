@@ -8,7 +8,7 @@ public class NormalEffect : PlayerEffects
 
     public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
-        _effectSpeed = player._moveVelocity;
+        _effectSpeed = player.GetComponent<Rigidbody2D>().velocity;
     }
 
 

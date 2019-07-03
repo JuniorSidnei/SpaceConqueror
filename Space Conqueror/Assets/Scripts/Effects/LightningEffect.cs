@@ -22,7 +22,7 @@ public class LightningEffect : PlayerEffects
         //Começar animação de raio
         player.GetComponentInChildren<SpriteRenderer>().DOColor(Color.yellow, 1.5f);
         player.GetComponentInChildren<SpriteRenderer>().DOFade(0.8f, 1.5f);
-        player._moveVelocity = _effectSpeed;
+        player.GetComponent<Rigidbody2D>().velocity = _effectSpeed;
         
 
         //Contando o tempo
