@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour
 {
@@ -11,8 +12,23 @@ public class CameraController : MonoBehaviour
     public Transform m_target;
 
     public float m_smoothTime;
+
+    public float m_zoomOut;
+
+    public float m_zoomIn;
+
+    public float m_smoothZoomTime;
     
     private Rigidbody2D m_playerRb;
+    
+    [FormerlySerializedAs("m_timeToMaxSpeed")] [SerializeField]
+    private float m_timeToMaxZoom;
+
+    private float m_timeZooming;
+
+    public AnimationCurve m_ZoomCurve;
+    
+    private Vector3 velocity = Vector3.zero;
     
     public static CameraController Instance;
 
@@ -26,29 +42,28 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 target = m_target.position + new Vector3(m_playerRb.velocity.x, m_playerRb.velocity.y, 0) * m_smoothTime;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, transform.position.z), 0.2f);
-
+        //transform.position = Vector3.Lerp(transform.position, new Vector3(target.x, target.y, transform.position.z), 0.2f);
+        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(target.x, target.y, transform.position.z), ref velocity, 0.2f);
     }
 
-//    private void Update()
-//    {
-//        Vector3 viewPos = Camera.main.WorldToViewportPoint(m_target.position);
-//
-//        if(viewPos.x > 1f)
-//            m_target.position = Vector3.Lerp(m_target.position, viewPos, 0.1f);
-//        else if(viewPos.x < 0)
-//        {
-//            m_target.position = Vector3.Lerp(m_target.position, viewPos, 0.1f);
-//        }
-//        
-//        if(viewPos.y > 1f)
-//            m_target.position = Vector3.Lerp(m_target.position, viewPos, 0.1f);
-//        else if(viewPos.y < 0)
-//        {
-//            m_target.position = Vector3.Lerp(m_target.position, viewPos, 0.1f);
-//        }
-//    }
+    public void ZoomOut(bool accelerating)
+    {
+        if (accelerating)
+        {
+            m_timeZooming += Time.deltaTime;
 
+            float acce = m_ZoomCurve.Evaluate(m_timeZooming / m_timeToMaxZoom);
+
+            m_camera.orthographicSize = Mathf.Lerp(m_camera.orthographicSize, m_zoomOut, 0.05f * acce);
+            m_smoothTime = m_smoothZoomTime;
+        }
+        else
+        {
+            m_camera.orthographicSize = Mathf.Lerp(m_camera.orthographicSize, m_zoomIn, 0.05f);
+            m_timeZooming = 0;
+        }
+    }
+    
     public void ScreenShake()
     {
         m_camera.transform.DOShakePosition(0.2f, new Vector3(1.5f, 1.5f, 0), 5, 45f);

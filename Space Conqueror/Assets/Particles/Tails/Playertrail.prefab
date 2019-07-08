@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4761537778247010873}
   - component: {fileID: 1458022238732259700}
   - component: {fileID: 3404702303381060776}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Playertrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -600,7 +600,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 10000
     size3D: 0
     rotation3D: 1
     gravityModifier:
@@ -918,7 +918,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1000
+      scalar: 3000
       minScalar: 0
       maxCurve:
         serializedVersion: 2

@@ -8,12 +8,7 @@ using DG.Tweening;
 public class PanelControllerConversation : BaseHudBehavior
 {
     private PlayerInfo m_playerInfo;
-    [SerializeField] private RectTransform m_rect;
-
-    private const float PLAYNG_POS_Y = -120f;
-    private const float CONVERSATION_POS_Y = 540f;
-
-
+    
     public GameObject m_boxDialogue;
     
     public override void SetPlayerInfo(PlayerInfo playerInfo)

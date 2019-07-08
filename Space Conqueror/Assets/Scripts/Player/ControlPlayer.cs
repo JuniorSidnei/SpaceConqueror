@@ -4,62 +4,69 @@ using System.Collections.Generic;
 using System.Timers;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngineInternal.Input;
+// ReSharper disable All
 
 public class ControlPlayer : MonoBehaviour
 {
     #region variables 
+
+    [Header("Sprite settigns")] public Transform m_spriteTransform;
+
     [Header("Player settings")]
     //Aceleração
     public float m_acceleration;
-    
-    //Vetor de input somado com tempo e velocidade
-    //[HideInInspector] public Vector2 _moveVelocity;
-    
+
     //Float de posição do personagem
     [HideInInspector] public float m_moveInput;
-    
+
     //rigidbody do personagem
     private Rigidbody2D m_rb;
 
     public float m_delay;
 
-    private float m_timeToMaxSpeed = 2f;
-    
+    [SerializeField]
+    private float m_timeToMaxSpeed;
+
+    private float m_timeAccelerating;
+
+    private bool isAccelerating;
+
     [Header("Shoot Settings")]
     //Posição do tiro
     public Transform _shotPos;
 
     //Objeto de tiro
     private GameObject _shoot;
-
-    //Particula antes do tiro
-    public GameObject m_shine;
     
     //Tempo de recarga
     private float _reloadTime = 0.5f;
 
     //Pode atirar
     private bool _canShoot;
-    
+
     //Status do player
     [Header("Player Status")] public PlayerInfo m_playerInfo;
 
     //Vários estados do jogador
     List<PlayerEffects> m_currentEffects;
     
-    
     //Menos da metade da vida do jogador
     private bool m_dyingAlertSound;
     private bool m_smokeOn;
-    
+
     [Header("Collision settings")] [SerializeField]
     public LayerMask _colisionLayer;
 
     [Header("Effects")] public GameObject m_smokeEffect;
+
+    public AnimationCurve m_accelerationCuver;
     
+
     #endregion
 
     #region methods
+
     private void Awake()
     {
         m_playerInfo.SetControlPlayer(this);
@@ -74,22 +81,30 @@ public class ControlPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        
-        if(!GameManager.Instance.m_isDialogueActive)
-            Rotate();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Move();
+        }
+        else
+        {
+            Stop();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (!GameManager.Instance.m_isDialogueActive)
+            Rotate();
+
         ReloadTimer();
         Shoot();
         RecoveryKit();
         ApplyEffect();
+       
+        CameraController.Instance.ZoomOut(isAccelerating);
         
-
+        
         //Se estiver morrendo vai ficar com o alerta e piscando a nave e soltando fumaça
         if (m_playerInfo.CurrentLife <= (m_playerInfo.MaxLife / 3) && m_dyingAlertSound == false)
         {
@@ -103,44 +118,61 @@ public class ControlPlayer : MonoBehaviour
             m_dyingAlertSound = false;
             m_smokeOn = false;
         }
-        
+
         SmokeOn();
     }
 
-    
 
-    public void Move()
+
+    private void Move()
     {
-        //Movimento do jogador
-        m_moveInput = Input.GetAxisRaw("Horizontal");
+        m_timeAccelerating += Time.deltaTime;
+
+        float acce = m_accelerationCuver.Evaluate(m_timeAccelerating/m_timeToMaxSpeed);
         
-        m_rb.drag = Math.Abs(m_moveInput) > 0 ? 10 : 1;
-            
-        m_rb.AddForce(m_acceleration * Time.deltaTime * m_moveInput * transform.right, ForceMode2D.Force);
+        m_rb.drag = 4.5f;
+        m_rb.AddForce(m_acceleration * acce *Time.deltaTime * transform.right, ForceMode2D.Force);
+        isAccelerating = true;
     }
-    
-    public void Rotate()
+
+    private void Stop()
     {
-        Vector3 mousPos = Input.mousePosition;
-        mousPos = Camera.main.ScreenToWorldPoint(mousPos);
-        Vector2 direction = Time.deltaTime * new Vector2((mousPos.x - transform.position.x) - m_delay, (mousPos.y - transform.position.y) - m_delay);
+        m_timeAccelerating = 0;
+        isAccelerating = false;
+        m_rb.drag = 1;
+    }
+
+private void Rotate()
+    {
+       
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        float x, y;
+        if (mousePos.x < transform.position.x)
+        {
+            y = -1;
+        }
+        else
+        {
+            y = 1;
+        }
+        m_spriteTransform.localScale = new Vector3(1, y, 1);
+        
+        Vector2 direction = Time.deltaTime * new Vector2((mousePos.x - transform.position.x) - m_delay, (mousePos.y - transform.position.y) - m_delay);
         transform.right = direction;
     }
     
     //Função de tiro do personagem
-    public void Shoot()
+    private void Shoot()
     {
-        if (Input.GetKey(KeyCode.Space) && _canShoot)
-        {
-            AudioManager.PlaySound("PlayerShoot");
-            var tmpShine = Instantiate(m_shine, _shotPos.position, Quaternion.identity);
-            var tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
-            tempBullet.transform.right = transform.right;
+        if (!Input.GetKey(KeyCode.Mouse0) || !_canShoot) return;
+        AudioManager.PlaySound("PlayerShoot");
+        var tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
+        tempBullet.transform.right = transform.right;
 
-            _canShoot = false;
-        }
+        _canShoot = false;
     }
-
+    
     private void ReloadTimer()
     {
         _reloadTime -= Time.deltaTime;

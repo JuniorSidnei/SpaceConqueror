@@ -9,6 +9,11 @@ public class FlameMeteor : MeteorStatus
 
 
     //Colisão player meteoro de fogo
+//    protected override void OnCollision(Collision2D obj)
+//    {
+//        //TODO spawn de cada tipo
+//    }
+
     protected override void OnCollisionWithPlayer(ControlPlayer player)
     {
         player.AddEffect(new FlamingEffect());

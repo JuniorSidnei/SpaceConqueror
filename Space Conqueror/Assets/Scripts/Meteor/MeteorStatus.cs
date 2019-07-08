@@ -23,6 +23,7 @@ public abstract class MeteorStatus : MonoBehaviour
     public GameObject _dyingMeteor;
     public GameObject _WaveExplosion;
     public GameObject _bulletHit;
+    public GameObject _meteorSpread;
   
 
     void Update()
@@ -43,8 +44,11 @@ public abstract class MeteorStatus : MonoBehaviour
             var tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
         }  
     }
-   
 
+
+    //protected abstract void OnCollision(Collision2D obj);
+    
+    
     //Colisão com o tiro
     private void OnCollisionEnter2D(Collision2D obj)
     {
@@ -53,7 +57,7 @@ public abstract class MeteorStatus : MonoBehaviour
         {
             //Aplicando dano na vida do meteoro
             _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
-            
+            GameObject tempSpread = Instantiate(_meteorSpread, obj.contacts[0].point, Quaternion.identity);
             
             switch (type)
             {
@@ -61,21 +65,21 @@ public abstract class MeteorStatus : MonoBehaviour
                 case MeteorType.Ice:
                     
                     AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit = Instantiate(_bulletHit, transform.position, Quaternion.identity);
+                    GameObject tempHit = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
                     break;
 
                 //Fogo
                 case MeteorType.Fire:
 
                     AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit2 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
+                    GameObject tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
                     break;
 
                 //Raio
                 case MeteorType.Thunder:
 
                     AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit3 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
+                    GameObject tempHit3 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
                     break;
                 //Normal
                 case MeteorType.Normal:

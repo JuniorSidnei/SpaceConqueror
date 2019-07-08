@@ -45,8 +45,7 @@ public class PanelControllerPlaying : BaseHudBehavior
         m_playerLifeText.text = ("" + m_playerInfo.CurrentLife);
         m_LifeBarFill.DOFillAmount((float)m_playerInfo.CurrentLife / m_playerInfo.MaxLife, 2f);
         
-        m_speedometerFill.DOFillAmount(m_controlPlayer.m_moveInput, 1f);
-        
+        m_speedometerFill.DOFillAmount(m_controlPlayer.GetComponent<Rigidbody2D>().velocity.sqrMagnitude, 1f);
         if (m_playerInfo.RecoveryKit <= 0)
             m_recoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.black, 1f);
     }

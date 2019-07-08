@@ -6,9 +6,10 @@ public class MeteorDefinitions : MonoBehaviour
 {
     //Sprites dos meteoros
     public Sprite[] _sprites;
+
     //Materiais dos meteoros
     public Material[] _materials;
-    
+
 
     void Start()
     {
@@ -19,13 +20,6 @@ public class MeteorDefinitions : MonoBehaviour
         gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _sprites[rand];
         //Carregando o mesmo material do array quando nasce
         gameObject.GetComponentInChildren<SpriteRenderer>().material = _materials[rand];
-
     }
 
-    
-    void Update()
-    {
-        //Rotacionando a sprite
-        transform.Rotate(0, 0, Random.Range(0.5f,5));
-    }
 }
