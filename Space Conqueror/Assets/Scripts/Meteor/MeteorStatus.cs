@@ -34,7 +34,7 @@ public abstract class MeteorStatus : MonoBehaviour
 
 
         //Verificando a vida e destruindo o meteoro
-        if (_meteorLife <= 0)
+        if (_meteorLife <= 0 && !gameObject.CompareTag("MiningMeteor"))
         {
             AudioManager.PlaySound("MeteorExplosion");
             //Explosão de efeito do meteoro
@@ -46,8 +46,8 @@ public abstract class MeteorStatus : MonoBehaviour
     }
 
 
-    //protected abstract void OnCollision(Collision2D obj);
-    
+    protected abstract void OnCollision(Collision2D obj);
+    protected abstract void OnCollisionWithPlayer(ControlPlayer player);
     
     //Colisão com o tiro
     private void OnCollisionEnter2D(Collision2D obj)
@@ -57,46 +57,21 @@ public abstract class MeteorStatus : MonoBehaviour
         {
             //Aplicando dano na vida do meteoro
             _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+            
             GameObject tempSpread = Instantiate(_meteorSpread, obj.contacts[0].point, Quaternion.identity);
             
-            switch (type)
-            {
-                //Gelo
-                case MeteorType.Ice:
-                    
-                    AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
-                    break;
-
-                //Fogo
-                case MeteorType.Fire:
-
-                    AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
-                    break;
-
-                //Raio
-                case MeteorType.Thunder:
-
-                    AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit3 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
-                    break;
-                //Normal
-                case MeteorType.Normal:
-
-                    AudioManager.PlaySound("BulletMeteorCollision");
-                    GameObject tempHit4 = Instantiate(_bulletHit, transform.position, Quaternion.identity);
-                    break;
-            }
-
+            AudioManager.PlaySound("BulletMeteorCollision");
+            
+            OnCollision(obj);
+            
             //Destruindo o tiro
             Destroy(obj.gameObject);
+//           
         }
 
         //colisão com jogador
-        if (obj.gameObject.layer == 10)
+        if (obj.gameObject.layer == 10 && !gameObject.CompareTag("MiningMeteor"))
         {
-            
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
 
             //Destruindo meteoro
@@ -105,7 +80,7 @@ public abstract class MeteorStatus : MonoBehaviour
         }
     }
 
-    protected abstract void OnCollisionWithPlayer(ControlPlayer player);
+
 
 }
 

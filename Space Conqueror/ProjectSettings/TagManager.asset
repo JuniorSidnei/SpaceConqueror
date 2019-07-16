@@ -12,6 +12,7 @@ TagManager:
   - FreezingMeteor
   - BossBullet
   - Boss
+  - MiningMeteor
   layers:
   - Default
   - TransparentFX

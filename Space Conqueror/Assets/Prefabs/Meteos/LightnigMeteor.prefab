@@ -166,6 +166,8 @@ MonoBehaviour:
     type: 3}
   _bulletHit: {fileID: 5384299738612309594, guid: 5bfc0e7345e575f4fb71dcab1f434759,
     type: 3}
+  _meteorSpread: {fileID: 3261556958337527094, guid: f72550dccda762b47b7cec3436d24d8b,
+    type: 3}
   _meteorExplosion: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
     type: 3}
 --- !u!1001 &6724631517042077318

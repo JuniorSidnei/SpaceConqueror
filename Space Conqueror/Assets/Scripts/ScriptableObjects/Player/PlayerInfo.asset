@@ -17,6 +17,9 @@ MonoBehaviour:
   m_halfLife: 150
   m_recoveryKit: 2
   m_recoveryAmount: 300
+  m_fuel: 1000
+  m_load: 0
+  m_maxLoad: 800
   m_primaryShoot: {fileID: 33547447053011051, guid: 6f18be4bdc02ea44884b651d060f3846,
     type: 3}
   m_secondaryShoot: {fileID: 33547447053011051, guid: be7b9c737d4583c46a452b89b5dfa33b,

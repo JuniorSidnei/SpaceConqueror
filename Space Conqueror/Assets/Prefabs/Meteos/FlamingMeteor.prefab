@@ -93,6 +93,8 @@ MonoBehaviour:
     type: 3}
   _bulletHit: {fileID: 5384299738612309594, guid: 5bfc0e7345e575f4fb71dcab1f434759,
     type: 3}
+  _meteorSpread: {fileID: 3261556958337527094, guid: 5d87a8f0c6a167443bf76627f9ec7d8f,
+    type: 3}
   _meteorExplosion: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
     type: 3}
 --- !u!1 &6883314830311246182
@@ -370,6 +372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: VelocityModule.y.scalar
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346436491743363191, guid: 7f8203d9c4656524bb479291650b2195,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f8203d9c4656524bb479291650b2195, type: 3}

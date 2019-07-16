@@ -9,10 +9,10 @@ public class FlameMeteor : MeteorStatus
 
 
     //Colisão player meteoro de fogo
-//    protected override void OnCollision(Collision2D obj)
-//    {
-//        //TODO spawn de cada tipo
-//    }
+    protected override void OnCollision(Collision2D obj)
+    {
+        var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
+    }
 
     protected override void OnCollisionWithPlayer(ControlPlayer player)
     {
@@ -20,10 +20,8 @@ public class FlameMeteor : MeteorStatus
 
         //Meteor explosion
         GameObject tempHit = Instantiate(_meteorExplosion, transform.position, Quaternion.identity);
-        Destroy(tempHit, 1f);
         //wave Explosion
         GameObject tempHit2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
-        Destroy(tempHit2, 1f);
     }
 
 }

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 193a51d1629f95047849fc4d94fe29f9, type: 3}
-  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
     type: 3}
   _bulletHit: {fileID: 5384299738612309594, guid: 5bfc0e7345e575f4fb71dcab1f434759,
     type: 3}
+  _meteorSpread: {fileID: 0}
   _meteorExplosion: {fileID: 2884299034902070893, guid: 27b648939b2567448b45d3a6ffcfe5c0,
     type: 3}
   m_damage: 700

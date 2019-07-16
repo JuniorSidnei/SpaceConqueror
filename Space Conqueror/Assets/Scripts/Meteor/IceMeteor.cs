@@ -9,6 +9,11 @@ public class IceMeteor : MeteorStatus
 
 
     //Colisão player meteoro de chelo
+    protected override void OnCollision(Collision2D obj)
+    {
+        var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
+    }
+
     protected override void OnCollisionWithPlayer(ControlPlayer player)
     {
         player.AddEffect(new FreezingEffect());

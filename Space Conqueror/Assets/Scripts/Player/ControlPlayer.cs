@@ -101,7 +101,8 @@ public class ControlPlayer : MonoBehaviour
         Shoot();
         RecoveryKit();
         ApplyEffect();
-       
+        SpendFuel();
+        
         CameraController.Instance.ZoomOut(isAccelerating);
         
         
@@ -122,7 +123,22 @@ public class ControlPlayer : MonoBehaviour
         SmokeOn();
     }
 
+    private void SpendFuel()
+    {
+        //Debug.Log("Combustivel indo embora: " +  m_playerInfo.FuelInGame);
+        m_playerInfo.FuelInGame -= Time.deltaTime;
+    }
 
+    public void GetMinerals()
+    {
+        m_playerInfo.LoadInGame ++;
+        Debug.Log("Minerais coletados: " +  m_playerInfo.LoadInGame);
+        
+        if (m_playerInfo.LoadInGame >= m_playerInfo.MaxLoad)
+        {
+            m_playerInfo.LoadInGame = m_playerInfo.MaxLoad;
+        }
+    }
 
     private void Move()
     {

@@ -19,7 +19,13 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     private int m_recoveryKit;
     [SerializeField]
     private int m_recoveryAmount;
-    
+    [SerializeField]
+    private float m_fuel;
+    [SerializeField]
+    private int m_load;
+    [SerializeField]
+    private int m_maxLoad;
+
     [Header("Shoots")]
     [SerializeField]
     private GameObject m_primaryShoot;
@@ -39,12 +45,17 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
 
     private int m_recoveryKitInGame;
 
-    
+    private float m_fuelInGame;
+
+    private int m_loadInGame;
+
     public void OnBeforeSerialize()
     {
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
         m_recoveryKitInGame = m_recoveryKit;
+        m_fuelInGame = m_fuel;
+        m_loadInGame = m_load;
     }
 
     public void OnAfterDeserialize()
@@ -52,6 +63,8 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
         m_recoveryKitInGame = m_recoveryKit;
+        m_fuelInGame = m_fuel;
+        m_loadInGame = m_load;
     }
 
     public void SetControlPlayer(ControlPlayer controlPlayer)
@@ -97,6 +110,19 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         get => m_secondaryShoot;
         set => m_secondaryShoot = value;
     }
+    
+    public float FuelInGame
+    {
+        get => m_fuelInGame;
+        set => m_fuelInGame = value;
+    }
 
+    public int LoadInGame
+    {
+        get => m_loadInGame;
+        set => m_loadInGame = value;
+    }
+    public int MaxLoad => m_maxLoad;
+    
 }
 
