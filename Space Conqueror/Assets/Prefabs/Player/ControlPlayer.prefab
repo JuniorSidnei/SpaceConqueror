@@ -78,12 +78,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spriteTransform: {fileID: 2423192663140836317}
-  m_acceleration: 15000
+  m_acceleration: 25000
   m_moveInput: 0
   m_delay: -2
   m_timeToMaxSpeed: 3
-  _shotPos: {fileID: 5170840548580944681}
-  m_shine: {fileID: 8353372237978392676, guid: 9a72a70250631024d88f6192a36873c6, type: 3}
+  _shotPos: {fileID: 6499882624728210522}
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
   _colisionLayer:
     serializedVersion: 2
@@ -233,12 +232,6 @@ PrefabInstance:
 --- !u!4 &2423192663140836317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3322901171287341635, guid: 963ae7d2825481046848f6f6f38fae85,
-    type: 3}
-  m_PrefabInstance: {fileID: 1134267061323176350}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5170840548580944681 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5223962214691664567, guid: 963ae7d2825481046848f6f6f38fae85,
     type: 3}
   m_PrefabInstance: {fileID: 1134267061323176350}
   m_PrefabAsset: {fileID: 0}

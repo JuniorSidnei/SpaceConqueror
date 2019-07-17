@@ -13,10 +13,10 @@ public class MapObject : MonoBehaviour
 		int hw = (int)size.x / 2;
 		int hh = (int)size.y / 2;
 
-		int MapPosX = MapUtilitys.ToMap((int)transform.position.x, -MapUtilitys.height, MapUtilitys.height, 0,
+		int MapPosX = MapUtilitys.ToMap((int)transform.position.x, -MapUtilitys.mapSize, MapUtilitys.mapSize, 0,
 			mapText.width);
 		
-		int MapPosY = MapUtilitys.ToMap((int)transform.position.y, -MapUtilitys.height, MapUtilitys.height, 0,
+		int MapPosY = MapUtilitys.ToMap((int)transform.position.y, -MapUtilitys.mapSize, MapUtilitys.mapSize, 0,
 			mapText.height);
 			
 		for (int y = -hh; y < hh; y++)

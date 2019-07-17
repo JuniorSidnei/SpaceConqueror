@@ -13,9 +13,10 @@ public class PanelControllerPlaying : BaseHudBehavior
     private ControlPlayer m_controlPlayer;
     
     [Header("Boxes")]
-    public GameObject m_lifeBox;
-    public GameObject m_recoveryBox;
-    public GameObject m_speedometerBox;
+    [FormerlySerializedAs("m_lifeBox")]  public GameObject _lifeBox;
+    [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
+    [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
+    public GameObject _mapBox;
     
     
     [Header("Images")]
@@ -59,16 +60,18 @@ public class PanelControllerPlaying : BaseHudBehavior
     public override void HandleConversation()
     {
         base.HandleConversation();
-        m_lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f);
-        m_recoveryBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
-        m_speedometerBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
+        _lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f);
+        _recoveryBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
+        _speedometerBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
+        _mapBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
     }
 
     public override void HandlePlaying()
     {
         base.HandlePlaying();
-        m_lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
-        m_recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f);
-        m_speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 1), 3f);
+        _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
+        _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f);
+        _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 1), 3f);
+        _mapBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 1f);
     }
 }

@@ -4835,6 +4835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d653dc4e4705d1e4ab4641d4bbda0863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 2800000, guid: 193a51d1629f95047849fc4d94fe29f9, type: 3}
+  size: {x: 48, y: 48}
   m_mineralsAmount: 200
   m_effect: {fileID: 5939468590862389292}
 --- !u!1 &7047808262372889699
