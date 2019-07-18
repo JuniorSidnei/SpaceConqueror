@@ -7,17 +7,17 @@ public class MapObject : MonoBehaviour
 	public Texture2D model;
 
 	public Vector2 size;
-	
-	public void DrawOnMap(Texture2D mapText)
+
+	public void DrawOnMap(Texture2D mapTex)
 	{
 		int hw = (int)size.x / 2;
 		int hh = (int)size.y / 2;
 
 		int MapPosX = MapUtilitys.ToMap((int)transform.position.x, -MapUtilitys.mapSize, MapUtilitys.mapSize, 0,
-			mapText.width);
+			mapTex.width);
 		
 		int MapPosY = MapUtilitys.ToMap((int)transform.position.y, -MapUtilitys.mapSize, MapUtilitys.mapSize, 0,
-			mapText.height);
+			mapTex.height);
 			
 		for (int y = -hh; y < hh; y++)
 		{
@@ -26,7 +26,7 @@ public class MapObject : MonoBehaviour
 				int currentX = x + MapPosX;
 				int currentY = y + MapPosY;
 
-				if (currentX < 0 || currentX > mapText.width || currentY < 0 || currentY > mapText.height)
+				if (currentX < 0 || currentX > mapTex.width || currentY < 0 || currentY > mapTex.height)
 				{
 					continue;
 				}
@@ -35,13 +35,14 @@ public class MapObject : MonoBehaviour
 				int texCoordY = MapUtilitys.ToMap(y, -hh, hh, 0, model.height);
 				
 				
-				Color newColor = model.GetPixel(texCoordX, texCoordY);
-				Color oldColor = mapText.GetPixel(currentX,currentY);
-				Vector3 finalColor = (newColor.a * new Vector3(newColor.r, newColor.g, newColor.b) +
+				var newColor = model.GetPixel(texCoordX, texCoordY);
+				var oldColor = mapTex.GetPixel(currentX,currentY);
+				var finalColor = (newColor.a * new Vector3(newColor.r, newColor.g, newColor.b) +
 				                    ((1 - newColor.a) * new Vector3(oldColor.r, oldColor.g, oldColor.b)));
 
 
-				mapText.SetPixel(currentX, currentY, new Color(finalColor.x, finalColor.y, finalColor.z, 1));
+				Debug.LogError("Posições do mapa, X: " + currentX + ", Y: " + currentY + "De: " + model.name);
+				mapTex.SetPixel(currentX, currentY, new Color(finalColor.x, finalColor.y, finalColor.z, 1));
 			}
 		}
 	}
