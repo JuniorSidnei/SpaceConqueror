@@ -30,23 +30,23 @@ public class MapCreator : MonoBehaviour
     private void GenerateObjects()
     {
         var drawObjectsMap = FindObjectsOfType<MapObject>();
-
+        
+        m_mapObjects = new List<GameObject>();
+        
         foreach (MapObject obj in drawObjectsMap)
         {
             DrawOnMap(obj);
         }
     }
 
-//    [ContextMenu("ClearMap")]
-//    private void ClearObjects()
-//    {
-//        var drawObjectsMap = FindObjectsOfType<MapObject>();
-//
-//        foreach (MapObject obj in drawObjectsMap)
-//        {
-//            DestroyImmediate(obj);
-//        }
-//    }
+    [ContextMenu("ClearMap")]
+    private void ClearObjects()
+    {
+        foreach (GameObject obj in m_mapObjects)
+        {
+            DestroyImmediate(obj);
+        }
+    }
 
 
     //Just to draw
@@ -76,6 +76,7 @@ public class MapCreator : MonoBehaviour
         obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
         
 //      //Adiciona o objeto na lista
+        
         m_mapObjects.Add(obj);
         Debug.Log("Quantos na lista? " + m_mapObjects.Count);
     }
