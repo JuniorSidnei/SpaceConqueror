@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4729932252617794596}
   - component: {fileID: 9205124470131838387}
   - component: {fileID: 8257349646788186553}
+  - component: {fileID: 760075958}
   m_Layer: 8
   m_Name: MiningFlamingMeteor
   m_TagString: MiningMeteor
@@ -107,6 +108,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_mineralsAmount: 200
   m_effect: {fileID: 3335050775202377895}
+--- !u!114 &760075958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812255772930892867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa1e50d8651a5f4a87a2877fc7d3f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSprite: {fileID: 21300000, guid: 193a51d1629f95047849fc4d94fe29f9, type: 3}
+  sizeSprite: {x: 0.02, y: 0.02, z: 0}
 --- !u!1 &4548433148239939989
 GameObject:
   m_ObjectHideFlags: 0

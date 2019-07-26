@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +12,12 @@ public class MapCreator : MonoBehaviour
     private float m_hw;
     private float m_hh;
 
-    private List<GameObject> m_mapObjects;
-    
-    private void Awake()
+    private List<MapObject> m_mapObjects;
+
+    private List<GameObject> m_mapPlayer;
+
+    public Transform m_positiontToFollow;
+    private void Start()
     {
         GenerateObjects();
     }
@@ -29,11 +33,10 @@ public class MapCreator : MonoBehaviour
     [ContextMenu("CreateMap")]
     private void GenerateObjects()
     {
-        var drawObjectsMap = FindObjectsOfType<MapObject>();
-        
-        m_mapObjects = new List<GameObject>();
-        
-        foreach (MapObject obj in drawObjectsMap)
+        m_mapPlayer = new List<GameObject>();
+        m_mapObjects = FindObjectsOfType<MapObject>().ToList();
+
+        foreach (var obj in m_mapObjects)
         {
             DrawOnMap(obj);
         }
@@ -42,10 +45,16 @@ public class MapCreator : MonoBehaviour
     [ContextMenu("ClearMap")]
     private void ClearObjects()
     {
-        foreach (GameObject obj in m_mapObjects)
+        foreach (MapObject t in m_mapObjects)
         {
-            DestroyImmediate(obj);
+#if UNITY_EDITOR
+            if (Application.isEditor)
+                DestroyImmediate(t);
+            else
+                Destroy(t);
+#endif
         }
+        m_mapObjects.Clear();
     }
 
 
@@ -56,11 +65,12 @@ public class MapCreator : MonoBehaviour
         var obj = new GameObject(mapObj.gameObject.name);
         obj.transform.SetParent(transform);
         obj.transform.localScale = new Vector3(mapObj.sizeSprite.x, mapObj.sizeSprite.y, mapObj.sizeSprite.z);
-
         obj.AddComponent<Image>().sprite = mapObj.mapSprite;
         
-        m_rect = GetComponent<RectTransform>();
+        m_mapPlayer.Add(obj);
         
+        
+        m_rect = GetComponent<RectTransform>();
         m_hw = m_rect.rect.width / 2;
         m_hh = m_rect.rect.height / 2;
         
@@ -70,36 +80,43 @@ public class MapCreator : MonoBehaviour
             new Vector2(MapUtilitys.mapSize, MapUtilitys.mapSize),
             new Vector2(-m_hw, -m_hh),
             new Vector2(m_hw,m_hh));
-
-       
+        
         
         obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
         
-//      //Adiciona o objeto na lista
-        
-        m_mapObjects.Add(obj);
-        Debug.Log("Quantos na lista? " + m_mapObjects.Count);
     }
-
     
     
     //Just to move
     private void MoveOnMap()
     {
-        for (int i = 0; i < m_mapObjects.Count; i++)
+        m_rect = GetComponent<RectTransform>();
+        m_hw = m_rect.rect.width / 2;
+        m_hh = m_rect.rect.height / 2;
+        
+        foreach (var t in m_mapPlayer)
         {
-            if (m_mapObjects[i].name != "ControlPlayer") continue;
+            if (t.name == "ControlPlayer")
+            {
+                //coordenadas da imagem para a imagem principal
+                Vector2 MapPos = MapUtilitys.ToMap(m_positiontToFollow.position,
+                    new Vector2(-MapUtilitys.mapSize, -MapUtilitys.mapSize),
+                    new Vector2(MapUtilitys.mapSize, MapUtilitys.mapSize),
+                    new Vector2(-m_hw, -m_hh),
+                    new Vector2(m_hw, m_hh));
             
-            //coordenadas da imagem para a imagem principal
-            Vector2 MapPos = MapUtilitys.ToMap(m_mapObjects[i].transform.position,
-                new Vector2(-MapUtilitys.mapSize, -MapUtilitys.mapSize),
-                new Vector2(MapUtilitys.mapSize, MapUtilitys.mapSize),
-                new Vector2(-m_hw, -m_hh),
-                new Vector2(m_hw, m_hh));
-
-
-
-            m_mapObjects[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
+                t.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
+            }
         }
+        
+       
+//        //coordenadas da imagem para a imagem principal
+//        Vector2 MapPos = MapUtilitys.ToMap(m_mapPlayer.transform.position,
+//            new Vector2(-MapUtilitys.mapSize, -MapUtilitys.mapSize),
+//            new Vector2(MapUtilitys.mapSize, MapUtilitys.mapSize),
+//            new Vector2(-m_hw, -m_hh),
+//            new Vector2(m_hw, m_hh));
+//            
+//        m_mapPlayer.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
     }
 }
