@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
     public bool m_isDialogueActive;
     #endregion
 
+    public GameObject map;
+
+    private int m_mapController = 0;
     
     
     #region methods
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        map.SetActive(false);
     }
 
     void Start()
@@ -55,8 +60,35 @@ public class GameManager : MonoBehaviour
                 m_firstDialogueTimer = 5;
             }
         }
+        
+        //Input para ativar o mapa
+        if (Input.GetKeyDown(KeyCode.M) && m_mapController == 0)
+        {
+            MapShowUp();
+        }
+        else if (Input.GetKeyDown(KeyCode.M) && m_mapController == 1)
+        {
+            MapShowDown();
+        }
     }
     
+    private void MapShowUp()
+    {
+        map.SetActive(true);
+        map.gameObject.transform.DOScale(new Vector3(1, 1, 1), 2f);
+        m_mapController++;
+    }
+
+    private void MapShowDown()
+    {
+        map.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f).OnComplete(() =>
+        {
+            map.SetActive(false);
+        });
+       
+        
+        m_mapController--;
+    }
     //Carrega a proxima cena quando o boss morrer
     public void RestartScene()
     {

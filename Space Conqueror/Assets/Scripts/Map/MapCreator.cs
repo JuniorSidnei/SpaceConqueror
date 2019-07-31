@@ -66,6 +66,7 @@ public class MapCreator : MonoBehaviour
         obj.transform.SetParent(transform);
         obj.transform.localScale = new Vector3(mapObj.sizeSprite.x, mapObj.sizeSprite.y, mapObj.sizeSprite.z);
         obj.AddComponent<Image>().sprite = mapObj.mapSprite;
+        obj.GetComponent<Image>().color = mapObj.colorSprite;
         
         m_mapPlayer.Add(obj);
         

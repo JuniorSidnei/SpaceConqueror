@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1084208361427851742}
   - component: {fileID: 8185347848635536661}
   - component: {fileID: 621904706281738930}
+  - component: {fileID: 202028088729195374}
   m_Layer: 8
   m_Name: OrdinaryMeteor
   m_TagString: Meteor
@@ -220,3 +221,18 @@ MonoBehaviour:
   _meteorExplosion: {fileID: 2884299034902070893, guid: 27b648939b2567448b45d3a6ffcfe5c0,
     type: 3}
   m_damage: 700
+--- !u!114 &202028088729195374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872820943443499112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa1e50d8651a5f4a87a2877fc7d3f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSprite: {fileID: 21300000, guid: df4b07c98a22bc246aeab4f213b86d08, type: 3}
+  sizeSprite: {x: 0.01, y: 0.01, z: 0}
+  colorSprite: {r: 0.5019608, g: 0.52156866, b: 0.57254905, a: 1}

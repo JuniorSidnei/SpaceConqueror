@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 44713576687741353}
   - component: {fileID: 2708497542533412193}
   - component: {fileID: 1602996883886478507}
+  - component: {fileID: 2873140560299083438}
   m_Layer: 8
   m_Name: FreezingMeteor
   m_TagString: FreezingMeteor
@@ -97,6 +98,21 @@ MonoBehaviour:
     type: 3}
   _meteorExplosion: {fileID: 2485499662765050521, guid: c85d53a73a66f524f8bc237d67875f23,
     type: 3}
+--- !u!114 &2873140560299083438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481759118504782594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa1e50d8651a5f4a87a2877fc7d3f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSprite: {fileID: 21300000, guid: 46eb3ead93e5d4443af9d89788f6749d, type: 3}
+  sizeSprite: {x: 0.01, y: 0.01, z: 0}
+  colorSprite: {r: 0, g: 0.37254903, b: 1, a: 1}
 --- !u!1 &6883314830311246182
 GameObject:
   m_ObjectHideFlags: 0
