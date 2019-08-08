@@ -6,12 +6,13 @@ public class BaseHudBehavior : MonoBehaviour
 {
     //Lista de objetos que devem dizer o que carregar na hora que forem chamados
     [SerializeField]
-    private List<GameObject> m_conversationMode, m_playingMode;
+    private List<GameObject> m_conversationMode, m_playingMode, m_mapMode;
 
     //HUD com vida, ataques do jogador e itens de cura
     public virtual void HandlePlaying()
     {
         ActiveList(m_conversationMode, false);
+        ActiveList(m_mapMode, false);
         ActiveList(m_playingMode, true);
     }
 
@@ -19,9 +20,16 @@ public class BaseHudBehavior : MonoBehaviour
     public virtual void HandleConversation()
     {
         ActiveList(m_playingMode, false);
+        ActiveList(m_mapMode, false);
         ActiveList(m_conversationMode, true);
     }
 
+    public virtual void HandleMap()
+    {
+        ActiveList(m_playingMode, false);
+        ActiveList(m_conversationMode, false);
+        ActiveList(m_mapMode, false);
+    }
 
     public virtual void SetPlayerInfo(PlayerInfo playerInfo)
     { }

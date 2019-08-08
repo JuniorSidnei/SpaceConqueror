@@ -17,9 +17,15 @@ public class MapCreator : MonoBehaviour
     private List<GameObject> m_mapPlayer;
 
     public Transform m_positiontToFollow;
+
+    public static MapCreator Instance;
+    
     private void Start()
     {
         GenerateObjects();
+
+        if (Instance == null)
+            Instance = this;
     }
 
     //For player position
@@ -45,7 +51,7 @@ public class MapCreator : MonoBehaviour
     [ContextMenu("ClearMap")]
     private void ClearObjects()
     {
-        foreach (MapObject t in m_mapObjects)
+        foreach (GameObject t in m_mapPlayer)
         {
 #if UNITY_EDITOR
             if (Application.isEditor)
@@ -57,6 +63,17 @@ public class MapCreator : MonoBehaviour
         m_mapObjects.Clear();
     }
 
+    public void ClearUnityObject(string name)
+    {
+        foreach (GameObject t in m_mapPlayer.ToArray())
+        {
+            if (t.name == name)
+            {
+                Destroy(t);
+                m_mapPlayer.Remove(t);
+            }
+        }
+    }
 
     //Just to draw
     private void DrawOnMap(MapObject mapObj)
@@ -105,19 +122,10 @@ public class MapCreator : MonoBehaviour
                     new Vector2(MapUtilitys.mapSize, MapUtilitys.mapSize),
                     new Vector2(-m_hw, -m_hh),
                     new Vector2(m_hw, m_hh));
-            
+
                 t.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
             }
         }
-        
-       
-//        //coordenadas da imagem para a imagem principal
-//        Vector2 MapPos = MapUtilitys.ToMap(m_mapPlayer.transform.position,
-//            new Vector2(-MapUtilitys.mapSize, -MapUtilitys.mapSize),
-//            new Vector2(MapUtilitys.mapSize, MapUtilitys.mapSize),
-//            new Vector2(-m_hw, -m_hh),
-//            new Vector2(m_hw, m_hh));
-//            
-//        m_mapPlayer.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
+
     }
 }

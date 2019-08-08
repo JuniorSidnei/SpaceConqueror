@@ -16,9 +16,8 @@ public class PanelControllerPlaying : BaseHudBehavior
     [FormerlySerializedAs("m_lifeBox")]  public GameObject _lifeBox;
     [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
     [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
-    public GameObject _mapBox;
-    
-    
+
+
     [Header("Images")]
     public Image m_LifeBarFill;
     public Image m_recoveryKitKey;
@@ -63,7 +62,6 @@ public class PanelControllerPlaying : BaseHudBehavior
         _lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f);
         _recoveryBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
         _speedometerBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
-        _mapBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
     }
 
     public override void HandlePlaying()
@@ -72,6 +70,11 @@ public class PanelControllerPlaying : BaseHudBehavior
         _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
         _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f);
         _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 1), 3f);
-        _mapBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 1f);
+    }
+
+    public override void HandleMap()
+    {
+        base.HandleMap();
+        HandleConversation();
     }
 }

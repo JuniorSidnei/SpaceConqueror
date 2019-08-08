@@ -27,4 +27,10 @@ public class PanelControllerConversation : BaseHudBehavior
         base.HandlePlaying();
         m_boxDialogue.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f);
     }
+
+    public override void HandleMap()
+    {
+        base.HandleMap();
+        m_boxDialogue.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f);
+    }
 }

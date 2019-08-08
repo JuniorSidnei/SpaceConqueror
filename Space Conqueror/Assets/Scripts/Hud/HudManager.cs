@@ -16,6 +16,8 @@ public class HudManager : MonoBehaviour
 
     [SerializeField]
     private PanelControllerConversation m_PanelControllerConversation;
+
+    [SerializeField] private PanelControllerMap m_PanelControllerMap;
     
     
     public Image m_Hud;
@@ -53,20 +55,30 @@ public class HudManager : MonoBehaviour
     { 
         m_PanelControllerPlaying.SetPlayerInfo(playerInfo);
         m_PanelControllerConversation.SetPlayerInfo(playerInfo);
+        m_PanelControllerMap.SetPlayerInfo(playerInfo);
     }
 
     public void HandleConversation()
     {
         m_PanelControllerConversation.HandleConversation();
         m_PanelControllerPlaying.HandleConversation();
+        m_PanelControllerMap.HandleConversation();
     }
 
     public void HandlePlaying()
     {
         m_PanelControllerConversation.HandlePlaying();
         m_PanelControllerPlaying.HandlePlaying();
+        m_PanelControllerMap.HandlePlaying();
     }
 
+    public void HandleMap()
+    {
+        m_PanelControllerConversation.HandleMap();
+        m_PanelControllerPlaying.HandleMap();
+        m_PanelControllerMap.HandleMap();
+    }
+    
     public void HandleOnDamage()
     {
         m_Hud.DOFade(0.8f, 0.2f).OnComplete(() => { m_Hud.DOFade(0, 0.2f);});

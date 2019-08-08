@@ -42,6 +42,8 @@ public abstract class MeteorStatus : MonoBehaviour
             var tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity);
             //Explosão de impacto
             var tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
+            
+            MapCreator.Instance.ClearUnityObject(name);
         }  
     }
 

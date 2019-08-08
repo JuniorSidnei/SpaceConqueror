@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -74,9 +75,17 @@ public class GameManager : MonoBehaviour
     
     private void MapShowUp()
     {
+        HudManager.Instance.HandleMap();
+        
+//        map.gameObject.transform.DOScale(new Vector3(1, 1, 1), 2f).OnComplete(()=>
+//        {
+//            m_mapController++;
+//        });
         map.SetActive(true);
-        map.gameObject.transform.DOScale(new Vector3(1, 1, 1), 2f);
-        m_mapController++;
+        map.gameObject.transform.DOPunchScale(new Vector3(0.2f,0.2f,0),1f,1,0).OnComplete(() =>
+        {
+            m_mapController++;
+        });    
     }
 
     private void MapShowDown()
@@ -84,11 +93,13 @@ public class GameManager : MonoBehaviour
         map.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f).OnComplete(() =>
         {
             map.SetActive(false);
+            m_mapController--;
+            HudManager.Instance.HandlePlaying();
+            map.gameObject.transform.DOScale(new Vector3(1, 1, 0), 0.1f);
         });
-       
-        
-        m_mapController--;
+
     }
+    
     //Carrega a proxima cena quando o boss morrer
     public void RestartScene()
     {
