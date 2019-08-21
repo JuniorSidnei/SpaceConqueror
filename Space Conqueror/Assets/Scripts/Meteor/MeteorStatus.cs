@@ -4,21 +4,8 @@ using UnityEngine;
 
 public abstract class MeteorStatus : MonoBehaviour
 {
-
-    //Descrição do tipo de meteoro
-    public enum MeteorType
-    {
-        Fire, Ice, Thunder, Normal
-    };
-
-    //Velocidade do meteoro
-    public float _meteorSpeed;
-    //Tempo do jogo em segundos pra somar coma  velocidade do meteoro
-    private float _timer;
     //Vida do meteoro, que vai ser um random de 50 e 80
     public int _meteorLife;
-    //Tipo de meteoro
-    public MeteorType type;
     //Destruindo o meteoro
     public GameObject _dyingMeteor;
     public GameObject _WaveExplosion;
@@ -28,11 +15,6 @@ public abstract class MeteorStatus : MonoBehaviour
 
     void Update()
     {
-
-        //Movendo o meteoro
-        transform.position += _meteorSpeed * Time.deltaTime * Vector3.left;
-
-
         //Verificando a vida e destruindo o meteoro
         if (_meteorLife <= 0 && !gameObject.CompareTag("MiningMeteor"))
         {
@@ -68,7 +50,6 @@ public abstract class MeteorStatus : MonoBehaviour
             
             //Destruindo o tiro
             Destroy(obj.gameObject);
-//           
         }
 
         //colisão com jogador

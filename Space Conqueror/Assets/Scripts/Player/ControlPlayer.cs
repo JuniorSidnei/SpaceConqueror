@@ -105,7 +105,6 @@ public class ControlPlayer : MonoBehaviour
         
         CameraController.Instance.ZoomOut(isAccelerating);
         
-        
         //Se estiver morrendo vai ficar com o alerta e piscando a nave e soltando fumaça
         if (m_playerInfo.CurrentLife <= (m_playerInfo.MaxLife / 3) && m_dyingAlertSound == false)
         {
@@ -158,9 +157,8 @@ public class ControlPlayer : MonoBehaviour
         m_rb.drag = 1;
     }
 
-private void Rotate()
+    private void Rotate()
     {
-       
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float x, y;

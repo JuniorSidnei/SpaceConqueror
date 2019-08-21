@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d653dc4e4705d1e4ab4641d4bbda0863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_mineralsAmount: 200
+  m_mineralsAmount: 300
   m_effect: {fileID: 3335050775202377895}
 --- !u!114 &760075958
 MonoBehaviour:
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapSprite: {fileID: 21300000, guid: 193a51d1629f95047849fc4d94fe29f9, type: 3}
   sizeSprite: {x: 0.02, y: 0.02, z: 0}
+  colorSprite: {r: 0.85882354, g: 0.12549031, b: 0.12549017, a: 1}
 --- !u!1 &4548433148239939989
 GameObject:
   m_ObjectHideFlags: 0
