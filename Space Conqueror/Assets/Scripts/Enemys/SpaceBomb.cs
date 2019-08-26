@@ -17,11 +17,15 @@ public class SpaceBomb : MonoBehaviour
         {
             other.gameObject.GetComponent<ControlPlayer>().ApplyDamage(m_damage);
             SpaceBombExplosion(other);
+            HudManager.Instance.HandleOnDamage();
             Destroy(gameObject);
         }
 
         if (other.gameObject.layer == 11)
+        {
+            CameraController.Instance.ScreenShake();
             SpaceBombExplosion(other);
+        }
     }
 
     
@@ -30,7 +34,6 @@ public class SpaceBomb : MonoBehaviour
         GameObject tempWaveExplosion = Instantiate(_WaveExplosion, other.contacts[0].point, Quaternion.Euler(-90, 0, 0));
         GameObject tempExplosion = Instantiate(_Explosion, transform.position, Quaternion.identity);
         AudioManager.PlaySound("MeteorExplosion");
-        HudManager.Instance.HandleOnDamage();
         Destroy(gameObject);
     }
 }
