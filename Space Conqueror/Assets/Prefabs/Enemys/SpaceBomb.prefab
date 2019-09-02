@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f44b0ef589f3d4e8596ee9e29c903d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_damage: 300
   _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
     type: 3}
   _Explosion: {fileID: 5256392874829725907, guid: af5cd773054efd845807cd41eb44e654,

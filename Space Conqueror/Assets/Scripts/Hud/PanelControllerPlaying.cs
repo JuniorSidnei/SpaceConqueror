@@ -29,7 +29,10 @@ public class PanelControllerPlaying : BaseHudBehavior
     public TextMeshProUGUI m_logText;
 
     [Header("HudSettings")]
-    public Image m_crackedHud;
+    public Image CrackedHud;
+    public Image BurningHud;
+    public Image FreezingHud;
+    public Image ParalyzedHud;
 
     private void Start()
     {
@@ -40,7 +43,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     {
         //Se levar muuito dano, vai rachar o vidro da nave
         if(m_playerInfo.CurrentLife <= m_playerInfo.MaxLife / 3)
-            m_crackedHud.gameObject.SetActive(true);
+            CrackedHud.gameObject.SetActive(true);
         
         m_playerLifeText.text = ("" + m_playerInfo.CurrentLife);
         m_LifeBarFill.DOFillAmount((float)m_playerInfo.CurrentLife / m_playerInfo.MaxLife, 2f);
@@ -76,5 +79,13 @@ public class PanelControllerPlaying : BaseHudBehavior
     {
         base.HandleMap();
         HandleConversation();
+    }
+
+    public void HandleHudBurning()
+    {
+        //TODO CRIAR UMA COMROTINA PARA CHAMAR AQUI, NA COMROTINA:
+        //1 -> DOFADE COM A IMAGEM DE BURNING/FREEEZING...
+        //2 -> DOFADEOUT PARA VOLTAR A HUD
+        //3 -> SAIR DA COMROTINA
     }
 }

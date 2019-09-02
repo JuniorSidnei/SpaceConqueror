@@ -9329,7 +9329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &916173786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9541,6 +9541,18 @@ MonoBehaviour:
     volume: 0.6
     source: {fileID: 0}
     isLooping: 1
+    playOnAwake: 0
+  - audioName: MapShowUp
+    audioClip: {fileID: 8300000, guid: 00011f94e607fef4db9d8fc154a2f576, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: MapShowDown
+    audioClip: {fileID: 8300000, guid: 70fd410d07c3f7a488174c1c91ccc2bf, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
     playOnAwake: 0
 --- !u!4 &935615716
 Transform:
@@ -10166,12 +10178,12 @@ PrefabInstance:
     - target: {fileID: 709052616202512090, guid: 415eaefa856794d45b0f3849db9e78db,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 709052616202512090, guid: 415eaefa856794d45b0f3849db9e78db,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 709052616202512090, guid: 415eaefa856794d45b0f3849db9e78db,
         type: 3}

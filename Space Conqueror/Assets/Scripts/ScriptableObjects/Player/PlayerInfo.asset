@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4434dd2e7143c5f4daf0f2562aa70635, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  m_maxLife: 500
-  m_currentLife: 500
-  m_halfLife: 150
+  m_maxLife: 1000
+  m_currentLife: 1000
+  m_halfLife: 250
   m_recoveryKit: 2
-  m_recoveryAmount: 300
+  m_recoveryAmount: 500
   m_fuel: 1000
   m_load: 0
   m_maxLoad: 800

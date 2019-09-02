@@ -9,7 +9,7 @@ public class LightningEffect : PlayerEffects
     public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         
-        _effectDamage = 30;
+        _effectDamage = 150;
         _effectSpeed = new Vector2(0,0);
 
         player.ApplyDamage(_effectDamage);

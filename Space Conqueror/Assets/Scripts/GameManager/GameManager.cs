@@ -76,11 +76,7 @@ public class GameManager : MonoBehaviour
     private void MapShowUp()
     {
         HudManager.Instance.HandleMap();
-        
-//        map.gameObject.transform.DOScale(new Vector3(1, 1, 1), 2f).OnComplete(()=>
-//        {
-//            m_mapController++;
-//        });
+        AudioManager.PlaySound("MapShowUp");
         map.SetActive(true);
         map.gameObject.transform.DOPunchScale(new Vector3(0.2f,0.2f,0),1f,1,0).OnComplete(() =>
         {
@@ -90,6 +86,7 @@ public class GameManager : MonoBehaviour
 
     private void MapShowDown()
     {
+        AudioManager.PlaySound("MapShowDown");
         map.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f).OnComplete(() =>
         {
             map.SetActive(false);

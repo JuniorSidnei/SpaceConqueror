@@ -9,7 +9,7 @@ public class FreezingEffect : PlayerEffects
     public override void EnterEffect(ControlPlayer player, PlayerInfo playerInfo)
     {
         _effectSpeed = new Vector2(400, 400);
-        _effectDamage = 50;
+        _effectDamage = 150;
 
         player.ApplyDamage(_effectDamage);
     }

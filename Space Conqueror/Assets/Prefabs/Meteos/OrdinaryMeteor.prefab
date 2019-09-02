@@ -208,9 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227d180bac5294d408a1323d8f6ff662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 0
   _meteorLife: 200
-  type: 3
   _dyingMeteor: {fileID: 2884299034902070893, guid: 27b648939b2567448b45d3a6ffcfe5c0,
     type: 3}
   _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
@@ -221,7 +219,7 @@ MonoBehaviour:
     type: 3}
   _meteorExplosion: {fileID: 2884299034902070893, guid: 27b648939b2567448b45d3a6ffcfe5c0,
     type: 3}
-  m_damage: 700
+  m_damage: 150
 --- !u!114 &202028088729195374
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class SpaceBomb : MonoBehaviour
 {
-    private int m_damage = 10;
-
-
+    public int m_damage = 10;
+    
     public GameObject _WaveExplosion;
     public GameObject _Explosion;
 
@@ -17,7 +16,6 @@ public class SpaceBomb : MonoBehaviour
         {
             other.gameObject.GetComponent<ControlPlayer>().ApplyDamage(m_damage);
             SpaceBombExplosion(other);
-            HudManager.Instance.HandleOnDamage();
             Destroy(gameObject);
         }
 

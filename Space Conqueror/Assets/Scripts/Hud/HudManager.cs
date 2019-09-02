@@ -88,7 +88,7 @@ public class HudManager : MonoBehaviour
     public void HandleLogMessages(LogMessageController.MessageType type)
     {
         m_PanelControllerPlaying.m_logText.text = LogMessageController.Instance.GetLogMessage(type);
-        m_PanelControllerPlaying.m_logText.DOFade(0, 5f).OnComplete(HandleOffLogMessage);
+        m_PanelControllerPlaying.m_logText.DOFade(0, 8f).OnComplete(HandleOffLogMessage);
     }
     
     private void HandleOffLogMessage()

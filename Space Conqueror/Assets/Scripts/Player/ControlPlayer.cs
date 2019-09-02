@@ -264,9 +264,11 @@ public class ControlPlayer : MonoBehaviour
     #region Effects
     private void ApplyEffect()
     {
-        //Aplicando os efeitos ao jogador
-        foreach (var t in m_currentEffects)
-            t.RunEffect(this, m_playerInfo);
+
+        for (int i = 0; i < m_currentEffects.Count; i++)
+        {
+            m_currentEffects[i].RunEffect(this, m_playerInfo);
+        }
     }
     
     //Aplicar efeito
