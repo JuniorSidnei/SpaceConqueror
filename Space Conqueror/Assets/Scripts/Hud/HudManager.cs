@@ -19,10 +19,15 @@ public class HudManager : MonoBehaviour
 
     [SerializeField] private PanelControllerMap m_PanelControllerMap;
     
-    
     public Image m_Hud;
     
     public static bool m_isLoaded = false;
+
+    public PlayerInfo PlayerInfo;
+    
+    [Header("Objects")]
+    public GameObject Collectables;
+    
     
     //Instancia da HUD
     public static HudManager Instance;
@@ -50,7 +55,6 @@ public class HudManager : MonoBehaviour
         if (m_onFinishedInitialize != null)
             m_onFinishedInitialize();
     }
-    
     public void InitializeHudInfo(PlayerInfo playerInfo)
     { 
         m_PanelControllerPlaying.SetPlayerInfo(playerInfo);
@@ -97,5 +101,24 @@ public class HudManager : MonoBehaviour
         m_PanelControllerPlaying.m_logText.DOFade(1, 0.1f);
     }
     
+    //Collectables HUD
+    public void OnClickShowCollectableButton()
+    {
+        AudioManager.PlaySound("MapShowUp");
+        Collectables.transform.DOMove(new Vector3(380, 120, 0),1f).OnComplete(() =>
+        {
+            GameManager.Instance.InvController++;
+        });
+    }
+
+    public void OnClickHideCollectableButton()
+    {
+        AudioManager.PlaySound("MapShowDown");
+        Collectables.gameObject.transform.DOMoveX(560, 1f).OnComplete(() =>
+        {
+            GameManager.Instance.InvController--;
+            HandlePlaying();  
+        });
+    }
     
 }

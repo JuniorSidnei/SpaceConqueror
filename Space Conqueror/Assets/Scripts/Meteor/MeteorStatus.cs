@@ -19,13 +19,15 @@ public abstract class MeteorStatus : MonoBehaviour
         if (_meteorLife <= 0 && !gameObject.CompareTag("MiningMeteor"))
         {
             AudioManager.PlaySound("MeteorExplosion");
+            //Limpando do mapa o objeto
+            MapCreator.Instance.ClearUnityObject(name);
             //Explosão de efeito do meteoro
             Destroy(gameObject);
             var tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity);
             //Explosão de impacto
             var tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
             
-            MapCreator.Instance.ClearUnityObject(name);
+            
         }  
     }
 

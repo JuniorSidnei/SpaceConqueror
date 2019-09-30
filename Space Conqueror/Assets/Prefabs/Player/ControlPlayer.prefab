@@ -173,8 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa1e50d8651a5f4a87a2877fc7d3f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSprite: {fileID: 21300000, guid: 27aca52a3ea8a1848952345b2a71ea48, type: 3}
-  sizeSprite: {x: 0.02, y: 0.02, z: 0}
+  mapSprite: {fileID: 21300000, guid: 7ef58da167d49f041b94bebfb8dda7b0, type: 3}
+  sizeSprite: {x: 0.01, y: 0.01, z: 0}
+  colorSprite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1134267061323176350
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FireLoot
   m_EditorClassIdentifier: 
   name: Flaming meteorite
-  Icon: {fileID: 0}
-  Amount: 100
+  Icon: {fileID: 21300000, guid: 5fc043bef519ead42b695560b66a4b07, type: 3}
+  Amount: 1

@@ -9,28 +9,19 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     public event Action<PlayerInfo, ControlPlayer> OnValueChanged;
 
     //Não alteram valor
-    [SerializeField]
-    private int m_maxLife;
-    [SerializeField]
-    private int m_currentLife;
-    [SerializeField]
-    private int m_halfLife;
-    [SerializeField]
-    private int m_recoveryKit;
-    [SerializeField]
-    private int m_recoveryAmount;
-    [SerializeField]
-    private float m_fuel;
-    [SerializeField]
-    private int m_load;
-    [SerializeField]
-    private int m_maxLoad;
-
+    [SerializeField]  private int m_maxLife;
+    [SerializeField]  private int m_currentLife;
+    [SerializeField]  private int m_halfLife;
+    [SerializeField]  private int m_recoveryKit;
+    [SerializeField]  private int m_recoveryAmount;
+    [SerializeField]  private float m_fuel;
+    [SerializeField]  private int m_redMeteorite;
+    [SerializeField]  private int m_blueMeteorite;
+    [SerializeField]  private int m_yellowMeteorite;
+    
     [Header("Shoots")]
-    [SerializeField]
-    private GameObject m_primaryShoot;
-    [SerializeField]
-    private GameObject m_secondaryShoot;
+    [SerializeField]  private GameObject m_primaryShoot;
+    [SerializeField]  private GameObject m_secondaryShoot;
    
     private ControlPlayer m_controlPlayer;
 
@@ -49,13 +40,21 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
 
     private int m_loadInGame;
 
+    private int m_fireMeteoriteInGame;
+
+    private int m_iceMeteoriteInGame;
+
+    private int m_lightningMeteoriteInGame;
+    
     public void OnBeforeSerialize()
     {
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
         m_recoveryKitInGame = m_recoveryKit;
         m_fuelInGame = m_fuel;
-        m_loadInGame = m_load;
+        m_fireMeteoriteInGame = m_redMeteorite;
+        m_iceMeteoriteInGame = m_blueMeteorite;
+        m_lightningMeteoriteInGame = m_yellowMeteorite;
     }
 
     public void OnAfterDeserialize()
@@ -64,7 +63,9 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_currentLifeInGame = m_currentLife;
         m_recoveryKitInGame = m_recoveryKit;
         m_fuelInGame = m_fuel;
-        m_loadInGame = m_load;
+        m_fireMeteoriteInGame = m_redMeteorite;
+        m_iceMeteoriteInGame = m_blueMeteorite;
+        m_lightningMeteoriteInGame = m_yellowMeteorite;
     }
 
     public void SetControlPlayer(ControlPlayer controlPlayer)
@@ -116,13 +117,23 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         get => m_fuelInGame;
         set => m_fuelInGame = value;
     }
-
-    public int LoadInGame
-    {
-        get => m_loadInGame;
-        set => m_loadInGame = value;
-    }
-    public int MaxLoad => m_maxLoad;
     
+    public int FireMeteoriteInGame
+    {
+        get => m_fireMeteoriteInGame;
+        set => m_fireMeteoriteInGame = value;
+    }
+
+    public int IceMeteoriteInGame
+    {
+        get => m_iceMeteoriteInGame;
+        set => m_iceMeteoriteInGame = value;
+    }
+
+    public int LightningMeteoriteInGame
+    {
+        get => m_lightningMeteoriteInGame;
+        set => m_lightningMeteoriteInGame = value;
+    }
 }
 

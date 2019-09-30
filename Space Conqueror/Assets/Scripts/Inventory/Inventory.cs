@@ -5,18 +5,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public Action OnInventoryChangeCallback;
 
-    public delegate void OnInventoryChange();
-
-    public OnInventoryChange OnInventoryChangeCallback;
-    
-    
     private const int m_space = 20;
     
     public static Inventory Instance;
 
-    public List<LootItem> itens = new List<LootItem>();
-
+    public List<Slot> itens = new List<Slot>();
+    
 
     private void Awake()
     {
@@ -26,13 +22,18 @@ public class Inventory : MonoBehaviour
     //Add item to the inventory list
     public bool AddItem(LootItem item)
     {
-        if (itens.Count >= m_space)
+        
+        var slot = itens.Find(s => s.GetTypeName() == item.name && !s.Full());
+        if (slot != null)
         {
-            Debug.Log("I CAN'T CARE ANYMORE!!1");
-            return false;
+            slot.Add(item);
+        }
+        else
+        {
+            
         }
         
-        itens.Add(item);
+        //itens.Add(item);
 
         Debug.Log("COLLECTING!!1");
         OnInventoryChangeCallback?.Invoke();
@@ -40,12 +41,12 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    //Remove item to the inventory list
-    public void RemoveItem(LootItem item)
-    {
-        itens.Remove(item);
-
-        OnInventoryChangeCallback?.Invoke();
-    }
+//    //Remove item to the inventory list
+//    public void RemoveItem(LootItem item)
+//    {
+//        itens.Remove(item);
+//
+//        OnInventoryChangeCallback?.Invoke();
+//    }
     
 }

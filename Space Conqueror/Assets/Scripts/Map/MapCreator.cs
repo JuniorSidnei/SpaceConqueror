@@ -16,10 +16,15 @@ public class MapCreator : MonoBehaviour
 
     private List<GameObject> m_mapPlayer;
 
-    public Transform m_positiontToFollow;
+    private Transform m_positiontToFollow;
 
     public static MapCreator Instance;
-    
+
+    private void Awake()
+    {
+        m_positiontToFollow = FindObjectOfType<ControlPlayer>().transform;
+    }
+
     private void Start()
     {
         GenerateObjects();

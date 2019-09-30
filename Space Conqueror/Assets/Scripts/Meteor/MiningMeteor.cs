@@ -17,7 +17,7 @@ public class MiningMeteor : MonoBehaviour
         if (obj.gameObject.CompareTag("Player") && m_mineralsAmount > 0)
         {
             m_mineralsAmount --;
-            obj.GetComponent<ControlPlayer>().GetMinerals();
+            //obj.GetComponent<ControlPlayer>().GetMinerals();
             
             if(m_mineralsAmount <= 0)
             {

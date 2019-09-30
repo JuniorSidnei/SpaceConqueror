@@ -61,7 +61,6 @@ public class ControlPlayer : MonoBehaviour
     [Header("Effects")] public GameObject m_smokeEffect;
 
     public AnimationCurve m_accelerationCuver;
-    
 
     #endregion
 
@@ -128,16 +127,16 @@ public class ControlPlayer : MonoBehaviour
         m_playerInfo.FuelInGame -= Time.deltaTime;
     }
 
-    public void GetMinerals()
-    {
-        m_playerInfo.LoadInGame ++;
-        Debug.Log("Minerais coletados: " +  m_playerInfo.LoadInGame);
-        
-        if (m_playerInfo.LoadInGame >= m_playerInfo.MaxLoad)
-        {
-            m_playerInfo.LoadInGame = m_playerInfo.MaxLoad;
-        }
-    }
+//    public void GetMinerals()
+//    {
+//        m_playerInfo.LoadInGame ++;
+//        Debug.Log("Minerais coletados: " +  m_playerInfo.LoadInGame);
+//        
+//        if (m_playerInfo.LoadInGame >= m_playerInfo.MaxLoad)
+//        {
+//            m_playerInfo.LoadInGame = m_playerInfo.MaxLoad;
+//        }
+//    }
 
     private void Move()
     {
@@ -264,7 +263,6 @@ public class ControlPlayer : MonoBehaviour
     #region Effects
     private void ApplyEffect()
     {
-
         for (int i = 0; i < m_currentEffects.Count; i++)
         {
             m_currentEffects[i].RunEffect(this, m_playerInfo);
@@ -288,30 +286,23 @@ public class ControlPlayer : MonoBehaviour
         removeEffect.ExitEffect(this, m_playerInfo);
         m_currentEffects.Remove(removeEffect);
     }
-    #endregion
-    #region Collision
-    //Colisões do jogador
-    private void OnCollisionEnter2D(Collision2D obj)
+    
+    public void AddMeteorite(PickUpItem.MeteoriteType type, int amount)
     {
-        //Layer 13, tudo referente ao boss
-        if (obj.gameObject.layer == 13)
+        switch (type)
         {
-            //Tiro do Boss
-            if (obj.gameObject.CompareTag("BossBullet"))
-            {
-                AudioManager.PlaySound("BulletBossCollision");
-                ApplyDamage(obj.gameObject.GetComponent<StandardBullet>()._damage);
-                Destroy(obj.gameObject);
-            }
-
-            //Corpo do Boss
-            if (obj.gameObject.CompareTag("Boss"))
-            {
-                AudioManager.PlaySound("BossCollision");
-                ApplyDamage(obj.gameObject.GetComponent<KrasLosnas>().GetBodyDamage);
-            }
+            case PickUpItem.MeteoriteType.Ice:
+                m_playerInfo.IceMeteoriteInGame += amount;
+                break;
+            case PickUpItem.MeteoriteType.Fire:
+                m_playerInfo.FireMeteoriteInGame += amount;
+                break;
+            case PickUpItem.MeteoriteType.Lightinng:
+                m_playerInfo.LightningMeteoriteInGame += amount;
+                break;
         }
     }
+    
     #endregion
     #endregion
 }

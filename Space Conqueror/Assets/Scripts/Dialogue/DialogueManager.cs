@@ -65,7 +65,6 @@ public class DialogueManager : MonoBehaviour
   //Proxima fala da conversa, caso não seja a última
   public void NextSpeech()
   {
-     AudioManager.PlaySound("UiDialogueNextEnd");
      StopAllCoroutines();
      m_currentSpeechIndex++;
 
@@ -80,7 +79,6 @@ public class DialogueManager : MonoBehaviour
   //Final do dialogo, isso que vai chamar quando acabar ou pra pular o dialogo
   public void EndSpeech( )
   {
-     AudioManager.PlaySound("UiDialogueNextEnd");
      m_speechProgress = false;
      HudManager.Instance.HandlePlaying();
      m_onFinishDialogue?.Invoke();

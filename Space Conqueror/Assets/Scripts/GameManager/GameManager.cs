@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
@@ -19,18 +20,15 @@ public class GameManager : MonoBehaviour
     
     public bool m_isDialogueActive;
     #endregion
-
-    public GameObject map;
-
-    private int m_mapController = 0;
     
+    private int m_mapController;
+    private int m_invController;
     
     #region methods
 
     private void Awake()
     {
         Instance = this;
-        map.SetActive(false);
     }
 
     void Start()
@@ -43,7 +41,6 @@ public class GameManager : MonoBehaviour
         {
             HudManager.Instance.HandlePlaying();
         });
-        
     }
 
 
@@ -61,40 +58,18 @@ public class GameManager : MonoBehaviour
                 m_firstDialogueTimer = 5;
             }
         }
-        
-        //Input para ativar o mapa
-        if (Input.GetKeyDown(KeyCode.M) && m_mapController == 0)
-        {
-            MapShowUp();
-        }
-        else if (Input.GetKeyDown(KeyCode.M) && m_mapController == 1)
-        {
-            MapShowDown();
-        }
+    }
+
+    public int InvController
+    {
+        get => m_invController;
+        set => m_invController = value;
     }
     
-    private void MapShowUp()
+    public int MapController
     {
-        HudManager.Instance.HandleMap();
-        AudioManager.PlaySound("MapShowUp");
-        map.SetActive(true);
-        map.gameObject.transform.DOPunchScale(new Vector3(0.2f,0.2f,0),1f,1,0).OnComplete(() =>
-        {
-            m_mapController++;
-        });    
-    }
-
-    private void MapShowDown()
-    {
-        AudioManager.PlaySound("MapShowDown");
-        map.gameObject.transform.DOScale(new Vector3(0, 0, 0), 1f).OnComplete(() =>
-        {
-            map.SetActive(false);
-            m_mapController--;
-            HudManager.Instance.HandlePlaying();
-            map.gameObject.transform.DOScale(new Vector3(1, 1, 0), 0.1f);
-        });
-
+        get => m_mapController;
+        set => m_mapController = value;
     }
     
     //Carrega a proxima cena quando o boss morrer
@@ -103,7 +78,6 @@ public class GameManager : MonoBehaviour
         HudManager.m_isLoaded = false;
         m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
         SceneManager.LoadScene("FirstLevel");
-        //Application.Quit();
     }
 
     #endregion
