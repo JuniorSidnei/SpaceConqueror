@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
-   //public LootItem lootableItem;
    public enum MeteoriteType
    {
       Ice, Fire, Lightinng
@@ -21,12 +20,15 @@ public class PickUpItem : MonoBehaviour
          {
             case MeteoriteType.Ice:
                other.GetComponent<ControlPlayer>().AddMeteorite(MeteoriteType.Ice, 1);
+               HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.BlueOrb);
                break;
             case MeteoriteType.Lightinng:
                other.GetComponent<ControlPlayer>().AddMeteorite(MeteoriteType.Lightinng, 1);
+               HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.YellowOrb);
                break;
             case MeteoriteType.Fire:
                other.GetComponent<ControlPlayer>().AddMeteorite(MeteoriteType.Fire, 1);
+               HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.RedOrb);
                break;
             default:
                throw new ArgumentOutOfRangeException();

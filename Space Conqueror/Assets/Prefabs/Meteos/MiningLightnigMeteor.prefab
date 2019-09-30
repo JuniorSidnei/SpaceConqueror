@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3776062371100275333}
   - component: {fileID: 5253962066451620779}
   - component: {fileID: 3065219590807097070}
-  - component: {fileID: 4781380561348028178}
   - component: {fileID: 4074355499355518217}
   - component: {fileID: 4235387120674620524}
   m_Layer: 8
@@ -139,9 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25be801054ff85c41b8b8c7db0b194ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 0
   _meteorLife: 130
-  type: 2
   _dyingMeteor: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
     type: 3}
   _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
@@ -152,20 +149,6 @@ MonoBehaviour:
     type: 3}
   _meteorExplosion: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
     type: 3}
---- !u!114 &4781380561348028178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4074355499355518216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d653dc4e4705d1e4ab4641d4bbda0863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_mineralsAmount: 300
-  m_effect: {fileID: 2658121727467693669}
 --- !u!114 &4074355499355518217
 MonoBehaviour:
   m_ObjectHideFlags: 0

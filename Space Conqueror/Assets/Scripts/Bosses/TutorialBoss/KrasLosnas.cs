@@ -133,7 +133,6 @@ public class KrasLosnas : MonoBehaviour
     public void ActiveBoss()
     {
         FindObjectOfType<KrasLosnas>().GetComponentInChildren<Animator>().SetTrigger("BossOn");
-        MeteorBehavior.SetMeteorOver(false);
         AudioManager.FadeOut("MainTheme", 2f);
         AudioManager.PlaySound("KrasLonasTheme");
     }

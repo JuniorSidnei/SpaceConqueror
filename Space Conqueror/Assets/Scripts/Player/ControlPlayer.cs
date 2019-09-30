@@ -178,7 +178,7 @@ public class ControlPlayer : MonoBehaviour
     //Função de tiro do personagem
     private void Shoot()
     {
-        if (!Input.GetKey(KeyCode.Mouse0) || !_canShoot) return;
+        if (!Input.GetKey(KeyCode.Q) || !_canShoot) return;
         AudioManager.PlaySound("PlayerShoot");
         var tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
         tempBullet.transform.right = transform.right;

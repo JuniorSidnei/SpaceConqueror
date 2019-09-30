@@ -158,9 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25be801054ff85c41b8b8c7db0b194ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 0
-  _meteorLife: 130
-  type: 2
+  _meteorLife: 200
+  IsLootable: 1
+  LootItem: {fileID: 4719190080332129451, guid: 1a2f5c4e76541fb4c830e63cb4fc3cb2,
+    type: 3}
   _dyingMeteor: {fileID: 357999188058935552, guid: a530ece2c44153c4c97ba171ec22d907,
     type: 3}
   _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,

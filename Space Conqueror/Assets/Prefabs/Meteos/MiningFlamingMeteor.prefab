@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 302992869971209057}
   - component: {fileID: 4729932252617794596}
   - component: {fileID: 9205124470131838387}
-  - component: {fileID: 8257349646788186553}
   - component: {fileID: 760075958}
   m_Layer: 8
   m_Name: MiningFlamingMeteor
@@ -65,9 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2da155ea807cd843b65451980ec9d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorSpeed: 0
   _meteorLife: 0
-  type: 0
   _dyingMeteor: {fileID: 5449754927958432420, guid: e276e66a7c0bdc5408fc1877429929ba,
     type: 3}
   _WaveExplosion: {fileID: 6178540600071026571, guid: cd6961a83687f6c4eb71b867b2395fb3,
@@ -94,20 +91,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8257349646788186553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2812255772930892867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d653dc4e4705d1e4ab4641d4bbda0863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_mineralsAmount: 300
-  m_effect: {fileID: 3335050775202377895}
 --- !u!114 &760075958
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,17 +6,22 @@ public abstract class MeteorStatus : MonoBehaviour
 {
     //Vida do meteoro, que vai ser um random de 50 e 80
     public int _meteorLife;
-    //Destruindo o meteoro
+    public bool IsLootable;
+    [Header("LootItem")]
+    public GameObject LootItem;
+    
+    [Header("Particles Effects")]
     public GameObject _dyingMeteor;
     public GameObject _WaveExplosion;
     public GameObject _bulletHit;
     public GameObject _meteorSpread;
-  
+
+    
 
     void Update()
     {
         //Verificando a vida e destruindo o meteoro
-        if (_meteorLife <= 0 && !gameObject.CompareTag("MiningMeteor"))
+        if (_meteorLife <= 0)
         {
             AudioManager.PlaySound("MeteorExplosion");
             //Limpando do mapa o objeto
@@ -26,8 +31,9 @@ public abstract class MeteorStatus : MonoBehaviour
             var tempDying = Instantiate(_dyingMeteor, transform.position, Quaternion.identity);
             //Explosão de impacto
             var tempDying2 = Instantiate(_WaveExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
-            
-            
+
+            //spawn loot item depois de explodir
+            SpawnLootItem();
         }  
     }
 
@@ -41,6 +47,7 @@ public abstract class MeteorStatus : MonoBehaviour
         //Tiro do jogador
         if(obj.gameObject.layer == 11)
         {
+           
             //Aplicando dano na vida do meteoro
             _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
             
@@ -55,17 +62,24 @@ public abstract class MeteorStatus : MonoBehaviour
         }
 
         //colisão com jogador
-        if (obj.gameObject.layer == 10 && !gameObject.CompareTag("MiningMeteor"))
+        if (obj.gameObject.layer == 10)
         {
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
 
             //Destruindo meteoro
             AudioManager.PlaySound("MeteorExplosion");
+            MapCreator.Instance.ClearUnityObject(name);
             Destroy(gameObject);
         }
     }
 
 
+    private void SpawnLootItem()
+    {
+        if (IsLootable)
+            Instantiate(LootItem, transform.position, Quaternion.identity);
+
+    }
 
 }
 

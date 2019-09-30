@@ -105,7 +105,7 @@ public class HudManager : MonoBehaviour
     public void OnClickShowCollectableButton()
     {
         AudioManager.PlaySound("MapShowUp");
-        Collectables.transform.DOMove(new Vector3(380, 120, 0),1f).OnComplete(() =>
+        Collectables.transform.DOMove(new Vector3(380, 160, 0),1f).OnComplete(() =>
         {
             GameManager.Instance.InvController++;
         });
@@ -114,7 +114,7 @@ public class HudManager : MonoBehaviour
     public void OnClickHideCollectableButton()
     {
         AudioManager.PlaySound("MapShowDown");
-        Collectables.gameObject.transform.DOMoveX(560, 1f).OnComplete(() =>
+        Collectables.gameObject.transform.DOMoveX(650, 1f).OnComplete(() =>
         {
             GameManager.Instance.InvController--;
             HandlePlaying();  

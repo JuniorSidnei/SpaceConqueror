@@ -572,7 +572,6 @@ MonoBehaviour:
   m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
   m_firstDialogueTimer: 2
   m_isDialogueActive: 0
-  map: {fileID: 216365302}
 --- !u!4 &45343066
 Transform:
   m_ObjectHideFlags: 0
@@ -1885,12 +1884,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3093964046675166798, guid: b0612af86755dbf45b103c30eee0ae98,
     type: 3}
   m_PrefabInstance: {fileID: 2073875724}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &216365302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 709052616202512091, guid: 415eaefa856794d45b0f3849db9e78db,
-    type: 3}
-  m_PrefabInstance: {fileID: 1023471999}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &258975713
 PrefabInstance:
@@ -3788,6 +3781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiningFlamingMeteor
       objectReference: {fileID: 0}
+    - target: {fileID: 2812255772930892867, guid: aba3293264ce6cd4cb4b17e39475549a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1830626818, guid: aba3293264ce6cd4cb4b17e39475549a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -410
@@ -3831,6 +3829,11 @@ PrefabInstance:
     - target: {fileID: 1830626818, guid: aba3293264ce6cd4cb4b17e39475549a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729932252617794596, guid: aba3293264ce6cd4cb4b17e39475549a,
+        type: 3}
+      propertyPath: _meteorLife
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba3293264ce6cd4cb4b17e39475549a, type: 3}
@@ -4265,6 +4268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiningFreezingMeteor
       objectReference: {fileID: 0}
+    - target: {fileID: 6715370016348585397, guid: 773370b58d919a841908db976be93099,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7872010779329858865, guid: 773370b58d919a841908db976be93099,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4319,6 +4327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322920584084155271, guid: 773370b58d919a841908db976be93099,
+        type: 3}
+      propertyPath: _meteorLife
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 773370b58d919a841908db976be93099, type: 3}
@@ -7969,6 +7982,24 @@ MonoBehaviour:
     m_myMessages:
     - This is our last mission...i think!
     - If we continue like this, we're going to explode!
+  - m_name: On collecting red messages
+    m_myMessages:
+    - Analazing........Analazing........
+    - This is good. You 'll be able to do something with.
+    - A red one!
+    - We cold sell this one?
+  - m_name: On collecting ice messages
+    m_myMessages:
+    - Analazing........Analazing........
+    - Roses are red, this thing here is blue...
+    - A blue one!
+    - It's cold...maybe we could usa as ice?
+  - m_name: On collecting yellow messages
+    m_myMessages:
+    - Analazing........Analazing........
+    - It's like...the Zeus lightning?
+    - A yellow one!
+    - Maybe..if we put this on a battery....
 --- !u!4 &776120180
 Transform:
   m_ObjectHideFlags: 0
@@ -10888,15 +10919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230fcb5860c63954fafe75c1cc9d2f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnX: 21
-  _spawnY: 6
-  _spawnTimer: 1.5
-  m_metorLimit: 150
-  _meteors:
-  - {fileID: 7872820943443499112, guid: 672cfe13a4fa9334297f985accdeaf7a, type: 3}
-  - {fileID: 7872820943443499112, guid: a0529039724317a45ad48b21e19ef130, type: 3}
-  - {fileID: 1481759118504782594, guid: b0612af86755dbf45b103c30eee0ae98, type: 3}
-  - {fileID: 1481759118504782594, guid: bc50b89b9753c7f429066054ac1ca195, type: 3}
 --- !u!4 &1105612696
 Transform:
   m_ObjectHideFlags: 0
@@ -10923,12 +10945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbd4e649b804584da7d8f04ba753ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawnX: 21
-  m_spawnX2: 240
-  m_spawnY: 30
-  m_spawnY2: -10
-  m_tyniMeteors: {fileID: 1822844717, guid: 1317c124a8e86324b897090d4c63630a, type: 3}
-  m_amount: 500
 --- !u!4 &1109085021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3093964046675166798, guid: bc50b89b9753c7f429066054ac1ca195,
@@ -26025,6 +26041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiningLightnigMeteor
       objectReference: {fileID: 0}
+    - target: {fileID: 4074355499355518216, guid: efb00a7fd5aa6f640904e88ca6eda0f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4777658805862386275, guid: efb00a7fd5aa6f640904e88ca6eda0f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26079,6 +26100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3065219590807097070, guid: efb00a7fd5aa6f640904e88ca6eda0f5,
+        type: 3}
+      propertyPath: _meteorLife
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb00a7fd5aa6f640904e88ca6eda0f5, type: 3}

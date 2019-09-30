@@ -1027,6 +1027,7 @@ GameObject:
   - component: {fileID: 503748658}
   - component: {fileID: 503748657}
   - component: {fileID: 503748656}
+  - component: {fileID: 503748659}
   m_Layer: 5
   m_Name: HideCollectableBtn
   m_TagString: Untagged
@@ -1143,6 +1144,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503748654}
   m_CullTransparentMesh: 0
+--- !u!95 &503748659
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503748654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18ca5d14896aeda419e99d73d89a1e30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &508510111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1557,7 @@ GameObject:
   - component: {fileID: 981246388}
   - component: {fileID: 981246387}
   - component: {fileID: 981246386}
+  - component: {fileID: 981246389}
   m_Layer: 5
   m_Name: ShowCollectableBtn
   m_TagString: Untagged
@@ -1553,7 +1574,7 @@ RectTransform:
   m_GameObject: {fileID: 981246384}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.016118225, y: 0.11405526, z: 0.06336404}
+  m_LocalScale: {x: 0, y: 0.11405526, z: 0}
   m_Children: []
   m_Father: {fileID: 284473475}
   m_RootOrder: 4
@@ -1653,6 +1674,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981246384}
   m_CullTransparentMesh: 0
+--- !u!95 &981246389
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981246384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18ca5d14896aeda419e99d73d89a1e30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1005768301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,7 +1727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 14, y: -10}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005768303
@@ -1777,7 +1817,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -215.55713, y: 0, z: -252.66122, w: 0}
+  m_margin: {x: -373.5211, y: 0, z: -383.52966, w: 0}
   m_textInfo:
     textComponent: {fileID: 1005768303}
     characterCount: 0
