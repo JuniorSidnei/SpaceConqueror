@@ -9,6 +9,11 @@ using UnityEngine.UI;
 
 public class PanelControllerPlaying : BaseHudBehavior
 {
+    public enum TypeObject
+    {
+        Collectable, Armory
+    }
+    
     [SerializeField] private PlayerInfo m_playerInfo;
     private ControlPlayer m_controlPlayer;
     
@@ -17,8 +22,10 @@ public class PanelControllerPlaying : BaseHudBehavior
     [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
     [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
 
-    [Header("Map")]
+    [Header("Objects")]
     public GameObject Map;
+    public GameObject Collectables;
+    public GameObject Armory;
         
     [Header("Images")]
     public Image m_LifeBarFill;
@@ -32,10 +39,16 @@ public class PanelControllerPlaying : BaseHudBehavior
     public TextMeshProUGUI FireMeteoriteAmount;
     public TextMeshProUGUI LightningMeteoriteAmount;
     public TextMeshProUGUI IceMeteoriteAmount;
+    public TextMeshProUGUI RecoveryAmount;
 
+    [Header("Rects")]
+    public RectTransform CollectableRect;
+    public RectTransform ArmoryRect;
+    
     [Header("HudSettings")]
     public Image CrackedHud;
 
+    private TypeObject m_typeObject;
     private void Start()
     {
         m_controlPlayer = FindObjectOfType<ControlPlayer>();
@@ -54,10 +67,11 @@ public class PanelControllerPlaying : BaseHudBehavior
         if (m_playerInfo.RecoveryKit <= 0)
             m_recoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.black, 1f);
         
-        //Update dos valores do meteoritos
+        //Update dos valores de textos em relação ao jogador
         FireMeteoriteAmount.text = m_playerInfo.FireMeteoriteInGame.ToString();
         IceMeteoriteAmount.text = m_playerInfo.IceMeteoriteInGame.ToString();
         LightningMeteoriteAmount.text = m_playerInfo.LightningMeteoriteInGame.ToString();
+        RecoveryAmount.text = m_playerInfo.RecoveryAmount.ToString();
         
         //Input para ativar o mapa
         if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.MapController == 0)
@@ -98,6 +112,7 @@ public class PanelControllerPlaying : BaseHudBehavior
         HandleConversation();
     }
 
+    //Map Hud
     private void ShowMap()
     {
         AudioManager.PlaySound("MapShowUp");
@@ -119,4 +134,45 @@ public class PanelControllerPlaying : BaseHudBehavior
             Map.gameObject.transform.DOScale(new Vector3(37.92f, 37.92f, 0), 0.1f);
         });  
     }
+    
+    //Collectables HUD
+    public void OnClickShowCollectableButton()
+    {
+        AudioManager.PlaySound("MapShowUp");
+        CollectableRect.DOAnchorPos(new Vector3(350, -560, 0),1f).OnComplete(() =>
+        {
+            GameManager.Instance.InvController++;
+        });
+    }
+
+    public void OnClickHideCollectableButton()
+    {
+        AudioManager.PlaySound("MapShowDown");
+        CollectableRect.DOAnchorPos(new Vector3(1260, -560,0),1f).OnComplete(() =>
+        {
+            GameManager.Instance.InvController--;
+            HandlePlaying();  
+        });
+    }
+
+    //Armory HUD
+    public void OnClickShowArmoryButton()
+    {
+        AudioManager.PlaySound("MapShowUp");
+        ArmoryRect.DOAnchorPos(new Vector3(-350, -560, 0),1f).OnComplete(() =>
+        {
+            GameManager.Instance.ArmoryController++;
+        });
+    }
+
+    public void OnClickHideArmoryButton()
+    {
+        AudioManager.PlaySound("MapShowDown");
+        ArmoryRect.DOAnchorPos(new Vector3(-1248,-560,0), 1f).OnComplete(() =>
+        {
+            GameManager.Instance.ArmoryController--;
+            HandlePlaying();  
+        });
+    }
+    
 }

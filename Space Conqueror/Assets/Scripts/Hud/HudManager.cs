@@ -23,12 +23,8 @@ public class HudManager : MonoBehaviour
     
     public static bool m_isLoaded = false;
 
-    public PlayerInfo PlayerInfo;
-    
-    [Header("Objects")]
-    public GameObject Collectables;
-    
-    
+    //public PlayerInfo PlayerInfo;
+
     //Instancia da HUD
     public static HudManager Instance;
     
@@ -100,25 +96,4 @@ public class HudManager : MonoBehaviour
         m_PanelControllerPlaying.m_logText.text = "";
         m_PanelControllerPlaying.m_logText.DOFade(1, 0.1f);
     }
-    
-    //Collectables HUD
-    public void OnClickShowCollectableButton()
-    {
-        AudioManager.PlaySound("MapShowUp");
-        Collectables.transform.DOMove(new Vector3(380, 160, 0),1f).OnComplete(() =>
-        {
-            GameManager.Instance.InvController++;
-        });
-    }
-
-    public void OnClickHideCollectableButton()
-    {
-        AudioManager.PlaySound("MapShowDown");
-        Collectables.gameObject.transform.DOMoveX(650, 1f).OnComplete(() =>
-        {
-            GameManager.Instance.InvController--;
-            HandlePlaying();  
-        });
-    }
-    
 }

@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour
     
     private int m_mapController;
     private int m_invController;
+    private int m_armoryController;
+
     
+
     #region methods
 
     private void Awake()
@@ -70,6 +73,12 @@ public class GameManager : MonoBehaviour
     {
         get => m_mapController;
         set => m_mapController = value;
+    }
+    
+    public int ArmoryController
+    {
+        get => m_armoryController;
+        set => m_armoryController = value;
     }
     
     //Carrega a proxima cena quando o boss morrer
