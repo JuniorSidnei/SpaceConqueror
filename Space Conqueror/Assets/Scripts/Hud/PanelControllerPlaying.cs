@@ -9,11 +9,6 @@ using UnityEngine.UI;
 
 public class PanelControllerPlaying : BaseHudBehavior
 {
-    public enum TypeObject
-    {
-        Collectable, Armory
-    }
-    
     [SerializeField] private PlayerInfo m_playerInfo;
     private ControlPlayer m_controlPlayer;
     
@@ -40,18 +35,31 @@ public class PanelControllerPlaying : BaseHudBehavior
     public TextMeshProUGUI LightningMeteoriteAmount;
     public TextMeshProUGUI IceMeteoriteAmount;
     public TextMeshProUGUI RecoveryAmount;
+//    public TextMeshProUGUI FireAmountCraft;
+//    public TextMeshProUGUI IceAmountCraft;
+//    public TextMeshProUGUI LightningAmountCraft;
 
     [Header("Rects")]
     public RectTransform CollectableRect;
     public RectTransform ArmoryRect;
+
+//    [Header("Btns")]
+//    public Button FireCraftBtn;
+//    public Button IceCraftBtn;
+//    public Button LightningCraftBtn;
     
     [Header("HudSettings")]
     public Image CrackedHud;
 
-    private TypeObject m_typeObject;
+//    private const int AmountToCraft = 3; 
+    
     private void Start()
     {
         m_controlPlayer = FindObjectOfType<ControlPlayer>();
+        
+//        FireCraftBtn.enabled = false;
+//        IceCraftBtn.enabled = false;
+//        LightningCraftBtn.enabled = false;
     }
 
     private void Update()
@@ -71,7 +79,16 @@ public class PanelControllerPlaying : BaseHudBehavior
         FireMeteoriteAmount.text = m_playerInfo.FireMeteoriteInGame.ToString();
         IceMeteoriteAmount.text = m_playerInfo.IceMeteoriteInGame.ToString();
         LightningMeteoriteAmount.text = m_playerInfo.LightningMeteoriteInGame.ToString();
-        RecoveryAmount.text = m_playerInfo.RecoveryAmount.ToString();
+        RecoveryAmount.text = m_playerInfo.RecoveryKit.ToString();
+        
+//        //Update dos valores para o craft
+//        FireAmountCraft.text = m_playerInfo.FireMeteoriteInGame + " / 25";
+//        IceAmountCraft.text = m_playerInfo.IceMeteoriteInGame + " / 25";
+//        LightningAmountCraft.text = m_playerInfo.LightningMeteoriteInGame + " / 25";
+        
+        //Update dos loots
+        //CheckAmount();
+        
         
         //Input para ativar o mapa
         if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.MapController == 0)
@@ -83,6 +100,17 @@ public class PanelControllerPlaying : BaseHudBehavior
             HideMap();
         }
     }
+
+//    //Checar se o jogador já coletou todos os loots e ativar o botão de craft
+//    private void CheckAmount()
+//    {
+//        if (m_playerInfo.FireMeteoriteInGame >= AmountToCraft)
+//            FireCraftBtn.enabled = true;
+//        if (m_playerInfo.IceMeteoriteInGame >= AmountToCraft)
+//            IceCraftBtn.enabled = true;
+//        if (m_playerInfo.LightningMeteoriteInGame >= AmountToCraft)
+//            LightningCraftBtn.enabled = true;
+//    }
 
     //Informações iniciais do jogador
     public override void SetPlayerInfo(PlayerInfo playerInfo)
@@ -102,7 +130,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     {
         base.HandlePlaying();
         _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
-        _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f);
+        _recoveryBox.gameObject.transform.DOScale(new Vector3(0.02f, 0.02f, 0), 2f);
         _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 1), 3f);
     }
 
@@ -173,6 +201,19 @@ public class PanelControllerPlaying : BaseHudBehavior
             GameManager.Instance.ArmoryController--;
             HandlePlaying();  
         });
+    }
+
+    public void OnClickCraftFire()
+    {
+        CraftManager.HandleCraftFireShoot();
+    }
+    public void OnClickCraftIce()
+    {
+        CraftManager.HandleCraftIceShoot();
+    }
+    public void OnClickCraftLightning()
+    {
+        CraftManager.HandleCraftIceShoot();
     }
     
 }

@@ -14,13 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxLife: 1000
   m_currentLife: 1000
-  m_halfLife: 250
   m_recoveryKit: 2
   m_recoveryAmount: 500
-  m_fuel: 1000
-  m_load: 0
-  m_maxLoad: 800
-  m_primaryShoot: {fileID: 33547447053011051, guid: 6f18be4bdc02ea44884b651d060f3846,
+  m_fuel: 500
+  m_redMeteorite: 0
+  m_blueMeteorite: 0
+  m_yellowMeteorite: 0
+  m_primaryShoot: {fileID: 33547447053011051, guid: 4e871e1020410ca439f2151e64aa0fae,
     type: 3}
-  m_secondaryShoot: {fileID: 33547447053011051, guid: be7b9c737d4583c46a452b89b5dfa33b,
+  m_FireShoot: {fileID: 33547447053011051, guid: 4e871e1020410ca439f2151e64aa0fae,
+    type: 3}
+  m_IceShoot: {fileID: 33547447053011051, guid: 6f18be4bdc02ea44884b651d060f3846,
+    type: 3}
+  m_LightningShoot: {fileID: 33547447053011051, guid: e8f057439c95bc343ad8b29c4461841e,
     type: 3}

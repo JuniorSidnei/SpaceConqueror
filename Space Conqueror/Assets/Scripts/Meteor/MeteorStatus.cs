@@ -47,10 +47,6 @@ public abstract class MeteorStatus : MonoBehaviour
         //Tiro do jogador
         if(obj.gameObject.layer == 11)
         {
-           
-            //Aplicando dano na vida do meteoro
-            _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
-            
             GameObject tempSpread = Instantiate(_meteorSpread, obj.contacts[0].point, Quaternion.identity);
             
             AudioManager.PlaySound("BulletMeteorCollision");

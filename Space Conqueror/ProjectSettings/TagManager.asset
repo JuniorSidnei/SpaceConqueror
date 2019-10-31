@@ -12,6 +12,11 @@ TagManager:
   - FreezingMeteor
   - BossBullet
   - Boss
+  - MiningMeteor
+  - FireShoot
+  - IceShoot
+  - LightningShoot
+  - StandardShoot
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class IceMeteor : MeteorStatus
@@ -11,7 +12,11 @@ public class IceMeteor : MeteorStatus
     //Colisão player meteoro de chelo
     protected override void OnCollision(Collision2D obj)
     {
-        var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
+        if (obj.gameObject.CompareTag("FireShoot"))
+        {
+            _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+            var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
+        }
     }
 
     protected override void OnCollisionWithPlayer(ControlPlayer player)

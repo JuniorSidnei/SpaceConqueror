@@ -61,6 +61,22 @@ public class GameManager : MonoBehaviour
                 m_firstDialogueTimer = 5;
             }
         }
+
+        if (Input.GetKey(KeyCode.Keypad1))
+        {
+            m_playerInfo.PrimaryShoot = m_playerInfo.FireShoot;
+        }
+
+        if (Input.GetKey(KeyCode.Keypad2))
+        {
+            m_playerInfo.PrimaryShoot = m_playerInfo.IceShoot;
+        }
+
+        if (Input.GetKey(KeyCode.Keypad3))
+        {
+            m_playerInfo.PrimaryShoot = m_playerInfo.LightningShoot;
+        }
+        
     }
 
     public int InvController

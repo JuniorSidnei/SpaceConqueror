@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlameMeteor : MeteorStatus
 {
+    //Flame meteor only can be destroyed by the icebullet
     //Particulas do meteoro
     public GameObject _meteorExplosion;
 
@@ -11,7 +12,12 @@ public class FlameMeteor : MeteorStatus
     //Colisão player meteoro de fogo
     protected override void OnCollision(Collision2D obj)
     {
-        var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
+        if (obj.gameObject.CompareTag("LightningShoot"))
+        {
+            _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
+            var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);
+        }
+       
     }
 
     protected override void OnCollisionWithPlayer(ControlPlayer player)

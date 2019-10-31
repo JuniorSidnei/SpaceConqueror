@@ -37,7 +37,7 @@ public class ControlPlayer : MonoBehaviour
     public Transform _shotPos;
 
     //Objeto de tiro
-    private GameObject _shoot;
+    //private GameObject _shoot;
     
     //Tempo de recarga
     private float _reloadTime = 0.5f;
@@ -75,7 +75,7 @@ public class ControlPlayer : MonoBehaviour
     {
         m_currentEffects = new List<PlayerEffects>();
         m_rb = GetComponent<Rigidbody2D>();
-        _shoot = m_playerInfo.PrimaryShoot;
+        //_shoot = m_playerInfo.PrimaryShoot;
     }
 
     private void FixedUpdate()
@@ -180,7 +180,7 @@ public class ControlPlayer : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.Q) || !_canShoot) return;
         AudioManager.PlaySound("PlayerShoot");
-        var tempBullet = Instantiate(_shoot, _shotPos.position, Quaternion.identity);
+        var tempBullet = Instantiate(m_playerInfo.PrimaryShoot, _shotPos.position, Quaternion.identity);
         tempBullet.transform.right = transform.right;
 
         _canShoot = false;
