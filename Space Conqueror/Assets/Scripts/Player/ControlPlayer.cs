@@ -123,20 +123,8 @@ public class ControlPlayer : MonoBehaviour
 
     private void SpendFuel()
     {
-        //Debug.Log("Combustivel indo embora: " +  m_playerInfo.FuelInGame);
         m_playerInfo.FuelInGame -= Time.deltaTime;
     }
-
-//    public void GetMinerals()
-//    {
-//        m_playerInfo.LoadInGame ++;
-//        Debug.Log("Minerais coletados: " +  m_playerInfo.LoadInGame);
-//        
-//        if (m_playerInfo.LoadInGame >= m_playerInfo.MaxLoad)
-//        {
-//            m_playerInfo.LoadInGame = m_playerInfo.MaxLoad;
-//        }
-//    }
 
     private void Move()
     {
@@ -193,7 +181,7 @@ public class ControlPlayer : MonoBehaviour
         if (_reloadTime <= 0)
         {
             _canShoot = true;
-            _reloadTime = 0.2f;
+            _reloadTime = 0.8f;
         }
     }
 
@@ -205,7 +193,6 @@ public class ControlPlayer : MonoBehaviour
         tmpSpt.DOColor(Color.red, 0.5f);
         tmpSpt.DOFade(0.8f, 0.5f).OnComplete(()=>tmpSpt.DOColor(Color.white, 0.5f));
         
-
         m_playerInfo.CurrentLife -= damage;
 
         HudManager.Instance.HandleOnDamage();
@@ -220,28 +207,26 @@ public class ControlPlayer : MonoBehaviour
     //Usando kit de reparos
     private void RecoveryKit()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && m_playerInfo.RecoveryKit >= 1)
         {
-            if (m_playerInfo.RecoveryKit >= 1)
-            {
-                //Se ainda tiver kit pra usar, pode usar
-                HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.Recovery);
-                AudioManager.PlaySound("RecoveryUse");
-                m_playerInfo.CurrentLife += m_playerInfo.RecoveryAmount;
-                m_playerInfo.RecoveryKit--;
-
-                if (m_playerInfo.RecoveryKit <= 0)
-                    m_playerInfo.RecoveryKit = 0;
-            }
-            else
-            {
-                AudioManager.PlaySound("RecoveryOut");
-                HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.RecoveryOut);
-            }
+            //Se ainda tiver kit pra usar, pode usar
+            HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.Recovery);
+            AudioManager.PlaySound("RecoveryUse");
+            m_playerInfo.CurrentLife += m_playerInfo.RecoveryAmount;
             
             //Se a vida chegar ao máximo quando recuperar, fica no máximo
             if (m_playerInfo.CurrentLife >= m_playerInfo.MaxLife)
-                m_playerInfo.CurrentLife = m_playerInfo.MaxLife;
+                { m_playerInfo.CurrentLife = m_playerInfo.MaxLife;} 
+            
+            m_playerInfo.RecoveryKit--;
+
+            if (m_playerInfo.RecoveryKit <= 0)
+                { m_playerInfo.RecoveryKit = 0;}
+        }
+        else if(Input.GetKeyDown(KeyCode.R) && m_playerInfo.RecoveryKit <= 0)
+        {
+            AudioManager.PlaySound("RecoveryOut");
+            HudManager.Instance.HandleLogMessages(LogMessageController.MessageType.RecoveryOut);
         }
     }
     

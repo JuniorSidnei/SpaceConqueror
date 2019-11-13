@@ -337,6 +337,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1942205}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1942208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0666e2469a726c41b949f6ce53ae7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &58661554
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,26 +418,14 @@ MonoBehaviour:
   _lifeBox: {fileID: 60040160}
   _recoveryBox: {fileID: 9172666180788225502}
   _speedometerBox: {fileID: 1029000064}
-  Map: {fileID: 1942207}
-  Collectables: {fileID: 284473474}
-  Armory: {fileID: 1661148981}
   m_LifeBarFill: {fileID: 956516017}
   m_recoveryKitKey: {fileID: 9172666180788225501}
   m_speedometerFill: {fileID: 1187033963}
   m_playerLifeText: {fileID: 1504894924}
   m_logText: {fileID: 1005768303}
-  FireMeteoriteAmount: {fileID: 137316773}
-  LightningMeteoriteAmount: {fileID: 1227124529}
-  IceMeteoriteAmount: {fileID: 389127139}
-  RecoveryAmount: {fileID: 749377422}
-  FireAmountCraft: {fileID: 1195867600}
-  IceAmountCraft: {fileID: 553642893}
-  LightningAmountCraft: {fileID: 427492177}
-  CollectableRect: {fileID: 284473475}
-  ArmoryRect: {fileID: 1661148982}
-  FireCraftBtn: {fileID: 582186948}
-  IceCraftBtn: {fileID: 1690655251}
-  LightningCraftBtn: {fileID: 1943097454}
+  MapManager: {fileID: 1942208}
+  InventoryManager: {fileID: 284473477}
+  ArmoryManager: {fileID: 1661148984}
   CrackedHud: {fileID: 1737554491}
 --- !u!1 &60040160 stripped
 GameObject:
@@ -691,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &185379923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -743,8 +743,9 @@ GameObject:
   m_Component:
   - component: {fileID: 284473475}
   - component: {fileID: 284473476}
+  - component: {fileID: 284473477}
   m_Layer: 5
-  m_Name: Collectables
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -783,6 +784,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284473474}
   m_CullTransparentMesh: 0
+--- !u!114 &284473477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284473474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760dbc3f7ff93b644b6d0784751e0133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireMeteoriteAmount: {fileID: 137316773}
+  LightningMeteoriteAmount: {fileID: 1227124529}
+  IceMeteoriteAmount: {fileID: 389127139}
 --- !u!1 &346434483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1497,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 58661556}
-        m_MethodName: OnClickHideCollectableButton
+        m_MethodName: OnClickHideInventoryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2194,7 +2210,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 58661556}
-        m_MethodName: OnClickCraftTest
+        m_MethodName: OnClickCraftFireButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3282,7 +3298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 58661556}
-        m_MethodName: OnClickShowCollectableButton
+        m_MethodName: OnClickShowInventoryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5360,6 +5376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661148982}
   - component: {fileID: 1661148983}
+  - component: {fileID: 1661148984}
   m_Layer: 5
   m_Name: Armory
   m_TagString: Untagged
@@ -5401,6 +5418,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661148981}
   m_CullTransparentMesh: 0
+--- !u!114 &1661148984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661148981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c19b0bbf67cdc47a8b2955145235db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecoveryAmount: {fileID: 749377422}
 --- !u!1 &1685498063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,7 +5605,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 58661556}
-        m_MethodName: OnClickCraftTest
+        m_MethodName: OnClickCraftIceButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5958,7 +5988,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 58661556}
-        m_MethodName: OnClickCraftTest
+        m_MethodName: OnClickCraftLightningButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
