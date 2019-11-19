@@ -426,6 +426,7 @@ MonoBehaviour:
   MapManager: {fileID: 1942208}
   InventoryManager: {fileID: 284473477}
   ArmoryManager: {fileID: 1661148984}
+  CraftManager: {fileID: 185379925}
   CrackedHud: {fileID: 1737554491}
 --- !u!1 &60040160 stripped
 GameObject:
@@ -685,13 +686,14 @@ GameObject:
   m_Component:
   - component: {fileID: 185379923}
   - component: {fileID: 185379924}
+  - component: {fileID: 185379925}
   m_Layer: 5
   m_Name: Craft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &185379923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -727,6 +729,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185379922}
   m_CullTransparentMesh: 0
+--- !u!114 &185379925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185379922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b3ddea2c0d2914a8e8b510d5f220fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftFireBtn: {fileID: 582186948}
+  CraftIceBtn: {fileID: 1690655251}
+  CraftLightningBtn: {fileID: 1943097454}
+  FireAmountCraft: {fileID: 1195867600}
+  IceAmountCraft: {fileID: 553642893}
+  LightningAmountCraft: {fileID: 427492177}
+  m_playerInfo: {fileID: 11400000, guid: 5a97920f8ffc97046ac9d4433c74d572, type: 2}
 --- !u!1 &186607987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9172666180937215151, guid: 00c9eae432913ca4e810059a2a1dd204,
@@ -2189,7 +2210,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0.3137255}
@@ -2235,7 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5584,7 +5605,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0.3137255}
@@ -5630,7 +5651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5967,7 +5988,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0.3137255}
@@ -6013,7 +6034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

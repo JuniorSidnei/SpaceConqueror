@@ -98,8 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 150
   _damage: 80
-  m_beamLight: {fileID: 5384299738612309594, guid: 5bfc0e7345e575f4fb71dcab1f434759,
-    type: 3}
 --- !u!50 &2356564817548474406
 Rigidbody2D:
   serializedVersion: 4

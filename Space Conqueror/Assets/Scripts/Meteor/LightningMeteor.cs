@@ -11,7 +11,7 @@ public class LightningMeteor : MeteorStatus
     //Colisão player meteoro de raio
     protected override void OnCollision(Collision2D obj)
     {
-        if (obj.gameObject.CompareTag("Standard"))
+        if (obj.gameObject.CompareTag("StandardShoot"))
         {
             _meteorLife -= obj.gameObject.GetComponent<StandardBullet>()._damage;
             var tempHit2 = Instantiate(_bulletHit, obj.contacts[0].point, Quaternion.identity);

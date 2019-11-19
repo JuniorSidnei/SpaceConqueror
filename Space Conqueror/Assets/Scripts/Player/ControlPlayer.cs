@@ -36,9 +36,6 @@ public class ControlPlayer : MonoBehaviour
     //Posição do tiro
     public Transform _shotPos;
 
-    //Objeto de tiro
-    //private GameObject _shoot;
-    
     //Tempo de recarga
     private float _reloadTime = 0.5f;
 
@@ -58,7 +55,8 @@ public class ControlPlayer : MonoBehaviour
     [Header("Collision settings")] [SerializeField]
     public LayerMask _colisionLayer;
 
-    [Header("Effects")] public GameObject m_smokeEffect;
+    [Header("Effects")]
+    public GameObject m_smokeEffect;
 
     public AnimationCurve m_accelerationCuver;
 
@@ -100,8 +98,7 @@ public class ControlPlayer : MonoBehaviour
         Shoot();
         RecoveryKit();
         ApplyEffect();
-        SpendFuel();
-        
+
         CameraController.Instance.ZoomOut(isAccelerating);
         
         //Se estiver morrendo vai ficar com o alerta e piscando a nave e soltando fumaça
@@ -119,11 +116,6 @@ public class ControlPlayer : MonoBehaviour
         }
 
         SmokeOn();
-    }
-
-    private void SpendFuel()
-    {
-        m_playerInfo.FuelInGame -= Time.deltaTime;
     }
 
     private void Move()

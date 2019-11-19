@@ -13,11 +13,13 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     [SerializeField]  private int m_currentLife;
     [SerializeField]  private int m_recoveryKit;
     [SerializeField]  private int m_recoveryAmount;
-    [SerializeField]  private float m_fuel;
     [SerializeField]  private int m_redMeteorite;
     [SerializeField]  private int m_blueMeteorite;
     [SerializeField]  private int m_yellowMeteorite;
-    
+    [SerializeField]  private bool FireShootCrafted;
+    [SerializeField]  private bool IceShootCrafted;
+    [SerializeField]  private bool LightningShootCrafted;
+
     [Header("Shoots")]
     [SerializeField]  private GameObject m_primaryShoot;
     [SerializeField]  private GameObject m_FireShoot;
@@ -34,9 +36,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     private float m_speedInGame;
 
     private int m_recoveryKitInGame;
-
-    private float m_fuelInGame;
-
+    
     private int m_loadInGame;
 
     private int m_fireMeteoriteInGame;
@@ -44,17 +44,25 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     private int m_iceMeteoriteInGame;
 
     private int m_lightningMeteoriteInGame;
+
+    private bool m_isFireCrafted;
+  
+    private bool m_isIceCrafted;
     
+    private bool m_isLightningCrafted;
+
     //Valores iniciais
     public void OnBeforeSerialize()
     {
         m_maxLife = 1000;
         m_currentLife = m_maxLife;
         m_recoveryKit = 2;
-        m_fuel = 500;
         m_redMeteorite = 0;
         m_blueMeteorite = 0;
         m_yellowMeteorite = 0;
+        m_isFireCrafted = false;
+        m_isIceCrafted = false;
+        m_isLightningCrafted = false;
     }
 
     public void OnAfterDeserialize()
@@ -62,17 +70,41 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_maxLifeInGame = m_maxLife;
         m_currentLifeInGame = m_currentLife;
         m_recoveryKitInGame = m_recoveryKit;
-        m_fuelInGame = m_fuel;
         m_fireMeteoriteInGame = m_redMeteorite;
         m_iceMeteoriteInGame = m_blueMeteorite;
         m_lightningMeteoriteInGame = m_yellowMeteorite;
+        m_isFireCrafted = false;
+        m_isIceCrafted = false;
+        m_isLightningCrafted = false;
     }
-
+    
     public void SetControlPlayer(ControlPlayer controlPlayer)
     {
         m_controlPlayer = controlPlayer;
     }
+    
+    //if the player craft the shoot
+    public bool IsFireCrafted
+    {
+        get => m_isFireCrafted;
+        set => m_isFireCrafted = value;
+    }
 
+    //if the player craft the shoot
+    public bool IsIceCrafted
+    {
+        get => m_isIceCrafted;
+        set => m_isIceCrafted = value;
+    }
+
+    //if the player craft the shoot
+    public bool IsLightningCrafted
+    {
+        get => m_isLightningCrafted;
+        set => m_isLightningCrafted = value;
+    }
+
+    
     //Current life during gameplay
     public int CurrentLife
     {
@@ -132,13 +164,6 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         set => m_LightningShoot = value;
     }
 
-    //Fuel in game, to spend/recover while search the stage
-    public float FuelInGame
-    {
-        get => m_fuelInGame;
-        set => m_fuelInGame = value;
-    }
-    
     //The drops of fire
     public int FireMeteoriteInGame
     {

@@ -36,6 +36,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     public MapManager MapManager;
     public InventoryManager InventoryManager;
     public ArmoryManager ArmoryManager;
+    public CraftManager CraftManager;
 
     [Header("HudSettings")]
     public Image CrackedHud;
@@ -139,7 +140,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     }
     public void OnClickCraftLightningButton()
     {
-        CraftManager.HandleCraftIceShoot();
+        CraftManager.HandleCraftLightningShoot();
     }
     
 }

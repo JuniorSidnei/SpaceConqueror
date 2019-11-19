@@ -29,8 +29,8 @@ public class EventHandler : MonoBehaviour
         HudManager.Instance.HandleConversation();
         DialogueManager.Instance.StartSpeech(m_speechs[m_current], 1.5f, () =>
         {
-            m_event.onDialogueFinish[m_current].Invoke();
-            m_current++;
+//            m_event.onDialogueFinish[m_current].Invoke();
+//            m_current++;
             GameManager.Instance.m_isDialogueActive = false;
         }); 
     }

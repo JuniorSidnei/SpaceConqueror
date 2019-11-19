@@ -60,11 +60,12 @@ public abstract class MeteorStatus : MonoBehaviour
         //colisão com jogador
         if (obj.gameObject.layer == 10)
         {
+            MapCreator.Instance.ClearUnityObject(name);
             OnCollisionWithPlayer(obj.gameObject.GetComponent<ControlPlayer>());
 
             //Destruindo meteoro
             AudioManager.PlaySound("MeteorExplosion");
-            MapCreator.Instance.ClearUnityObject(name);
+            
             Destroy(gameObject);
         }
     }

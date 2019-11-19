@@ -8,8 +8,8 @@ public class StandardBullet : MonoBehaviour
     public float _speed;
     //Dano do tiro
     public int _damage;
-    //Particula de tiro
-    public GameObject m_beamLight;
+
+
     
     void Update()
     {

@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 4669675477244182479}
   - component: {fileID: 684396134377034144}
   - component: {fileID: 6666073546359539423}
+  - component: {fileID: 380723476}
   m_Layer: 0
   m_Name: SpaceBomb
   m_TagString: Untagged
@@ -240,6 +241,18 @@ MonoBehaviour:
     type: 3}
   _Explosion: {fileID: 5256392874829725907, guid: af5cd773054efd845807cd41eb44e654,
     type: 3}
+--- !u!122 &380723476
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6666073546359539422}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4290314239
+  m_Size: 10
 --- !u!1001 &4504695979401835085
 PrefabInstance:
   m_ObjectHideFlags: 0
