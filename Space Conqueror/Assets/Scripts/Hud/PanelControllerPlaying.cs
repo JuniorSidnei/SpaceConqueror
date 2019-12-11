@@ -17,11 +17,7 @@ public class PanelControllerPlaying : BaseHudBehavior
     [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
     [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
 
-    [Header("Objects")]
-    //public GameObject Map;
-//    public GameObject Collectables;
-//    public GameObject Armory;
-        
+
     [Header("Images")]
     public Image m_LifeBarFill;
     public Image m_recoveryKitKey;
@@ -97,8 +93,8 @@ public class PanelControllerPlaying : BaseHudBehavior
     {
         base.HandlePlaying();
         _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
-        _recoveryBox.gameObject.transform.DOScale(new Vector3(0.02f, 0.02f, 0), 2f);
-        _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 1), 3f);
+        _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f);
+        _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 3f);
     }
 
     public override void HandleMap()
@@ -129,7 +125,17 @@ public class PanelControllerPlaying : BaseHudBehavior
         ArmoryManager.Hide();
     }
 
-    //Craft HUD
+    //craft HUD
+    public void OnClickShowCraftButton()
+    {
+        CraftManager.Show();
+    }
+
+    public void OnClickHideCraftButton()
+    {
+        CraftManager.Hide();
+    }
+    //Craft to create HUD
     public void OnClickCraftFireButton()
     {
         CraftManager.HandleCraftFireShoot();

@@ -18,24 +18,23 @@ public class ArmoryManager : MonoBehaviour
     private void Start()
     {
         m_rect = GetComponent<RectTransform>();
+        gameObject.SetActive(false);
     }
 
     public void Show()
     {
         AudioManager.PlaySound("MapShowUp");
-        m_rect.DOAnchorPos(new Vector3(-350, -560, 0),1f).OnComplete(() =>
-        {
-            GameManager.Instance.ArmoryController++;
-        });
+        gameObject.SetActive(true);
+        m_rect.DOAnchorPos(new Vector3(400, -45, 0),1f).SetEase(Ease.OutBack);
     }
 
     public void Hide()
     {
         AudioManager.PlaySound("MapShowDown");
-        m_rect.DOAnchorPos(new Vector3(-1248,-560,0), 1f).OnComplete(() =>
+        m_rect.DOAnchorPos(new Vector3(-256,-110,0), 1f).OnComplete(() =>
         {
-            GameManager.Instance.ArmoryController--;
-            HudManager.Instance.HandlePlaying();  
+            HudManager.Instance.HandlePlaying();
+            gameObject.SetActive(false);
         });
     }
 }
