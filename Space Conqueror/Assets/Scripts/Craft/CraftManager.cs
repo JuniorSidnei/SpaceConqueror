@@ -29,6 +29,12 @@ public class CraftManager : MonoBehaviour
     //The amount to craft
     private const int AmountToCraft = 3; 
     
+    [Header("Speechs of craft")]
+    //The speech of each Craft
+    public SpeechScriptable FireCraft;
+    public SpeechScriptable IceCraft;
+    public SpeechScriptable LightningCraft;
+    
     //Player
     [SerializeField]
     [Header("Player info")]
@@ -37,9 +43,9 @@ public class CraftManager : MonoBehaviour
     private  void Start() {
         
         //Botões inativos quando começa
-        CraftFireBtn.enabled = false;
-        CraftIceBtn.enabled = false;
-        CraftLightningBtn.enabled = false;
+        CraftFireBtn.interactable = false;
+        CraftIceBtn.interactable = false;
+        CraftLightningBtn.interactable = false;
 
         m_rect = GetComponent<RectTransform>();
         
@@ -56,17 +62,17 @@ public class CraftManager : MonoBehaviour
     //Atualiza os valores na hud
     private  void UpdateTextUi() {
         
-        FireAmountCraft.text = m_playerInfo.FireMeteoriteInGame + " / 25";
-        IceAmountCraft.text = m_playerInfo.IceMeteoriteInGame + " / 25";
-        LightningAmountCraft.text = m_playerInfo.LightningMeteoriteInGame + " / 25";    
+        FireAmountCraft.text = $"{m_playerInfo.FireMeteoriteInGame}/{AmountToCraft}";
+        IceAmountCraft.text = $"{m_playerInfo.IceMeteoriteInGame}/{AmountToCraft}";
+        LightningAmountCraft.text = $"{m_playerInfo.LightningMeteoriteInGame}/{AmountToCraft}";    
     }
     
     //Checar se o jogador já coletou todos os loots e ativar o botão de craft
     private  void CheckAmount() {
         
-        CraftFireBtn.enabled = m_playerInfo.FireMeteoriteInGame >= AmountToCraft;
-        CraftIceBtn.enabled = m_playerInfo.IceMeteoriteInGame >= AmountToCraft;
-        CraftLightningBtn.enabled = m_playerInfo.LightningMeteoriteInGame >= AmountToCraft;
+        CraftFireBtn.interactable = m_playerInfo.FireMeteoriteInGame >= AmountToCraft;
+        CraftIceBtn.interactable = m_playerInfo.IceMeteoriteInGame >= AmountToCraft;
+        CraftLightningBtn.interactable = m_playerInfo.LightningMeteoriteInGame >= AmountToCraft;
     }
 
     //Show 
@@ -91,25 +97,26 @@ public class CraftManager : MonoBehaviour
     //Craft tiro de fogo
     public  void HandleCraftFireShoot() {
         
-        Debug.Log("CRIANDO TIRO DE FOGO");
         m_playerInfo.IsFireCrafted = true;
         m_playerInfo.FireMeteoriteInGame = 0;
+        EventHandler.Instance.CallDialogue(FireCraft);
     }
 
     //Craft tiro de gelo
     public  void HandleCraftIceShoot() {
         
-        Debug.Log("CRIANDO TIRO DE GELO");
         m_playerInfo.IsIceCrafted = true;
         m_playerInfo.IceMeteoriteInGame = 0;
+        EventHandler.Instance.CallDialogue(IceCraft);
     }
 
     //Craft tiro de raio
     public  void HandleCraftLightningShoot() {
         
-        Debug.Log("CRIANDO TIRO DE RAIO");
         m_playerInfo.IsLightningCrafted = true;
         m_playerInfo.LightningMeteoriteInGame = 0;
+        //TODO TIRAR OS DIALOGOS DAQUI DEIXAR EM OUTRO LUGAR
+        EventHandler.Instance.CallDialogue(LightningCraft);
     }
 }
 

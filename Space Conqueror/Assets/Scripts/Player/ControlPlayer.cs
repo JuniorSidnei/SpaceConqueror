@@ -73,7 +73,6 @@ public class ControlPlayer : MonoBehaviour
     {
         m_currentEffects = new List<PlayerEffects>();
         m_rb = GetComponent<Rigidbody2D>();
-        //_shoot = m_playerInfo.PrimaryShoot;
     }
 
     private void FixedUpdate()
@@ -116,6 +115,21 @@ public class ControlPlayer : MonoBehaviour
         }
 
         SmokeOn();
+        
+        //Inputs to change shoot
+        if (Input.GetKey(KeyCode.Q) && m_playerInfo.IsFireCrafted) {
+            ActiveFireShoot();
+        }
+        if (Input.GetKey(KeyCode.W) && m_playerInfo.IsIceCrafted) {
+            ActiveIceShoot();
+        }
+        if (Input.GetKey(KeyCode.E) && m_playerInfo.IsLightningCrafted) {
+            ActiveLightningShoot();
+        }
+
+        if (Input.GetKey(KeyCode.A)) {
+            ActiveStandardShoot();
+        }
     }
 
     private void Move()
@@ -158,13 +172,36 @@ public class ControlPlayer : MonoBehaviour
     //Função de tiro do personagem
     private void Shoot()
     {
-        if (!Input.GetKey(KeyCode.Q) || !_canShoot) return;
+        if (!Input.GetMouseButton(1) || !_canShoot) return;
         AudioManager.PlaySound("PlayerShoot");
-        var tempBullet = Instantiate(m_playerInfo.PrimaryShoot, _shotPos.position, Quaternion.identity);
+        var tempBullet = Instantiate(m_playerInfo.Shoot, _shotPos.position, Quaternion.identity);
         tempBullet.transform.right = transform.right;
 
         _canShoot = false;
     }
+
+    private void ActiveFireShoot() {
+
+        HudManager.Instance.HandleChangeAmmunitionFire();
+        m_playerInfo.Shoot = m_playerInfo.FireShoot;
+    }
+    private void ActiveIceShoot()
+    {
+        HudManager.Instance.HandleChangeAmmunitionIce();
+        m_playerInfo.Shoot = m_playerInfo.IceShoot;
+    }
+    
+    private void ActiveLightningShoot() {
+
+        HudManager.Instance.HandleChangeAmmunitionLightning();
+        m_playerInfo.Shoot = m_playerInfo.LightningShoot;
+    }
+    private void ActiveStandardShoot() {
+
+       HudManager.Instance.HandleChangeAmmunitionStandard();
+        m_playerInfo.Shoot = m_playerInfo.StandardShoot;
+    }
+    
     
     private void ReloadTimer()
     {

@@ -19,9 +19,13 @@ public class GameManager : MonoBehaviour
     private bool m_isDialogueOn;
     
     public bool m_isDialogueActive;
-    #endregion
     
     private int m_mapController;
+
+    public SpeechScriptable FirstDialogue;
+    #endregion
+    
+
     
     #region methods
 
@@ -53,26 +57,10 @@ public class GameManager : MonoBehaviour
             if (m_firstDialogueTimer <= 0)
             {
                 m_isDialogueOn = false;
-                EventHandler.Instance.CallDialogueAndEvent();
+                EventHandler.Instance.CallDialogue(FirstDialogue);
                 m_firstDialogueTimer = 5;
             }
         }
-
-        if (Input.GetKey(KeyCode.Keypad1))
-        {
-            m_playerInfo.PrimaryShoot = m_playerInfo.FireShoot;
-        }
-
-        if (Input.GetKey(KeyCode.Keypad2))
-        {
-            m_playerInfo.PrimaryShoot = m_playerInfo.IceShoot;
-        }
-
-        if (Input.GetKey(KeyCode.Keypad3))
-        {
-            m_playerInfo.PrimaryShoot = m_playerInfo.LightningShoot;
-        }
-        
     }
     
     public int MapController

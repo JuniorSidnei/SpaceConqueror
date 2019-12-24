@@ -16,11 +16,14 @@ MonoBehaviour:
   m_currentLife: 1000
   m_recoveryKit: 2
   m_recoveryAmount: 500
-  m_fuel: 500
   m_redMeteorite: 0
   m_blueMeteorite: 0
   m_yellowMeteorite: 0
-  m_primaryShoot: {fileID: 33547447053011051, guid: 4e871e1020410ca439f2151e64aa0fae,
+  m_fireShootCrafted: 0
+  m_iceShootCrafted: 0
+  m_lightningShootCrafted: 0
+  m_Shoot: {fileID: 33547447053011051, guid: 56d0b967182f573449003c52c9d5815b, type: 3}
+  m_StandardShoot: {fileID: 33547447053011051, guid: 56d0b967182f573449003c52c9d5815b,
     type: 3}
   m_FireShoot: {fileID: 33547447053011051, guid: 4e871e1020410ca439f2151e64aa0fae,
     type: 3}

@@ -14,16 +14,16 @@ public class HudManager : MonoBehaviour
     [FormerlySerializedAs("m_panelController")] [SerializeField]
     private PanelControllerPlaying m_PanelControllerPlaying;
 
-    [SerializeField]
-    private PanelControllerConversation m_PanelControllerConversation;
+    [SerializeField] private PanelControllerConversation m_PanelControllerConversation;
 
     [SerializeField] private PanelControllerMap m_PanelControllerMap;
+    
+    [SerializeField] private AmunnitionManager m_ammunitionManager;
     
     public Image m_Hud;
     
     public static bool m_isLoaded = false;
-
-    //public PlayerInfo PlayerInfo;
+    
 
     //Instancia da HUD
     public static HudManager Instance;
@@ -95,5 +95,25 @@ public class HudManager : MonoBehaviour
     {
         m_PanelControllerPlaying.m_logText.text = "";
         m_PanelControllerPlaying.m_logText.DOFade(1, 0.1f);
+    }
+
+    public void HandleChangeAmmunitionStandard()
+    {
+        m_ammunitionManager.ShowActualAmmunition("Standard", AmunnitionManager.AmmunitionType.Standard);
+    }
+    
+    public void HandleChangeAmmunitionFire()
+    {
+        m_ammunitionManager.ShowActualAmmunition("Fire", AmunnitionManager.AmmunitionType.Fire);
+    }
+    
+    public void HandleChangeAmmunitionIce()
+    {
+        m_ammunitionManager.ShowActualAmmunition("Ice", AmunnitionManager.AmmunitionType.Ice);
+    }
+    
+    public void HandleChangeAmmunitionLightning()
+    {
+        m_ammunitionManager.ShowActualAmmunition("Lightning", AmunnitionManager.AmmunitionType.Lightning);
     }
 }

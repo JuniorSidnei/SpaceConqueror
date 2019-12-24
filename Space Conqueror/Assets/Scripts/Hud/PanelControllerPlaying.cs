@@ -13,19 +13,21 @@ public class PanelControllerPlaying : BaseHudBehavior
     private ControlPlayer m_controlPlayer;
     
     [Header("Boxes")]
-    [FormerlySerializedAs("m_lifeBox")]  public GameObject _lifeBox;
-    [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
-    [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
+//    [FormerlySerializedAs("m_lifeBox")]  public GameObject _lifeBox;
+//    [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
+//    [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
+//    public GameObject AmmunitionBox;
 
-
-    [Header("Images")]
-    public Image m_LifeBarFill;
-    public Image m_recoveryKitKey;
-    public Image m_speedometerFill;
+    public List<GameObject> Boxes;
     
+    [Header("Images")]
+    [FormerlySerializedAs("m_LifeBarFill")] public Image LifeBarFill;
+    [FormerlySerializedAs("m_recoveryKitKey")] public Image RecoveryKitKey;
+    [FormerlySerializedAs("m_speedometerFill")] public Image SpeedometerFill;
+
     [Header("Texts")]
     public TextMeshProUGUI m_playerLifeText;
-    [SerializeField]
+    [HideInInspector]
     public TextMeshProUGUI m_logText;
 
     [Header("Managers")]
@@ -49,12 +51,12 @@ public class PanelControllerPlaying : BaseHudBehavior
             CrackedHud.gameObject.SetActive(true);
         
         m_playerLifeText.text = ("" + m_playerInfo.CurrentLife);
-        m_LifeBarFill.DOFillAmount((float)m_playerInfo.CurrentLife / m_playerInfo.MaxLife, 2f);
+        LifeBarFill.DOFillAmount((float)m_playerInfo.CurrentLife / m_playerInfo.MaxLife, 2f);
         
-        m_speedometerFill.DOFillAmount(m_controlPlayer.GetComponent<Rigidbody2D>().velocity.sqrMagnitude, 1f);
+        SpeedometerFill.DOFillAmount(m_controlPlayer.GetComponent<Rigidbody2D>().velocity.sqrMagnitude, 1f);
         
         if (m_playerInfo.RecoveryKit <= 0)
-            m_recoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.black, 1f);
+            RecoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.black, 1f);
         
         //Update dos valores dos meteoritos em relação ao jogador
         InventoryManager.FireMeteorite.text = m_playerInfo.FireMeteoriteInGame.ToString();
@@ -84,17 +86,44 @@ public class PanelControllerPlaying : BaseHudBehavior
     public override void HandleConversation()
     {
         base.HandleConversation();
-        _lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f);
-        _recoveryBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
-        _speedometerBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f);
+        foreach (var b in Boxes)
+        {
+            b.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                b.SetActive(false);
+            });
+        }
+        
+//        _lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f).SetEase(Ease.Linear).OnComplete(() =>
+//        {
+//            _lifeBox.SetActive(false);
+//        });
+//        _recoveryBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+//        {
+//            _recoveryBox.SetActive(false);
+//        });
+//        _speedometerBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+//        {
+//            _speedometerBox.SetActive(false);
+//        });
+//        AmmunitionBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+//        {
+//            AmmunitionBox.SetActive(false);
+//        });
     }
 
     public override void HandlePlaying()
     {
         base.HandlePlaying();
-        _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f);
-        _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f);
-        _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 3f);
+        foreach (var b in Boxes)
+        {
+            b.SetActive(true);
+            b.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f).SetEase(Ease.Linear);
+        }
+//        _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f).SetEase(Ease.Linear);
+//        _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f).SetEase(Ease.Linear);
+//        _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 3f).SetEase(Ease.Linear);
+//        AmmunitionBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f).SetEase(Ease.Linear);
     }
 
     public override void HandleMap()
@@ -148,5 +177,4 @@ public class PanelControllerPlaying : BaseHudBehavior
     {
         CraftManager.HandleCraftLightningShoot();
     }
-    
 }

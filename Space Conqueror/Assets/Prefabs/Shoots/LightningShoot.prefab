@@ -98,8 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 150
   _damage: 80
-  m_beamLight: {fileID: 5384299738612309594, guid: 5bfc0e7345e575f4fb71dcab1f434759,
-    type: 3}
 --- !u!50 &2356564817548474406
 Rigidbody2D:
   serializedVersion: 4
@@ -232,6 +230,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125325712467071803, guid: dda62baf722797d478e6773921bd636c,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066463064512523342, guid: dda62baf722797d478e6773921bd636c,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda62baf722797d478e6773921bd636c, type: 3}

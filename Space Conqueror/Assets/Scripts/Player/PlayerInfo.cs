@@ -16,12 +16,13 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     [SerializeField]  private int m_redMeteorite;
     [SerializeField]  private int m_blueMeteorite;
     [SerializeField]  private int m_yellowMeteorite;
-    [SerializeField]  private bool FireShootCrafted;
-    [SerializeField]  private bool IceShootCrafted;
-    [SerializeField]  private bool LightningShootCrafted;
+    [SerializeField]  private bool m_fireShootCrafted;
+    [SerializeField]  private bool m_iceShootCrafted;
+    [SerializeField]  private bool m_lightningShootCrafted;
 
     [Header("Shoots")]
-    [SerializeField]  private GameObject m_primaryShoot;
+    [SerializeField]  private GameObject m_Shoot;
+    [SerializeField]  private GameObject m_StandardShoot;
     [SerializeField]  private GameObject m_FireShoot;
     [SerializeField]  private GameObject m_IceShoot;
     [SerializeField]  private GameObject m_LightningShoot;
@@ -45,11 +46,13 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
 
     private int m_lightningMeteoriteInGame;
 
-    private bool m_isFireCrafted;
+    private bool m_isFireCraftedInGame;
   
-    private bool m_isIceCrafted;
+    private bool m_isIceCraftedInGame;
     
-    private bool m_isLightningCrafted;
+    private bool m_isLightningCraftedInGame;
+
+    private GameObject m_shootInGame;
 
     //Valores iniciais
     public void OnBeforeSerialize()
@@ -60,9 +63,10 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_redMeteorite = 0;
         m_blueMeteorite = 0;
         m_yellowMeteorite = 0;
-        m_isFireCrafted = false;
-        m_isIceCrafted = false;
-        m_isLightningCrafted = false;
+        m_fireShootCrafted = false;
+        m_iceShootCrafted = false;
+        m_lightningShootCrafted = false;
+        m_Shoot = m_StandardShoot;
     }
 
     public void OnAfterDeserialize()
@@ -73,9 +77,10 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_fireMeteoriteInGame = m_redMeteorite;
         m_iceMeteoriteInGame = m_blueMeteorite;
         m_lightningMeteoriteInGame = m_yellowMeteorite;
-        m_isFireCrafted = false;
-        m_isIceCrafted = false;
-        m_isLightningCrafted = false;
+        m_isFireCraftedInGame = m_fireShootCrafted;
+        m_isIceCraftedInGame = m_iceShootCrafted;
+        m_isLightningCraftedInGame = m_lightningShootCrafted;
+        m_shootInGame = m_StandardShoot;
     }
     
     public void SetControlPlayer(ControlPlayer controlPlayer)
@@ -86,22 +91,22 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     //if the player craft the shoot
     public bool IsFireCrafted
     {
-        get => m_isFireCrafted;
-        set => m_isFireCrafted = value;
+        get => m_isFireCraftedInGame;
+        set => m_isFireCraftedInGame = value;
     }
 
     //if the player craft the shoot
     public bool IsIceCrafted
     {
-        get => m_isIceCrafted;
-        set => m_isIceCrafted = value;
+        get => m_isIceCraftedInGame;
+        set => m_isIceCraftedInGame = value;
     }
 
     //if the player craft the shoot
     public bool IsLightningCrafted
     {
-        get => m_isLightningCrafted;
-        set => m_isLightningCrafted = value;
+        get => m_isLightningCraftedInGame;
+        set => m_isLightningCraftedInGame = value;
     }
 
     
@@ -131,38 +136,27 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     }
 
     //The amount that every kit recover
-    public int RecoveryAmount
+    public int RecoveryAmount => m_recoveryAmount;
+
+    //the initial shoot
+    public GameObject Shoot
     {
-        get => m_recoveryAmount;
-    }
-    
-    //The initial shoot
-    public GameObject PrimaryShoot
-    {
-        get => m_primaryShoot;
-        set => m_primaryShoot = value;
+        get => m_shootInGame;
+        set => m_shootInGame = value;
     }
     
     //The crafted fireshoot
-    public GameObject FireShoot
-    {
-        get => m_FireShoot;
-        set => m_FireShoot = value;
-    }
+    public GameObject FireShoot => m_FireShoot;
 
     //The crafted iceeshoot
-    public GameObject IceShoot
-    {
-        get => m_IceShoot;
-        set => m_IceShoot = value;
-    }
+    public GameObject IceShoot => m_IceShoot;
 
     //The crafted lightningshoot
-    public GameObject LightningShoot
-    {
-        get => m_LightningShoot;
-        set => m_LightningShoot = value;
-    }
+    public GameObject LightningShoot => m_LightningShoot;
+    
+    //The standard shoot
+    public GameObject StandardShoot => m_StandardShoot;
+
 
     //The drops of fire
     public int FireMeteoriteInGame

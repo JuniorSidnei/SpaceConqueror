@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
    public enum Speaker
    {
       //Jogador, computador de bordo e os inimigos
-      Scavenger, Orion, Unidentifield
+      Scavenger, Orion
    }
 
    //Struct para criar quem fala e as falas deles
@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
   }
 
   //Aqui começa o dialogo, quando triggar o evento ou alguma coisa, isso que vai começar o dialogo
-  public void StartSpeech(SpeechScriptable speech, float delay, Action endDialogue)
+  public void StartSpeech(SpeechScriptable speech, Action endDialogue, float delay = 1.5f)
   {
      ClearBox();
      
