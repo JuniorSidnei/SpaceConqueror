@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
    public TextMeshProUGUI FireMeteoriteAmount;
    public TextMeshProUGUI LightningMeteoriteAmount;
    public TextMeshProUGUI IceMeteoriteAmount;
+   public TextMeshProUGUI GrayMeteoriteAmount;
 
    private void Start()
    {
@@ -36,21 +37,8 @@ public class InventoryManager : MonoBehaviour
       });
    }
    
-   public TextMeshProUGUI FireMeteorite
-   {
-      get => FireMeteoriteAmount;
-      set => FireMeteoriteAmount = value;
-   }
-
-   public TextMeshProUGUI LightningMeteorite
-   {
-      get => LightningMeteoriteAmount;
-      set => LightningMeteoriteAmount = value;
-   }
-
-   public TextMeshProUGUI IceMeteorite
-   {
-      get => IceMeteoriteAmount;
-      set => IceMeteoriteAmount = value;
-   }
+   public TextMeshProUGUI FireMeteorite => FireMeteoriteAmount;
+   public TextMeshProUGUI LightningMeteorite => LightningMeteoriteAmount;
+   public TextMeshProUGUI IceMeteorite => IceMeteoriteAmount;
+   public TextMeshProUGUI GrayMeteorite => GrayMeteoriteAmount;
 }

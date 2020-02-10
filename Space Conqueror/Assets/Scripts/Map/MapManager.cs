@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+
   //Show Map
   public void Show()
   {
     AudioManager.PlaySound("MapShowUp");
     gameObject.SetActive(true);
-    gameObject.gameObject.transform.DOPunchScale(new Vector3(0.2f,0.2f,0),1f,1,0).OnComplete(() =>
+    gameObject.gameObject.transform.DOScale(new Vector3(1f,1f,0),1f).SetEase(Ease.InBounce).OnComplete(() =>
     {
       GameManager.Instance.MapController++;
     });
@@ -25,7 +26,7 @@ public class MapManager : MonoBehaviour
       gameObject.SetActive(false);
       GameManager.Instance.MapController--;
       HudManager.Instance.HandlePlaying();
-      gameObject.gameObject.transform.DOScale(new Vector3(37.92f, 37.92f, 0), 0.1f);
+      gameObject.gameObject.transform.DOScale(new Vector3(1f, 1f, 0), 0.1f);
     });
   }
 }

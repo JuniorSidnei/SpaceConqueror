@@ -20,44 +20,34 @@ public class MapCreator : MonoBehaviour
 
     public static MapCreator Instance;
 
-    private void Awake()
-    {
+    private void Awake() {
         m_positiontToFollow = FindObjectOfType<ControlPlayer>().transform;
+        GenerateObjects();
     }
 
-    private void Start()
-    {
-        GenerateObjects();
-
+    private void Start() {
         if (Instance == null)
             Instance = this;
     }
 
     //For player position
-    private void LateUpdate()
-    {
+    private void LateUpdate() {
         MoveOnMap();
     }
-
-    
     
     [ContextMenu("CreateMap")]
-    private void GenerateObjects()
-    {
+    public void GenerateObjects() {
         m_mapPlayer = new List<GameObject>();
         m_mapObjects = FindObjectsOfType<MapObject>().ToList();
 
-        foreach (var obj in m_mapObjects)
-        {
+        foreach (var obj in m_mapObjects) {
             DrawOnMap(obj);
         }
     }
 
     [ContextMenu("ClearMap")]
-    private void ClearObjects()
-    {
-        foreach (GameObject t in m_mapPlayer)
-        {
+    private void ClearObjects() {
+        foreach (GameObject t in m_mapPlayer) {
 #if UNITY_EDITOR
             if (Application.isEditor)
                 DestroyImmediate(t);
@@ -68,12 +58,9 @@ public class MapCreator : MonoBehaviour
         m_mapObjects.Clear();
     }
 
-    public void ClearUnityObject(string name)
-    {
-        foreach (GameObject t in m_mapPlayer.ToArray())
-        {
-            if (t.name == name)
-            {
+    public void ClearUnityObject(string name) {
+        foreach (GameObject t in m_mapPlayer.ToArray()) {
+            if (t.name == name) {
                 Destroy(t);
                 m_mapPlayer.Remove(t);
             }
@@ -81,8 +68,7 @@ public class MapCreator : MonoBehaviour
     }
 
     //Just to draw
-    private void DrawOnMap(MapObject mapObj)
-    {
+    private void DrawOnMap(MapObject mapObj) {
         //cria um objeto com o mesmo nome que o objeto que ele representa, e deixa ele como filho do objeto desse script
         var obj = new GameObject(mapObj.gameObject.name);
         obj.transform.SetParent(transform);
@@ -104,23 +90,18 @@ public class MapCreator : MonoBehaviour
             new Vector2(-m_hw, -m_hh),
             new Vector2(m_hw,m_hh));
         
-        
         obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
-        
     }
     
     
     //Just to move
-    private void MoveOnMap()
-    {
+    private void MoveOnMap() {
         m_rect = GetComponent<RectTransform>();
         m_hw = m_rect.rect.width / 2;
         m_hh = m_rect.rect.height / 2;
         
-        foreach (var t in m_mapPlayer)
-        {
-            if (t.name == "ControlPlayer")
-            {
+        foreach (var t in m_mapPlayer) {
+            if (t.name == "ControlPlayer") {
                 //coordenadas da imagem para a imagem principal
                 Vector2 MapPos = MapUtilitys.ToMap(m_positiontToFollow.position,
                     new Vector2(-MapUtilitys.mapSize, -MapUtilitys.mapSize),
@@ -131,6 +112,5 @@ public class MapCreator : MonoBehaviour
                 t.GetComponent<RectTransform>().anchoredPosition = new Vector2(MapPos.x, MapPos.y);
             }
         }
-
     }
 }

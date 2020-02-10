@@ -9,18 +9,17 @@ public class EventHandler : MonoBehaviour
 
     private EventManager m_event;
     
+    
     private void Awake()
     {
         Instance = this;
         
-        if (m_event == null)
-        {
+        if (m_event == null) {
             m_event = GetComponent<EventManager>();
         }
     }
 
-    public void CallDialogue(SpeechScriptable speech)
-    {
+    public void CallDialogue(SpeechScriptable speech) {
         GameManager.Instance.m_isDialogueActive = true;
         HudManager.Instance.HandleConversation();
         DialogueManager.Instance.StartSpeech(speech, () =>
@@ -28,5 +27,4 @@ public class EventHandler : MonoBehaviour
             GameManager.Instance.m_isDialogueActive = false;
         }); 
     }
-
 }

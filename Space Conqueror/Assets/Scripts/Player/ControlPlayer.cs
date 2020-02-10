@@ -303,6 +303,7 @@ public class ControlPlayer : MonoBehaviour
     
     public void AddMeteorite(PickUpItem.MeteoriteType type, int amount)
     {
+        AudioManager.PlaySound("PickUpItem");
         switch (type)
         {
             case PickUpItem.MeteoriteType.Ice:

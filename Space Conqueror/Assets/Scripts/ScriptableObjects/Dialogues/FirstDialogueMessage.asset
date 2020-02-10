@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77426ed644188a740818579c29ee07d8, type: 3}
+  m_Name: FirstDialogueMessage
+  m_EditorClassIdentifier: 
+  m_speechNumber: 1
+  m_speechName: IntroGame
+  speechGroup:
+  - m_currentSpeaker: 1
+    m_speechText: Ok Sir, you are drunk and i know that. You can barely enter the
+      spaceship.
+  - m_currentSpeaker: 0
+    m_speechText: I'm not drunk, i've just....i've....ok, maybe a little...just a
+      little...
+  - m_currentSpeaker: 1
+    m_speechText: I'll remenber the commands of the spaceship for you them.
+  - m_currentSpeaker: 1
+    m_speechText: Allright, to accelerate press "space". To set the direction use
+      "mouse".
+  - m_currentSpeaker: 1
+    m_speechText: To access your inventory, press the button in the screen on the
+      upper right.
+  - m_currentSpeaker: 1
+    m_speechText: The upper left is our armory. On right bellow we have our craft
+      machinne.
+  - m_currentSpeaker: 1
+    m_speechText: To acess the map press "TAB". To shoot, press the right button of
+      the mouse. Allright, that's all. Do you remenber our objective?
+  - m_currentSpeaker: 0
+    m_speechText: Maybe not....explain...again?
+  - m_currentSpeaker: 1
+    m_speechText: We're here to collect some minerals to make new weapons.
+  - m_currentSpeaker: 1
+    m_speechText: Collect 30 meteorites of each type of meteor that we have here.
+  - m_currentSpeaker: 1
+    m_speechText: We have fire, ice, normal and lightning here. Collect them. Here
+      there are.

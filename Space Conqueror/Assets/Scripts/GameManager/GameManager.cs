@@ -15,52 +15,27 @@ public class GameManager : MonoBehaviour
     #region variables
     
     public PlayerInfo m_playerInfo;
-    public float m_firstDialogueTimer = 5f;
-    private bool m_isDialogueOn;
-    
     public bool m_isDialogueActive;
     
     private int m_mapController;
-
-    public SpeechScriptable FirstDialogue;
+    
     #endregion
     
 
     
     #region methods
 
-    private void Awake()
-    {
+    private void Awake() {
         Instance = this;
     }
 
-    void Start()
-    {
-        m_isDialogueOn = true;
-        
+    private void Start() {
         AudioManager.FadeIn("MainTheme", 0.2f, 2f);
         
         HudManager.Show(()=>
         {
             HudManager.Instance.HandlePlaying();
         });
-    }
-
-
-    void Update()
-    {
-        //Primeiro dialogo
-        if (m_isDialogueOn)
-        {
-            m_firstDialogueTimer -= Time.deltaTime;
-
-            if (m_firstDialogueTimer <= 0)
-            {
-                m_isDialogueOn = false;
-                EventHandler.Instance.CallDialogue(FirstDialogue);
-                m_firstDialogueTimer = 5;
-            }
-        }
     }
     
     public int MapController

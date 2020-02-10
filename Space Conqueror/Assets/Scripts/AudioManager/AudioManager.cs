@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
         }
 
         //Não destroi quando carrega
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         
         //Atibuindo os valores a classe de audios ao audio source do objeto
         foreach (var s in m_audioFile)

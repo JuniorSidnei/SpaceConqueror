@@ -25,15 +25,11 @@ public class CraftManager : MonoBehaviour
     private  TextMeshProUGUI IceAmountCraft;
     [SerializeField]
     private  TextMeshProUGUI LightningAmountCraft;
-    
+
     //The amount to craft
-    private const int AmountToCraft = 3; 
-    
-    [Header("Speechs of craft")]
-    //The speech of each Craft
-    public SpeechScriptable FireCraft;
-    public SpeechScriptable IceCraft;
-    public SpeechScriptable LightningCraft;
+    private const int AmountToCraft = 20;
+
+    private Action onFinishCraft;
     
     //Player
     [SerializeField]
@@ -64,7 +60,7 @@ public class CraftManager : MonoBehaviour
         
         FireAmountCraft.text = $"{m_playerInfo.FireMeteoriteInGame}/{AmountToCraft}";
         IceAmountCraft.text = $"{m_playerInfo.IceMeteoriteInGame}/{AmountToCraft}";
-        LightningAmountCraft.text = $"{m_playerInfo.LightningMeteoriteInGame}/{AmountToCraft}";    
+        LightningAmountCraft.text = $"{m_playerInfo.LightningMeteoriteInGame}/{AmountToCraft}";
     }
     
     //Checar se o jogador já coletou todos os loots e ativar o botão de craft
@@ -95,28 +91,34 @@ public class CraftManager : MonoBehaviour
     }
     
     //Craft tiro de fogo
-    public  void HandleCraftFireShoot() {
-        
+    public  void HandleCraftFireShoot(Action OnFinishCraft)
+    {
+
+        onFinishCraft = OnFinishCraft;
         m_playerInfo.IsFireCrafted = true;
         m_playerInfo.FireMeteoriteInGame = 0;
-        EventHandler.Instance.CallDialogue(FireCraft);
+        
+        onFinishCraft?.Invoke();
     }
 
     //Craft tiro de gelo
-    public  void HandleCraftIceShoot() {
+    public  void HandleCraftIceShoot(Action OnFinishCraft) {
         
+        onFinishCraft = OnFinishCraft;
         m_playerInfo.IsIceCrafted = true;
         m_playerInfo.IceMeteoriteInGame = 0;
-        EventHandler.Instance.CallDialogue(IceCraft);
+        
+        onFinishCraft?.Invoke();
     }
 
     //Craft tiro de raio
-    public  void HandleCraftLightningShoot() {
+    public  void HandleCraftLightningShoot(Action OnFinishCraft) {
         
+        onFinishCraft = OnFinishCraft;
         m_playerInfo.IsLightningCrafted = true;
         m_playerInfo.LightningMeteoriteInGame = 0;
-        //TODO TIRAR OS DIALOGOS DAQUI DEIXAR EM OUTRO LUGAR
-        EventHandler.Instance.CallDialogue(LightningCraft);
+        
+        onFinishCraft?.Invoke();
     }
 }
 

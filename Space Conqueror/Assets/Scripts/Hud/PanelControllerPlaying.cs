@@ -13,11 +13,6 @@ public class PanelControllerPlaying : BaseHudBehavior
     private ControlPlayer m_controlPlayer;
     
     [Header("Boxes")]
-//    [FormerlySerializedAs("m_lifeBox")]  public GameObject _lifeBox;
-//    [FormerlySerializedAs("m_recoveryBox")] public GameObject _recoveryBox;
-//    [FormerlySerializedAs("m_speedometerBox")] public GameObject _speedometerBox;
-//    public GameObject AmmunitionBox;
-
     public List<GameObject> Boxes;
     
     [Header("Images")]
@@ -31,14 +26,18 @@ public class PanelControllerPlaying : BaseHudBehavior
     public TextMeshProUGUI m_logText;
 
     [Header("Managers")]
-    public MapManager MapManager;
-    public InventoryManager InventoryManager;
-    public ArmoryManager ArmoryManager;
-    public CraftManager CraftManager;
+    [SerializeField] private MapManager m_mapManager;
+    [SerializeField] private InventoryManager m_inventoryManager;
+    [SerializeField] private ArmoryManager m_armoryManager;
+    [SerializeField] private CraftManager m_craftManager;
+    [SerializeField] private PauseController m_pauseController;
 
     [Header("HudSettings")]
     public Image CrackedHud;
 
+    public SpeechScriptable FireCraft;
+    public SpeechScriptable IceCraft;
+    public SpeechScriptable LightningCraft;
     private void Start()
     {
         m_controlPlayer = FindObjectOfType<ControlPlayer>();
@@ -59,21 +58,25 @@ public class PanelControllerPlaying : BaseHudBehavior
             RecoveryKitKey.gameObject.GetComponent<Image>().DOColor(Color.black, 1f);
         
         //Update dos valores dos meteoritos em relação ao jogador
-        InventoryManager.FireMeteorite.text = m_playerInfo.FireMeteoriteInGame.ToString();
-        InventoryManager.IceMeteorite.text = m_playerInfo.IceMeteoriteInGame.ToString();
-        InventoryManager.LightningMeteorite.text = m_playerInfo.LightningMeteoriteInGame.ToString();
+        m_inventoryManager.FireMeteorite.text = m_playerInfo.FireMeteoriteInGame.ToString();
+        m_inventoryManager.IceMeteorite.text = m_playerInfo.IceMeteoriteInGame.ToString();
+        m_inventoryManager.LightningMeteorite.text = m_playerInfo.LightningMeteoriteInGame.ToString();
+        m_inventoryManager.GrayMeteorite.text = m_playerInfo.GrayMeteoriteInGame.ToString();
         
         //Update do valor de kit de reparos
-        ArmoryManager.Recovery.text = m_playerInfo.RecoveryKit.ToString();
+        m_armoryManager.Recovery.text = m_playerInfo.RecoveryKit.ToString();
         
         //Input para ativar o mapa
-        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.MapController == 0)
-        {
-            MapManager.Show();
+        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.MapController == 0) {
+            m_mapManager.Show();
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.MapController == 1)
-        {
-            MapManager.Hide();
+        else if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.MapController == 1) {
+            m_mapManager.Hide();
+        }
+        
+        //Input para o pause
+        if (Input.GetKey(KeyCode.Escape)) {
+            m_pauseController.Show();
         }
     }
     
@@ -93,23 +96,6 @@ public class PanelControllerPlaying : BaseHudBehavior
                 b.SetActive(false);
             });
         }
-        
-//        _lifeBox.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f).SetEase(Ease.Linear).OnComplete(() =>
-//        {
-//            _lifeBox.SetActive(false);
-//        });
-//        _recoveryBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
-//        {
-//            _recoveryBox.SetActive(false);
-//        });
-//        _speedometerBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
-//        {
-//            _speedometerBox.SetActive(false);
-//        });
-//        AmmunitionBox.gameObject.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
-//        {
-//            AmmunitionBox.SetActive(false);
-//        });
     }
 
     public override void HandlePlaying()
@@ -120,61 +106,64 @@ public class PanelControllerPlaying : BaseHudBehavior
             b.SetActive(true);
             b.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f).SetEase(Ease.Linear);
         }
-//        _lifeBox.gameObject.transform.DOScale(new Vector3(1, 1,  0),1f).SetEase(Ease.Linear);
-//        _recoveryBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f).SetEase(Ease.Linear);
-//        _speedometerBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 3f).SetEase(Ease.Linear);
-//        AmmunitionBox.gameObject.transform.DOScale(new Vector3(1, 1, 0), 2f).SetEase(Ease.Linear);
     }
 
     public override void HandleMap()
     {
         base.HandleMap();
-        HandleConversation();
+        foreach (var b in Boxes)
+        {
+            b.gameObject.transform.DOScale(new Vector3(0, 0,  0),1f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                b.SetActive(false);
+            });
+        }
     }
 
     //Inventory HUD
     public void OnClickShowInventoryButton()
     {
-        InventoryManager.Show();
+        m_inventoryManager.Show();
     }
     
     public void OnClickHideInventoryButton()
     {
-        InventoryManager.Hide();
+        m_inventoryManager.Hide();
     }
 
     //Armory HUD
     public void OnClickShowArmoryButton()
     {
-        ArmoryManager.Show();
+        m_armoryManager.Show();
     }
 
     public void OnClickHideArmoryButton()
     {
-        ArmoryManager.Hide();
+        m_armoryManager.Hide();
     }
 
     //craft HUD
     public void OnClickShowCraftButton()
     {
-        CraftManager.Show();
+        m_craftManager.Show();
     }
 
     public void OnClickHideCraftButton()
     {
-        CraftManager.Hide();
+        m_craftManager.Hide();
     }
+    
     //Craft to create HUD
     public void OnClickCraftFireButton()
     {
-        CraftManager.HandleCraftFireShoot();
+        m_craftManager.HandleCraftFireShoot(()=>EventHandler.Instance.CallDialogue(FireCraft));
     }
     public void OnClickCraftIceButton()
     {
-        CraftManager.HandleCraftIceShoot();
+        m_craftManager.HandleCraftIceShoot(()=>EventHandler.Instance.CallDialogue(IceCraft));
     }
     public void OnClickCraftLightningButton()
     {
-        CraftManager.HandleCraftLightningShoot();
+        m_craftManager.HandleCraftLightningShoot(()=>EventHandler.Instance.CallDialogue(LightningCraft));
     }
 }

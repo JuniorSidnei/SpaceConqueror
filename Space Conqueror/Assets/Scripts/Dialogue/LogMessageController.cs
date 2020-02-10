@@ -16,7 +16,7 @@ public class LogMessageController : MonoBehaviour
 {
     public enum MessageType
     {
-        DamageTaken = 0, Recovery = 1, RecoveryOut = 2, PlayerAlert = 3, RedOrb = 4, BlueOrb = 5, YellowOrb = 6
+        DamageTaken = 0, Recovery = 1, RecoveryOut = 2, PlayerAlert = 3, RedOrb = 4, BlueOrb = 5, YellowOrb = 6, GrayOrb = 7
     }
     
     public static LogMessageController Instance;

@@ -16,6 +16,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     [SerializeField]  private int m_redMeteorite;
     [SerializeField]  private int m_blueMeteorite;
     [SerializeField]  private int m_yellowMeteorite;
+    [SerializeField]  private int m_grayMeteorite;
     [SerializeField]  private bool m_fireShootCrafted;
     [SerializeField]  private bool m_iceShootCrafted;
     [SerializeField]  private bool m_lightningShootCrafted;
@@ -45,6 +46,8 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     private int m_iceMeteoriteInGame;
 
     private int m_lightningMeteoriteInGame;
+    
+    private int m_grayMeteoriteInGame;
 
     private bool m_isFireCraftedInGame;
   
@@ -77,6 +80,7 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
         m_fireMeteoriteInGame = m_redMeteorite;
         m_iceMeteoriteInGame = m_blueMeteorite;
         m_lightningMeteoriteInGame = m_yellowMeteorite;
+        m_grayMeteoriteInGame = m_grayMeteorite;
         m_isFireCraftedInGame = m_fireShootCrafted;
         m_isIceCraftedInGame = m_iceShootCrafted;
         m_isLightningCraftedInGame = m_lightningShootCrafted;
@@ -177,6 +181,12 @@ public class PlayerInfo : ScriptableObject, ISerializationCallbackReceiver
     {
         get => m_lightningMeteoriteInGame;
         set => m_lightningMeteoriteInGame = value;
+    }
+    //The drops of normal
+    public int GrayMeteoriteInGame
+    {
+        get => m_grayMeteoriteInGame;
+        set => m_grayMeteoriteInGame = value;
     }
 }
 

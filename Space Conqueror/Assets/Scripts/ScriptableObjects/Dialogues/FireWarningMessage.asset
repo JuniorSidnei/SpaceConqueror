@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77426ed644188a740818579c29ee07d8, type: 3}
+  m_Name: FireWarningMessage
+  m_EditorClassIdentifier: 
+  m_speechNumber: 1
+  m_speechName: FireCraft
+  speechGroup:
+  - m_currentSpeaker: 1
+    m_speechText: We've reached the Fire Meteors Zone, Sir. Watch out for those bombs,
+      i wasn't expecting that someone already passed by here...
+  - m_currentSpeaker: 0
+    m_speechText: Yeah! Thoses assholes won't get my red meteorites! Those are mine
+      now!
