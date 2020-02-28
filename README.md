@@ -1,4 +1,4 @@
-# TheScavenger
+# The Scavenger
 I developed this project with intention to explore my skills and learn more about programming, game design, ui interface and more.
 
 I spent a year developing the project. Programming and drawning everything. 
